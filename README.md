@@ -1,3 +1,3 @@
 # python-100
  
-Python review
+Python practice to get familiar with syntax
