@@ -5,15 +5,16 @@
 import random
 import asciiArt
 
-
+choiceText = ["Rock", "Paper", "Scissors"]
+ 
 #Player input
 choice = int(input("What do you choose?\nType 0 for Rock\n1 for Paper\n2 for Scissors\n"))
 computerChoice = random.randint(0, 2)
 
 #Display ascii art
-print("You chose:\n")
+print(f"You chose {choiceText[choice]}:")
 print(asciiArt.art[choice])
-print("Computer chose:\n")
+print(f"Computer chose {choiceText[computerChoice]}:")
 print(asciiArt.art[computerChoice])
 
 
@@ -38,3 +39,5 @@ match choice:
     #Scissors
     case 2:
         compareChoices(0, 1)
+
+print("\n")
