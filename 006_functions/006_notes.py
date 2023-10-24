@@ -9,6 +9,7 @@ if False:
     aFunction()
 
 
+#Parameters
 if False:
     def hello(weather):
         print(f"Hello {weather} world")

@@ -1,4 +1,3 @@
-
 #Rock, Paper, Scissors
 #Take user input and compare against random choice to see who the winner is
 

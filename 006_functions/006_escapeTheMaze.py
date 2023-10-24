@@ -1,5 +1,6 @@
 #Escape The Maze
 #Reeborg's World
+
 if False:
     def turn_right():
         turn_left()

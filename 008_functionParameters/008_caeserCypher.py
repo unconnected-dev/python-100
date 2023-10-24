@@ -1,4 +1,3 @@
-
 #Caeser Cypher
 #Encrypt / Decrypt a user message depending on inputs
 
