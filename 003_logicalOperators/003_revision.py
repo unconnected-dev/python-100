@@ -27,11 +27,32 @@ if False:
 
     while(emptyBottles >= numExchange):
         remainder = emptyBottles % numExchange
-        numBottles = math.floor(emptyBottles / numExchange)
+        numBottles = int(math.floor(emptyBottles / numExchange))
 
         total += numBottles
         emptyBottles = numBottles + remainder
     
     print(f"Number of water bottles you can drink is: {total}")
+
+#Fizz buzz
+if False:
+    aStr = []
+
+    for i in range(1, 21):
+        tStr = ""
+
+        if(i%3 == 0):
+            tStr += "Fizz"
+        
+        if(i%5 == 0):
+            tStr += "Buzz"
+        
+        if(tStr == ""):
+            tStr = str(i)
+        
+        aStr.append(tStr)
+    
+    print(f"{aStr}")
+
 
 print("-End of script-")
