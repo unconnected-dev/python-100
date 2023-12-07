@@ -59,9 +59,31 @@ if False:
     moveZeroesV1(noZeroArray)
     moveZeroesV1(multipleStartZeroArray)
 
-if True:
+if False:
     moveZeroesV2(regArr)
     moveZeroesV2(noZeroArray)
     moveZeroesV2(multipleStartZeroArray)
+
+
+#Is palindrome
+if True:
+    def isPalindrome(p):
+        stringP = str(p)
+        left = 0
+        right = len(stringP) - 1
+
+        while left < right and left != right:
+            if stringP[left] != stringP[right]:
+                return False
+            left+=1
+            right-=1
+        
+        return True
+
+    palindrome = 10000
+    if(isPalindrome(palindrome)):
+        print(f"{palindrome} is a palindrome")
+    else:
+        print(f"{palindrome} is not a palindrome")
 
 print("-End of script-")
