@@ -1,4 +1,6 @@
 #Remove Duplicates From Sorted Array
+#https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
 testCase1 = [1,1,2]
 testCase2 = [0,0,1,1,1,2,2,3,3,4]
 
@@ -27,7 +29,6 @@ if False:
             else:
                 i += 1
                 
-
         print(f"{case_}")
     
     removeDuplicatesWithPointer(testCase1)
