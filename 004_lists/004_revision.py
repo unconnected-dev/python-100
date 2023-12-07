@@ -13,6 +13,23 @@ if False:
 
     print(f"{aList}")
 
+#Remove from a list
+if False:
+    aList = [0, 7, 1, 2, 3, 4, 5]
+
+    print(f"{aList}")
+    #Searches for a value and removes it
+    aList.remove(1)
+    print(f"{aList}")
+
+if False:
+    aList = [0, 7, 1, 2, 3, 4, 5]
+
+    print(f"{aList}")
+    #Pops from a certain index
+    aList.pop(2)
+    print(f"{aList}")
+
 #Reference negative points
 if False:
     names = ["Bob", "Dan", "Ken", "Ben", "Bill"]
