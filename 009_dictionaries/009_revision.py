@@ -47,4 +47,23 @@ if False:
                 print(f"{city}")
 
 
+#Nesting dictionary in a list
+if False:
+    aList = [
+        {
+            "country": "Japan",
+            "cities": ["Tokyo", "Kyoto", "Osaka"]
+        },
+        {
+            "country": "China",
+            "cities": ["Hangzhou", "Harbin"]
+        }
+    ]
+
+    #Iterating through
+    for entry in aList:
+        print(f"-{entry['country']}-")
+        for city in entry["cities"]:
+            print(f"{city}")
+
 print("-End of script-")
