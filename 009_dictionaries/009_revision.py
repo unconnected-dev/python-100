@@ -31,4 +31,20 @@ if False:
             for city in countryCities[key]:
                 print(f"{city}")
 
+#Nesting dictionary in dictionary
+if False:
+    countryCities = {
+        "Japan": {"cities": ["Tokyo", "Kyoto", "Osaka"]},
+        "China": {"cities": ["Hangzhou", "Harbin"]},
+        "aNumber": 5
+    }
+
+    #Iterating through
+    for key in countryCities:
+        if isinstance(countryCities[key], dict):
+            print(f"-{key}-")
+            for city in countryCities[key]["cities"]:
+                print(f"{city}")
+
+
 print("-End of script-")
