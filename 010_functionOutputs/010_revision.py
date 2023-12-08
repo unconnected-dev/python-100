@@ -40,6 +40,25 @@ if False:
     print(f"{b}")
     print(f"{c}")
     print(f"{d}")
+
+#Dictionary functions
+if True:
+    def add(n1, n2):
+        return n1 + n2
     
+    def minus(n1, n2):
+        return n1 - n2
+    
+    operations = {
+        "+": add,
+        "-": minus
+    }
+
+    num1 = 10
+    num2 = 5
+
+    newOperation = operations[input("Please enter + or -\n")]
+
+    print(f"The result is: {newOperation(num1, num2)}")
 
 print("-End of script-")

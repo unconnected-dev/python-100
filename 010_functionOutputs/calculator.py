@@ -8,9 +8,9 @@ def inputNum(nth):
     num = 0
 
     while numValid == False:
-        num = int(input(f"What is the {nth} number?\n"))
+        num = float(input(f"What is the {nth} number?\n"))
 
-        if type(num) == int:
+        if type(num) == float:
             numValid = True
         else:
             print("Invalid number, please try again")
