@@ -1,13 +1,11 @@
 #Remove Element
 #https://leetcode.com/problems/remove-element/description/
 
-
 testCase1 = [3,2,2,3]
 testVal1 = 3
 
 testCase2 = [0,1,2,2,3,0,4,2]
 testVal2 = 2
-
 
 if True:
     def removeElement(case_, val_):

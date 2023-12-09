@@ -1,7 +1,6 @@
 #Reverse String III
 #https://leetcode.com/problems/reverse-words-in-a-string-iii/description/
 
-
 testCase1 = "Let's take LeetCode contest"
 testCase2 = "Mr Ding"
 
