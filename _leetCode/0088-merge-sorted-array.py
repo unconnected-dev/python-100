@@ -29,11 +29,11 @@ if True:
             if firstValue > secondValue:
                 nums1[i] = firstValue
                 first -= 1
-                i -= 1
             else:
                 nums1[i] = secondValue
                 second -= 1
-                i -= 1
+            
+            i -= 1
 
         print(f"{nums1}")
 
