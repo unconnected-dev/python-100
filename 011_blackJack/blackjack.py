@@ -65,6 +65,7 @@ def askPlayerToHit():
 
     if response == 'y':
         playerCardHandValues.append(generateCard(True))
+        checkOver21(playerCardHandValues)
         return True
     
     return False
@@ -78,16 +79,15 @@ def askDealerToHit():
     
     #Dealer hits if able
     dealerCardHandValues.append(generateCard(False))
+    checkOver21(dealerCardHandValues)
     print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
     return True
 
 def checkOver21(cardHandValues):
-    total = sum(cardHandValues)
-
     while sum(cardHandValues) > 21 and 11 in cardHandValues:
         cardHandValues[cardHandValues.index(11)] = 1
-    
-    if total > 21:
+
+    if sum(cardHandValues) > 21:
         return True
     
     return False
