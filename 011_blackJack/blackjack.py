@@ -29,40 +29,68 @@ cardsInPlay = dict()
 playerCardHandValues = []
 dealerCardHandValues = []
 
-def clearCards(pCards):
-    pCards.clear()
-        
 def randomCard():
     suite = random.choice(list(suites))
-    number = random.choice(list(cards))
+    value = random.choice(list(cardValues))
 
-    return suite, number
+    return suite, value
 
-def generateCard(playerCard, pCards):
+def generateCard(playerCard):
     cardGenerating = True
     
     while cardGenerating == True:
-        suite, number = randomCard()
-        cardId = suite + str(number)
+        cSuite, cValue = randomCard()
+        cardId = cSuite + cValue[1]
         if cardId not in cardsInPlay:
             cardGenerating = False
 
-            if playerCards == True:
-                print(f"You get a {number} of {suite}")
-                pCards[cardId] = 1
+            #If a player card is being generated
+            if playerCard == True:
+                print(f"You get a {cValue[1]} of {cSuite}")
             else:
-                print(f"The dealer gets a {number} of {suite}")
-                dCards[cardId] = 1
+                print(f"The dealer gets a {cValue[1]} of {cSuite}")
+            
+            cardsInPlay[cardId] = 1
 
-            return number
+            return cValue[0]
     
-def generateHands(pCards):
-    playerCardHandValues.append(generateCard(True, pCards))
-    playerCardHandValues.append(generateCard(True, pCards))
+def generateInitialHand():
+    playerCardHandValues.append(generateCard(True))
+    playerCardHandValues.append(generateCard(True))
+    dealerCardHandValues.append(generateCard(False))
 
-    dealerCardHandValues.append(generateCard(False, pCards))
+def askToHit():
+    response = input("Would you like one more card? y/n")
+
+    if response == 'y':
+        hitMe(True)
+
+def hitMe(playerCard):
+    if playerCard == True:
+        playerCardHandValues.append(generateCard(True))
+    else:    
+        dealerCardHandValues.append(generateCard(False))
+
+def checkOver21():
+    playerTotal = sum(playerCardHandValues)
+
+    if playerTotal > 21 and 11 not in playerCardHandValues:
+        return True
     
+    while sum(playerCardHandValues) > 21 and 11 in playerCardHandValues:
+        playerCardHandValues[playerCardHandValues.index(11)] = 1
     
+    if playerTotal > 21:
+        return True
+    
+    return False
+
+def mainGame():
+    generateInitialHand()
+
+        
+
+
 
 print(logo.logo)
 
