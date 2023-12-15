@@ -118,6 +118,7 @@ def playBlackjack():
         playerWantsCards = askPlayerToHit()
         showTotals()
 
+    #Check player is over 21
     if over21(playerCardHandValues):
         return True
     else:
