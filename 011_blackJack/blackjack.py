@@ -53,44 +53,40 @@ def generateCard(playerCard):
             cardsInPlay[cardId] = 1
 
             return cValue[0]
-    
+
+def showTotals():
+    print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}]")
+
 def generateInitialHand():
     playerCardHandValues.append(generateCard(True))
     playerCardHandValues.append(generateCard(True))
     dealerCardHandValues.append(generateCard(False))
-    print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
+    showTotals()
+
+def acesDown(cardHandValues):
+    while sum(cardHandValues) > 21 and 11 in cardHandValues:
+        cardHandValues[cardHandValues.index(11)] = 1
+
+def checkOver21(cardHandValues):
+    return sum(cardHandValues) > 21
 
 def askPlayerToHit():
     response = input(f"Would you like one more card? y/n\n")
 
     if response == 'y':
         playerCardHandValues.append(generateCard(True))
+        acesDown(playerCardHandValues)
         checkOver21(playerCardHandValues)
         return True
     
     return False
     
-def askDealerToHit():
-    while sum(dealerCardHandValues) > 21 and 11 in dealerCardHandValues:
-        dealerCardHandValues[dealerCardHandValues.index(11)] = 1
-
-    if sum(dealerCardHandValues) >= 17:
-        return False
-    
+def askDealerToHit():    
     #Dealer hits if able
     dealerCardHandValues.append(generateCard(False))
+    acesDown(dealerCardHandValues)
     checkOver21(dealerCardHandValues)
-    print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
-    return True
-
-def checkOver21(cardHandValues):
-    while sum(cardHandValues) > 21 and 11 in cardHandValues:
-        cardHandValues[cardHandValues.index(11)] = 1
-
-    if sum(cardHandValues) > 21:
-        return True
-    
-    return False
+    showTotals()
 
 def checkResult():
     playerTotal = sum(playerCardHandValues)
@@ -122,15 +118,13 @@ def playBlackjack():
     playerWantsCards = True
     while playerWantsCards == True and checkOver21(playerCardHandValues) == False:
         playerWantsCards = askPlayerToHit()
-        print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
+        showTotals()
 
     if checkOver21(playerCardHandValues) == True:
         return True
     else:
-        dealerWantsCards = True
-
-        while dealerWantsCards == True and checkOver21(dealerCardHandValues) == False:
-            dealerWantsCards = askDealerToHit()
+        while sum(dealerCardHandValues) < 17 and checkOver21(dealerCardHandValues) == False:
+            askDealerToHit()
 
         return True
 
@@ -151,7 +145,6 @@ def mainGame():
         else:
             playAgain = False
     
-        input("Press Enter to continue...")
         os.system('cls')
 
     print(f"Thank you for playing...")
