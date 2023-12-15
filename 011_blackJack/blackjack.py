@@ -63,7 +63,7 @@ def askPlayerToHit():
     response = input("Would you like one more card? y/n")
 
     if response == 'y':
-        hit(True)
+        playerCardHandValues.append(generateCard(True))
         return True
     else:
         return False
@@ -76,14 +76,8 @@ def askDealerToHit():
         return False
     
     #Dealer hits if able
-    hit(False)
+    dealerCardHandValues.append(generateCard(False))
     return True
-
-def hit(playerCard):
-    if playerCard == True:
-        playerCardHandValues.append(generateCard(True))
-    else:    
-        dealerCardHandValues.append(generateCard(False))
 
 def checkOver21(cardHandValues):
     total = sum(cardHandValues)
