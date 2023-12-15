@@ -1,4 +1,5 @@
 #Blackjack
+import os
 import logo
 import random
 
@@ -30,9 +31,8 @@ playerCardHandValues = []
 dealerCardHandValues = []
 
 def randomCard():
-    suite = random.choice(list(suites))
-    value = random.choice(list(cardValues))
-
+    suite = suites[random.choice(list(suites))]
+    value = cardValues[random.choice(list(cardValues.keys()))]
     return suite, value
 
 def generateCard(playerCard):
@@ -58,9 +58,10 @@ def generateInitialHand():
     playerCardHandValues.append(generateCard(True))
     playerCardHandValues.append(generateCard(True))
     dealerCardHandValues.append(generateCard(False))
+    print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
 
 def askPlayerToHit():
-    response = input("Would you like one more card? y/n")
+    response = input(f"Would you like one more card? y/n\n")
 
     if response == 'y':
         playerCardHandValues.append(generateCard(True))
@@ -77,6 +78,7 @@ def askDealerToHit():
     
     #Dealer hits if able
     dealerCardHandValues.append(generateCard(False))
+    print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
     return True
 
 def checkOver21(cardHandValues):
@@ -91,7 +93,6 @@ def checkOver21(cardHandValues):
     return False
 
 def checkResult():
-    #Compare hands
     playerTotal = sum(playerCardHandValues)
     dealerTotal = sum(dealerCardHandValues)
 
@@ -121,6 +122,7 @@ def playBlackjack():
     playerWantsCards = True
     while playerWantsCards == True and checkOver21(playerCardHandValues) == False:
         playerWantsCards = askPlayerToHit()
+        print(f"[Player Total: {sum(playerCardHandValues)}], [Dealer Total: {sum(dealerCardHandValues)}] ")
 
     if checkOver21(playerCardHandValues) == True:
         return True
@@ -134,18 +136,23 @@ def playBlackjack():
 
 def mainGame():
     playAgain = True
-    while playAgain == True:
+    while playAgain == True:    
+        playerCardHandValues.clear()
+        dealerCardHandValues.clear()
+        cardsInPlay.clear()
+        
         print(logo.logo)
         playBlackjack()
         checkResult()
         
-        response = input("Would you like one more hand? y/n")
+        response = input("Would you like one more hand? y/n\n")
         if response == 'y':
             playAgain == True
         else:
             playAgain = False
     
         input("Press Enter to continue...")
+        os.system('cls')
 
     print(f"Thank you for playing...")
 
