@@ -65,8 +65,8 @@ def askPlayerToHit():
     if response == 'y':
         playerCardHandValues.append(generateCard(True))
         return True
-    else:
-        return False
+    
+    return False
     
 def askDealerToHit():
     while sum(dealerCardHandValues) > 21 and 11 in dealerCardHandValues:
@@ -90,8 +90,32 @@ def checkOver21(cardHandValues):
     
     return False
 
+def checkResult():
+    #Compare hands
+    playerTotal = sum(playerCardHandValues)
+    dealerTotal = sum(dealerCardHandValues)
+
+    if len(playerCardHandValues) == 2 and playerTotal == 21:
+        print(f"You got Blackjack, you win")
+    elif dealerTotal == playerTotal:
+        print(f"You tied with the dealer")
+    elif dealerTotal > 21 and playerTotal <= 21:
+        print(f"Dealer is over 21, you win")
+    elif playerTotal > 21:
+        print(f"Your total is over 21, you lost")
+    elif playerTotal > dealerTotal:
+        print(f"You beat the dealer, you win")
+    elif dealerTotal > playerTotal:
+        print(f"The dealer beat you, you lost")
+    else:
+        print(f"Error...")
+
 def playBlackjack():
     generateInitialHand()
+
+    #Check for natural 21
+    if sum(playerCardHandValues) == 21:
+        return True
 
     #Check if player wants to get more cards
     playerWantsCards = True
@@ -99,7 +123,6 @@ def playBlackjack():
         playerWantsCards = askPlayerToHit()
 
     if checkOver21(playerCardHandValues) == True:
-        print(f"Your total is over 21, you lost...\n")
         return True
     else:
         dealerWantsCards = True
@@ -107,24 +130,23 @@ def playBlackjack():
         while dealerWantsCards == True and checkOver21(dealerCardHandValues) == False:
             dealerWantsCards = askDealerToHit()
 
-        #Compare hands
-        playerTotal = sum(playerCardHandValues)
-        dealerTotal = sum(dealerCardHandValues)
-
-        if playerTotal > 21:
-            print(f"Your total is over 21, you lost")
-        elif dealerTotal > 21 and playerTotal <= 21:
-            print(f"Dealer is over 21, you win")
-        elif playerTotal != 21 and dealerTotal == playerTotal:
-            print(f"You tied with the dealer")
-        elif playerTotal > dealerTotal:
-            print(f"You beat the dealer, you win")
-        elif dealerTotal > playerTotal:
-            print(f"The dealer beat you, you lost")
-
         return True
 
+def mainGame():
+    playAgain = True
+    while playAgain == True:
+        print(logo.logo)
+        playBlackjack()
+        checkResult()
+        
+        response = input("Would you like one more hand? y/n")
+        if response == 'y':
+            playAgain == True
+        else:
+            playAgain = False
+    
+        input("Press Enter to continue...")
 
-print(logo.logo)
+    print(f"Thank you for playing...")
 
-
+mainGame()
