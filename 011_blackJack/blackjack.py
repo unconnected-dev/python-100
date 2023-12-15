@@ -67,7 +67,7 @@ def acesDown(cardHandValues):
     while sum(cardHandValues) > 21 and 11 in cardHandValues:
         cardHandValues[cardHandValues.index(11)] = 1
 
-def checkOver21(cardHandValues):
+def over21(cardHandValues):
     return sum(cardHandValues) > 21
 
 def askPlayerToHit():
@@ -76,7 +76,6 @@ def askPlayerToHit():
     if response == 'y':
         playerCardHandValues.append(generateCard(True))
         acesDown(playerCardHandValues)
-        checkOver21(playerCardHandValues)
         return True
     
     return False
@@ -85,7 +84,6 @@ def askDealerToHit():
     #Dealer hits if able
     dealerCardHandValues.append(generateCard(False))
     acesDown(dealerCardHandValues)
-    checkOver21(dealerCardHandValues)
     showTotals()
 
 def checkResult():
@@ -116,14 +114,14 @@ def playBlackjack():
 
     #Check if player wants to get more cards
     playerWantsCards = True
-    while playerWantsCards == True and checkOver21(playerCardHandValues) == False:
+    while playerWantsCards == True and not over21(playerCardHandValues):
         playerWantsCards = askPlayerToHit()
         showTotals()
 
-    if checkOver21(playerCardHandValues) == True:
+    if over21(playerCardHandValues):
         return True
     else:
-        while sum(dealerCardHandValues) < 17 and checkOver21(dealerCardHandValues) == False:
+        while sum(dealerCardHandValues) < 17 and not over21(dealerCardHandValues):
             askDealerToHit()
 
         return True
