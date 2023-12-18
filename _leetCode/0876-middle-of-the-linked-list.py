@@ -17,7 +17,7 @@ class Solution:
             middle = middle.next
             last = last.next.next
         
-        return middle.val
+        return middle
 
 
 caseHead_1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
@@ -25,5 +25,5 @@ caseHead_2 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, ListNod
 
 solution = Solution()
 
-print(f"{solution.middleNode(caseHead_1)}")
-print(f"{solution.middleNode(caseHead_2)}")
+print(f"{solution.middleNode(caseHead_1).val}")
+print(f"{solution.middleNode(caseHead_2).val}")
