@@ -6,18 +6,32 @@ caseWords_2 = ["a"]
 
 morseAlphabet = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
 
-if True:
-    def uniqueMorseCodeWords(words):
+if False:
+    def uniqueMorseCodeWords1(words):
         myDict = dict()
         for word in words:
             codeWord = ""
             for c in list(word):
                 codeWord += morseAlphabet[ord(c) - 97]
 
-            if codeWord != "":
-                myDict[codeWord] = 1
+            myDict[codeWord] = 1
 
         print(f"{len(myDict)}")
 
-    uniqueMorseCodeWords(caseWords_1)
-    uniqueMorseCodeWords(caseWords_2)
+    uniqueMorseCodeWords1(caseWords_1)
+    uniqueMorseCodeWords1(caseWords_2)
+
+if True:
+    def uniqueMorseCodeWords2(words):
+        mySet = set()
+        for word in words:
+            morseWord = ""
+            for c in list(word):
+                morseWord += morseAlphabet[ord(c) - 97]
+            
+            mySet.add(morseWord)
+        
+        print(f"{len(mySet)}")
+        
+    uniqueMorseCodeWords2(caseWords_1)
+    uniqueMorseCodeWords2(caseWords_2)
