@@ -11,3 +11,9 @@ if False:
     print(f"{checkIfPangram1(caseSentence_1)}")
     print(f"{checkIfPangram1(caseSentence_2)}")
 
+if True:
+    def checkIfPangram2(sentence):
+        return len(set(sentence)) == 26
+    
+    print(f"{checkIfPangram2(caseSentence_1)}")
+    print(f"{checkIfPangram2(caseSentence_2)}")
