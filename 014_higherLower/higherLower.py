@@ -5,9 +5,11 @@ import art
 import game_data
 
 def randomData():
+    """Return random entry of data"""
     return game_data.data[random.randint(0, len(game_data.data))]
 
 def initGame():
+    """Generates two initial data entries to compare"""
     initA = randomData()
     initB = randomData()
 
@@ -17,17 +19,18 @@ def initGame():
     return initA, initB
 
 def vs(optionA, optionB):
+    """Compares two options and returns if player guess is correct"""
     print(f'{optionA["name"], optionA["description"]}, from {optionA["country"]}')
     print(f"{art.vs}")
     print(f'{optionB["name"], optionB["description"]}, from {optionB["country"]}')
 
-    correctAnswer = 'A'
+    correctAnswer = 'a'
     if int(optionA["follower_count"]) < int(optionB["follower_count"]):
-        correctAnswer = 'B'
+        correctAnswer = 'b'
 
-    guess = 'C'
-    while guess != 'A' and guess != 'B':
-        guess = input("Who has more followers? Type 'A' or 'B':\n")
+    guess = 'c'
+    while guess != 'a' and guess != 'a':
+        guess = input("Who has more followers? Type 'A' or 'B':\n").lower()
 
     return guess == correctAnswer
 
@@ -68,7 +71,7 @@ def mainGame():
     while playAgain == True:
         playHigherLower(True)
 
-        response = input("Would you like one more game? y/n\n")
+        response = input("Would you like one more game? y/n\n").lower()
         if response == 'y':
             playAgain == True
         else:
