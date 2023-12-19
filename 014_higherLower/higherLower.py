@@ -1,13 +1,13 @@
 #Higher Lower Game
+import os
 import random
 import art
 import game_data
 
-
 def randomData():
     return game_data.data[random.randint(0, len(game_data.data))]
 
-def init():
+def initGame():
     initA = randomData()
     initB = randomData()
 
@@ -22,7 +22,7 @@ def vs(optionA, optionB):
     print(f'{optionB["name"], optionB["description"]}, from {optionB["country"]}')
 
     correctAnswer = 'A'
-    if optionA["follower_count"] < optionB["follower_count"]:
+    if int(optionA["follower_count"]) < int(optionB["follower_count"]):
         correctAnswer = 'B'
 
     guess = 'C'
@@ -31,14 +31,51 @@ def vs(optionA, optionB):
 
     return guess == correctAnswer
 
-def mainGame(init):
+def playHigherLower(init):
+    winning = True
+    score = 0
+    guessCorrect = False
+
     if init == True:
-        randomA, randomB = init()
+        randomA, randomB = initGame()
         init = False
 
+    while winning == True:
+        print(f"{art.logo}")
+        
+        if guessCorrect == True:
+            print(f"You're right! Current score: {score}")
+
+        guessCorrect = vs(randomA, randomB)
+
+        if guessCorrect == True:
+            score += 1
+        else:
+            winning = False
+        
+        randomA = randomB
+        while randomA["name"] == randomB["name"]:
+            randomB = randomData()
+        
+        os.system('cls')
+    
     print(f"{art.logo}")
+    print(f"Sorry, that's wrong. Final score: {score}")
+    
 
-    guessCorrect = vs(randomA, randomB)
+def mainGame():
+    playAgain = True
+    while playAgain == True:
+        playHigherLower(True)
 
+        response = input("Would you like one more game? y/n\n")
+        if response == 'y':
+            playAgain == True
+        else:
+            playAgain = False
+    
+        os.system('cls')
 
-mainGame(True)
+    print(f"Thank you for playing...")
+
+mainGame()
