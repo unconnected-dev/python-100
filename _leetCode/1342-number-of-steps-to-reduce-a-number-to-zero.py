@@ -11,9 +11,9 @@ if True:
 
         while num != 0 and num > 0:
             if num % 2 == 1:
-                num = num - 1
+                num -= 1
             else:
-                num = num / 2
+                num /= 2
             
             steps += 1
 
