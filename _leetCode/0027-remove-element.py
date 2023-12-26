@@ -7,7 +7,8 @@ caseVal_1 = 3
 caseNums_2 = [0,1,2,2,3,0,4,2]
 caseVal_2 = 2
 
-if True:
+#Pops elements equal to the val by the index
+if False:
     def removeElement(nums, val) -> int:
         i = 0
         
@@ -20,5 +21,13 @@ if True:
 
         return i
 
+#Removes elements by the val
+if True:
+    def removeElement(nums, val) -> int:
+        while val in nums:
+            nums.remove(val)
+        
+        return len(nums)
+    
 print(f"{removeElement(caseNums_1, caseVal_1)}")
 print(f"{removeElement(caseNums_2, caseVal_2)}")
