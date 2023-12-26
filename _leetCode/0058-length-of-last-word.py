@@ -11,6 +11,6 @@ if True:
 
         return len(last[-1])
     
-    print(f"{lengthOfLastWord(caseString_1)}")
-    print(f"{lengthOfLastWord(caseString_2)}")
-    print(f"{lengthOfLastWord(caseString_3)}")
+print(f"{lengthOfLastWord(caseString_1)}")
+print(f"{lengthOfLastWord(caseString_2)}")
+print(f"{lengthOfLastWord(caseString_3)}")
