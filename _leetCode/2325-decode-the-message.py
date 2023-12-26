@@ -10,8 +10,7 @@ caseMessage_2 = "zwx hnfx lqantp mnoeius ycgk vcnjrdb"
 if True:
     def decodeTheMessage(key, message) -> str:
         alphabet = "abcdefghijklmnopqrstuvwxyz"
-        myDict = dict()
-        myDict[" "] = " "
+        myDict = {" " : " "}
         i = 0
 
         for c in key:
