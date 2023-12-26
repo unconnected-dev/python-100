@@ -1,41 +1,38 @@
 #Two Sum
 #https://leetcode.com/problems/two-sum/description/
 
-testCase1 = [2,7,11,15]
-testVal1 = 9
+caseNums_1 = [2,7,11,15]
+caseTarget_1 = 9
 
-testCase2 = [3,2,4]
-testVal2 = 6
+caseNums_2 = [3,2,4]
+caseTarget_2 = 6
 
-testCase3 = [3,3]
-testVal3 = 6
+caseNums_3 = [3,3]
+caseTarget_3 = 6
 
+#Stores dictionary of the numbers as loops through once
+#Checks against that dictionary for the second number that adds to target
 if False:
-    def twoSum1(case_, targetVal_):
+    def twoSum(nums, target):
         storedIndicies = dict()
 
-        for index, num in enumerate(case_):
-            target_minus_num = targetVal_ - num
+        for key, num in enumerate(nums):
+            target_minus_num = target - num
 
             if target_minus_num in storedIndicies:
-                print(f"{index}, {storedIndicies[target_minus_num]}")
-                break
+                return [key, storedIndicies[target_minus_num]]
             else:
-                storedIndicies[num] = index
+                storedIndicies[num] = key
 
-    twoSum1(testCase1, testVal1)
-    twoSum1(testCase2, testVal2)
-    twoSum1(testCase3, testVal3)
-
-if False:
-    def twoSum2(case_, targetVal_):
-        n = len(case_)
+#Double loops through the nums
+if True:
+    def twoSum(nums, target):
+        n = len(nums)
         for i in range(n - 1):
             for j in range(i + 1, n):
-                if case_[i] + case_[j] == targetVal_:
-                    print(f"[{i}, {j}]")
-                    break
-    
-    twoSum2(testCase1, testVal1)
-    twoSum2(testCase2, testVal2)
-    twoSum2(testCase3, testVal3)
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+
+print(f"{twoSum(caseNums_1, caseTarget_1)}")    
+print(f"{twoSum(caseNums_2, caseTarget_2)}")    
+print(f"{twoSum(caseNums_3, caseTarget_3)}")    
