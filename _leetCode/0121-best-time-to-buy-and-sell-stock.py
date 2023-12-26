@@ -5,7 +5,7 @@ casePrices_1 = [7,1,5,3,6,4]
 casePrices_2 = [7,6,4,3,1]
 
 if True:
-    def bestTimeToBuyAndSellStock(prices):
+    def bestTimeToBuyAndSellStock(prices) -> int:
         
         min_val = prices[0]
         max_profit = 0
@@ -16,8 +16,7 @@ if True:
             elif prices[i] - min_val > max_profit:
                 max_profit = prices[i] - min_val
         
+        return max_profit
 
-        print(f"Max profit: {max_profit}")
-    
-    bestTimeToBuyAndSellStock(casePrices_1)
-    bestTimeToBuyAndSellStock(casePrices_2)
+print(f"{bestTimeToBuyAndSellStock(casePrices_1)}")   
+print(f"{bestTimeToBuyAndSellStock(casePrices_2)}")
