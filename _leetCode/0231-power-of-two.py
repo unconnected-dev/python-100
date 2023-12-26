@@ -13,6 +13,6 @@ if True:
         
         return result == num
     
-    print(f"{isPowerOfTwo(caseNum_1)}")
-    print(f"{isPowerOfTwo(caseNum_2)}")
-    print(f"{isPowerOfTwo(caseNum_3)}")
+print(f"{isPowerOfTwo(caseNum_1)}")
+print(f"{isPowerOfTwo(caseNum_2)}")
+print(f"{isPowerOfTwo(caseNum_3)}")
