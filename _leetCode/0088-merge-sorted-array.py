@@ -35,8 +35,8 @@ if True:
             
             i -= 1
 
-        print(f"{nums1}")
+        return nums1
 
-    merge(caseNums1_1, caseM_1, caseNums2_1, caseN_1)
-    merge(caseNums1_2, caseM_2, caseNums2_2, caseN_2)
-    merge(caseNums1_3, caseM_3, caseNums2_3, caseN_3)
+print(f"{merge(caseNums1_1, caseM_1, caseNums2_1, caseN_1)}")
+print(f"{merge(caseNums1_2, caseM_2, caseNums2_2, caseN_2)}")
+print(f"{merge(caseNums1_3, caseM_3, caseNums2_3, caseN_3)}")
