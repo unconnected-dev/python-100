@@ -6,7 +6,7 @@ caseNums_2 = [4,1,2,1,2]
 caseNums_3 = [1]
 
 if True:
-    def singleNumber(nums):
+    def singleNumber(nums) -> int:
         myDict = dict()
 
         for n in nums:
@@ -19,6 +19,6 @@ if True:
             if val == 0:
                 return key
             
-    print(f"{singleNumber(caseNums_1)}")
-    print(f"{singleNumber(caseNums_2)}")
-    print(f"{singleNumber(caseNums_3)}")
+print(f"{singleNumber(caseNums_1)}")
+print(f"{singleNumber(caseNums_2)}")
+print(f"{singleNumber(caseNums_3)}")
