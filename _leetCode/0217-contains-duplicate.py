@@ -6,14 +6,10 @@ caseNums_2 = [1,2,3,4]
 caseNums_3 = [1,1,1,3,3,4,3,2,4,2]
 
 if True:
-    def containsDuplicate(nums):
+    def containsDuplicate(nums) -> bool:
         aSet = set(nums)
+        return len(aSet) != len(nums)
 
-        if len(aSet) < len(nums):
-            print(f"Contains a duplicate")
-        else:
-            print(f"Doesn't contain a duplicate")
-        
-    containsDuplicate(caseNums_1)
-    containsDuplicate(caseNums_2)
-    containsDuplicate(caseNums_3)
+print(f"{containsDuplicate(caseNums_1)}")
+print(f"{containsDuplicate(caseNums_2)}")
+print(f"{containsDuplicate(caseNums_3)}")
