@@ -1,35 +1,34 @@
 #Remove Duplicates From Sorted Array
 #https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
-testCase1 = [1,1,2]
-testCase2 = [0,0,1,1,1,2,2,3,3,4]
+caseNums_1 = [1,1,2]
+caseNums_2 = [0,0,1,1,1,2,2,3,3,4]
 
+#Removes duplicates with a Set
 if False:
-    def removeDuplicates(case_):
+    def removeDuplicates(nums):
         i = 0
 
-        aSet = set(case_)
-        case_.clear()
+        aSet = set(nums)
+        nums.clear()
 
         for num in aSet:
-            case_.append(num)
+            nums.append(num)
 
-        print(f"{case_}")
+        return nums
 
-    removeDuplicates(testCase1)
-    removeDuplicates(testCase2)
-
-if False:
-    def removeDuplicatesWithPointer(case_):
+#Removes duplicates by checking the next value over
+if True:
+    def removeDuplicates(nums):
         i = 0
 
-        while i + 1 < len(case_):
-            if case_[i] == case_[i+1]:
-                case_.pop(i)
+        while i + 1 < len(nums):
+            if nums[i] == nums[i+1]:
+                nums.pop(i)
             else:
                 i += 1
                 
-        print(f"{case_}")
-    
-    removeDuplicatesWithPointer(testCase1)
-    removeDuplicatesWithPointer(testCase2)
+        return nums
+
+print(f"{removeDuplicates(caseNums_1)}")
+print(f"{removeDuplicates(caseNums_2)}")
