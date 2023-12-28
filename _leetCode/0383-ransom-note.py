@@ -33,6 +33,6 @@ if True:
         
         return True
 
-    print(f"{ransomNote(caseRansomNote_1, caseMagazine_1)}")
-    print(f"{ransomNote(caseRansomNote_2, caseMagazine_2)}")
-    print(f"{ransomNote(caseRansomNote_3, caseMagazine_3)}")
+print(f"{ransomNote(caseRansomNote_1, caseMagazine_1)}")
+print(f"{ransomNote(caseRansomNote_2, caseMagazine_2)}")
+print(f"{ransomNote(caseRansomNote_3, caseMagazine_3)}")
