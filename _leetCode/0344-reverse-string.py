@@ -3,29 +3,26 @@
 
 import math
 
-testCase1 = ["h","e","l","l","o"]
-testCase2 = ["H","a","n","n","a","h"]
+caseList_1 = ["h","e","l","l","o"]
+caseList_2 = ["H","a","n","n","a","h"]
 
 if False:
-    def reverseString1(case_):
-        for i in range(math.floor(len(case_)/2)):
-            c = case_[i]
-            case_[i] = case_[len(case_) - 1 - i]
-            case_[len(case_) - 1 - i] = c
+    def reverseString(s):
+        for i in range(math.floor(len(s)/2)):
+            c = s[i]
+            s[i] = s[len(s) - 1 - i]
+            s[len(s) - 1 - i] = c
         
-        print(f"{case_}")
-
-    reverseString1(testCase1)
-    reverseString1(testCase2)
+        return s
 
 if True:
-    def reverseString2(case_):
-        halfway = math.floor(len(case_)/2)
+    def reverseString(s):
+        halfway = math.floor(len(s)/2)
         for i in range(halfway):
-            mirrorPoint = len(case_) - 1 - i
-            case_[i], case_[mirrorPoint] = case_[mirrorPoint], case_[i]
+            mirrorPoint = len(s) - 1 - i
+            s[i], s[mirrorPoint] = s[mirrorPoint], s[i]
 
-        print(f"{case_}")
-        
-    reverseString2(testCase1)
-    reverseString2(testCase2)
+        return s
+
+print(f"{reverseString(caseList_1)}")
+print(f"{reverseString(caseList_2)}")
