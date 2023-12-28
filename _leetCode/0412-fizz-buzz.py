@@ -7,7 +7,7 @@ caseNum_3 = 15
 
 if True:
     def fizzBuzz(num):
-        str = []
+        str_ = []
 
         for i in range(0,num+1):
             tStr = ""
@@ -21,10 +21,10 @@ if True:
             if tStr == "":
                 tStr = i
             
-            str.append(tStr)
+            str_.append(tStr)
             
-        print(f"{str}")
-    
-    fizzBuzz(caseNum_1)
-    fizzBuzz(caseNum_2)
-    fizzBuzz(caseNum_3)
+        return str_
+
+print(f"{fizzBuzz(caseNum_1)}")
+print(f"{fizzBuzz(caseNum_2)}")
+print(f"{fizzBuzz(caseNum_3)}")
