@@ -26,7 +26,7 @@ if True:
                 if countDict[number] == 0:
                     countDict.pop(number)
 
-        print(f"{result}")
+        return result
 
-    intersectionOfTwoArraysII(caseNums1_1, caseNums2_1)
-    intersectionOfTwoArraysII(caseNums1_2, caseNums2_2)
+print(f"{intersectionOfTwoArraysII(caseNums1_1, caseNums2_1)}")
+print(f"{intersectionOfTwoArraysII(caseNums1_2, caseNums2_2)}")
