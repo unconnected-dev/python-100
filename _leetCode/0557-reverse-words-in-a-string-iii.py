@@ -1,19 +1,19 @@
 #Reverse String III
 #https://leetcode.com/problems/reverse-words-in-a-string-iii/description/
 
-testCase1 = "Let's take LeetCode contest"
-testCase2 = "Mr Ding"
+caseString_1 = "Let's take LeetCode contest"
+caseString_2 = "Mr Ding"
 
 if True:
-    def reverseString1(case_):
-        splitCase_ = case_.split(" ")
+    def reverseString(s):
+        splitString = s.split(" ")
 
-        for i in range(len(splitCase_)):
-            word = splitCase_[i]
-            splitCase_[i] = word [::-1]
+        for i in range(len(splitString)):
+            word = splitString[i]
+            splitString[i] = word [::-1]
 
-        case_ = " ".join(splitCase_)
-        print(f"{case_}")
+        s = " ".join(splitString)
+        return s
 
-    reverseString1(testCase1)
-    reverseString1(testCase2)
+print(f"{reverseString(caseString_1)}")
+print(f"{reverseString(caseString_2)}")
