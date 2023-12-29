@@ -23,6 +23,6 @@ if True:
         
         return goto
 
-    print(f"{destinationCity(casePaths_1)}")
-    print(f"{destinationCity(casePaths_2)}")
-    print(f"{destinationCity(casePaths_3)}")
+print(f"{destinationCity(casePaths_1)}")
+print(f"{destinationCity(casePaths_2)}")
+print(f"{destinationCity(casePaths_3)}")
