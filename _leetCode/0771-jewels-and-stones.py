@@ -16,7 +16,7 @@ if True:
             if c in jewelSet:
                 returnVal += 1
 
-        print(f"return {returnVal}")
+        return returnVal
 
-    jewelsAndStones(caseJewels_1, caseStones_1)
-    jewelsAndStones(caseJewels_2, caseStones_2)
+print(f"{jewelsAndStones(caseJewels_1, caseStones_1)}")
+print(f"{jewelsAndStones(caseJewels_2, caseStones_2)}")
