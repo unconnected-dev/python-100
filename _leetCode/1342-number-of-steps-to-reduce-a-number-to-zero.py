@@ -19,6 +19,6 @@ if True:
 
         return steps
 
-    print(f"{numberOfSteps(caseNums_1)}")
-    print(f"{numberOfSteps(caseNums_2)}")
-    print(f"{numberOfSteps(caseNums_3)}")
+print(f"{numberOfSteps(caseNums_1)}")
+print(f"{numberOfSteps(caseNums_2)}")
+print(f"{numberOfSteps(caseNums_3)}")
