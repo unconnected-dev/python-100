@@ -6,7 +6,7 @@ caseAccounts_2 = [[1,5],[7,3],[3,5]]
 caseAccounts_3 = [[2,8,7],[7,1,3],[1,9,5]]
 
 if True:
-    def richestCustomerWealth(accounts):
+    def richestCustomerWealth(accounts) -> int:
         greatestWealth = 0
 
         for account in accounts:
@@ -17,6 +17,6 @@ if True:
 
         return greatestWealth    
 
-    print(f"{richestCustomerWealth(caseAccounts_1)}")
-    print(f"{richestCustomerWealth(caseAccounts_2)}")
-    print(f"{richestCustomerWealth(caseAccounts_3)}")
+print(f"{richestCustomerWealth(caseAccounts_1)}")
+print(f"{richestCustomerWealth(caseAccounts_2)}")
+print(f"{richestCustomerWealth(caseAccounts_3)}")
