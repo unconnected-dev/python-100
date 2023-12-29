@@ -14,8 +14,8 @@ if True:
                 if nums[i] == nums[j]:
                     goodPairs += 1
 
-        print(f"{goodPairs}")        
+        return goodPairs
 
-    numberOfGoodPairs(caseNums_1)
-    numberOfGoodPairs(caseNums_2)
-    numberOfGoodPairs(caseNums_3)
+print(f"{numberOfGoodPairs(caseNums_1)}")
+print(f"{numberOfGoodPairs(caseNums_2)}")
+print(f"{numberOfGoodPairs(caseNums_3)}")
