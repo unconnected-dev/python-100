@@ -23,8 +23,8 @@ if True:
                     consistent -= 1
                     break
         
-        print(f"{consistent}")
+        return consistent
 
-    countTheNumberOfConsistentStrings(caseAllowed_1, caseWords_1)
-    countTheNumberOfConsistentStrings(caseAllowed_2, caseWords_2)
-    countTheNumberOfConsistentStrings(caseAllowed_3, caseWords_3)
+print(f"{countTheNumberOfConsistentStrings(caseAllowed_1, caseWords_1)}")
+print(f"{countTheNumberOfConsistentStrings(caseAllowed_2, caseWords_2)}")
+print(f"{countTheNumberOfConsistentStrings(caseAllowed_3, caseWords_3)}")
