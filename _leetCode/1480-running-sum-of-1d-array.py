@@ -16,6 +16,6 @@ if True:
 
         return runningList
 
-    print(f"{runningSumOf1dArray(caseNums_1)}")
-    print(f"{runningSumOf1dArray(caseNums_2)}")
-    print(f"{runningSumOf1dArray(caseNums_3)}")
+print(f"{runningSumOf1dArray(caseNums_1)}")
+print(f"{runningSumOf1dArray(caseNums_2)}")
+print(f"{runningSumOf1dArray(caseNums_3)}")
