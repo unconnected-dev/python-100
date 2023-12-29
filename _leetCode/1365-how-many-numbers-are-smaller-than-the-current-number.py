@@ -14,8 +14,8 @@ if True:
         for num in nums:
             ind.append(sortedNums.index(num))
 
-        print(f"{ind}")
+        return ind
 
-    howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_1)
-    howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_2)
-    howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_3)
+print(f"{howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_1)}")
+print(f"{howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_2)}")
+print(f"{howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_3)}")
