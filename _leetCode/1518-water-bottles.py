@@ -10,7 +10,7 @@ caseNumBottles_2 = 15
 caseNumExchange_2 = 4
 
 if True:
-    def waterBottles(numBottles, numExhange):
+    def waterBottles(numBottles, numExhange) -> int:
         total = numBottles
         emptyBottles = numBottles
 
@@ -23,5 +23,5 @@ if True:
         
         return total
     
-    print(f"{waterBottles(caseNumBottles_1, caseNumExchange_1)}")
-    print(f"{waterBottles(caseNumBottles_2, caseNumExchange_2)}")
+print(f"{waterBottles(caseNumBottles_1, caseNumExchange_1)}")
+print(f"{waterBottles(caseNumBottles_2, caseNumExchange_2)}")
