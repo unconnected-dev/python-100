@@ -21,5 +21,5 @@ if True:
         else:
             return 0
             
-    print(f"{lastStoneWeight(caseStones_1)}")
-    print(f"{lastStoneWeight(caseStones_2)}")
+print(f"{lastStoneWeight(caseStones_1)}")
+print(f"{lastStoneWeight(caseStones_2)}")
