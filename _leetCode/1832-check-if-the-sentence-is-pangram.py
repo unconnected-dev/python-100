@@ -5,15 +5,12 @@ caseSentence_1 = "thequickbrownfoxjumpsoverthelazydog"
 caseSentence_2 = "leetcode"
 
 if False:
-    def checkIfPangram1(sentence):
+    def checkIfPangram(sentence):
         return len(set(list(sentence))) == 26
-    
-    print(f"{checkIfPangram1(caseSentence_1)}")
-    print(f"{checkIfPangram1(caseSentence_2)}")
 
 if True:
-    def checkIfPangram2(sentence):
+    def checkIfPangram(sentence):
         return len(set(sentence)) == 26
     
-    print(f"{checkIfPangram2(caseSentence_1)}")
-    print(f"{checkIfPangram2(caseSentence_2)}")
+print(f"{checkIfPangram(caseSentence_1)}")
+print(f"{checkIfPangram(caseSentence_2)}")
