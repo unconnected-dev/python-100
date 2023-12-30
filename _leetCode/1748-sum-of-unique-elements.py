@@ -22,6 +22,6 @@ if True:
         
         return count
     
-    print(f"{sumOfUniqueElements(caseNums_1)}")
-    print(f"{sumOfUniqueElements(caseNums_2)}")
-    print(f"{sumOfUniqueElements(caseNums_3)}")
+print(f"{sumOfUniqueElements(caseNums_1)}")
+print(f"{sumOfUniqueElements(caseNums_2)}")
+print(f"{sumOfUniqueElements(caseNums_3)}")
