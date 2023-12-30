@@ -21,5 +21,5 @@ if True:
 
         return sortedList
     
-    print(f"{sortThePeople(caseNames_1, caseHeights_1)}")
-    print(f"{sortThePeople(caseNames_2, caseHeights_2)}")
+print(f"{sortThePeople(caseNames_1, caseHeights_1)}")
+print(f"{sortThePeople(caseNames_2, caseHeights_2)}")
