@@ -24,5 +24,5 @@ if True:
 
         return returnString
     
-    print(f"{decodeTheMessage(caseKey_1, caseMessage_1)}")
-    print(f"{decodeTheMessage(caseKey_2, caseMessage_2)}")
+print(f"{decodeTheMessage(caseKey_1, caseMessage_1)}")
+print(f"{decodeTheMessage(caseKey_2, caseMessage_2)}")
