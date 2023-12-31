@@ -70,23 +70,28 @@ def getOrder():
     order = input("What would you like?\n").lower()
     orderValid = False
 
-    while order not in recipes and orderValid == False:
-        if order not in recipes:
+    while orderValid == False:
+        if order == "report":
+            report()
+
+        if order not in recipes and order != "report":
             input("Invalid order, press Enter to try again...")
             os.system('cls')
             playCoffeeMenu()
             order = input("What would you like?\n").lower()
 
-        if order in recipes:
+        if order in recipes and order != "report":
             orderValid = validateOrder(order)
-
+            if orderValid == False:
+                order = ""
+                
     return order
 
 #Insert coins
 def coinInsert() -> float:
     total = 0
     for k in coins:
-        val = int(f"How many {coins[k][0]}?: ") * coins[k][1]
+        val = int(input(f"How many {coins[k][0]}?: ")) * coins[k][1]
         total += val
     
     return total
