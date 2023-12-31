@@ -4,9 +4,9 @@ import os
 
 #Price, Water, Coffee, Milk
 recipes = {
-    "Espresso": [1.50, 50, 18],
-    "Latte": [2.50, 200, 24, 150],
-    "Cappuccino": [3.00, 250, 24, 100]
+    "espresso": [1.50, 50, 18],
+    "latte": [2.50, 200, 24, 150],
+    "cappuccino": [3.00, 250, 24, 100]
 }
 
 contents = {
@@ -39,7 +39,7 @@ def printLine(k):
         dotStr += "."
     
     currVal = currency(recipes[k][0])
-    print(f"{k}{dotStr}{currVal}")
+    print(f"{k.capitalize()}{dotStr}{currVal}")
 
 def playCoffeeMenu():
     print(f"This machine serves:")
@@ -65,19 +65,47 @@ def validateOrder(o) -> bool:
     
     return valid
 
-#Get order from user
+#Get user order and check valid
 def getOrder():
-    response = input("What would you like?\n").lower()
+    order = input("What would you like?\n").lower()
     orderValid = False
 
     while order not in recipes and orderValid == False:
-        print(f"Invalid option please try again...")
         if order not in recipes:
+            input("Invalid order, press Enter to try again...")
+            os.system('cls')
+            playCoffeeMenu()
             order = input("What would you like?\n").lower()
 
-        orderValid = validateOrder(order)
+        if order in recipes:
+            orderValid = validateOrder(order)
 
-    return response
+    return order
+
+#Insert coins
+def coinInsert() -> float:
+    total = 0
+    for k in coins:
+        val = int(f"How many {coins[k][0]}?: ") * coins[k][1]
+        total += val
+    
+    return total
+
+#Get payment and check enough
+def payment(o):
+    expectedCost = recipes[o][0]
+
+    print(f"Please insert {currency(expectedCost)} to the machine...")
+    coinTotal = coinInsert()
+
+    while coinTotal < expectedCost:
+        diff = expectedCost - coinTotal
+        print(f"You are {currency(diff)} short")
+        input(f"Returning coins, press Enter to try again...")
+        os.system('cls')
+        print(f"Please insert {currency(expectedCost)} to the machine...")
+        coinTotal = coinInsert()
+    
 
 def playCoffee():
     playCoffeeMenu()
