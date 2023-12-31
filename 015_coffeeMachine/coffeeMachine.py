@@ -27,6 +27,9 @@ def report():
     print(f"Milk: {contents['milk']}ml")
     print(f"Coffee: {contents['coffee']}g")
 
+def currency(curr) -> str:
+    return  '${:,.2f}'.format(curr)
+
 def printLine(k):
     totalLength = 20
     dotInt = totalLength - (len(k) + len(str(recipes[k][0])))
@@ -34,8 +37,8 @@ def printLine(k):
     for i in range(dotInt):
         dotStr += "."
     
-    currency = '${:,.2f}'.format(recipes[k][0])
-    print(f"{k}{dotStr}{currency}")
+    currVal = currency(recipes[k][0])
+    print(f"{k}{dotStr}{currVal}")
 
 def playCoffeeMenu():
     print(f"This machine serves:")
