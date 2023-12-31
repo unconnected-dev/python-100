@@ -1,5 +1,7 @@
 #Coffee Machine
 
+import os
+
 recipes = {
     "Espresso": [1.50, 50, 18],
     "Latte": [2.50, 200, 24, 150],
@@ -25,7 +27,36 @@ def report():
     print(f"Milk: {contents['milk']}ml")
     print(f"Coffee: {contents['coffee']}g")
 
+def printLine(k):
+    totalLength = 20
+    dotInt = totalLength - (len(k) + len(str(recipes[k][0])))
+    dotStr = ""
+    for i in range(dotInt):
+        dotStr += "."
+    
+    currency = '${:,.2f}'.format(recipes[k][0])
+    print(f"{k}{dotStr}{currency}")
+
+def playCoffeeMenu():
+    print(f"This machine serves:")
+    for key in recipes:
+        printLine(key)
+    print("")
+    # response = input("What would you like?")
+
 def main():
-    report()
+    inGame = True
+    while inGame == True:
+        playCoffeeMenu()
+
+        response = input("Would you like another coffee? y/n\n").lower()
+        if response == 'y':
+            inGame = True
+        else:
+            inGame = False
+        
+        os.system('cls')
+
+    print("Shutting down...")
 
 main()
