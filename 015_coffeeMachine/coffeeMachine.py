@@ -106,12 +106,24 @@ def payment(o):
         print(f"Please insert {currency(expectedCost)} to the machine...")
         coinTotal = coinInsert()
     
+    change = coinTotal - expectedCost
+    print(f"Here is {currency(change)} in change")
 
+#Update contents as machine used for the order
+def updateContents(o):
+    recipe = recipes[o]
+    contents["water"] -= recipe[1]
+    contents["coffee"] -= recipe[2]
+
+    if len(recipe) > 3:
+        contents["milk"] -= recipe[3]
+    
 def playCoffee():
     playCoffeeMenu()
 
     order = getOrder()
-
+    payment(order)
+    updateContents(order)
 
 def main():
     inGame = True
