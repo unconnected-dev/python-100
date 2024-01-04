@@ -1,3 +1,5 @@
+from moneyMachine import CurrencyHandler
+
 class MenuItem:
     def __init__(self, name, water, milk, coffee, cost) -> None:
         self.name = name
@@ -15,10 +17,8 @@ class Menu:
             MenuItem(name="espresso", water=50, milk=0, coffee=18, cost=1.50),
             MenuItem(name="cappuccino", water=250, milk=50, coffee=24, cost=3.00)
         ]
-    
-    def formatCurrency(self, curr) -> str:
-        """Formats float to string"""
-        return '${:,.2f}'.format(curr)
+
+        self.currencyHandler = CurrencyHandler()
 
     def getMenu(self) -> str:
         """Returns string of all menu items and cost"""
@@ -32,7 +32,7 @@ class Menu:
             for i in range(dotInt):
                 dotStr += "."
 
-            options += f"{item.name.capitalize()}{dotStr}{self.formatCurrency(item.cost)}\n"
+            options += f"{item.name.capitalize()}{dotStr}{self.currencyHandler.getFormattedCurrency(item.cost)}\n"
         
         return prefix + options
 
