@@ -16,7 +16,7 @@ class MoneyMachine:
         self.currencyHandler = CurrencyHandler()
     
     def report(self) -> None:
-        print(f"Money: {self.currencyHandler.getFormattedCurrency(self.profit)}")
+        print(f"Money: {self.currencyHandler.getFormattedCurrency(self.totalStored)}")
     
     def processCoins(self) -> None:
         for coin in self.COINS:
@@ -27,13 +27,13 @@ class MoneyMachine:
     
         if self.moneyReceived >= cost:
             change = round(self.moneyReceived - cost, 2)
-            print(f"Here is {change} in change")
+            print(f"Here is {self.currencyHandler.getFormattedCurrency(change)} in change")
             self.totalStored += cost
             self.moneyReceived = 0
             return True
         else:
             short = round(cost - self.moneyReceived, 2)
-            print(f"You are {short} short")
+            print(f"You are {self.currencyHandler.getFormattedCurrency(short)} short")
             print(f"Returning coins...")
             self.moneyReceived = 0
             return False

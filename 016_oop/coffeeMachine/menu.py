@@ -21,7 +21,7 @@ class Menu:
 
         self.currencyHandler = CurrencyHandler()
 
-    def getMenu(self) -> str:
+    def printMenu(self) -> str:
         """Returns string of all menu items and cost"""
         lineLength = 20
         prefix = "This machine serves:\n"
@@ -35,7 +35,7 @@ class Menu:
 
             options += f"{item.name.capitalize()}{dotStr}{self.currencyHandler.getFormattedCurrency(item.cost)}\n"
         
-        return prefix + options
+        print(prefix + options)
 
     def getItem(self, itemName) -> Optional[MenuItem]:
         """Returns MenuItem from Menu"""
