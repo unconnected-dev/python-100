@@ -1,4 +1,4 @@
-from moneyMachine import CurrencyHandler
+from currencyHandler import CurrencyHandler
 
 class MenuItem:
     def __init__(self, name, water, milk, coffee, cost) -> None:
