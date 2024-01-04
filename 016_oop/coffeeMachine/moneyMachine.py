@@ -15,16 +15,14 @@ class MoneyMachine:
     
         self.currencyHandler = CurrencyHandler()
     
-    def report(self):
+    def report(self) -> None:
         print(f"Money: {self.currencyHandler.getFormattedCurrency(self.profit)}")
     
-    def processCoins(self):
+    def processCoins(self) -> None:
         for coin in self.COINS:
             self.moneyReceived += int(input(f"How many {coin}?: ")) * self.COINS[coin]
         
-        return self.moneyReceived
-
-    def makePayment(self, cost):
+    def makePayment(self, cost) -> bool:
         self.processCoins()
     
         if self.moneyReceived >= cost:

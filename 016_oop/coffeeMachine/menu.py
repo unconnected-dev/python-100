@@ -1,3 +1,4 @@
+from typing import Optional
 from currencyHandler import CurrencyHandler
 
 class MenuItem:
@@ -36,7 +37,7 @@ class Menu:
         
         return prefix + options
 
-    def getItem(self, itemName):
+    def getItem(self, itemName) -> Optional[MenuItem]:
         """Returns MenuItem from Menu"""
         for item in self.menu:
             if item.name == itemName:
