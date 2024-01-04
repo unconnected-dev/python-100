@@ -40,7 +40,7 @@ def main() -> None:
             if paymentMade == False:
                 response = input(f"Would you like to reinsert the coins? y/n: ")
             else:
-                input("Press enter to continue...")
+                input("Press Enter to continue...")
 
             os.system('cls')
 
