@@ -5,7 +5,7 @@ caseNum_1 = 521
 caseNum_2 = 111
 caseNum_3 = 886996
 
-if True:
+if False:
     def alternatingDigitSum(n):
         total = 0
         nList = list(str(n))
@@ -17,6 +17,19 @@ if True:
             total -= int(nList[i])
         
         return total
+
+if True:
+    def alternatingDigitSum(n):
+        total = 0
+        nList = list(str(n))
+        e = 1
+
+        for i in range(len(nList)):
+            total += int(nList[i]) * e
+            e *= -1
+        
+        return total
+
 
 print(f"{alternatingDigitSum(caseNum_1)}")
 print(f"{alternatingDigitSum(caseNum_2)}")
