@@ -12,3 +12,6 @@ gameHandler = GameHandler(question_bank)
 
 while gameHandler.stillHasQuestions():
     gameHandler.askQuestion()
+
+print("Quiz Finished")
+print(f"Final Score: {gameHandler.getFinalScore()}")
