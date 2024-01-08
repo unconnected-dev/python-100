@@ -6,11 +6,9 @@ if False:
     turtleObj.shape("triangle")
     turtleObj.color("black")
 
-    #Draw Square
-    if False:
-        for i in range(4):
-            turtleObj.forward(100)
-            turtleObj.right(90)
+    for i in range(4):
+        turtleObj.forward(100)
+        turtleObj.right(90)
 
     screen = Screen()
     screen.exitonclick()
@@ -25,15 +23,14 @@ if False:
     turtleObj.color("black")
     
     #Draw Dashed Square
-    if True:
-        for i in range(4):
-            for i in range(5):
-                turtleObj.forward(10)
-                turtleObj.penup()
-                turtleObj.forward(10)
-                turtleObj.pendown()
+    for i in range(4):
+        for i in range(5):
+            turtleObj.forward(10)
+            turtleObj.penup()
+            turtleObj.forward(10)
+            turtleObj.pendown()
 
-            turtleObj.right(90)
+        turtleObj.right(90)
 
     screen = Screen()
     screen.exitonclick()
@@ -66,9 +63,10 @@ if False:
 
 
 #Random Walk
-if True:
+if False:
     import random
     from random import randint
+    from turtle import Turtle, Screen
 
     def randomColor() -> str:
         r = randint(0, 255)
@@ -82,8 +80,6 @@ if True:
         directions = [0, 90, 180, 270]
         return random.choice(directions)
 
-    from turtle import Turtle, Screen
-
     turtleObj = Turtle()
     turtleObj.shape("triangle")
     turtleObj.color("black")
@@ -91,6 +87,37 @@ if True:
     for i in range(50):
         turtleObj.forward(30)
         turtleObj.setheading(randomDir())
+        turtleObj.color(randomColor())
+
+    screen = Screen()
+    screen.exitonclick()
+
+
+#Spirograph
+if True:    
+    import turtle as t
+    from turtle import Turtle, Screen
+    import random
+    from random import randint
+
+    def randomColor() -> str:
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        
+        return (r, g, b)
+
+    t.colormode(255)
+
+    turtleObj = Turtle()
+    turtleObj.shape("triangle")
+    turtleObj.color(randomColor())
+    turtleObj.speed(0)
+    
+    num_of_circles = 30
+    for i in range(num_of_circles):
+        turtleObj.setheading(turtleObj.heading() + 360/num_of_circles)
+        turtleObj.circle(100)
         turtleObj.color(randomColor())
 
     screen = Screen()
