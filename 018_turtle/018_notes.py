@@ -19,3 +19,11 @@ if False:
     import turtle as t
 
     turtleObj = t.Turtle()
+
+#Tuples
+a_tuple = (5, 10, 15)
+print(f"{a_tuple[1]}")
+
+#You cannot change a tuple
+#Immutable
+# a_tuple[2] = 0
