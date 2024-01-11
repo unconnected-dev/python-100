@@ -8,7 +8,6 @@ screen.bgcolor("grey")
 player_choice = screen.textinput(title="Pick one", prompt="Which will win the race? Enter a color: ")
 
 colors = ["red", "orange", "yellow", "green", "blue", "purple"]
-
 arrows = []
 
 y_pos = 130
@@ -30,8 +29,13 @@ while race_on:
     
     for arrow in arrows:
         arrow.forward(random.randint(0, 10))
-    
 
+        if arrow.xcor() > 230:
+            race_on = False
 
+            if player_choice == arrow.pencolor():
+                print(f"You picked the winner: {arrow.pencolor()} won")
+            else:
+                print(f"You didn't pick the winner: {arrow.pencolor()} won")
 
 screen.exitonclick()
