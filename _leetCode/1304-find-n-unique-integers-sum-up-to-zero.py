@@ -14,10 +14,15 @@ if True:
 
         i = 1
         while len(numberList) < n:
+            #add positive and negative version of number to maintain sum 0
             numberList.append(i)
             numberList.append(i * -1)
             
+            #if n is an odd number 1 element needs to be removed
             if len(numberList) > n:
+                #add the last element to 2nd to last
+                #forcing 0 as last unique number
+                #[1, -1, 2, -2, 3, -3] becomes [1, -1, 2, -2, 0]
                 numberList[len(numberList) - 2] += numberList.pop()
                 
             i += 1
