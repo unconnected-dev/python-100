@@ -1,5 +1,9 @@
 #Basic Inheritance
 
+#General convention
+#Single underscore '_' is considered protected 
+#Double underscore '__' is considered private
+
 class BaseClass:
     def __init__(self) -> None:
         self.class_name = "Base"
