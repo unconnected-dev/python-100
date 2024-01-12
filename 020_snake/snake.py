@@ -22,6 +22,13 @@ class Snake:
             segment.goto(position)
             self.segments.append(segment)
 
+    def add_segment(self) -> None:
+        segment = Turtle("square")
+        segment.penup()
+        segment.color("white")
+        segment.goto(self.segments[-1].xcor(), self.segments[-1].ycor())
+        self.segments.append(segment)
+
     def move_snake(self) -> None:
         for i in range(len(self.segments) - 1, 0, -1):
             self.segments[i].goto(self.segments[i - 1].xcor(), self.segments[i - 1].ycor())
