@@ -25,5 +25,13 @@ class ExtendedClass(BaseClass):
         print(f"Extended Action")
     
     
-extended = ExtendedClass()
-extended.action()
+# extended = ExtendedClass()
+# extended.action()
+        
+#Slicing
+#This also works with tuples
+k = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(k[2:])#Start from point
+print(k[1:8:2])#Increase increments
+print(k[::-1])#Reverse iterating
