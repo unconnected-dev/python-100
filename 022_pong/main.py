@@ -26,7 +26,12 @@ screen.onkey(scoreboard.shutdown, "Escape")
 
 while scoreboard.game_on:
     screen.update()
-    ball.move_ball()
     time.sleep(0.03)
+    screen.update()
+    ball.move_ball()
+
+    #Detect collision with wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
 
 screen.exitonclick()
