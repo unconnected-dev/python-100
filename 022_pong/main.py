@@ -41,5 +41,16 @@ while scoreboard.game_on:
     #Detect collision with right paddle
     if ball.distance(paddle_2) < 50 and ball.xcor() > 330:
         ball.bounce_x()
+    
+
+    #Detect paddle miss
+    if ball.xcor() > 390:
+        ball.reset_ball()
+        scoreboard.increase_p2_score()
+
+    if ball.xcor() < -390:
+        ball.reset_ball()
+        scoreboard.increase_p1_score()
+        
 
 screen.exitonclick()
