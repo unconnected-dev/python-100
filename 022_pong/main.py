@@ -16,11 +16,11 @@ ball = Ball()
 scoreboard = ScoreBoard()
 
 screen.listen()
-screen.onkey(paddle_1.up, "w")
-screen.onkey(paddle_1.down, "s")
+screen.onkeypress(paddle_1.up, "w")
+screen.onkeypress(paddle_1.down, "s")
 
-screen.onkey(paddle_2.up, "Up")
-screen.onkey(paddle_2.down, "Down")
+screen.onkeypress(paddle_2.up, "Up")
+screen.onkeypress(paddle_2.down, "Down")
 
 screen.onkey(scoreboard.shutdown, "Escape")
 
