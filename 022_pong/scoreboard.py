@@ -6,6 +6,7 @@ class ScoreBoard(Turtle):
     
     def __init__(self):
         super().__init__()
+        self.game_on = True
         self.p1_score = 0
         self.p2_score = 0
         self.color("white")
@@ -30,3 +31,6 @@ class ScoreBoard(Turtle):
         self.p1_score = 0
         self.p2_score = 0
         self.display_score()
+    
+    def shutdown(self) -> None:
+        self.game_on = False
