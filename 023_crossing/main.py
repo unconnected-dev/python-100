@@ -1,7 +1,7 @@
 import time
 from turtle import Screen
 from player import Player
-# from car_manager import CarManager
+from car_manager import CarManager
 # from scoreboard import Scoreboard
 
 screen = Screen()
@@ -11,7 +11,7 @@ screen.bgcolor("white")
 screen.tracer(0)
 
 player = Player()
-
+cars = CarManager()
 
 screen.listen()
 screen.onkeypress(player.up, "Up")
@@ -22,5 +22,7 @@ while game_on:
     time.sleep(0.1)
     screen.update()
 
+    cars.generate_car()
+    cars.move_cars()
 
 screen.exitonclick()
