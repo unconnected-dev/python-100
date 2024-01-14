@@ -11,7 +11,7 @@ screen.bgcolor("white")
 screen.tracer(0)
 
 player = Player()
-cars = CarManager()
+car_manager = CarManager()
 
 screen.listen()
 screen.onkeypress(player.up, "Up")
@@ -22,7 +22,12 @@ while game_on:
     time.sleep(0.1)
     screen.update()
 
-    cars.generate_car()
-    cars.move_cars()
+    car_manager.generate_car()
+    car_manager.move_cars()
+
+    #Detect car collision
+    for car in car_manager.cars:
+        if car.distance(player) < 20:
+            game_on = False
 
 screen.exitonclick()
