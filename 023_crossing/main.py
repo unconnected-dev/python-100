@@ -30,4 +30,10 @@ while game_on:
         if car.distance(player) < 20:
             game_on = False
 
+    #Detect crossing
+    if player.ycor() >= 280:
+        player.return_to_start()
+        car_manager.increase_cars_speed()
+        
+
 screen.exitonclick()
