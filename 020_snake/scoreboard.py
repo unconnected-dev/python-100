@@ -2,12 +2,16 @@ from turtle import Turtle
 
 FONT_STYLE = ("Arial", 18, "normal")
 
+relative_path_name = "./020_snake/highscore.txt"
+
 class ScoreBoard(Turtle):
 
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.high_score = 0
+        # self.high_score = 0
+        with open(relative_path_name) as high_score_file:
+            self.high_score = int(high_score_file.read())
 
         self.color("white")
         self.penup()
@@ -30,6 +34,8 @@ class ScoreBoard(Turtle):
     def reset_scoreboard(self) -> None:
         if self.score > self.high_score:
             self.high_score = self.score
+            with open(relative_path_name, "w") as high_score_file:
+                high_score_file.write(f"{self.score}")
         
         self.score = 0
         self.display_score()
