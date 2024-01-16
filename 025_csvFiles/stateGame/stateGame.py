@@ -18,7 +18,7 @@ relative_csv_path = "./025_csvFiles/stateGame/50_states.csv"
 with open(relative_csv_path) as data_file:
     state_data = pandas.read_csv(data_file)
 
-
+#Continue loop until all 50 states have been guessed
 answers = []
 while len(answers) < 50:
     answer = screen.textinput(f"{len(answers)}/50 - Name a state", "").lower()
@@ -32,6 +32,10 @@ while len(answers) < 50:
         text_turtle.color("black")
         text_turtle.hideturtle()
         text_turtle.goto(int(stateFound.x), int(stateFound.y))
-        text_turtle.write(answer.capitalize(), align="left", font=FONT_STYLE)
+        # text_turtle.write(answer.capitalize(), align="left", font=FONT_STYLE)
+
+        #.item() will get the value without the additional data
+        # text_turtle.write(stateFound.state, align="left", font=FONT_STYLE)
+        text_turtle.write(stateFound.state.item(), align="left", font=FONT_STYLE)
 
 turtle.mainloop()
