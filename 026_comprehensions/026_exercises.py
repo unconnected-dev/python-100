@@ -34,10 +34,21 @@ if False:
     print(results)
 
 #Dictionary comprehension
-if True:
+if False:
     sentence = "What is the air speed velocity"
     sentence_list = sentence.split()
     
     sentence_dict = {word: len(word) for word in sentence_list}
     print(sentence_dict)
-    
+
+#Celsius to fahrenheit
+if True:
+    celsius_dict = {
+        "Monday": 12,
+        "Tuesday": 14,
+        "Wednesday": 15,
+        "Thursday": 14
+    }
+
+    farenheit_dict = {day: int(celsius_dict) * 9/5 + 32 for (day, celsius_dict) in  celsius_dict.items()}
+    print(farenheit_dict)
