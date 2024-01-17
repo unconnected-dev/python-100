@@ -14,7 +14,7 @@ if False:
     print(filtered_numbers)
 
 #Check common numbers
-if True:
+if False:
     relative_file_1_path = "./026_comprehensions/file_1.txt"
     relative_file_2_path = "./026_comprehensions/file_2.txt"
 
@@ -32,3 +32,12 @@ if True:
 
     results = [int(n) for n in file_1_numbers if n in file_2_numbers]
     print(results)
+
+#Dictionary comprehension
+if True:
+    sentence = "What is the air speed velocity"
+    sentence_list = sentence.split()
+    
+    sentence_dict = {word: len(word) for word in sentence_list}
+    print(sentence_dict)
+    
