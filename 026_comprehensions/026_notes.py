@@ -1,3 +1,5 @@
+import random
+
 #List Comprehension
 #Below is not list comprehension
 if False:
@@ -34,7 +36,20 @@ if False:
 
 
 #Conditional List Comprehension
-if True:
+if False:
     names = ["alex", "beth", "caroline", "dave", "elanor", "freddie"]
     new_list = [name.capitalize() for name in names if len(name) <= 4]
     print(new_list)
+
+
+#Dictionary Comprehension
+if True:
+    # new_dict = {new_key:new_value for item in list}
+    # new_dict = {new_key:new_value for (key, value) in dict.items()}
+
+    names = ["alex", "beth", "caroline", "dave", "elanor", "freddie"]
+    names_dict = {name: random.randint(0, 100) for name in names}
+    # print(names_dict)
+
+    passed_students = {name: value for (name, value) in  names_dict.items() if value >= 60}
+    print(passed_students)
