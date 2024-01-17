@@ -24,11 +24,12 @@ while len(answers) < 50:
     answer = screen.textinput(f"{len(answers)}/50 - Name a state", "").lower()
 
     if answer == "exit":
-        missed_states = []
+        # missed_states = []
         full_state_list = state_data.state.to_list()
-        for state in full_state_list:
-            if state.lower() not in answers:
-                missed_states.append(state)
+        # for state in full_state_list:
+        #     if state.lower() not in answers:
+        #         missed_states.append(state)
+        missed_states = [state for state in full_state_list if state.lower() not in answers]#List comprehension
 
         missed_states_data_frame = pandas.DataFrame(missed_states)
         missed_states_data_frame.to_csv("./025_csvFiles/stateGame/missed_states.csv")
