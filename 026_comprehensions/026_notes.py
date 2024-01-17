@@ -43,7 +43,7 @@ if False:
 
 
 #Dictionary Comprehension
-if True:
+if False:
     # new_dict = {new_key:new_value for item in list}
     # new_dict = {new_key:new_value for (key, value) in dict.items()}
 
@@ -53,3 +53,5 @@ if True:
 
     passed_students = {name: value for (name, value) in  names_dict.items() if value >= 60}
     print(passed_students)
+
+
