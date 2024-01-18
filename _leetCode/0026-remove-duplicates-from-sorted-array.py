@@ -18,7 +18,7 @@ if False:
         return nums
 
 #Removes duplicates by checking the next value over
-if True:
+if False:
     def removeDuplicates(nums):
         i = 0
 
@@ -30,5 +30,18 @@ if True:
                 
         return nums
 
+#Removes duplicates by going through list
+#Finds the first unique instance of each number
+#Puts them to the start of the list
+if True:
+    def removeDuplicates(nums):
+        i = 1
+        for j in range(1, len(nums)):
+            if nums[j] != nums[j - 1]:
+                nums[i] = nums[j]
+                i += 1
+
+        return nums[0:i]
+     
 print(f"{removeDuplicates(caseNums_1)}")
 print(f"{removeDuplicates(caseNums_2)}")
