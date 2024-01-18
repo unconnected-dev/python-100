@@ -32,7 +32,7 @@ if False:
 
 #Removes duplicates by going through list
 #Finds the first unique instance of each number
-#Puts them to the start of the list
+#Puts them to the start of the list with i
 if True:
     def removeDuplicates(nums):
         i = 1
