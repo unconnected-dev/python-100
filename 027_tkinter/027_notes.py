@@ -1,13 +1,35 @@
-import tkinter
+# import tkinter
+from tkinter import *
 
-if False:
-    window = tkinter.Tk()
+if True:
+    window = Tk()
     window.title("Window Title")
     window.minsize(600, 600)
 
     #Labels
-    a_label = tkinter.Label(text="Label name", font=("Arial", 24, "bold"))
-    a_label.pack(side="left")
+    a_label = Label(text="Label name", font=("Arial", 24, "bold"))
+    a_label.pack()
+
+    #Alternative ways to update properties in tkinter
+    # a_label["text"] = "New Text"
+    # a_label.config(text="updated text")
+
+
+    #Entry
+    input = Entry(width=10)
+    input.pack()
+
+
+    #Buttons
+    a_button = Button(text="button text")
+    a_button.pack()
+
+    def button_clicked():
+        a_label["text"] = input.get()
+
+    #Assign function to button
+    a_button["command"] = button_clicked
+
 
 
     window.mainloop()#Place at the end of script
@@ -48,7 +70,7 @@ if False:
     print(f"{calculate(10, add=3, mult=5)}")
 
 
-if True:
+if False:
     class Example:
         def __init__(self, **kwargs) -> None:
             # self.make = kwargs["make"]
