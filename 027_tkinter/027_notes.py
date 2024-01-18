@@ -20,3 +20,15 @@ if False:
 
     print(a_function())
     print(a_function(c=5))
+
+
+#Unlimited positional arguments
+if True:    
+    def add(*args):
+        total = 0
+        for n in args:
+            total += n
+        
+        return total
+    
+    print(f"{add(1,2,3,4,5)}")
