@@ -27,7 +27,7 @@ kilometer_label.grid(row=1, column=2)
 
 
 def button_clicked():
-    kilometer_coversion_label["text"] = int(input.get()) *  1.6
+    kilometer_coversion_label["text"] = float(input.get()) *  1.609
 
 #Button
 a_button = Button(text="Convert")
