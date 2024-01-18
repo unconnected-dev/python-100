@@ -22,12 +22,17 @@ if False:
         return i
 
 #Removes elements by the val
-if True:
+if False:
     def removeElement(nums, val) -> int:
         while val in nums:
             nums.remove(val)
         
         return len(nums)
-    
+
+#Returns list comprehension
+if True:
+    def removeElement(nums, val) -> int:
+        return len([n for n in nums if n != val])
+
 print(f"{removeElement(caseNums_1, caseVal_1)}")
 print(f"{removeElement(caseNums_2, caseVal_2)}")
