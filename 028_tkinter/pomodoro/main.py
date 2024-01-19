@@ -1,8 +1,6 @@
 import math
 from tkinter import *
 from PIL import ImageTk, Image
-import os
-import time
 
 
 # ---------------------------- CONSTANTS ------------------------------- #
@@ -15,11 +13,23 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 
+reps = 0 #Initialize reps before using in the function
+window_timer_ref = None
+
+
 # ---------------------------- TIMER RESET ------------------------------- # 
+def reset_():
+    global reps, window_timer_ref
+    window.after_cancel(window_timer_ref)
+    reps = 0
+
+    timer_label.config(text="Timer", fg=GREEN)
+    canvas.itemconfig(timer_text, text="00:00")
+
+    check_marks.config(text="")
+
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
-
-reps = 0 #Initialize reps before using in the function
 def start_timer():
     global reps
     reps += 1
@@ -35,11 +45,13 @@ def start_timer():
         count_down(short_break_sec)
         timer_label.config(text="Break", fg=PINK)
     else:
-        count_down(10)
+        count_down(work_sec)
         timer_label.config(text="Work", fg=GREEN)
+
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
+    global window_timer_ref
 
     minutes = math.floor(count / 60)
     seconds = count % 60
@@ -61,9 +73,16 @@ def count_down(count):
     canvas.itemconfig(timer_text, text=current_time_string)
     
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        window_timer_ref = window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        
+        checks = ""
+        for i in range(math.floor(reps/2)):
+            checks += "✔"
+
+        check_marks.config(text=checks)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -91,12 +110,13 @@ start_button.grid(row=2, column=0)
 
 
 #Reset button
-reset_button = Button(text="Reset", highlightthickness=0, padx=10, pady=10)
+reset_button = Button(text="Reset", highlightthickness=0, padx=10, pady=10, command=reset_)
 reset_button.grid(row=2, column=2)
 
 
 #Checkmarks
-check_marks = Label(text="✔", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 26, "bold"))
+# check_marks = Label(text="✔", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 26, "bold"))
+check_marks = Label(bg=YELLOW, fg=GREEN, font=(FONT_NAME, 26, "bold"))
 check_marks.grid(row=3,column=1)
 
 
