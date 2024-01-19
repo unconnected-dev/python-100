@@ -26,10 +26,20 @@ def count_down(count):
 
     minutes = math.floor(count / 60)
     seconds = count % 60
-    if seconds != 0:
-        current_time_string = f"{minutes}:{seconds}"
-    else:
-        current_time_string = f"{minutes}:00"
+
+    # if seconds != 0:
+    #     current_time_string = f"{minutes}:{seconds}"
+    # else:
+    #     current_time_string = f"{minutes}:00"
+
+    #Dynamic typing allows the variable to be changed from int to str
+    if minutes < 10:
+        minutes = f"0{minutes}"
+
+    if seconds < 10:
+        seconds = f"0{seconds}"
+
+    current_time_string = f"{minutes}:{seconds}"
 
     canvas.itemconfig(timer_text, text=current_time_string)
     print(count)
