@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import messagebox
 from passwordGenerator import PasswordGenerator
+import pyperclip
 
 WHITE = "#FFFFFF"
 
@@ -9,6 +10,8 @@ WHITE = "#FFFFFF"
 def makePassword():
     generator = PasswordGenerator()
     password_entry.insert(0, generator.makePassword())
+
+    pyperclip.copy(password_entry.get())
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
