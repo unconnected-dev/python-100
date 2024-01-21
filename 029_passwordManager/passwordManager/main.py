@@ -1,10 +1,14 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import messagebox
+from passwordGenerator import PasswordGenerator
 
 WHITE = "#FFFFFF"
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def makePassword():
+    generator = PasswordGenerator()
+    password_entry.insert(0, generator.makePassword())
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
@@ -65,7 +69,7 @@ password_entry.grid(row=3, column=1, sticky="W")
 
 
 #Buttons
-generate_password_button = Button(text="Generate Password")
+generate_password_button = Button(text="Generate Password", command=makePassword)
 generate_password_button.grid(row=3, column=2, sticky="W")
 
 add_button = Button(text="Add", width=44, command=lambda: saveData(website_entry.get(), email_entry.get(), password_entry.get()))
