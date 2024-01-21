@@ -1,4 +1,3 @@
-import math
 from tkinter import *
 from PIL import ImageTk, Image
 
@@ -7,6 +6,17 @@ WHITE = "#FFFFFF"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+
+def saveData(website, email, password):
+    print(website, email, password)
+    relative_file_path = "./029_passwordManager/passwordManager/data.txt"
+    with open(relative_file_path, "a") as data_file:
+        data_file.write(f"{website} | {email} | {password} \n")
+
+    website_entry.delete(0, END)
+    # email_entry.delete(0, END)
+    password_entry.delete(0, END)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -36,9 +46,11 @@ password_label.grid(row=3, column=0, sticky="W")
 
 #Entries
 website_entry = Entry(width=52)
+website_entry.focus()
 website_entry.grid(row=1, column=1, columnspan=2, sticky="W")
 
 email_entry = Entry(width=52)
+email_entry.insert(0, "email@email.com")
 email_entry.grid(row=2, column=1, columnspan=2, sticky="W")
 
 password_entry = Entry(width=33)
@@ -49,7 +61,7 @@ password_entry.grid(row=3, column=1, sticky="W")
 generate_password_button = Button(text="Generate Password")
 generate_password_button.grid(row=3, column=2, sticky="W")
 
-add_button = Button(text="Add", width=44)
+add_button = Button(text="Add", width=44, command=lambda: saveData(website_entry.get(), email_entry.get(), password_entry.get()))
 add_button.grid(row=4, column=1, columnspan=2, sticky="W")
 
 window.mainloop()
