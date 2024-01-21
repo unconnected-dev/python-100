@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import ImageTk, Image
+from tkinter import messagebox
 
 WHITE = "#FFFFFF"
 
@@ -8,14 +9,20 @@ WHITE = "#FFFFFF"
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def saveData(website, email, password):
-    print(website, email, password)
-    relative_file_path = "./029_passwordManager/passwordManager/data.txt"
-    with open(relative_file_path, "a") as data_file:
-        data_file.write(f"{website} | {email} | {password} \n")
+    
+    if len(website) == 0 or len(email) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Missing information",message="All fields must be filled in")
+    else:
+        response = messagebox.askokcancel(title=website, message=f"Confirm details: \n Website: {website} \n Email: {email} \n Password: {password}")
+        
+        if response == True:
+            relative_file_path = "./029_passwordManager/passwordManager/data.txt"
+            with open(relative_file_path, "a") as data_file:
+                data_file.write(f"{website} | {email} | {password} \n")
 
-    website_entry.delete(0, END)
-    # email_entry.delete(0, END)
-    password_entry.delete(0, END)
+            website_entry.delete(0, END)
+            # email_entry.delete(0, END)
+            password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
