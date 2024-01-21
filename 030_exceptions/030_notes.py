@@ -18,7 +18,7 @@
 # print(text + 5)
 
 
-if True:
+if False:
     relative_file_path = "./030_exceptions/data.txt"
     try: 
         file = open(relative_file_path)
@@ -43,5 +43,17 @@ if True:
     finally:
         file.close()
         print("File was closed")
-
+        
+#Raising errors
+# raise KeyError("This is a custom error message")
+        
+if False:
+    height = 5
+    weight = 65
+    
+    if height > 3:
+        raise ValueError("People aren't usually over 3 meters")
+    
+    bmi = weight / height ** 2
+    print(f"BMI: {bmi}")
 
