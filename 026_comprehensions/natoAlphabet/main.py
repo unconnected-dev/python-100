@@ -15,14 +15,20 @@ with open(relative_path_name) as nato_data_file:
     nato_dict = {row.letter : row.code for(index, row) in nato_data.iterrows()}
     # print(nato_dict)
 
-for student_name in ["Angela", "James", "Lily"]:
+for student_name in ["Angela1", "James", "Lily"]:
     student_name_list = list(student_name)
 
     student_code = []
-    for c in student_name_list:
-        student_code.append(nato_dict[c.capitalize()])
-    
-    print(student_code)
+    try:
+        for c in student_name_list:
+            nato_dict[c.capitalize()]
+    except KeyError:
+        print("Sorry, only letters in the alphabet please")
+    else:
+        for c in student_name_list:
+            student_code.append(nato_dict[c.capitalize()])
+
+        print(student_code)
 
 
 #DONE - - - - - - - - - - - 
