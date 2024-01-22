@@ -3,6 +3,7 @@ from PIL import ImageTk, Image
 from tkinter import messagebox
 from passwordGenerator import PasswordGenerator
 import pyperclip
+import json
 
 WHITE = "#FFFFFF"
 
@@ -23,13 +24,29 @@ def saveData(website, email, password):
         response = messagebox.askokcancel(title=website, message=f"Confirm details: \n Website: {website} \n Email: {email} \n Password: {password}")
         
         if response == True:
-            relative_file_path = "./029_passwordManager/passwordManager/data.txt"
-            with open(relative_file_path, "a") as data_file:
-                data_file.write(f"{website} | {email} | {password} \n")
+            new_data = {
+                        website:{
+                            "email": email,
+                            "password": password,
+                        }
+                    }
+
+            relative_file_path = "./029_passwordManager/passwordManager/data.json"
+            with open(relative_file_path, "r") as data_file:
+                # data_file.write(f"{website} | {email} | {password} \n")
+
+                data = json.load(data_file)                                     #Read old data
+                data.update(new_data)                                           #Update old data with new data
+
+            #You need to read first as opening with w will empty the file
+            with open(relative_file_path, "w") as data_file:
+                json.dump(data, data_file, indent=4)                            #Save updated data
+
 
             website_entry.delete(0, END)
             # email_entry.delete(0, END)
             password_entry.delete(0, END)
+
 
 
 # ---------------------------- UI SETUP ------------------------------- #
