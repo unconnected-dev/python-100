@@ -32,20 +32,27 @@ def saveData(website, email, password):
                     }
 
             relative_file_path = "./029_passwordManager/passwordManager/data.json"
-            with open(relative_file_path, "r") as data_file:
-                # data_file.write(f"{website} | {email} | {password} \n")
+            try:    
+                with open(relative_file_path, "r") as data_file:
+                    # data_file.write(f"{website} | {email} | {password} \n")
 
-                data = json.load(data_file)                                     #Read old data
-                data.update(new_data)                                           #Update old data with new data
+                    data = json.load(data_file)                                     #Read old data
 
-            #You need to read first as opening with w will empty the file
-            with open(relative_file_path, "w") as data_file:
-                json.dump(data, data_file, indent=4)                            #Save updated data
+            except FileNotFoundError:                                               #Create a new file if needed
+                with open(relative_file_path, "w") as data_file:
+                    json.dump(new_data, indent=4)
 
+            else:
+                data.update(new_data)                                               #Update old data with new data
 
-            website_entry.delete(0, END)
-            # email_entry.delete(0, END)
-            password_entry.delete(0, END)
+                #You need to read first as opening with w will empty the file
+                with open(relative_file_path, "w") as data_file:
+                    json.dump(data, data_file, indent=4)                            #Save updated data
+
+            finally:
+                website_entry.delete(0, END)
+                # email_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 
 
