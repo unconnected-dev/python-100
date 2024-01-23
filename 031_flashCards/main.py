@@ -15,7 +15,15 @@ WRONG = relative_images_path + "wrong.png"
 relative_data_path = "./031_flashCards/data/french_words.csv"
 relative_new_data_path = "./031_flashCards/data/words_to_learn.csv"
 
-data = pandas.read_csv(relative_data_path)
+#Try to load saved data
+#Else load the original data
+try:
+    data = pandas.read_csv(relative_new_data_path)
+    print("Loaded saved data")
+except FileNotFoundError:
+    data = pandas.read_csv(relative_data_path)
+    print("Loaded original data")
+
 data_dict = data.to_dict(orient="records")
 
 card = {}
@@ -25,7 +33,7 @@ def rememberedCard():
     data_dict.remove(card)
 
     new_data = pandas.DataFrame(data_dict)
-    new_data.to_csv(relative_new_data_path)
+    new_data.to_csv(relative_new_data_path, index=False)
 
     nextCard()
 
