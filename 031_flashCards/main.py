@@ -13,11 +13,21 @@ WRONG = relative_images_path + "wrong.png"
 
 #Data
 relative_data_path = "./031_flashCards/data/french_words.csv"
+relative_new_data_path = "./031_flashCards/data/words_to_learn.csv"
 
 data = pandas.read_csv(relative_data_path)
 data_dict = data.to_dict(orient="records")
 
 card = {}
+
+def rememberedCard():
+    global card
+    data_dict.remove(card)
+
+    new_data = pandas.DataFrame(data_dict)
+    new_data.to_csv(relative_new_data_path)
+
+    nextCard()
 
 def nextCard():
     global card, flip_countdown_call
@@ -64,7 +74,7 @@ wrong_button = Button(image=wrong_image, highlightthickness=0,command=nextCard)
 wrong_button.grid(row=1, column=0)
 
 right_image = PhotoImage(file=RIGHT)
-right_button = Button(image=right_image, highlightthickness=0,command=nextCard)
+right_button = Button(image=right_image, highlightthickness=0,command=rememberedCard)
 right_button.grid(row=1,column=1)
 
 
