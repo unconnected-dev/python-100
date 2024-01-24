@@ -1,5 +1,6 @@
+import time
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 
 MY_LAT = 51.507351
 MY_LONG = -0.127758
@@ -15,7 +16,7 @@ def checkISSInView() -> bool:
     iss_longitude = float(data["iss_position"]["longitude"])
 
     #Your position is within +5 or -5 degrees of the ISS position.
-    if (iss_latitude >= MY_LAT - 5 and iss_latitude <= MY_LAT + 5) and (iss_longitude >= MY_LONG - 5 and iss_longitude <= MY_LONG +5):
+    if (iss_latitude >= MY_LAT - 5 and iss_latitude <= MY_LAT + 5) and (iss_longitude >= MY_LONG - 5 and iss_longitude <= MY_LONG + 5):
         within_view = True
     else:
         within_view = False
@@ -37,6 +38,17 @@ def checkSunriseSunset():
     sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
 
     time_now = datetime.now()
+
+    if time_now.hour <= sunrise or time_now.hour >= sunset:
+        return True
+    else:
+        return False
+
+
+while True:
+    time.sleep(60)
+    if checkSunriseSunset() and checkSunriseSunset():
+        print("You can see the ISS")
 
     #If the ISS is close to my current position
     # and it is currently dark
