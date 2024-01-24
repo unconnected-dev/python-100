@@ -1,6 +1,10 @@
 import time
 import requests
-from datetime import datetime, timezone
+from datetime import datetime
+import smtplib
+
+# MY_EMAIL = "****@****.***"
+# MY_PASSWORD = "******"
 
 MY_LAT = 51.507351
 MY_LONG = -0.127758
@@ -45,15 +49,23 @@ def checkSunriseSunset():
         return False
 
 
+#If the ISS is close to my current position
+# and it is currently dark
+# Then send me an email to tell me to look up.
+# BONUS: run the code every 60 seconds.
 while True:
     time.sleep(60)
     if checkSunriseSunset() and checkSunriseSunset():
         print("You can see the ISS")
 
-    #If the ISS is close to my current position
-    # and it is currently dark
-    # Then send me an email to tell me to look up.
-    # BONUS: run the code every 60 seconds.
+        # connection = smtplib.SMTP("smtp.gmail.com")
+        # connection.starttls()
+        # connection.login(MY_EMAIL, MY_PASSWORD)
+        # connection.sendmail(
+        #     from_addr=MY_EMAIL,
+        #     to_addrs=MY_EMAIL,
+        #     msg="Subject:Look up\n\nThe ISS is above you"   
+        # )
 
 
 
