@@ -7,7 +7,7 @@ caseNums2_1 = [[1,4],[3,2],[4,1]]
 caseNums1_2 = [[2,4],[3,6],[5,5]]
 caseNums2_2 = [[1,3],[4,3]]
 
-if True:
+if False:
     def solution(nums1, nums2):
         myDict = dict()
 
@@ -27,6 +27,24 @@ if True:
              myList.append([value[0], value[1]])
 
         return myList
-    
+
+if True:
+    def solution(nums1, nums2):
+        myDict = dict()
+
+        for i in range(len(nums1)):
+            myDict[nums1[i][0]] = nums1[i][1]
+
+        for i in range(len(nums2)):
+            myDict[nums2[i][0]] = myDict.get(nums2[i][0], 0) + nums2[i][1]
+
+        sortedList = sorted(myDict.items())
+        
+        myList = []
+        for value in sortedList:
+             myList.append([value[0], value[1]])
+
+        return myList
+     
 print(f"{solution(caseNums1_1, caseNums2_1)}")
 print(f"{solution(caseNums1_2, caseNums2_2)}")
