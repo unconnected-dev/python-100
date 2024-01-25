@@ -5,7 +5,7 @@ import smtplib
 
 
 def emailQuote():
-    relative_quotes_path = "./032_email/birthday/quotes.txt"
+    relative_quotes_path = "./032_email/quotes/quotes.txt"
     with open(relative_quotes_path) as quotes_file:
         quotes = quotes_file.readlines()
         quote = random.choice(quotes)
