@@ -1,4 +1,5 @@
 import smtplib
+#https://docs.python.org/3/library/smtplib.html
 
 relative_quotes_path = "./032_email/birthday/quotes.txt"
 
