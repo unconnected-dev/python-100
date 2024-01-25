@@ -1,5 +1,4 @@
 #Basic Variable Combining
-print("......................................................................")
 print("Basic Variable Combining")
 
 #Combine integers
@@ -20,4 +19,11 @@ if False:
 
     print("Your name is: " + combinedName)
 
-print("-End of script-")
+if True:
+    number1 = int(input(f"Enter the first number: "))
+    number2 = int(input(f"Enter the second number: "))
+    total = 0
+    total += number1
+    total += number2
+
+    print(f"The total is: {total}")
