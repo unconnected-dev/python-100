@@ -20,9 +20,13 @@ if True:
             else:
                 myDict[f"{nums2[i][0]}"] = nums2[i][1]
 
-        myDict = sorted(myDict.items())
+        sortedList = sorted(myDict.items())
         
-        return myDict
+        myList = []
+        for value in sortedList:
+             myList.append([value[0], value[1]])
+
+        return myList
     
 print(f"{solution(caseNums1_1, caseNums2_1)}")
 print(f"{solution(caseNums1_2, caseNums2_2)}")
