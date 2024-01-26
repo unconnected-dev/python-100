@@ -1,5 +1,4 @@
 #Basic Data Types
-print("......................................................................")
 print("Basic Data Types")
 
 #Check data types
@@ -30,5 +29,17 @@ if False:
 
     print(f"{name} will be {age} soon enough...\n")
 
+#Converting types
+if False:
+    s = "120.2"
+    n = 4
+    f = 1.2
 
-print("-End of script-")
+    total = float(s) + n + f
+    print(f"{total}")
+
+#Converting with comprehension
+if True:
+    numbers = ["1", "2", "3", "4", "5", "6"]
+    new_list = [int(n) for n in numbers]
+    print(new_list)
