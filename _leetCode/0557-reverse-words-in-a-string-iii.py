@@ -4,7 +4,7 @@
 caseString_1 = "Let's take LeetCode contest"
 caseString_2 = "Mr Ding"
 
-if True:
+if False:
     def reverseString(s):
         splitString = s.split(" ")
 
@@ -15,5 +15,14 @@ if True:
         s = " ".join(splitString)
         return s
 
+if True:
+    def reverseString(s):
+        splitString = s.split(" ")
+
+        for i in range(len(splitString)):
+            splitString[i] = splitString[i][::-1]
+
+        return " ".join(splitString)
+    
 print(f"{reverseString(caseString_1)}")
 print(f"{reverseString(caseString_2)}")
