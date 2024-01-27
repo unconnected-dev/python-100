@@ -11,7 +11,8 @@ if True:
             num_i = int(num[i])
 
             if num_i % 2 != 0:
-                return num[:i + 1]
+                return num[:i + 1]  #+1 due to exclusive indexing
+                                    #if index was 3, 2 would be included
         
         return ""
 
