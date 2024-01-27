@@ -19,6 +19,14 @@ if False:
 if True:
     def squareIsWhite(coordinates):
         letters = "abcdefgh"
+        ind = letters.index(coordinates[0])
+        n = int(coordinates[1])
+
+        return ((ind + 1) + n) % 2 != 0
+
+if False:
+    def squareIsWhite(coordinates):
+        letters = "abcdefgh"
         return (letters.index(coordinates[0]) + 1 + int(coordinates[1])) % 2 != 0
 
 print(f"{squareIsWhite(caseCoordinates_1)}")
