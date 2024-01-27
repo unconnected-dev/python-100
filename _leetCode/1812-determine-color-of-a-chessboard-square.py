@@ -5,7 +5,7 @@ caseCoordinates_1 = "a1"
 caseCoordinates_2 = "h3"
 caseCoordinates_3 = "c7"
 
-if True:
+if False:
     def squareIsWhite(coordinates):
         letters = "abcdefgh"
         ind = letters.index(coordinates[0])
@@ -15,6 +15,11 @@ if True:
             return False
         else:
             return True
+
+if True:
+    def squareIsWhite(coordinates):
+        letters = "abcdefgh"
+        return (letters.index(coordinates[0]) + 1 + int(coordinates[1])) % 2 != 0
 
 print(f"{squareIsWhite(caseCoordinates_1)}")
 print(f"{squareIsWhite(caseCoordinates_2)}")
