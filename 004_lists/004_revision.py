@@ -1,7 +1,6 @@
 import random
 
 #Basic Lists
-print("......................................................................")
 print("Basic Lists")
 
 #Appending to list
@@ -88,4 +87,12 @@ if False:
     map[letterIndex][numberIndex] = "X"
     print(f"{line1}\n{line2}\n{line3}")
 
-print("-End of script-")
+#Mapping with lamba
+if True:
+    numbers = []
+    for i in range(10):
+        numbers.append(i)
+    
+    square_func = lambda x: x**2
+    squared_numbers = list(map(square_func, numbers))
+    print(f"{squared_numbers}")
