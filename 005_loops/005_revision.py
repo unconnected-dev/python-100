@@ -1,5 +1,4 @@
 #Basic Loops
-print("......................................................................")
 print("Basic Loops")
 
 letters = ["a", "b", "c", "d", "e"]
@@ -16,5 +15,22 @@ if False:
 if False:
     for i in range(len(letters)):
         print(f"{letters[i]}")
-    
-print("-End of script-")
+
+#While loops
+if False:
+    i = 0
+    while i < 5:
+        print(f"{i}")
+        i += 1
+
+#Loop control statements
+if False:
+    for i in range(10):
+        #Stop at 7
+        if i == 7:
+            break
+        #Skip even numbers
+        if i % 2 == 0:
+            continue
+
+        print(f"{i}")
