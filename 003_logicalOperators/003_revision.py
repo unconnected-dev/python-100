@@ -1,7 +1,6 @@
 import math
 
 #Basic Logical Operators
-print("......................................................................")
 print("Basic Logical Operators")
 
 #Power of two
@@ -54,5 +53,21 @@ if False:
     
     print(f"{aStr}")
 
+#Combining Condition
+if False:
+    age = 25
+    is_adult = age >= 18 and age <= 35
+    print(f"is_adult: {is_adult}")
 
-print("-End of script-")
+#Short circuiting
+if False:
+    value = None
+    result = value or "Default Value"
+    print(f"result: {result}")
+
+#Chaining conditions
+if True:
+    temperature = 25
+    #20 <= temperature and temperature <= 30
+    is_warm = 20 <= temperature <= 30
+    print(f"is_warm: {is_warm}")
