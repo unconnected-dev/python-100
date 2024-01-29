@@ -38,11 +38,29 @@ class QuizInterface:
     
 
     def get_next_question(self):
-        q_text = self.quiz_brain.next_question()
-        self.canvas.itemconfig(self.question_text, text=q_text)
+        self.canvas.config(bg="white")
+        if self.quiz_brain.still_has_questions():
+            q_text = self.quiz_brain.next_question()
+            self.canvas.itemconfig(self.question_text, text=q_text)
+
+            self.score_label.config(text=f"Score: {self.quiz_brain.score}")
+        else:
+            self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz...")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
     def true_pressed(self):
-        self.quiz_brain.check_answer("True")
+        is_correct = self.quiz_brain.check_answer("True")
+        self.check_answer(is_correct)
 
     def false_pressed(self):
-        self.quiz_brain.check_answer("False")
+        is_correct = self.quiz_brain.check_answer("False")
+        self.check_answer(is_correct)
+
+    def check_answer(self, is_correct):
+        if is_correct:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+
+        self.window.after(1000, self.get_next_question)
