@@ -5,7 +5,7 @@ caseNum_1 = 7
 caseNum_2 = 121
 caseNum_3 = 1248
 
-if True:
+if False:
     def countDigits(num):
         c = 0
         ns = str(num)
@@ -15,6 +15,18 @@ if True:
                 c += 1
 
         return c
+
+if True:
+    def countDigits(num):
+        c = 0
+        ns = str(num)
+
+        for digit in ns:
+            if num % int(digit) == 0:
+                c += 1
+
+        return c
+
 
 print(f"{countDigits(caseNum_1)}")
 print(f"{countDigits(caseNum_2)}")
