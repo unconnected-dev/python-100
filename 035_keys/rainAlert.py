@@ -1,10 +1,11 @@
 import requests
 from twilio.rest import Client
+import os
 
 if True:
     # API_ = "https://api.openweathermap.org/data/2.5/weather"
     API_ = "https://api.openweathermap.org/data/2.5/forecast"
-    API_KEY = ""
+    API_KEY = os.environ.get("OWM_API_KEY")
 
     parameters = {
         # "q": "London,uk",
@@ -36,7 +37,7 @@ if True:
 
         #Twilio SMS
         account_sid = ''
-        auth_token = ''
+        auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
