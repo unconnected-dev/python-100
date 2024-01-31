@@ -1,4 +1,5 @@
 import requests
+from twilio.rest import Client
 
 if True:
     # API_ = "https://api.openweathermap.org/data/2.5/weather"
@@ -31,4 +32,18 @@ if True:
             break
     
     if will_rain == True:
-        print("It will rain")
+        # print("It will rain")
+
+        #Twilio SMS
+        account_sid = ''
+        auth_token = ''
+        client = Client(account_sid, auth_token)
+
+        message = client.messages.create(
+        from_='',
+        body="It's going to rain today, bring an umbrella",
+        to=''
+        )
+
+        # print(message.sid)
+        print(message.status)
