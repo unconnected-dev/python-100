@@ -21,20 +21,19 @@ data = response.json()["Time Series (Daily)"]
 #data_0_data is yesterday
 data_list = [value for (key, value) in data.items()]
 day_0_data = data_list[0]
-print(f"{day_0_data['4. close']}")
+day_0_close = float(day_0_data['4. close'])
 
 #data_1_data is the day before yesterday
 day_1_data = data_list[1]
-print(f"{day_1_data['4. close']}")
+day_1_close = float(day_1_data['4. close'])
 
+#calculate % difference
+day_difference = abs(day_0_close - day_1_close)
+day_difference_perc = (day_difference / day_0_close) * 100
 
-# When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+if day_difference_perc >= 5:
+    print("News")
 
-#TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
-
-#TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
-
-#TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
 
     ## STEP 2: https://newsapi.org/ 
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
