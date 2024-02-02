@@ -1,4 +1,6 @@
 import requests
+from twilio.rest import Client
+import os
 
 #https://www.alphavantage.co/documentation/#daily
 STOCK_API_KEY = ""
@@ -34,6 +36,7 @@ if False:
     day_difference = abs(day_0_close - day_1_close)
     day_difference_perc = (day_difference / day_0_close) * 100
 
+
 # if day_difference_perc >= 5:
 if True:
     news_parameters = {
@@ -45,33 +48,21 @@ if True:
     news_data = news_response.json()
     news_articles = news_data["articles"]
     
+    sms_message = ''
     for article in news_articles[:3]:
-        print(article["title"])
-
-    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
-
-#TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
-
-#TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
+        # print(article["title"])
+        sms_message += article["title"] + ","
 
 
-    ## STEP 3: Use twilio.com/docs/sms/quickstart/python
-    #to send a separate message with each article's title and description to your phone number. 
+if False:
+    account_sid = ''
+    auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
+    client = Client(account_sid, auth_token)
 
-#TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
+    message = client.messages.create(
+    from_='',
+    body=sms_message[:-1],
+    to=''
+    )
 
-#TODO 9. - Send each article as a separate message via Twilio. 
-
-
-
-#Optional TODO: Format the message like this: 
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
-
+    print(message.status)
