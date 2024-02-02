@@ -1,15 +1,34 @@
+import requests
+
+#https://www.alphavantage.co/documentation/#daily
+STOCK_API_KEY = ""
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
-    ## STEP 1: Use https://www.alphavantage.co/documentation/#daily
+
+stock_parameters = {
+        "apikey": STOCK_API_KEY,
+        "function": "TIME_SERIES_DAILY",
+        "symbol": STOCK_NAME
+    }
+
+response = requests.get(url=STOCK_ENDPOINT, params=stock_parameters) # type: ignore
+data = response.json()["Time Series (Daily)"]
+
+#data_0_data is yesterday
+data_list = [value for (key, value) in data.items()]
+day_0_data = data_list[0]
+print(f"{day_0_data['4. close']}")
+
+#data_1_data is the day before yesterday
+day_1_data = data_list[1]
+print(f"{day_1_data['4. close']}")
+
+
 # When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-
-#TODO 1. - Get yesterday's closing stock price. Hint: You can perform list comprehensions on Python dictionaries. e.g. [new_value for (key, value) in dictionary.items()]
-
-#TODO 2. - Get the day before yesterday's closing stock price
 
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
 
