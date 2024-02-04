@@ -78,3 +78,15 @@ if False:
     
     pixela_response = requests.put(url=pixela_graph_date_specific_url, json=graph_date_post_parameters, headers=graph_header)
     print(f"{pixela_response}")
+
+
+#Deleting a pixel
+if False:
+    pixela_graph_date_specific_url = f"{pixela_user_url}/{USERNAME}/graphs/graph1/20240204"
+
+    graph_header = {
+        "X-USER-TOKEN": TOKEN
+    }
+
+    pixela_response = requests.delete(url=pixela_graph_date_specific_url, headers=graph_header)
+    print(f"{pixela_response}")
