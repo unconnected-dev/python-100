@@ -1,5 +1,4 @@
 #Basic Functions
-print("......................................................................")
 print("Basic Functions")
 
 #Basic function call
@@ -37,4 +36,34 @@ if False:
         print(fizzBuzz(i))
         i += 1
 
-print("-End of script-")
+#Passing functions as arguments
+if False:
+    def apply_operation(x, y, operation):
+        return operation(x, y)
+    
+    def add(x, y):
+        return x + y
+    
+    def multiply(x, y):
+        return x * y
+    
+    result_add = apply_operation(3, 4, add)
+    result_multiply = apply_operation(3, 4, multiply)
+
+    print(f"result_add: {result_add}")
+    print(f"result_multiply: {result_multiply}")
+
+#Lambda
+if False:
+    call = lambda a: a * 2
+
+    print(f"{call(2)}")
+
+#Sorting function
+if False:
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    is_even = lambda x: x % 2 == 0
+
+    #This splits the even numbers to the second half
+    sorted_numbers = sorted(numbers, key=is_even)
+    print(f"{sorted_numbers}")
