@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 USERNAME = ""
 TOKEN = ""
@@ -33,13 +34,14 @@ if False:
 
     pixela_response = requests.post(url=pixela_graph_url, json=graph_config, headers=graph_header)
 
-if True:
+if False:
     pixela_graph_specific_url = f"{pixela_user_url}/{USERNAME}/graphs/graph1"
 
     graph_header = {
         "X-USER-TOKEN": TOKEN
     }
 
+    
     graph_post_parameters = {
         "date":"20240204",
         "quantity":"5"
@@ -47,3 +49,11 @@ if True:
     
     pixela_response = requests.post(url=pixela_graph_specific_url, json=graph_post_parameters, headers=graph_header)
     print(f"{pixela_response}")
+
+#Could use strftime to post current date
+if False:
+    current_date = datetime.now()
+    print(f"{current_date.strftime('%Y%m%d')}")
+
+    a_previous_date = datetime(year=2020, month=1, day=30)
+    print(f"{a_previous_date.strftime('%Y%m%d')}")
