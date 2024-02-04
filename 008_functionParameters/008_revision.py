@@ -1,5 +1,4 @@
 #Basic Function Parameters
-print("......................................................................")
 print("Basic Functions Parameters")
 
 regArr = [0, 1, 5, 7, 0, 8]
@@ -66,7 +65,7 @@ if False:
 
 
 #Is palindrome
-if True:
+if False:
     def isPalindrome(p):
         stringP = str(p)
         left = 0
@@ -86,4 +85,12 @@ if True:
     else:
         print(f"{palindrome} is not a palindrome")
 
-print("-End of script-")
+
+#Keyword arguments
+if True:
+    def greet(name, age, greeting="Hello"):
+        return f"{greeting}, {name}. You are {age} years old."
+
+    response = greet(name="Bob", age=22, greeting="Hi")
+
+    print(f"{response}")
