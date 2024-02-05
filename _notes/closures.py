@@ -1,6 +1,6 @@
 #Closures
 #The concept of a function "closing over" or capturing the environment in which it was created
-#A fucntion object that has access to variables in its lexcial scopre, even when the function
+#A function object that has access to variables in its lexcial scope, even when the function
 #is called outside that scope
 
 #Basic closure
