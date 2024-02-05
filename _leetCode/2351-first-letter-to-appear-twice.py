@@ -4,7 +4,7 @@
 caseString_1 = "abccbaacz"
 caseString_2 = "abcdd"
 
-if True:
+if False:
     def repeatedCharacter(s):
         myDict = dict()
 
@@ -13,6 +13,14 @@ if True:
                 return c
             else:
                 myDict[c] = 1
+
+if True:
+    def repeatedCharacter(s):
+        mySet = set()
+        for c in s:
+            if c in mySet:
+                return c
+            mySet.add(c)
 
 print(f"{repeatedCharacter(caseString_1)}")
 print(f"{repeatedCharacter(caseString_2)}")
