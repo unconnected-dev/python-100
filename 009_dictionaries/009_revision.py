@@ -1,5 +1,4 @@
 #Basic Dictionaries
-print("......................................................................")
 print("Basic Dictionaries")
 
 #Basic dictionary
@@ -66,4 +65,13 @@ if False:
         for city in entry["cities"]:
             print(f"{city}")
 
-print("-End of script-")
+
+#Default values
+if True:
+    myDict = {}
+
+    for _ in range(10):
+        myDict[_] = f"{_}..."
+    
+    for i in range(-5, 5):
+        print(f"{myDict.get(i, f'{i} Not found')}")
