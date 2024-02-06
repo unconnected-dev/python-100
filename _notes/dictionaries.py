@@ -1,7 +1,7 @@
 #Dictionaries
 #An unordered collcetion of key-value pairs
 
-#Dicionary basics
+#Dictionary basics
 if False:
     # a_dict = dict()     #either = dict() or = {} can create a dictionary
     # b_dict = {}
