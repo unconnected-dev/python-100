@@ -19,7 +19,18 @@ if False:
         
         return True
 
-if True:
+if False:
+    def areOccurrencesEqual(s):
+        myDict = dict()
+
+        for c in s:
+            myDict[c] = myDict.get(c, 0) + 1
+        
+        mySet = set(myDict.values())
+
+        return len(mySet) == 1
+
+if False:
     def areOccurrencesEqual(s):
         mySet = set(Counter(s).values())
         return len(mySet) == 1
