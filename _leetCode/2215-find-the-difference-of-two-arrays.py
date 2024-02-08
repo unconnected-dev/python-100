@@ -7,7 +7,7 @@ caseNums2_1 = [2,4,6]
 caseNums1_2 = [1,2,3,3]
 caseNums2_2 = [1,1,2,2]
 
-if True:
+if False:
     def findDifference(nums1, nums2):
         mySet1 = set(nums1)
         mySet2 = set(nums2)
@@ -26,6 +26,17 @@ if True:
                 numB.append(s2)
 
         return [numA, numB]
+
+if True:
+    def findDifference(nums1, nums2):
+        s1 = set(nums1)
+        s2 = set(nums2)
+
+        #If the `-` operator is used between two sets
+        #It performs a set difference operation
+        #returning a new set containing elements in the first set 
+        #but not in the second set
+        return[list(s1 - s2), list(s2 - s1)]
 
 print(f"{findDifference(caseNums1_1, caseNums2_1)}")
 print(f"{findDifference(caseNums1_2, caseNums2_2)}")
