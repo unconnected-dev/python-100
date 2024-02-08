@@ -1,10 +1,11 @@
 #Check If All Characters Have Equal Number Of Occurences
 #https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/description/
+from collections import Counter
 
 caseString_1 = "abacbc"
 caseString_2 = "aaabb"
 
-if True:
+if False:
     def areOccurrencesEqual(s):
         myDict = dict()
 
@@ -17,6 +18,11 @@ if True:
                 return False
         
         return True
+
+if True:
+    def areOccurrencesEqual(s):
+        mySet = set(Counter(s).values())
+        return len(mySet) == 1
 
 print(f"{areOccurrencesEqual(caseString_1)}")
 print(f"{areOccurrencesEqual(caseString_2)}")
