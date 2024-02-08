@@ -13,7 +13,7 @@ caseNums1_3 = [1,2,2]
 caseNums2_3 = [4,3,3]
 caseNums3_3 = [5]
 
-if True:
+if False:
     def twoOutOfThree(nums1, nums2, nums3):
         num1Set = set(nums1)
         num2Set = set(nums2)
@@ -31,6 +31,20 @@ if True:
 
         return list(combinedSet);
 
+if True:
+    def twoOutOfThree(nums1, nums2, nums3):
+        num1Set = set(nums1)
+        num2Set = set(nums2)
+        num3Set = set(nums3)
+        
+        combinedSet = set()
+
+        combinedSet.update(num1Set.intersection(num2Set))
+        combinedSet.update(num1Set.intersection(num3Set))
+        combinedSet.update(num2Set.intersection(num3Set))
+
+        return list(combinedSet)
+    
 print(f"{twoOutOfThree(caseNums1_1, caseNums2_1, caseNums3_1)}")
 print(f"{twoOutOfThree(caseNums1_2, caseNums2_2, caseNums3_2)}")
 print(f"{twoOutOfThree(caseNums1_3, caseNums2_3, caseNums3_3)}")
