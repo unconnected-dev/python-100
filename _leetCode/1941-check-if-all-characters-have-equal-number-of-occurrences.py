@@ -30,6 +30,15 @@ if False:
 
         return len(mySet) == 1
 
+if True:
+    def areOccurrencesEqual(s):
+        returnList = []
+
+        for c in s:
+            returnList.append(s.count(c))
+        
+        return len(set(returnList)) == 1
+
 if False:
     def areOccurrencesEqual(s):
         mySet = set(Counter(s).values())
