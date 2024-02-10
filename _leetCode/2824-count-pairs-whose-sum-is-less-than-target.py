@@ -7,7 +7,7 @@ caseTarget_1 = 2
 caseNums_2 = [-6,2,5,-2,-7,-1,3]
 caseTarget_2 = -2
 
-if True:
+if False:
     def countPairs(nums, target):
         c = 0
 
@@ -16,6 +16,24 @@ if True:
                 if nums[i] + nums[j] < target:
                     c+=1
 
+        return c
+
+if True:
+    def countPairs(nums, target):
+        nums.sort()
+        c = 0
+        left = 0
+        right = len(nums) - 1
+
+        while left < right:
+            if nums[left] + nums[right] < target:
+                #counts all pairs satisfying condition
+                #due to nums being sorted
+                c += right - left
+                left += 1
+            else:
+                right -= 1
+        
         return c
 
 print(f"{countPairs(caseNums_1, caseTarget_1)}")
