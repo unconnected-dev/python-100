@@ -7,7 +7,7 @@ caseArr2_1 = [2,1,4,3,9,6]
 caseArr1_2 = [28,6,22,8,44,17]
 caseArr2_2 = [22,28,8,6]
 
-if True:
+if False:
     def relativeSortArray(arr1, arr2):
         mySet = set(arr2)
         inList = []
@@ -27,6 +27,17 @@ if True:
             inList.append(val)
 
         return inList
+
+if True:
+    def relativeSortArray(arr1, arr2):
+        return_lst = []    
+
+        for n in arr2:
+            while n in arr1:
+                return_lst.append(n)
+                arr1.remove(n)
+
+        return return_lst + sorted(arr1) 
 
 print(f"{relativeSortArray(caseArr1_1, caseArr2_1)}")
 print(f"{relativeSortArray(caseArr2_1, caseArr2_2)}")
