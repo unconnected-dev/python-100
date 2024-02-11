@@ -1,5 +1,4 @@
 #Basic Function Outputs
-print("......................................................................")
 print("Basic Function Outputs")
 
 #Return tuple
@@ -42,7 +41,7 @@ if False:
     print(f"{d}")
 
 #Dictionary functions
-if True:
+if False:
     def add(n1, n2):
         return n1 + n2
     
@@ -61,4 +60,15 @@ if True:
 
     print(f"The result is: {newOperation(num1, num2)}")
 
-print("-End of script-")
+#Positional arguments
+if False:
+    def combo(*numbers):
+        print(f"{numbers}")
+        total = 0
+        for num in numbers:
+            total += num
+        
+        return total
+    
+    print(f"{combo(1,2,*[3,4])}")
+
