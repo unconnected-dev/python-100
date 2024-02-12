@@ -116,9 +116,46 @@ if False:
     print(f"{lastThree([1,2,3,4,5,6])}")
 
 #Every other element
-if True:
+if False:
     def everyOther(nums):
         return nums[::2]
     
     print(f"{everyOther([1,2,3,4,5,6])}")
+
+#Reversed with slice
+if False:
+    def reverseSliced(nums):
+        return nums[len(nums)-1::-1]
     
+    print(f"{reverseSliced([1,2,3,4,5,6])}")
+
+#String of odd indicies
+if False:
+    def oddIndicies(s):
+        return s[1::2]
+
+    print(f"{oddIndicies('notimetodie')}")
+
+#Square numbers
+if False:
+    def squareNumbers(nums):
+        return [n**2 for n in nums]
+    
+    print(f"{squareNumbers([1,2,3,4,5,6])}")
+
+if False:
+    def squareNumbers(nums):
+        return list(map(lambda n: n ** 2, nums))
+    
+    print(f"{squareNumbers([1,2,3,4,5,6])}")
+
+if True:
+    import random
+    def randomlyMix(nums):
+        return sorted(nums, key = lambda n: random.randint(0, 5))
+
+    l = []
+    for i in range(100):
+        l.append(i)
+
+    print(f"{randomlyMix(l)}")
