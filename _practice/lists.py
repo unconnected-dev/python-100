@@ -97,3 +97,28 @@ if False:
     
     print(f"{removeAllOdd(l)}")
     
+#2 to 5
+if False:
+    def twoToFive(nums):
+        return nums[2:5]
+
+    l = []
+    for i in range(10):
+        l.append(i)
+    
+    print(f"{twoToFive(l)}")
+    
+#Last three elements
+if False:
+    def lastThree(nums):
+        return nums[-3:]
+
+    print(f"{lastThree([1,2,3,4,5,6])}")
+
+#Every other element
+if True:
+    def everyOther(nums):
+        return nums[::2]
+    
+    print(f"{everyOther([1,2,3,4,5,6])}")
+    
