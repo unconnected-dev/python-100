@@ -149,7 +149,8 @@ if False:
     
     print(f"{squareNumbers([1,2,3,4,5,6])}")
 
-if True:
+#Mix a list of numbers
+if False:
     import random
     def randomlyMix(nums):
         return sorted(nums, key = lambda n: random.randint(0, 5))
@@ -159,3 +160,37 @@ if True:
         l.append(i)
 
     print(f"{randomlyMix(l)}")
+
+#Sum of squares
+if False:
+    def sumOfSquares(nums):
+        total = 0
+        for n in nums:
+            total += n**2
+
+        return total
+    
+    print(f"{sumOfSquares([1,2,3,4,5,6])}")
+
+#Combine two lists
+if False:
+    def combine(a,b):
+        l = []
+        for i in range(len(a)):
+            l.append([a[i],b[i]])
+
+        return l
+
+    print(f"{combine([1,2,3],['a','b','c'])}")
+
+#Flatten lists
+if False:
+    def flattenLists(l):
+        rl = []
+        for a in l:
+            for b in a:
+                rl.append(b)
+        
+        return rl
+    
+    print(f"{flattenLists([[1, 2], [3, 4], [5, 6]])}")
