@@ -1,8 +1,8 @@
 #Files
 
 #File paths can be absolute or relative
-absolute_path_name = "C:/_GitHub/python-100/_notes/file_data/data.txt"
-relative_path_name = "./_notes/file_data/data.txt"
+absolute_path_name = "C:/_GitHub/python-100/_notes/file_data/read_from/data.txt"
+relative_path_name = "./_notes/file_data/read_from/data.txt"
 
 
 #Opening file
@@ -47,7 +47,7 @@ if False:
     
         return contents
     
-    write_to_relative_path_name = "./_notes/file_data/write/write_file.txt"
+    write_to_relative_path_name = "./_notes/file_data/write_to/write_file.txt"
     print(f"{writeToFile(write_to_relative_path_name)}")
 
 
@@ -82,9 +82,9 @@ if False:
                     write_file.write(letter_contents)
 
 
-    template_relative_file_path = "./_notes/file_data/template.txt"
-    template_data_relative_file_path = "./_notes/file_data/template_data.csv"
-    write_to_relative_path_name = "./_notes/file_data/write"
+    template_relative_file_path = "./_notes/file_data/read_from/template.txt"
+    template_data_relative_file_path = "./_notes/file_data/read_from/template_data.csv"
+    write_to_relative_path_name = "./_notes/file_data/write_to"
     generateLetters(template_relative_file_path, template_data_relative_file_path, write_to_relative_path_name)
 
 
@@ -119,8 +119,7 @@ if False:
                     write_file.write(letter_contents)
 
 
-    template_relative_file_path = "./_notes/file_data/template.txt"
-    template_data_relative_file_path = "./_notes/file_data/template_data.csv"
-    write_to_relative_path_name = "./_notes/file_data/write"
+    template_relative_file_path = "./_notes/file_data/read_from/template.txt"
+    template_data_relative_file_path = "./_notes/file_data/read_from/template_data.csv"
+    write_to_relative_path_name = "./_notes/file_data/write_to"
     generateLetters(template_relative_file_path, template_data_relative_file_path, write_to_relative_path_name)
-
