@@ -123,3 +123,45 @@ if False:
     template_data_relative_file_path = "./_notes/file_data/read_from/template_data.csv"
     write_to_relative_path_name = "./_notes/file_data/write_to"
     generateLetters(template_relative_file_path, template_data_relative_file_path, write_to_relative_path_name)
+
+#Generate random csv file
+if True:
+    import csv
+    import random
+
+    def generate_random_data():
+        return {
+            #Return a k sized list of population elements chosen with replacement
+            'name': ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=5)),
+            'age': random.randint(18, 65),
+            'salary': random.randint(30000,100000),
+            'department': random.choice(['IT','HR','Finance'])
+        }
+    
+
+    #newline is used to control how line endings are handled
+    #setting newline='' in the open() function call specifies that
+    #line endings should be handled in universal newlines mode
+
+    #universal newlines mode means python will automatically handle 
+    #different newline characters ('\n', '\r', '\r\n') when reading 
+    #or writing files
+
+    #when writing to a file it ensures newlines are written using the
+    #system's native newline characters. windows ('\r\n')
+
+    #when reading from a file it ensures any of the newline characters
+    #willl be recognized as a newline, providing consistent behavior
+    write_to_relative_path_name = "./_notes/file_data/write_to"
+    with open(f"{write_to_relative_path_name}/random_data.csv", 'w', newline='') as csv_file:
+        fieldnames =['name','age','salary','department']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+        #writeheader() is used to write the header/first row to the csv file
+        #Based on the fieldnames submitted
+        writer.writeheader()
+
+        #writerow is used to write each additional row after the header
+        #it requires a dicionary as an argument
+        for _ in range(10):
+            writer.writerow(generate_random_data())
