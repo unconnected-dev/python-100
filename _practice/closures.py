@@ -30,3 +30,34 @@ if False:
     avg = calcFunc()
     print(avg(10))
     print(avg(20))
+
+#Multiplier function
+if False:
+    def multiplier(m):
+        mult = m
+        def by(n):
+            nonlocal mult
+            return mult * n
+        return by
+    
+    double = multiplier(2)
+    print(f"{double(5)}")
+    triple = multiplier(3)
+    print(f"{triple(5)}")
+
+#Password generator
+if False:
+    import random
+    def password_generator():
+        chars = "abcdefghijklmnopqrstuvwxyz"
+        def gen(n):
+            nonlocal chars
+            password = [random.choice(chars) for i in range(n)]
+            return ''.join(password)
+        return gen
+    
+    generate_password = password_generator()
+    print(generate_password(5))
+    print(generate_password(10))
+
+
