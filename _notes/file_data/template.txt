@@ -1,0 +1,9 @@
+Hello, [name]!
+
+We are excited to inform you that your [product] has been shipped.
+Your order number is [order_number].
+
+Thank you for choosing our services.
+
+Best regards,
+[company_name]
