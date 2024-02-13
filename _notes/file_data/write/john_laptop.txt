@@ -1,0 +1,9 @@
+Hello, John!
+
+We are excited to inform you that your Laptop has been shipped.
+Your order number is 12345.
+
+Thank you for choosing our services.
+
+Best regards,
+Tech Solutions Inc.

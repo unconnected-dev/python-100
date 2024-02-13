@@ -47,5 +47,80 @@ if False:
     
         return contents
     
-    create_relative_path_name = "./_notes/file_data/write_file.txt"
-    print(f"{writeToFile(create_relative_path_name)}")
+    write_to_relative_path_name = "./_notes/file_data/write/write_file.txt"
+    print(f"{writeToFile(write_to_relative_path_name)}")
+
+
+#Replacing tags in a template file with csv file data
+if False:
+    NAME_TAG = "[name]"
+    PRODUCT_TAG = "[product]"
+    ORDER_NUMBER_TAG = "[order_number]"
+    COMPANY_NAME_TAG = "[company_name]"
+
+    def generateLetters(template_file_path, template_data_file_path, write_to_file_path):
+        with open(template_data_file_path, 'r') as template_data_file:
+            entries = template_data_file.readlines()
+            entries = entries[1:]
+
+        with open(template_file_path) as template_file:
+            template_contents = template_file.read()
+
+            for entry in entries:
+                entry_list = entry.split(',')
+                name = entry_list[0].strip()
+                product = entry_list[1].strip()
+                order_number = entry_list[2].strip()
+                company_name = entry_list[3].strip()
+    
+                letter_contents = template_contents.replace(NAME_TAG, name)\
+                                                .replace(PRODUCT_TAG, product)\
+                                                .replace(ORDER_NUMBER_TAG, order_number)\
+                                                .replace(COMPANY_NAME_TAG, company_name)
+                
+                with open(f"{write_to_file_path}/{name.lower()}_{product.lower()}.txt", 'w') as write_file:
+                    write_file.write(letter_contents)
+
+
+    template_relative_file_path = "./_notes/file_data/template.txt"
+    template_data_relative_file_path = "./_notes/file_data/template_data.csv"
+    write_to_relative_path_name = "./_notes/file_data/write"
+    generateLetters(template_relative_file_path, template_data_relative_file_path, write_to_relative_path_name)
+
+
+if False:
+    import pandas
+
+    NAME_TAG = "[name]"
+    PRODUCT_TAG = "[product]"
+    ORDER_NUMBER_TAG = "[order_number]"
+    COMPANY_NAME_TAG = "[company_name]"
+
+    def generateLetters(template_file_path, template_data_file_path, write_to_file_path):
+        with open(template_data_file_path, 'r') as template_data_file:
+            entries_data = pandas.read_csv(template_data_file)
+            print(entries_data)
+
+        with open(template_file_path, 'r') as template_file:
+            template_contents = template_file.read()
+
+            for index, row in entries_data.iterrows():
+                name = row['name'].strip()
+                product = row['product'].strip()
+                order_number = row['order_number']
+                company_name = row['company_name'].strip()
+    
+                letter_contents = template_contents.replace(NAME_TAG, name)\
+                                                .replace(PRODUCT_TAG, product)\
+                                                .replace(ORDER_NUMBER_TAG, str(order_number))\
+                                                .replace(COMPANY_NAME_TAG, company_name)
+                
+                with open(f"{write_to_file_path}/{name.lower()}_{product.lower()}.txt", 'w') as write_file:
+                    write_file.write(letter_contents)
+
+
+    template_relative_file_path = "./_notes/file_data/template.txt"
+    template_data_relative_file_path = "./_notes/file_data/template_data.csv"
+    write_to_relative_path_name = "./_notes/file_data/write"
+    generateLetters(template_relative_file_path, template_data_relative_file_path, write_to_relative_path_name)
+
