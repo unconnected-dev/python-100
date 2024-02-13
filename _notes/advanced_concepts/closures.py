@@ -23,6 +23,9 @@ if False:
     def counter():
         count = 0
         def increment():
+            #`nonlocal` is used inside nested functions to indicate that a variable 
+            #referenced in the nested function is not local to it, nor is it global
+            #Instead, it's in the nearest enclosing scope which is not global
             nonlocal count
             count += 1
             return count
