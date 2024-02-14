@@ -4,7 +4,7 @@
 caseStrs_1 = ["alic3","bob","3","4","00000"]
 caseStrs_2 = ["1","01","001","0001"]
 
-if True:
+if False:
     def maximumValue(strs) -> int:
         max_val = 0
 
@@ -18,6 +18,14 @@ if True:
                 if val > max_val:
                     max_val = val
             
+        return max_val
+
+if True:
+    def maximumValue(strs) -> int:
+        max_val = 0
+        for el in strs:
+            max_val = max(max_val, int(el)) if el.isdigit() else max(max_val, len(el))
+        
         return max_val
 
 print(f"{maximumValue(caseStrs_1)}")
