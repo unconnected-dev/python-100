@@ -44,3 +44,24 @@ if False:
 
     input_scores = {'Alice': 92, 'Bob': 78, 'Charlie': 64, 'David': 88}
     print(f"{letterGrades(input_scores)}")
+
+#Squares dictionary
+if False:
+    def squares(n):
+        return {n: n**n for n in range(n)}
+    
+    print(f"{squares(11)}")
+
+#Reverse words
+if False:
+    def reverseWords(words):
+        return {word: word[::-1] for word in words}
+    
+    print(f"{reverseWords(['apple','pear','pot'])}")
+
+#Celsius to farenheit
+if False:
+    def convertTemperature(temps):
+        return {c: (c*9/5) + 32 for c in temps}
+
+    print(f"{convertTemperature([10,20,30])}")
