@@ -39,10 +39,54 @@ if False:
     print(result)
 
 #Sign of a number
-if True:
+if False:
     def signOfANumber(n):
         return 'Positive' if n > 0 else 'Negative' if n < 0 else 'Zero'
     
     print(f"{signOfANumber(-1)}")
     print(f"{signOfANumber(0)}")
     print(f"{signOfANumber(1)}")
+
+#Grade checker
+if False:
+    def gradeChecker(n):
+        return 'Passed' if n >= 60 else 'Failed'
+    
+    print(f"{gradeChecker(59)}")
+    print(f"{gradeChecker(60)}")
+    print(f"{gradeChecker(61)}")
+
+#Absolute
+if False:
+    def absolute(n):
+        return n if n >= 0 else n * -1
+    
+    print(f"{absolute(-1)}")
+    print(f"{absolute(1)}")
+
+#Sign check
+if False:
+    def signCheck(n):
+        return 'Positive' if n > 0 else 'Negative' if n < 0 else 'Zero'
+    
+    print(f"{signCheck(-1)}")
+    print(f"{signCheck(0)}")
+    print(f"{signCheck(1)}")
+
+#String length
+if False:
+    def checkStringLength(s):
+        return 'Short' if len(s) <= 5 else 'Long'
+
+    print(f"{checkStringLength("some characters")}") 
+    print(f"{checkStringLength("no")}") 
+
+#Age classifier
+if False:
+    def classify(age):
+        return 'Child' if age < 18 else 'Adult' if age >= 18 and age <= 65 else 'Senior'
+
+    print(f"{classify(17)}") 
+    print(f"{classify(18)}") 
+    print(f"{classify(65)}") 
+    print(f"{classify(66)}") 
