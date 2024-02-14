@@ -28,6 +28,12 @@ if True:
         print(f"{csv_data}")
 
 
+    #Get size of a DataFrame
+    if False:
+       print(f"{csv_data.shape}")   
+       print(f"{list(csv_data.shape)}")  
+
+
     #Iterating through rows of a DataFrame
     if False:
         for (index, row) in csv_data.iterrows():
@@ -39,11 +45,20 @@ if True:
         print(f"{csv_data['name']}")
         print(f"{csv_data.name}")
 
-    
+
     #Selecting rows
     if False:
+        #Select from top
+        print(f"{csv_data.head(5)}")
+        #Selecting a slice
+        print(f"{csv_data[0:5]}")
+
+
+    #Selecting rows by condition
+    if False:
         print(f"{csv_data[csv_data.department == 'IT']}")
-        print(f"{csv_data[csv_data.salary >= 70000]}")
+        #Specifying columns to be selected
+        print(f"{csv_data[csv_data.salary >= 70000][["name","age"]]}")
 
 
     #Convert to dict
@@ -101,3 +116,14 @@ if False:
     #Creating a new DataFrame from a dict
     squir_count_data = pandas.DataFrame(squir_dict)
     print(f"{squir_count_data}")
+
+
+#Creating a DataFrame from a list
+if False:
+    data_list = [[1,15],[2,11],[3,11],[4,20]]
+
+    #Column names need to be created and passed along with the list
+    #or they are named indexes 0 > n
+    col_names = ['student_id', 'age']
+    student_data = pandas.DataFrame(data_list, columns=col_names)
+    print(f"{student_data}")
