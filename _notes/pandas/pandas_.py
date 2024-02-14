@@ -28,6 +28,12 @@ if True:
         print(f"{csv_data}")
 
 
+    #Iterating through rows of a DataFrame
+    if False:
+        for (index, row) in csv_data.iterrows():
+            print(f"{row}")
+
+
     #Selecting a column (series)
     if False:
         print(f"{csv_data['name']}")
@@ -54,6 +60,14 @@ if True:
         csv_data_dict = csv_data.to_dict()
         print(f"{csv_data_dict}")
     
+
+    #Converting to a regular dict
+    #Using dictionary comprehension and iterrows a more normal dictionary
+    #can be created
+    if False:
+        csv_dict = {row['name']: row['salary'] for (index, row) in csv_data.iterrows()}
+        print(f"{csv_dict}")
+
 
     #Convert column (series) to list
     if False:
