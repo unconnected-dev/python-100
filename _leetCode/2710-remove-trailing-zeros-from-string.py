@@ -4,7 +4,7 @@
 caseNum_1 = "51230100"
 caseNum_2 = "123"
 
-if True:
+if False:
     def removeTrailingZeros(num):
         pos = None
 
@@ -18,6 +18,10 @@ if True:
             return num
         else:
             return num[:pos]
+        
+if True:
+    def removeTrailingZeros(num):
+        return num.rstrip("0")
         
 print(f"{removeTrailingZeros(caseNum_1)}")
 print(f"{removeTrailingZeros(caseNum_2)}")
