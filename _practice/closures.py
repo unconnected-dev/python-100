@@ -123,7 +123,7 @@ if False:
     print(memorize_add(1,2))
 
 #Function logger
-if True:
+if False:
     def greet(name):
         print(f"Hello {name}")
 
@@ -136,3 +136,59 @@ if True:
 
     log_greet = function_logger(greet)#greet is the function
     log_greet('Alice')
+
+#Timer
+if False:
+    import time 
+
+    def timer(func):
+        def wrapper(*args, **kwargs):
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            end_time = time.time()
+            print(f"Function '{func.__name__}' took {end_time - start_time} seconds to complete.")
+            return result
+        return wrapper
+    
+    def example_function(n):
+        total = 0
+        for i in range(n):
+            total += i
+        return total
+    
+    example = timer(example_function)
+
+    result = example(100000)
+    print(f"result: {result}")
+
+#Fibonacci
+if False:
+    def fibonacci():
+        a = 0
+        b = 1
+        def wrapper():
+            nonlocal a
+            nonlocal b
+
+            t = a + b
+            a = b
+            b = t
+            return t
+        return wrapper
+
+    fib = fibonacci()
+    for _ in range(10):
+        print(f"{fib()}")
+    
+if True:
+    def fibonacci():
+        a, b = 0, 1
+        def wrapper():
+            nonlocal a, b
+            a, b = b, a + b
+            return b
+        return wrapper
+
+    fib = fibonacci()
+    for _ in range(10):
+        print(f"{fib()}")
