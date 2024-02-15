@@ -10,10 +10,15 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def dropMissingData(students):
         #Returns a new DataFrame with missing values removed
         students = students.dropna()
         return students
-    
+
+if True:
+    def dropMissingData(students):
+        students = students.dropna(subset='name')
+        return students
+
 print(f"{dropMissingData(caseDataFrame).to_markdown(index=False)}")
