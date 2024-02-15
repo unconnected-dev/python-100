@@ -36,7 +36,6 @@ if True:
         #df2 will have the indices of rows where students name column is missing
         #df2 is a Pandas index object
         df2 = students[students['name'].isnull()].index
-        print(df2)
         students.drop(df2, inplace = True)
         return students
 
