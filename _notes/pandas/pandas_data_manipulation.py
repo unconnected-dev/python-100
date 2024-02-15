@@ -25,9 +25,26 @@ if True:
 
 
     #Renaming columns
-    if True:
+    if False:
         csv_data.columns = ["name", "age", "salary", "dept"]
         print(f"{csv_data}")
+
+
+#Filling missing data
+if False:
+    exampleData = {
+        "name": ["Wristwatch", "WirelessEarbuds", "GolfClubs", "Printer"],
+        "quantity": [None, None, 779, 849],
+        "price": [135, 821, 9319, 3051]
+    }
+
+    #name, quantity, price
+    exampleDataFrame = pandas.DataFrame(exampleData)
+
+    #Filling missing data with 0
+    exampleDataFrame["quantity"] = exampleDataFrame["quantity"].fillna(0)
+
+    print(f"{exampleDataFrame}")
 
 
 #Dropping duplicate rows
@@ -65,3 +82,24 @@ if False:
     exampleDataFrame = exampleDataFrame.dropna(subset='name')
 
     print(f"{exampleDataFrame}")
+
+
+#Merging DataFrames (tables)
+if True:
+    exampleData_1 = {
+        "student_id": [1, 2, 3, 4],
+        "name": ["Mason", "Ava", "Taylor", "Georgia"],
+        "age": [8, 6, 15, 17]
+    }
+
+    exampleData_2 = {
+        "student_id": [5, 6],
+        "name": ["Leo", "Alex"],
+        "age": [7, 7]
+    }
+    
+    df1 = pandas.DataFrame(exampleData_1)
+    df2 = pandas.DataFrame(exampleData_2)
+    df_combined = pandas.concat([df1, df2])
+    
+    print(f"{df_combined}")
