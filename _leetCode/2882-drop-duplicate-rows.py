@@ -2,7 +2,7 @@
 #https://leetcode.com/problems/drop-duplicate-rows/description/
 import pandas
 
-caseData = data = {
+caseData = {
     "customer_id": [1, 2, 3, 4, 5, 6],
     "name": ["Ella", "David", "Zachary", "Alice", "Finn", "Violet"],
     "email": ["emily@example.com", "michael@example.com", "sarah@example.com", "john@example.com", "john@example.com", "alice@example.com"]
