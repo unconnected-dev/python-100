@@ -11,9 +11,14 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def changeDatatype(students):
         students = students.astype({'grade': 'int'})
         return students
 
+if True:
+    def changeDatatype(students):
+        # students['grade'] = students[['grade']].astype(int) # changing datatype to int.
+        return students
+    
 print(f"{changeDatatype(caseDataFrame)}")
