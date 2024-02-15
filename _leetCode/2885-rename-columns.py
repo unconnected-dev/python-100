@@ -11,9 +11,20 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def renameColumns(students):
         students.columns = ["student_id", "first_name", "last_name", "age_in_years"]
+        return students
+
+if True:
+    def renameColumns(students):
+        students = students.rename(columns = { 
+                "id": "student_id", 
+                "first": "first_name", 
+                "last": "last_name", 
+                "age": "age_in_years",
+                })
+        
         return students
     
 print(f"{renameColumns(caseDataFrame).to_markdown(index=False)}")
