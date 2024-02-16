@@ -104,3 +104,11 @@ if False:
         return [[row[col] for row in matrix] for col in range(len(matrix[0]))]
 
     print(f"{nestedComprehensions([[1,2,3],[4,5,6]])}")
+
+
+#Linux test
+if True:
+    def testComprehension():
+        return [i for i in range(0, 10) if i % 2 == 0]
+    
+    print(f"{testComprehension()}")
