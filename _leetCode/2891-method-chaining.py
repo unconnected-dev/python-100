@@ -11,12 +11,16 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def findHeavyAnimals(animals):
         animals = animals[["name", "weight"]]
         heavy_animals = animals[animals["weight"] > 100]
         heavy_animals = heavy_animals.sort_values(by="weight", ascending=False)[["name"]]
 
         return heavy_animals
+
+if True:
+    def findHeavyAnimals(animals):
+        return animals[animals['weight'] > 100].sort_values(by="weight",ascending=False)[['name']]
     
 print(f"{findHeavyAnimals(caseDataFrame).to_markdown(index=False)}")
