@@ -65,3 +65,28 @@ if False:
         return {c: (c*9/5) + 32 for c in temps}
 
     print(f"{convertTemperature([10,20,30])}")
+
+#Cube even numbers
+if False:
+    def cubeEvenNumbers(nums):
+        return{n: n**3 for n in nums if n % 2 == 0}
+
+    nl = [n for n in range(21)]
+    print(f"{cubeEvenNumbers(nl)}")
+
+#Even / False
+if False:
+    def evenOrFalse(nums):
+        return{n: 'Even' if n % 2 == 0 else 'Odd' for n in nums}
+    
+    nl = [n for n in range(1, 11)]
+    print(f"{evenOrFalse(nl)}")
+
+#Strings length
+if False:
+    def stringsLengths(words):
+        return {w: len(w) for w in words}
+
+    wl = ["apple", "pear", "pot"]
+    print(f"{stringsLengths(wl)}")
+
