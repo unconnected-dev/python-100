@@ -1,0 +1,20 @@
+#Sorting The Sentence
+#https://leetcode.com/problems/sorting-the-sentence/description/
+
+caseS_1 = "is2 sentence4 This1 a3"
+caseS_2 = "Myself2 Me1 I4 and3"
+
+if True:
+    def sortSentence(s):
+        ls = s.split()
+        rs = [None for i in range(9)]
+        
+        for w in ls:
+            w_ = w[:-1]
+            n_ = w[-1]
+            rs[int(n_)] = w_
+
+        return [w for w in rs if w != None]
+
+print(f"{sortSentence(caseS_1)}")
+print(f"{sortSentence(caseS_2)}")
