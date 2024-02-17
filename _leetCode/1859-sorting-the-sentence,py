@@ -4,7 +4,7 @@
 caseS_1 = "is2 sentence4 This1 a3"
 caseS_2 = "Myself2 Me1 I4 and3"
 
-if True:
+if False:
     def sortSentence(s):
         ls = s.split()
         rs = [None for i in range(9)]
@@ -15,6 +15,14 @@ if True:
             rs[int(n_)] = w_
 
         return [w for w in rs if w != None]
+
+if True:
+    def sortSentence(s):
+        list_of_words = s.split()
+        func_ = lambda word: int(word[-1])
+        list_of_words = sorted(list_of_words, key=func_)
+        
+        return [w[:-1] for w in list_of_words]
 
 print(f"{sortSentence(caseS_1)}")
 print(f"{sortSentence(caseS_2)}")
