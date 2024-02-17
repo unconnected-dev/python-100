@@ -14,7 +14,7 @@ if False:
             n_ = w[-1]
             rs[int(n_)] = w_
 
-        return [w for w in rs if w != None]
+        return ' '.join([w for w in rs if w != None])
 
 if True:
     def sortSentence(s):
@@ -22,7 +22,7 @@ if True:
         func_ = lambda word: int(word[-1])
         list_of_words = sorted(list_of_words, key=func_)
         
-        return [w[:-1] for w in list_of_words]
+        return ' '.join([w[:-1] for w in list_of_words])
 
 print(f"{sortSentence(caseS_1)}")
 print(f"{sortSentence(caseS_2)}")
