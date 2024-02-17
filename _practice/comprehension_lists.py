@@ -149,3 +149,33 @@ if False:
     
     nl = [n for n in range(1,11)]
     print(f"{squareOrCube(nl)}")
+
+#Multiples
+if False:
+    def multiples(nums):
+        return[[n*i for i in range(1,11)] for n in nums]
+    
+    nl = [n for n in range(1, 11)]
+    print(f"{multiples(nl)}")
+
+#Divisors
+if False:
+    def divisors(nums):
+        return[[i for i in range(1,11) if n % i == 0] for n in nums]
+    
+    nl = [n for n in range(1, 11)]
+    print(f"{divisors(nl)}")
+
+#Hex
+if False:
+    def toHex(nums):
+        return [hex(n) for n in nums]
+    
+    print(toHex([i for i in range(1, 11)]))
+
+#Lengths
+if False:
+    def getLengths(words):
+        return [len(w) for w in words]
+    
+    print(f'{getLengths(["word", "apple", "example"])}')
