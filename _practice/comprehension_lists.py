@@ -107,8 +107,45 @@ if False:
 
 
 #Linux test
-if True:
+if False:
     def testComprehension():
         return [i for i in range(0, 10) if i % 2 == 0]
     
     print(f"{testComprehension()}")
+
+#Odd numbers
+if False:
+    def oddNumbers():
+        return [i for i in range(0, 11) if i % 2 == 1]
+    
+    print(f"{oddNumbers()}")
+
+#Square numbers
+if False:
+    def squareNumbers():
+        return [i**2 for i in range(1,11)]
+    
+    print(f"{squareNumbers()}")
+
+#Even cubes
+if False:
+    def evenCubes():
+        return [i**3 for i in range(1, 21) if i % 2 == 0]
+    
+    print(f"{evenCubes()}")
+
+#Length of words
+if False:
+    def lengthOfWords(words):
+        return [len(w) for w in words]
+    
+    lw = ["example", "fruit", "a long string"]
+    print(f"{lengthOfWords(lw)}")
+
+#Square or cube
+if False:
+    def squareOrCube(nums):
+        return [n**2 if n%2==0 else n**3 for n in nums]
+    
+    nl = [n for n in range(1,11)]
+    print(f"{squareOrCube(nl)}")
