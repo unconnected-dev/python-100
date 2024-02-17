@@ -59,9 +59,55 @@ if False:
     print(f"{calcSquareRoots([4,25,36])}")
 
 #Convert a list of integers to their corresponding binary representation
-if True:
+if False:
     def toBinary(nums):
         f = lambda n: bin(n)
         return list(map(f, nums))
 
     print(f"{toBinary([1,2,3,4,5,6])}")
+
+#Square or cube
+if False:
+    def squareOrCube(nums):
+        f = lambda n: n**2 if n%2==0 else n**3
+        return list(map(f, nums))
+    
+    print(f"{squareOrCube([n for n in range(1,11)])}")
+
+#Primes
+if False:
+    def isPrime(n):
+        if n < 2:
+            return False
+        
+        for i in range(2, n//2 + 1):
+            if n%i==0:
+                return False
+        
+        return True
+    
+
+    def isPrimes(nums):
+        f = lambda n: isPrime(n)
+        return list(map(f, nums))
+    
+    print(f"{isPrimes([n for n in range(1,11)])}")
+
+#Multiples
+if False:
+    def makeMultiples(n):
+        return [n*i for i in range(1, 11)]
+
+    def mapMultiples(nums):    
+        f = lambda n: makeMultiples(n)
+        return list(map(f, nums))
+    
+    print(f"{mapMultiples([n for n in range(1,11)])}")
+
+#Divisors
+if True:
+    def mapDivisors(nums):
+        f = lambda n: [i for i in range(1,11) if n % i == 0]
+        return list(map(f, nums))
+    
+    print(f"{mapDivisors([i for i in range(1,11)])}")
