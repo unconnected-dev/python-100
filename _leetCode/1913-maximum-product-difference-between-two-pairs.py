@@ -4,7 +4,7 @@
 caseNums_1 = [5,6,2,7,4]
 caseNums_2 = [4,2,5,9,7,4,8]
 
-if True:
+if False:
     def maxProductDifference(nums):
         nums_ = sorted(nums)
         a = nums_[-1]
@@ -13,6 +13,11 @@ if True:
         d = nums_[1]
 
         return (a*b) - (c*d)
-    
+
+if True:
+    def maxProductDifference(nums):
+        nums_ = sorted(nums)
+        return (nums_[-1] * nums_[-2]) - (nums_[0] * nums_[1])
+
 print(f"{maxProductDifference(caseNums_1)}")
 print(f"{maxProductDifference(caseNums_2)}")
