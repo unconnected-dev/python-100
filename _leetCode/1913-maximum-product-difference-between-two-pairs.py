@@ -14,10 +14,34 @@ if False:
 
         return (a*b) - (c*d)
 
-if True:
+if False:
     def maxProductDifference(nums):
         nums_ = sorted(nums)
         return (nums_[-1] * nums_[-2]) - (nums_[0] * nums_[1])
+
+if True:
+    def maxProductDifference(nums):
+        a = float('-inf')
+        b = float('-inf')
+        c = float('inf')
+        d = float('inf')
+
+        for n in nums:
+            if n >= a:
+                b = a
+                a = n
+            elif b < n < a:
+                b = n
+
+            if n <= c:
+                d = c
+                c = n
+            elif d > n > c:
+                d = n
+
+        return (a*b) - (c*d)
+
+
 
 print(f"{maxProductDifference(caseNums_1)}")
 print(f"{maxProductDifference(caseNums_2)}")
