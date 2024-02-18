@@ -4,7 +4,7 @@
 caseNums_1 = [5,4,2,3]
 caseNums_2 = [2,5]
 
-if True:
+if False:
     def numberGame(nums):
         rl = []
         while len(nums) > 0:
@@ -17,6 +17,15 @@ if True:
             rl.append(alice)
 
         return rl
+
+if True:
+    def numberGame(nums):
+        nums.sort()
+
+        for i in range(0, len(nums), 2):
+            nums[i], nums[i+1] = nums[i+1], nums[i]
+        
+        return nums
 
 print(f"{numberGame(caseNums_1)}")
 print(f"{numberGame(caseNums_2)}")
