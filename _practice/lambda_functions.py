@@ -105,9 +105,42 @@ if False:
     print(f"{mapMultiples([n for n in range(1,11)])}")
 
 #Divisors
-if True:
+if False:
     def mapDivisors(nums):
         f = lambda n: [i for i in range(1,11) if n % i == 0]
         return list(map(f, nums))
     
     print(f"{mapDivisors([i for i in range(1,11)])}")
+
+#Square or cube
+if False:
+    def squareOrCube(nums):
+        f = lambda n: n**2 if n %2==0 else n**3
+        return list(map(f, nums))
+
+    print(f"{squareOrCube([i for i in range(1,10)])}")
+
+#Upper lower
+if False:
+    def upperLower(words):
+        f = lambda w: w[1].upper() if w[0]%2==1 else w[1].lower()
+        return ''.join(map(f, enumerate(words)))
+    
+    print(f'{upperLower(["apple","pear","tea","four"])}')
+
+#Camel case
+if False:
+    def camelCase(words):
+        f = lambda w: w.capitalize()
+        result =  ''.join(map(f, words))
+        return result[0].lower() + result[1:]
+    
+    print(f'{camelCase(["apple","pear","tea","four"])}')
+
+#Power of index
+if True:
+    def powerOf(nums):
+        f = lambda n: [f"{n[0]} ** {n[1]}", n[1] ** n[0]]
+        return list(map(f, enumerate(nums)))
+    
+    print(f"{powerOf([i for i in range(1,11)])}")
