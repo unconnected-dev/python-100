@@ -1,3 +1,4 @@
+from datetime import datetime 
 import requests
 
 
@@ -22,6 +23,31 @@ nutrition_parameters = {
     # "age": AGE
 }
 
-nutrition_response = requests.post(NUTITION_ENDPOINT, json=nutrition_parameters, headers=headers)
+nutrition_response = requests.post(NUTITION_ENDPOINT, json=nutrition_parameters, headers=nutrition_headers)
 nutrition_result = nutrition_response.json()
 
+
+#https://sheety.co/
+SHEETY_ENDPOINT = ""
+
+sheety_headers = {
+    "Authorization": ""
+}
+
+current_date = datetime.now().strftime("%d/%m/%y")
+current_time = datetime.now().strftime("%H:%M:%S")
+
+for exercise in nutrition_result["exercises"]:
+    sheet_inputs = {
+        "sheet1": {
+            "date": current_date,
+            "time": current_time,
+            "exercise": exercise["name"].title(),
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"]
+        }
+    }
+
+    sheet_response = requests.post(SHEETY_ENDPOINT, json=sheet_inputs, headers=sheety_headers)
+
+    print(sheet_response.text)
