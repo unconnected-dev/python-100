@@ -1,4 +1,7 @@
 #Filter odd numbers
+from math import factorial
+
+
 if False:
     def filterOddNumbers(*nums):
         return {n:n for n in nums if n % 2 == 0}
@@ -146,3 +149,52 @@ if False:
     
     nl = [n for n in range(1, 11)]
     print(f"{squareOrCube(nl)}")
+
+#Km to miles
+if False:
+    def kmToMiles(nums):
+        return {n:n*0.621371 for n in nums}
+    
+    nl = [n for n in range(1,11)]
+    print(f"{kmToMiles(nl)}")
+
+#Squares
+if False:
+    def squares(nums):
+        return {n: n**2 for n in nums}
+    
+    nl = [n for n in range(1,11)]
+    print(f"{squares(nl)}")
+
+#Cubes
+if False:
+    def cubes(nums):
+        return {n: n**3 for n in nums}
+    
+    nl = [n for n in range(1,11)]
+    print(f"{cubes(nl)}")
+
+#Ascii
+if False:
+    def ascii(letters):
+        return {l: ord(l) for l in letters}
+    
+    l = list("abcdefghijklmnopqrstuvwxyz")
+    print(f"{ascii(l)}")
+
+#Factorals
+if False:
+    f = lambda n: 1 if n == 0 else n * factorial(n - 1)
+    def factorals(nums):
+        return {n: f(n) for n in nums}
+
+    nl = [n for n in range(1,11)]
+    print(f"{factorals(nl)}")
+
+#Frequency
+if False:
+    def frequency(words):
+        return {w: words.count(w) for w in words}
+
+    wl = ["apple","pear","orange","berry","pear","pear","orange"]
+    print(f"{frequency(wl)}")
