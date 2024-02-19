@@ -98,6 +98,8 @@ if True:
         "age": [7, 7]
     }
     
+    #concat is used to concatenate pandas objects along a particular axis
+    #with optional set logic along the other
     df1 = pandas.DataFrame(exampleData_1)
     df2 = pandas.DataFrame(exampleData_2)
     df_combined = pandas.concat([df1, df2])
