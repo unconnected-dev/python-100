@@ -5,6 +5,7 @@
 #data formats that applications can use to request and exchange information
 
 
+import html
 import requests
 
 
@@ -48,3 +49,23 @@ if False:
 
     quote = response_data["quote"]
     print(f"{quote}")
+
+
+#Parameters
+#These are used to send data to the server, typically for creating
+#or updating a resource
+if False:
+    API_ENDPOINT = "https://opentdb.com/api.php"
+
+    parameters = {
+        "amount": 5,
+        "type": "boolean"
+    }
+
+    response = requests.get(url=API_ENDPOINT, params=parameters)
+    response.raise_for_status()
+    response_data = response.json()
+    questions = response_data["results"]
+
+    for item in questions:
+        print(f"Question: {html.unescape(item['question'])} - {item['correct_answer']}")
