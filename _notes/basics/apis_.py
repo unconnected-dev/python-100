@@ -7,6 +7,7 @@
 
 import html
 import requests
+import os
 
 
 #Basics
@@ -75,6 +76,7 @@ if False:
 #An API key is a unique identifier used to authenticate requests
 #made to an API
 #They are usually included in the request header or as a query parameter
+#You should want to store them and environment variables, see next section
 if False:
     #https://developer.nutritionix.com/
     NUTITION_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
@@ -99,3 +101,26 @@ if False:
     nutrition_response = requests.post(NUTITION_ENDPOINT, json=nutrition_parameters, headers=nutrition_headers)
     nutrition_result = nutrition_response.json()
     print(f"{nutrition_result}")
+
+
+#Environment variables
+#These are dynamic named values that can affect the behavior of running
+#processes on a computer. They are key-value pairs, where the key is the
+#variable name and the value is the data associated with it
+
+#Security sensitive information such as API keys, tokens and passwords
+#should not be hard-coded in source code. Environment variables provide
+#a more secure way to store and access such data
+if False:
+    #This will show all current environment key-value pairs
+    if False:
+        for key, value in os.environ.items():
+            print(f'{key}: {value}')
+
+    #Retrieving the value of an environment variable
+    if False:
+        value = os.environ.get("OS")
+        print(f"{value}")
+    
+    #Setting environment variables in windows
+    #set VARIABLE_NAME=value
