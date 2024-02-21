@@ -69,3 +69,33 @@ if False:
 
     for item in questions:
         print(f"Question: {html.unescape(item['question'])} - {item['correct_answer']}")
+    
+
+#Headers and keys
+#An API key is a unique identifier used to authenticate requests
+#made to an API
+#They are usually included in the request header or as a query parameter
+if False:
+    #https://developer.nutritionix.com/
+    NUTITION_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
+    NUTRITION_APP_ID = ""
+    NUTRITION_API_KEY = ""
+
+
+    #Empty because this is on GitHub but typically
+    #a long string
+    nutrition_headers = {
+        "x-app-id": NUTRITION_APP_ID,
+        "x-app-key": NUTRITION_API_KEY
+    }
+
+    #Example sentence for the API
+    nutrition_exercise_text = "I ran for 46 minutes"
+
+    nutrition_parameters = {
+        "query": nutrition_exercise_text,
+    }
+    
+    nutrition_response = requests.post(NUTITION_ENDPOINT, json=nutrition_parameters, headers=nutrition_headers)
+    nutrition_result = nutrition_response.json()
+    print(f"{nutrition_result}")
