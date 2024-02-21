@@ -37,3 +37,26 @@ customer_data = {
     'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston']
 }
 customer_data_frame = pandas.DataFrame(customer_data)
+
+
+#Iterating through rows
+if False:
+    for (index, row) in customer_data_frame.iterrows():
+        print(f"{row}")
+
+#Iterating through rows and seleting column
+if False:
+    for (index, row) in customer_data_frame.iterrows():
+        print(f"{row['Name']}")
+
+#Average age of employees
+if False:
+    print(f"{employee_data_frame['Age'].mean()}")
+
+#How many employees in IT department
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Department'] == 'IT'].shape}")
+
+#Employees that earn more than 60,000
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Salary'] > 60000]['Name']}")
