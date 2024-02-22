@@ -16,7 +16,7 @@ student_data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emma'],
     'Math': [85, 90, 75, 80, 95],
     'Science': [70, 80, 65, 75, 85],
-    'English': [80, 85, 70, 75, 90]
+    'English': [80, 85, 40, 75, 90]
 }
 student_data_frame = pandas.DataFrame(student_data)
 
@@ -131,3 +131,36 @@ if False:
     #axis=1 performs the operation along the rows
     student_data_frame['Total'] = student_data_frame[['English', 'Math', 'Science']].sum(axis=1)
     print(f"{student_data_frame[student_data_frame['Total'] == student_data_frame['Total'].max()]}")
+
+#Average score for each student
+if False:
+    student_data_frame['Average'] = student_data_frame[['English', 'Math', 'Science']].mean(axis=1)
+    print(f"{student_data_frame[['Name','Average']]}")
+
+#Failed a subjeect < 50
+if False:
+    print(f"{student_data_frame[(student_data_frame['English'] < 50)\
+                               | (student_data_frame['Math'] < 50)\
+                                | (student_data_frame['Science'] < 50)].shape[0]}")
+
+#Total value of the inventory for each product
+if False:
+    product_data_frame['TotalValue'] = product_data_frame['Stock'] * product_data_frame['Price']
+    print(f"{product_data_frame[['Product','TotalValue']]}")
+
+#Average price of products with stock above 100
+if False:
+    avg_data_Frame = product_data_frame[product_data_frame['Stock'] > 100]['Price'].mean()
+    print(f"{avg_data_Frame}")
+
+#How many products have a price below 100
+if False:
+    print(f"{product_data_frame[product_data_frame['Price'] < 100].shape[0]}")
+
+#Most expensive product
+if False:
+    print(f"{product_data_frame[product_data_frame['Price'] == product_data_frame['Price'].max()]}")
+
+#Average age of customers
+if True:
+    print(f'{customer_data_frame['Age'].mean()}')
