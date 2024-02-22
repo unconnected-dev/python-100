@@ -60,3 +60,19 @@ if False:
 #Employees that earn more than 60,000
 if False:
     print(f"{employee_data_frame[employee_data_frame['Salary'] > 60000]['Name']}")
+
+#What is the average grade in each subject
+if False:
+    print(f"{student_data_frame[['English', 'Science', 'Math']].mean()}")
+
+#Highest score in english
+if False:
+    max_english_score = student_data_frame['English'].max()
+    print(f"{student_data_frame[student_data_frame['English'] == max_english_score]['Name']}")
+
+#Find students who pass all subjects, >=70
+if False:
+    print(f"{student_data_frame[(student_data_frame['English'] >= 70)\
+                                 & (student_data_frame['Math'] >= 70)\
+                                & (student_data_frame['Science'] >= 70)]}")
+    
