@@ -3,38 +3,38 @@ import pandas
 
 
 employee_data = {
-    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom'],
-    'Age': [35, 28, 40, 45, 30],
-    'Department': ['HR', 'IT', 'Finance', 'Marketing', 'IT'],
-    'Salary': [50000, 60000, 80000, 70000, 55000]
+    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica'],
+    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 42, 31],
+    'Department': ['HR', 'IT', 'Finance', 'Marketing', 'IT', 'Finance', 'HR', 'Marketing', 'IT', 'HR'],
+    'Salary': [50000, 60000, 80000, 70000, 55000, 75000, 48000, 72000, 62000, 53000]
 }
 employee_data_frame = pandas.DataFrame(employee_data)
 
 
 student_data = {
-    'StudentID': [101, 102, 103, 104, 105],
-    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emma'],
-    'Math': [85, 90, 75, 80, 95],
-    'Science': [70, 80, 65, 75, 85],
-    'English': [80, 85, 40, 75, 90]
+    'StudentID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack'],
+    'Math': [85, 90, 75, 80, 95, 70, 85, 60, 75, 88],
+    'Science': [70, 80, 65, 75, 85, 60, 75, 50, 65, 78],
+    'English': [80, 85, 40, 75, 90, 65, 70, 55, 80, 82]
 }
 student_data_frame = pandas.DataFrame(student_data)
 
 
 product_data = {
-    'ProductID': [1, 2, 3, 4, 5],
-    'Product': ['Laptop', 'Smartphone', 'Tablet', 'Headphones', 'Keyboard'],
-    'Stock': [50, 100, 80, 120, 150],
-    'Price': [1200, 800, 500, 100, 50]
+    'ProductID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'Product': ['Laptop', 'Smartphone', 'Tablet', 'Headphones', 'Keyboard', 'Monitor', 'Printer', 'Mouse', 'Speaker', 'External Hard Drive'],
+    'Stock': [50, 49, 80, 120, 150, 30, 25, 100, 75, 60],
+    'Price': [1200, 800, 500, 100, 50, 300, 200, 20, 150, 80]
 }
 product_data_frame = pandas.DataFrame(product_data)
 
 
 customer_data = {
-    'CustomerID': [101, 102, 103, 104, 105],
-    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom'],
-    'Age': [35, 28, 40, 45, 30],
-    'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston']
+    'CustomerID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica'],
+    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 42, 31],
+    'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston', 'Seattle', 'Miami', 'Denver', 'Austin', 'Atlanta']
 }
 customer_data_frame = pandas.DataFrame(customer_data)
 
@@ -197,5 +197,38 @@ if False:
     print(f"{student_data_frame[['Math', 'Science', 'English']].max()}")
 
 #Who scored the lowest in science
-if True:
+if False:
     print(f"{student_data_frame[student_data_frame['Science'] == student_data_frame['Science'].min()]['Name']}")
+
+#How many products have a stock level below 50
+if False:
+    print(f"{product_data_frame[product_data_frame['Stock'] < 50].shape[0]}")
+
+#Total value of the inventory
+if False:
+    print(f"{(product_data_frame['Stock'] * product_data_frame['Price']).sum()}")
+
+if False:
+    product_data_frame['TotalValue'] = product_data_frame['Stock'] * product_data_frame['Price']
+    print(f"{product_data_frame['TotalValue'].sum()}")
+
+#How many customers have ages between 25 and 55
+if False:
+    print(f"{customer_data_frame[(customer_data_frame['Age'] >= 25) | (customer_data_frame['Age'] <= 55)].shape[0]}")
+
+#Which city has the highest number of customers
+if False:
+    print(f"{customer_data_frame['City'].value_counts().idxmax()}")
+
+#How many employees names start with J
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Name'].str.startswith('J')].shape[0]}")
+
+#Which product has the highest total value
+if False:
+    product_data_frame['TotalValue'] = product_data_frame['Price'] * product_data_frame['Stock']
+    print(f"{product_data_frame[product_data_frame['TotalValue'] == product_data_frame['TotalValue'].max()]['Product']}")
+
+#How many customers are from cities starting with N
+if False:
+    print(f"{customer_data_frame[customer_data_frame['City'].str.startswith('N')].shape[0]}")
