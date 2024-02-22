@@ -232,3 +232,51 @@ if False:
 #How many customers are from cities starting with N
 if False:
     print(f"{customer_data_frame[customer_data_frame['City'].str.startswith('N')].shape[0]}")
+
+#How many employees have names starting with J
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Name'].str.startswith('J')].shape[0]}")
+
+#How many students have names starting with A
+if False:
+    print(f"{student_data_frame[student_data_frame['Name'].str.startswith('A')].shape[0]}")
+
+if False:
+    student_selection = student_data_frame['Name'].str.startswith('A').sum()
+    print(f"{student_selection}")
+
+#How many products have names starting with L
+if False:
+    product_selection = product_data_frame['Product'].str.startswith('L').sum()
+    print(f"{product_selection}")
+
+#How many customers have names starting with M
+if False:
+    print(f"{customer_data_frame[customer_data_frame['Name'].str.startswith('M')].shape[0]}")
+
+#What are the departments of employees whose names start with A
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Name'].str.startswith('A')]['Department']}")
+
+#What are the subjects in which students whose name start with E scored?
+if False:
+    print(f"{student_data_frame.loc[student_data_frame['Name'].str.startswith('E'), ['Math', 'English', 'Science']]}")
+
+#What are products with names starting with S
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Product'].str.startswith('S'),['Product']]}")
+
+#How many customers are from cities starting with N
+if False:
+    print(f"{customer_data_frame.loc[customer_data_frame['Name'].str.startswith('N')].sum()}")
+
+if False:
+    print(f"{customer_data_frame.loc[customer_data_frame['Name'].str.startswith('M')].shape[0]}")
+
+#What are the ages of employees whose names start with P
+if False:
+    print(f"{employee_data_frame.loc[employee_data_frame['Name'].str.startswith('P'), ['Age']]}")
+
+#How many students have names starting with B and scored above 80 in Math
+if False:
+    print(f"{student_data_frame.loc[ (student_data_frame['Name'].str.startswith('B')) * (student_data_frame['Math'] >= 80)].shape[0]}")
