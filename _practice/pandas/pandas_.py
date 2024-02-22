@@ -162,5 +162,40 @@ if False:
     print(f"{product_data_frame[product_data_frame['Price'] == product_data_frame['Price'].max()]}")
 
 #Average age of customers
-if True:
+if False:
     print(f'{customer_data_frame['Age'].mean()}')
+
+#How many customers are there from each age group 20-30, 30-40 etc
+if False:
+    bins = [20,30,40,50,60,70]
+    labels=['20-29','30-39','40-49','50-59','60-69']
+    print(f"{pandas.cut(customer_data_frame['Age'], bins=bins, labels=labels).value_counts()}")
+
+#Which city has the highest average age of customers
+if False:
+    print(f"{customer_data_frame.groupby('City')['Age'].mean().idxmax()}")
+
+#How many customers have names starting with 'a'
+if False:
+    print(f"{customer_data_frame[customer_data_frame['Name'].str.startswith('A')].shape[0]}")
+
+#How many employees are older than 40
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Age'] > 40].shape[0]}")
+
+#Who is the employee with the highest salary
+if False:
+    #This example generates a series
+    print(f"{employee_data_frame[employee_data_frame['Salary'] == employee_data_frame['Salary'].max()]['Name']}")
+    
+    #To put an extra column in you need [] around the words like the example below
+    #This example generates a data frame
+    # print(f"{employee_data_frame[employee_data_frame['Salary'] == employee_data_frame['Salary'].max()][['Name','Age']]}")
+
+#What is the highest grade in each subject
+if False:
+    print(f"{student_data_frame[['Math', 'Science', 'English']].max()}")
+
+#Who scored the lowest in science
+if True:
+    print(f"{student_data_frame[student_data_frame['Science'] == student_data_frame['Science'].min()]['Name']}")
