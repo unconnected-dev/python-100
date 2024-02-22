@@ -10,8 +10,13 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def find_products(products: pandas.DataFrame) -> pandas.DataFrame:
         return products.loc[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y'),['product_id']]
-    
+
+if True:
+    def find_products(products: pandas.DataFrame) -> pandas.DataFrame:
+        result = products.loc[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')]
+        return result[['product_id']]
+
 print(f"{find_products(caseDataFrame)}")
