@@ -24,7 +24,7 @@ student_data_frame = pandas.DataFrame(student_data)
 product_data = {
     'ProductID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     'Product': ['Laptop', 'Smartphone', 'Tablet', 'Headphones', 'Keyboard', 'Monitor', 'Printer', 'Mouse', 'Speaker', 'External Hard Drive'],
-    'Stock': [50, 49, 80, 120, 150, 30, 25, 100, 75, 60],
+    'Stock': [50, 49, 80, 120, 150, 30, 25, 100, 75, 0],
     'Price': [1200, 800, 500, 100, 50, 300, 200, 20, 150, 80]
 }
 product_data_frame = pandas.DataFrame(product_data)
@@ -280,3 +280,44 @@ if False:
 #How many students have names starting with B and scored above 80 in Math
 if False:
     print(f"{student_data_frame.loc[ (student_data_frame['Name'].str.startswith('B')) * (student_data_frame['Math'] >= 80)].shape[0]}")
+
+#How many products have names starting with K and have a stock greater than 100
+if False:
+    print(f"{product_data_frame.loc[ (product_data_frame['Product'].str.startswith('K')) & (product_data_frame['Stock'] > 100) ].shape[0]}")
+
+#How many employees are in the IT department
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Department'] == 'IT'].shape[0]}")
+
+#How many students scored less than 60 in English
+if False:
+    print(f"{student_data_frame.loc[student_data_frame['English'] < 60].shape[0]}")
+
+#What are the products with prices less than 100
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Price'] < 100]['Product']}")
+
+#How many customers are from cities with names containing o
+if False:
+    #case=false means o or O will be found
+    print(f"{customer_data_frame.loc[customer_data_frame['City'].str.contains('o', case=False)].shape[0]}")
+
+#What are the ages of employees in the HR department
+if False:
+    print(f"{employee_data_frame.loc[employee_data_frame['Department'] == 'HR', ['Age']]}")
+
+#How many students scored between 70 and 90 in Math
+if False:
+    print(f"{student_data_frame.loc[(student_data_frame['Math'] >= 70) & (student_data_frame['Math'] <= 90)].shape[0]}")
+
+#How many products have names containing 'e' and are out of stock
+if False:
+    print(f"{product_data_frame.loc[(product_data_frame['Stock'] == 0) & (product_data_frame['Product'].str.contains('e', case=False))].shape[0]}")
+
+#What are the names of the customers who are under 30
+if False:
+    print(f"{customer_data_frame.loc[customer_data_frame['Age'] < 30, ['Name']]}")
+
+#What is the name of the student who scored the highest in Science
+if False:
+    print(f"{student_data_frame.loc[student_data_frame['Science'].idxmax(), 'Name']}")
