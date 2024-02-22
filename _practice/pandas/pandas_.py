@@ -103,3 +103,31 @@ if False:
 #List names of customers under 30
 if False:
     print(f"{customer_data_frame[customer_data_frame['Age'] < 30]['Name']}")
+
+#How many employees are there in each department
+if False:
+    print(f"{employee_data_frame['Department'].value_counts()}")
+
+#What is the average salary in each department
+if False:
+    print(f"{employee_data_frame.groupby('Department')['Salary'].mean()}")
+
+#Who is the youngest employee
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Age'] == employee_data_frame['Age'].min()]}")
+
+#What is the total salary expense for the company
+if False:
+    print(f"{employee_data_frame['Salary'].sum()}")
+
+#How many students scored above 80 in all subjects
+if False:
+    print(f"{student_data_frame[(student_data_frame['English'] >= 80)\
+                                & (student_data_frame['Math'] >= 80)\
+                                & (student_data_frame['Science'] >= 80)].shape[0]}")
+
+#Highest overall
+if False:
+    #axis=1 performs the operation along the rows
+    student_data_frame['Total'] = student_data_frame[['English', 'Math', 'Science']].sum(axis=1)
+    print(f"{student_data_frame[student_data_frame['Total'] == student_data_frame['Total'].max()]}")
