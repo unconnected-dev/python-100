@@ -75,4 +75,31 @@ if False:
     print(f"{student_data_frame[(student_data_frame['English'] >= 70)\
                                  & (student_data_frame['Math'] >= 70)\
                                 & (student_data_frame['Science'] >= 70)]}")
+
+#Total potential revenue
+if False:
+    total = 0
+    for (index, row) in product_data_frame[['Stock','Price']].iterrows():
+        total += row['Stock'] * row['Price']
     
+    print(f"Total: {total}")
+
+if False:
+    product_data_frame['TotalRevenue'] = product_data_frame['Price'] * product_data_frame['Stock']
+    print(f"{product_data_frame['TotalRevenue'].sum()}")
+
+#List product stock below 100
+if False:
+    print(f"{product_data_frame[product_data_frame["Stock"] < 100]}")
+
+#How many customers from each city
+if False:
+    print(f"{customer_data_frame['City'].value_counts()}")
+
+#Average age of customers in each city
+if False:
+    print(f"{customer_data_frame.groupby('City')['Age'].mean()}")
+
+#List names of customers under 30
+if False:
+    print(f"{customer_data_frame[customer_data_frame['Age'] < 30]['Name']}")
