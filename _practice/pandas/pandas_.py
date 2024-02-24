@@ -72,9 +72,7 @@ if False:
 
 #Find students who pass all subjects, >=70
 if False:
-    print(f"{student_data_frame[(student_data_frame['English'] >= 70)\
-                                 & (student_data_frame['Math'] >= 70)\
-                                & (student_data_frame['Science'] >= 70)]}")
+    print(f"{student_data_frame[(student_data_frame['English'] >= 70) & (student_data_frame['Math'] >= 70) & (student_data_frame['Science'] >= 70)]}")
 
 #Total potential revenue
 if False:
@@ -90,7 +88,7 @@ if False:
 
 #List product stock below 100
 if False:
-    print(f"{product_data_frame[product_data_frame["Stock"] < 100]}")
+    print(f"{product_data_frame[product_data_frame['Stock'] < 100]}")
 
 #How many customers from each city
 if False:
@@ -122,9 +120,7 @@ if False:
 
 #How many students scored above 80 in all subjects
 if False:
-    print(f"{student_data_frame[(student_data_frame['English'] >= 80)\
-                                & (student_data_frame['Math'] >= 80)\
-                                & (student_data_frame['Science'] >= 80)].shape[0]}")
+    print(f"{student_data_frame[(student_data_frame['English'] >= 80) & (student_data_frame['Math'] >= 80) & (student_data_frame['Science'] >= 80)].shape[0]}")
 
 #Highest overall
 if False:
@@ -139,9 +135,7 @@ if False:
 
 #Failed a subjeect < 50
 if False:
-    print(f"{student_data_frame[(student_data_frame['English'] < 50)\
-                               | (student_data_frame['Math'] < 50)\
-                                | (student_data_frame['Science'] < 50)].shape[0]}")
+    print(f"{student_data_frame[(student_data_frame['English'] < 50) | (student_data_frame['Math'] < 50) | (student_data_frame['Science'] < 50)].shape[0]}")
 
 #Total value of the inventory for each product
 if False:
@@ -163,7 +157,7 @@ if False:
 
 #Average age of customers
 if False:
-    print(f'{customer_data_frame['Age'].mean()}')
+    print(f"{customer_data_frame['Age'].mean()}")
 
 #How many customers are there from each age group 20-30, 30-40 etc
 if False:
@@ -321,3 +315,86 @@ if False:
 #What is the name of the student who scored the highest in Science
 if False:
     print(f"{student_data_frame.loc[student_data_frame['Science'].idxmax(), 'Name']}")
+
+#How many employees are there
+if False:
+    print(f"{len(employee_data_frame)}")
+
+if False:
+    print(f"{employee_data_frame.shape[0]}")
+
+#What is the average age of the employees
+if False:
+    print(f"{employee_data_frame['Age'].mean()}")
+
+#Which department has the highest average salary
+if False:
+    highest_cost_department = employee_data_frame.groupby('Department')['Salary'].mean().idxmax()
+    print(f"{highest_cost_department}")
+
+#How many students are there
+if False:
+    print(f"{student_data_frame.shape[0]}")
+
+if False:
+    print(f"{len(student_data_frame)}")
+
+#What is the average math score
+if False:
+    print(f"{student_data_frame['Math'].mean()}")
+
+#Which student has the highest English score:
+if False:
+    highest_english_score = student_data_frame.loc[student_data_frame['English'].idxmax(), 'Name']
+    print(highest_english_score)
+
+#How many products are in stock
+if False:
+    total_stock = product_data_frame['Stock'].sum()
+    print(f"{total_stock}")
+
+#What is the total price of all the products
+if False:
+    total_price = product_data_frame['Stock'] * product_data_frame['Price']
+    print(f"{total_price.sum()}")
+
+#Which product has thte lowest price
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Price'].idxmin(), 'Product']}")
+
+#How many customers are there
+if False:
+    print(f"{customer_data_frame.shape[0]}")
+
+if False:
+    print(f"{len(customer_data_frame)}")
+
+#What is the average age of customers
+if False:
+    print(f"{customer_data_frame['Age'].mean()}") 
+
+#How many customers are from New York
+if False:
+    print(f"{(customer_data_frame['City'] == 'New York').sum()}")
+
+#Which customer is the oldest
+if False:
+    print(f"{customer_data_frame.loc[customer_data_frame['Age'].max() == customer_data_frame['Age'], ['Name']]}")
+
+#How many employees are in the HR department
+if False:
+    total = employee_data_frame.loc[employee_data_frame['Department'] == 'HR'].shape[0]
+    print(f"{total}")
+
+if False:
+    print(f"{(employee_data_frame['Department'] == 'HR').sum()}")
+
+#What is the total salary expense for the IT department
+if False:
+    total = employee_data_frame.loc[employee_data_frame['Department'] == 'IT', 'Salary'].sum()
+    print(f"{total}")
+
+#How many students socred above 80 in Science
+if False:
+    total = len(student_data_frame.loc[student_data_frame['Science'] > 80])
+    print(f"{total}")
