@@ -18,7 +18,7 @@ users_data_frame = pandas.DataFrame(users_data)
 
 ratings_data = {
    'user_id':  [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9],
-   'movie_id': [1, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10],
+   'movie_id': [1, 2, 1, 3, 2, 4, 3, 3, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10],
    'rating':   [5, 4, 4, 5, 4, 3, 5, 4, 5, 4, 3, 4, 5, 4, 3, 5, 4, 5]
 }
 ratings_data_frame = pandas.DataFrame(ratings_data)
@@ -76,3 +76,25 @@ if False:
     highest_average_rating = ratings_data_frame.groupby('movie_id')['rating'].mean().idxmax()
     movie_title = movies_data_frame.loc[movies_data_frame['movie_id'] == highest_average_rating,['title']]
     print(f"{movie_title}")
+
+#Find the movie title with the most ratings
+if False:
+    most_ratings = ratings_data_frame.groupby('movie_id')['rating'].count().idxmax()
+    movie_title = movies_data_frame.loc[movies_data_frame['movie_id'] == most_ratings,['title']]
+    print(f"{movie_title}")
+
+if False:
+    most_ratings = ratings_data_frame['movie_id'].value_counts().idxmax()
+    movie_title = movies_data_frame.loc[movies_data_frame['movie_id'] == most_ratings,['title']]
+    print(f"{movie_title}")
+
+#Find the user that has given the lowest number of ratings
+if False:
+    lowest = ratings_data_frame['user_id'].value_counts().idxmin()
+    print(f"{users_data_frame.loc[users_data_frame['user_id'] == lowest,['username']]}")
+
+#List all movies with an average rating of greater than 4.5
+if False:
+    avg_ratings = ratings_data_frame.groupby('movie_id')['rating'].mean()
+    high_rated_movies = movies_data_frame[movies_data_frame['movie_id'].isin(avg_ratings[avg_ratings > 4.5].index)]
+    print(f"{high_rated_movies['title']}")
