@@ -396,5 +396,23 @@ if False:
 
 #How many students socred above 80 in Science
 if False:
-    total = len(student_data_frame.loc[student_data_frame['Science'] > 80])
+    total = len(student_data_frame.loc[student_data_frame['Science'] >= 80])
     print(f"{total}")
+
+#Which product has the highest stock
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Stock'].idxmax(), ['Product']]}")
+
+#What is the average price of the products
+if False:
+    avg = product_data_frame['Price'].mean()
+    print(f"{avg}")
+
+#How many customers are under the age of 35
+if False:
+    total = customer_data_frame.loc[customer_data_frame['Age'] < 35].shape[0]
+    print(f"{total}")
+
+#Which city has the youngest customer
+if True:
+    print(f"{customer_data_frame.loc[customer_data_frame['Age'].idxmin(), ['City']]}")
