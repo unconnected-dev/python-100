@@ -1,4 +1,5 @@
 
+import numpy
 import pandas
 
 
@@ -16,7 +17,8 @@ student_data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack'],
     'Math': [85, 90, 75, 80, 95, 70, 85, 60, 75, 88],
     'Science': [70, 80, 65, 75, 85, 60, 75, 50, 65, 78],
-    'English': [80, 85, 40, 75, 90, 65, 70, 55, 80, 82]
+    'English': [80, 85, 40, 75, 90, 65, 70, 55, 80, 82],
+    'Age': [19, 21, 22, 20, 21, 18, 20, 21, 22, 20]
 }
 student_data_frame = pandas.DataFrame(student_data)
 
@@ -58,3 +60,59 @@ if False:
     performance_labels = ['Low', 'Medium', 'High']
     student_data_frame['Performance'] = pandas.cut(student_data_frame['Average_score'], bins=performance_bins, labels= performance_labels)
     print(f"{student_data_frame[['Name','Performance']]}")
+
+#Bin the product dataset based on their prices into three price ranges Low, Medium and High
+if False:
+    price_bins = [0, 100, 500, numpy.inf]
+    price_labels = ['Low', 'Medium', 'High']
+    product_data_frame['Price_range'] = pandas.cut(product_data_frame['Price'], bins=price_bins, labels=price_labels)
+    print(f"{product_data_frame[['Product', 'Price_range']]}")
+
+#Categorize the customer dataset into three age groups: Young, Middle-aged, Elderly
+if False:
+    age_bins = [0, 30, 50, numpy.inf]
+    age_labels = ['Young', 'Middle-aged', 'Elderly']
+    customer_data_frame['Age_group'] = pandas.cut(customer_data_frame['Age'], bins=age_bins, labels=age_labels)
+    print(f"{customer_data_frame[['Name', 'Age_group']]}")
+
+#Bin the stock levels of products into four categories: Low, Medium, High and Out of stock
+if False:
+    stock_bins = [-numpy.inf, 0, 50, 100, numpy.inf]
+    stock_labels = ['Out of stock', 'Low', 'Medium', 'High']
+    product_data_frame['Stock_level'] = pandas.cut(product_data_frame['Stock'], bins=stock_bins, labels=stock_labels)
+    print(f"{product_data_frame[['Product', 'Stock_level']]}")
+
+#Divide the employee dataset into two age groups: Young < 35, Old >=35
+if False:
+    age_bins = [0, 35, numpy.inf]
+    age_labels = ['Young', 'Old']
+    employee_data_frame['Age_group'] = pandas.cut(employee_data_frame['Age'], bins=age_bins, labels=age_labels)
+    print(f"{employee_data_frame[['Name','Age_group']]}")
+
+#Bin the ages of employees into five equal intervals and count the number of employees
+#in each inverval
+if False:
+    age_bins = pandas.cut(employee_data_frame['Age'], bins=5)
+    age_distribution = employee_data_frame.groupby(age_bins).size()
+    print(f"{age_distribution}")
+
+#Group the student dataset into two age groups: Under 20 and 20 and above
+if False:
+    age_bins = [0, 20, numpy.inf]
+    age_labels = ['Under 20', '20 and above']
+    student_data_frame['Age_group'] = pandas.cut(student_data_frame['Age'], bins=age_bins, labels=age_labels)
+    print(f"{student_data_frame[['Name','Age_group']]}")
+
+#Categorize the prices of products into three groups: Cheap, Moderate, Expensive
+if False:
+    price_bins = [0, 100, 500, numpy.inf]
+    price_labels = ['Cheap','Moderate','Expensive']
+    product_data_frame['Price_group'] = pandas.cut(product_data_frame['Price'], bins=price_bins, labels=price_labels)
+    print(f"{product_data_frame[['Product', 'Price_group']]}")
+
+#Bin the ages of customers into three groups: Under 30, 30-50, Over 50
+if False:
+    age_bins = [0, 30, 50, numpy.inf]
+    age_labels = ['Under 30', '30-50', 'Over 50']
+    customer_data_frame['Age_group'] = pandas.cut(customer_data_frame['Age'], bins=age_bins, labels=age_labels)
+    print(f"{customer_data_frame[['Name','Age_group']]}")
