@@ -4,8 +4,8 @@
 caseNums_1 = [1,3,4,1,2,3,1]
 caseNums_2 = [2,1,1]
 
-if True:
-    def findMartix(nums):
+if False:
+    def findMatrix(nums):
         result = []
         num_set = set(nums)
 
@@ -20,5 +20,27 @@ if True:
 
         return result
 
-print(f"{findMartix(caseNums_1)}")
-print(f"{findMartix(caseNums_2)}")
+if True:
+    def findMatrix(nums):
+        num_dict = {}
+        for n in nums:
+            num_dict[n] = num_dict.get(n, 0) + 1
+        
+        result = []
+        while True:
+            row = []
+
+            for key, value in num_dict.items():
+                if value > 0:
+                    row.append(key)
+                    num_dict[key] -= 1
+            
+            if len(row) > 0:
+                result.append(row)
+            else:
+                break
+        
+        return result
+    
+print(f"{findMatrix(caseNums_1)}")
+print(f"{findMatrix(caseNums_2)}")
