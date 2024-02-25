@@ -35,7 +35,7 @@ product_data_frame = pandas.DataFrame(product_data)
 customer_data = {
     'CustomerID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
     'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica'],
-    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 42, 31],
+    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 40, 31],
     'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston', 'Seattle', 'Miami', 'Denver', 'Austin', 'Atlanta']
 }
 customer_data_frame = pandas.DataFrame(customer_data)
@@ -116,3 +116,76 @@ if False:
     age_labels = ['Under 30', '30-50', 'Over 50']
     customer_data_frame['Age_group'] = pandas.cut(customer_data_frame['Age'], bins=age_bins, labels=age_labels)
     print(f"{customer_data_frame[['Name','Age_group']]}")
+
+#Bin the Math scores of students into three categories: Low 0-60, Medium 61-80 and High, 81-100
+if False:
+    math_bins = [0, 60, 80, 100]
+    math_labels = ['Low', 'Medium', 'High']
+    student_data_frame['Math_category'] = pandas.cut(student_data_frame['Math'], bins=math_bins, labels=math_labels)
+    print(f"{student_data_frame[['Name','Math_category']]}")
+
+#Group the ages of employees into four intervals: 20-30, 31-40, 41-50 and 51 and above
+if False:
+    age_bins = [20,31,41,51,numpy.inf]
+    age_labels = ['20-30','31-40','41-50','51 and above']
+    employee_data_frame['Age_interval'] = pandas.cut(employee_data_frame['Age'], bins=age_bins,labels=age_labels, right=False)
+    print(f"{employee_data_frame[['Name','Age_interval']]}")
+
+#Categorize the stock levels of products into Low 0-25, Medium 26-75 and High 76 and above
+if False:
+    stock_bins = [0,26,76,numpy.inf]
+    stock_labels =['Low','Medium','High']
+    product_data_frame['Stock_level'] = pandas.cut(product_data_frame['Stock'], bins=stock_bins,labels=stock_labels, right=False)
+    print(f"{product_data_frame[['Product', 'Stock', 'Stock_level']]}")
+
+#Divide the English scores of students into five groups
+#Fail 0-49, Pass 50-64, Credit 65-74, Distinction 75-84, High Distinction 85-100
+if False:
+    score_bins = [0,50,65,75,85,100]
+    score_labels = ['Fail','Pass','Credit','Distinction','High Distinction']
+    student_data_frame['English_group'] = pandas.cut(student_data_frame['English'], bins=score_bins, labels=score_labels, right=False)
+    print(f"{student_data_frame[['Name','English','English_group']]}")
+
+#Bin the prices of products into Cheap 0-100, Moderate 101-300 and Expensive 301 and above
+if False:
+    price_bins = [0,100,300,numpy.inf]
+    price_labels = ['Cheap','Moderate','Expensive']
+    product_data_frame['Price_group'] = pandas.cut(product_data_frame['Price'],bins=price_bins,labels=price_labels)
+    print(f"{product_data_frame[['Product','Price','Price_group']]}")
+
+#Group the ages of customers into three intervals: under-25, 25-40, over 40
+if False:
+    age_bins = [0,25,40,numpy.inf]
+    age_labels = ['Under 25', '25-40','Over 40']
+    customer_data_frame['Age_group'] = pandas.cut(customer_data_frame['Age'],bins=age_bins,labels=age_labels)
+    print(f"{customer_data_frame[['Name','Age','Age_group']]}")
+
+#Categorize the salaries of employees into four groups: Low, Medium, High, Very High
+if False:
+    salary_bins = [0, 60000, 80000, 100000, numpy.inf]
+    salary_labels = ['Low','Medium','High','Very High']
+    employee_data_frame['Salary_group'] = pandas.cut(employee_data_frame['Salary'],bins=salary_bins,labels=salary_labels, right=False)
+    print(f"{employee_data_frame[['Name','Salary','Salary_group']]}")
+
+#Divide the Science scores of students into 
+#Fail 0-49, Pass 50-64, Credit 65-74, Distinction 75-84, High Distinction 85-100
+if False:
+    student_bins = [0,50,65,75,85,100]
+    student_labels =['Fail','Pass','Credit','Distinction','High Distinction']
+    student_data_frame['Science_group'] = pandas.cut(student_data_frame['Science'],bins=student_bins,labels=student_labels,right=False)
+    print(f"{student_data_frame[['Name','Science','Science_group']]}")
+
+#Bin the ages of customers into Young 0-30, Middle-aged 31-50, Elderly 51 and above
+if False:
+    age_bins = [0,30,50,numpy.inf]
+    age_labels = ['Young','Middle-aged','Elderly']
+    customer_data_frame['Age_group'] = pandas.cut(customer_data_frame['Age'], bins=age_bins,labels=age_labels)
+    print(f"{customer_data_frame[['Name','Age','Age_group']]}")
+
+#Group the Math scores of students into
+#Fail 0-49, Pass 50-64, Credit 65-74, Distinction 75-84, High Distinction 85-100
+if False:
+    student_bins = [0,50,65,75,85,100]
+    student_labels =['Fail','Pass','Credit','Distinction','High Distinction']
+    student_data_frame['Math_group'] = pandas.cut(student_data_frame['Math'],bins=student_bins,labels=student_labels,right=False)
+    print(f"{student_data_frame[['Name','Math','Math_group']]}")
