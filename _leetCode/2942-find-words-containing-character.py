@@ -1,0 +1,26 @@
+#Find Words Containing Character
+#https://leetcode.com/problems/find-words-containing-character/description/
+
+caseWords_1 = ["leet","code"]
+caseX_1 = "e"
+
+caseWords_2 = ["abc","bcd","aaaa","cbc"]
+caseX_2 = "a"
+
+caseWords_3 = ["abc","bcd","aaaa","cbc"]
+caseX_3 = "z"
+
+if True:
+    def findWordContaining(words, x):
+        i = 0
+        result = []
+        for word in words:
+            if x in word:
+                result.append(i)
+            i+=1
+
+        return result
+    
+print(f"{findWordContaining(caseWords_1, caseX_1)}")
+print(f"{findWordContaining(caseWords_2, caseX_2)}")
+print(f"{findWordContaining(caseWords_3, caseX_3)}")
