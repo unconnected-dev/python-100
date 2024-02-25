@@ -1,5 +1,5 @@
 import pandas
-
+import numpy
 
 employee_data = {
     'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica', 'Daniel', 'Olivia', 'Ethan'],
@@ -72,3 +72,37 @@ if False:
     student_data_frame['AgeGroup'] =  pandas.cut(student_data_frame['Age'],bins=bins,labels=labels)
     average_grades = student_data_frame.groupby(['AgeGroup']).agg({'Math': 'mean', 'Science': 'mean', 'English': 'mean'})
     print(f"{average_grades}")
+
+#How many customers are there in each city for each age group?
+if False:
+    age_bins = [20,31,41,51,numpy.inf]
+    age_labels = ['20-30','31-40','41-50','51 and above']
+    customer_data_frame['AgeGroup'] = pandas.cut(customer_data_frame['Age'],bins=age_bins,labels=age_labels)
+
+    totals = customer_data_frame.groupby(['City','AgeGroup']).size()
+    print(f"{totals}")
+
+#Average salary of employees in each department
+if False:
+    avg_salary = employee_data_frame.groupby('Department')['Salary'].mean()
+    print(f"{avg_salary}")
+
+#How many students are there in each age group
+if False:
+    age_group_count = student_data_frame.groupby('Age').size()
+    print(f"{age_group_count}")
+
+#What is the total stock and average price of products in each category
+if False:
+    category_summary = product_data_frame.groupby('Category').agg({'Stock': 'sum', 'Price': 'mean'})
+    print(f"{category_summary}")
+
+#What is the maximum age of customers in each city
+if False:
+    age_high = customer_data_frame.groupby(['City'])['Age'].max()
+    print(f"{age_high}")
+
+#How many products are out of stock in each category
+if False:
+    out_of_stock = product_data_frame.loc[product_data_frame['Stock'] == 0].groupby('Category').size()
+    print(f"{out_of_stock}")
