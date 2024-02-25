@@ -141,3 +141,41 @@ if False:
 if False:
     stock_avg_by_category = product_data_frame[product_data_frame['Stock'] > 0].groupby('Category')['Stock'].mean()
     print(f"{stock_avg_by_category}")
+
+#What is the average salary in each department
+if False:
+    print(f"{employee_data_frame.groupby('Department')['Salary'].mean()}")
+
+#How many employees are there in each department
+if False:
+    print(f"{employee_data_frame.groupby('Department').size()}")
+
+#What is the maximum age of students in each age group
+if False:
+    bins = [18, 20, 22]
+    labels = ['18-20', '21-22']
+
+    student_data_frame['Age_group'] = pandas.cut(student_data_frame['Age'],bins=bins, labels=labels)
+    print(f"{student_data_frame.groupby('Age_group')['Age'].max()}")
+
+#What is the total stock and average price of products in each category?
+if False:
+    print(f"{product_data_frame.groupby('Category').agg({'Stock':'sum','Price':'mean'})}")
+
+#How many customers are there in each city and what is the average age of customers in each city?
+if False:
+    print(f"{customer_data_frame.groupby('City').agg({'CustomerID':'size', 'Age':'mean'})}")
+
+#What is the total salary expense and average age of employees in each department?
+if False:
+    print(f"{employee_data_frame.groupby('Department').agg({'Salary':'sum','Age':'mean'})}")
+
+#What is the highest and lowest price of products in each category?
+if False:
+    print(f"{product_data_frame.groupby('Category').agg({'Price':['max','min']})}")
+
+#What is the total stock and average price of products per category in the electronics category only
+if False:
+    electronics = product_data_frame.loc[product_data_frame['Category'] == 'Electronics']
+    electronics_stats = electronics.groupby('Category').agg({'Stock': 'sum', 'Price': 'mean'})
+    print(f"{electronics_stats}")
