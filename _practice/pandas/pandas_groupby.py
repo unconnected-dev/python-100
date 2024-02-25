@@ -25,7 +25,8 @@ product_data = {
     'ProductID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     'Product': ['Laptop', 'Smartphone', 'Tablet', 'Headphones', 'Keyboard', 'Monitor', 'Printer', 'Mouse', 'Speaker', 'External Hard Drive', 'Camera', 'USB Drive'],
     'Stock': [50, 49, 80, 120, 150, 30, 25, 100, 75, 0, 65, 40],
-    'Price': [1200, 800, 500, 100, 50, 300, 200, 20, 150, 80, 450, 30]
+    'Price': [1200, 800, 500, 100, 50, 300, 200, 20, 150, 80, 450, 30],
+    'Category': ['Electronics', 'Electronics', 'Electronics', 'Electronics', 'Electronics', 'Electronics', 'Office Supplies', 'Office Supplies', 'Electronics', 'Electronics', 'Photography', 'Office Supplies']
 }
 product_data_frame = pandas.DataFrame(product_data)
 
@@ -46,7 +47,7 @@ if False:
 
 #How many students belong to each age group
 #18-20, 21-23, etc
-if True:
+if False:
     bins = [17, 20, 23, 26]
     labels = ['18-20', '21-23', '24-26']
 
@@ -55,3 +56,19 @@ if True:
     print(f"{students_by_age_group}")
 
     number_of_students = student_data_frame.groupby('Age')
+
+#What is the total stock and revenue (stock * price) for each product category
+if False:
+    product_data_frame['Revenue'] = product_data_frame['Stock'] * product_data_frame['Price']
+
+    total_stock_revenue_by_category = product_data_frame.groupby('Category').agg({'Stock': 'sum', 'Revenue': 'sum'})
+    print(total_stock_revenue_by_category)
+
+#What is the average grade in each subject for each age group?
+if False:
+    bins = [17, 20, 23, 26]
+    labels = ['18-20', '21-23', '24-26']
+
+    student_data_frame['AgeGroup'] =  pandas.cut(student_data_frame['Age'],bins=bins,labels=labels)
+    average_grades = student_data_frame.groupby(['AgeGroup']).agg({'Math': 'mean', 'Science': 'mean', 'English': 'mean'})
+    print(f"{average_grades}")
