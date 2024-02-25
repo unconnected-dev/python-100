@@ -10,7 +10,7 @@ caseX_2 = "a"
 caseWords_3 = ["abc","bcd","aaaa","cbc"]
 caseX_3 = "z"
 
-if True:
+if False:
     def findWordContaining(words, x):
         i = 0
         result = []
@@ -20,7 +20,16 @@ if True:
             i+=1
 
         return result
-    
+
+if True:
+    def findWordContaining(words, x):
+        result = []
+        for i, word in enumerate(words):
+            if x in word:
+                result.append(i)
+            
+        return result
+
 print(f"{findWordContaining(caseWords_1, caseX_1)}")
 print(f"{findWordContaining(caseWords_2, caseX_2)}")
 print(f"{findWordContaining(caseWords_3, caseX_3)}")
