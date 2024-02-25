@@ -106,3 +106,38 @@ if False:
 if False:
     out_of_stock = product_data_frame.loc[product_data_frame['Stock'] == 0].groupby('Category').size()
     print(f"{out_of_stock}")
+
+#What is the median age of employees in each department group
+if False:
+    median_ages = employee_data_frame.groupby('Department').agg({'Age': 'median'})
+    print(f"{median_ages}")
+
+#How many employees are in each age group 20s,30s,40s
+if False:
+    age_bin =[20, 30, 40, 50, numpy.inf]
+    age_labels = ['20s','30s','40s','50s and over']
+
+    employee_data_frame['Age_group'] = pandas.cut(employee_data_frame['Age'],bins=age_bin,labels=age_labels,right=False)
+    print(f"{employee_data_frame.groupby('Age_group').size()}")
+
+#What is the minimum and maximum price of products in each category?
+if False:
+    print(f"{product_data_frame.groupby('Category').agg({'Price': ['min','max']})}")
+
+#How many customers are there from each city in each age group 20s, 30s, 40s
+if False:
+    age_bin =[20, 30, 40, 50, numpy.inf]
+    age_labels = ['20s','30s','40s','50s and over']
+
+    customer_data_frame['Age_group'] = pandas.cut(customer_data_frame['Age'], bins=age_bin, labels=age_labels)
+    print(f"{customer_data_frame.groupby(['City','Age_group']).size()}")
+
+#What is the average stock level of products in each category, considering only products
+#with stock greater than 0
+if False:
+    above_zero = product_data_frame.loc[product_data_frame['Stock'] > 0]
+    print(f"{above_zero.groupby('Category').agg({'Stock':'mean'})}")
+
+if False:
+    stock_avg_by_category = product_data_frame[product_data_frame['Stock'] > 0].groupby('Category')['Stock'].mean()
+    print(f"{stock_avg_by_category}")
