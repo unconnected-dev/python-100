@@ -179,3 +179,41 @@ if False:
     electronics = product_data_frame.loc[product_data_frame['Category'] == 'Electronics']
     electronics_stats = electronics.groupby('Category').agg({'Stock': 'sum', 'Price': 'mean'})
     print(f"{electronics_stats}")
+
+#What is the average age of employees in each age group
+if False:
+    bins = [20, 30, 40, 50, 60, 70]
+    labels = ['20s', '30s', '40s', '50s', '60s+']
+    employee_data_frame['Age_group'] = pandas.cut(employee_data_frame['Age'],bins=bins,labels=labels)
+
+    print(f"{employee_data_frame.groupby('Age_group')['Age'].mean()}")
+
+#How many products are there in each category and what is the average price
+if False:
+    print(f"{product_data_frame.groupby('Category').agg({'Price':'mean','Stock':'sum'})}")
+
+#What is the total stock of products and the average price, consider only stock > 0
+if False:
+    above_zero = product_data_frame[product_data_frame['Stock'] > 0]
+    print(f"{above_zero.groupby('Category').agg({'Stock':'sum','Price':'mean'})}")
+
+#What is the total score and average score of each student across all subjects
+if False:
+    student_data_frame['Total_score'] = student_data_frame['English'] + student_data_frame['Math'] + student_data_frame['Science']
+    student_data_frame['Average_score'] = student_data_frame['Total_score'] / 3
+    print(f"{student_data_frame[['Name','Total_score','Average_score']]}")
+
+if False:
+    student_data_frame['Total_score'] = student_data_frame[['Math','English','Science']].sum(axis=1)
+    student_data_frame['Average_score'] = student_data_frame['Total_score'] / 3
+    print(f"{student_data_frame}")
+
+#What is the total salary expense and average age of employees in each age group
+#from the HR department
+if False:
+    hr_dept = employee_data_frame[employee_data_frame['Department'] == 'HR']
+    bins = [20, 30, 40, 50, 60, 70]
+    labels = ['20s', '30s', '40s', '50s', '60s+']
+    hr_dept['Age_group'] = pandas.cut(hr_dept['Age'],bins=bins,labels=labels)
+
+    print(f"{hr_dept.groupby('Age_group').agg({'Salary':'sum','Age':'mean'})}")
