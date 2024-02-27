@@ -3,38 +3,40 @@ import pandas
 
 
 employee_data = {
-    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica'],
-    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 42, 31],
-    'Department': ['HR', 'IT', 'Finance', 'Marketing', 'IT', 'Finance', 'HR', 'Marketing', 'IT', 'HR'],
-    'Salary': [50000, 60000, 80000, 70000, 55000, 75000, 48000, 72000, 62000, 53000]
+    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica', 'Daniel', 'Olivia', 'Ethan'],
+    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 42, 31, 36, 27, 41],
+    'Department': ['HR', 'IT', 'Finance', 'Marketing', 'IT', 'Finance', 'HR', 'Marketing', 'IT', 'HR', 'Finance', 'IT', 'Marketing'],
+    'Salary': [50000, 60000, 80000, 70000, 55000, 75000, 48000, 72000, 62000, 53000, 78000, 59000, 68000]
 }
 employee_data_frame = pandas.DataFrame(employee_data)
 
 
 student_data = {
-    'StudentID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
-    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack'],
-    'Math': [85, 90, 75, 80, 95, 70, 85, 60, 75, 88],
-    'Science': [70, 80, 65, 75, 85, 60, 75, 50, 65, 78],
-    'English': [80, 85, 40, 75, 90, 65, 70, 55, 80, 82]
+    'StudentID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack', 'Kate', 'Liam', 'Mia'],
+    'Math': [85, 90, 75, 80, 95, 70, 85, 60, 75, 88, 82, 93, 78],
+    'Science': [70, 80, 65, 75, 85, 60, 75, 50, 65, 78, 72, 83, 68],
+    'English': [80, 85, 40, 75, 90, 65, 70, 55, 80, 82, 75, 88, 72],
+    'Age': [19, 21, 22, 20, 21, 18, 20, 21, 22, 20, 19, 21, 22]
 }
 student_data_frame = pandas.DataFrame(student_data)
 
 
 product_data = {
-    'ProductID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    'Product': ['Laptop', 'Smartphone', 'Tablet', 'Headphones', 'Keyboard', 'Monitor', 'Printer', 'Mouse', 'Speaker', 'External Hard Drive'],
-    'Stock': [50, 49, 80, 120, 150, 30, 25, 100, 75, 0],
-    'Price': [1200, 800, 500, 100, 50, 300, 200, 20, 150, 80]
+    'ProductID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    'Product': ['Laptop', 'Smartphone', 'Tablet', 'Headphones', 'Keyboard', 'Monitor', 'Printer', 'Mouse', 'Speaker', 'External Hard Drive', 'Camera', 'USB Drive'],
+    'Stock': [50, 49, 80, 120, 150, 30, 25, 100, 75, 0, 65, 40],
+    'Price': [1200, 800, 500, 100, 50, 300, 200, 20, 150, 80, 450, 30],
+    'Category': ['Electronics', 'Electronics', 'Electronics', 'Electronics', 'Electronics', 'Electronics', 'Office Supplies', 'Office Supplies', 'Electronics', 'Electronics', 'Photography', 'Office Supplies']
 }
 product_data_frame = pandas.DataFrame(product_data)
 
 
 customer_data = {
-    'CustomerID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
-    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica'],
-    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 42, 31],
-    'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston', 'Seattle', 'Miami', 'Denver', 'Austin', 'Atlanta']
+    'CustomerID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112],
+    'Name': ['John', 'Anna', 'Peter', 'Linda', 'Tom', 'Emily', 'Michael', 'Sophia', 'David', 'Jessica', 'Daniel', 'Olivia'],
+    'Age': [35, 28, 40, 45, 30, 33, 38, 29, 40, 31, 36, 27],
+    'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston', 'Seattle', 'Miami', 'Denver', 'Austin', 'Atlanta', 'Detroit', 'Phoenix']
 }
 customer_data_frame = pandas.DataFrame(customer_data)
 
@@ -414,5 +416,48 @@ if False:
     print(f"{total}")
 
 #Which city has the youngest customer
-if True:
+if False:
     print(f"{customer_data_frame.loc[customer_data_frame['Age'].idxmin(), ['City']]}")
+
+#What is the average age of employees
+if False:
+    print(f"{employee_data_frame['Age'].mean()}")
+
+#How many employees work in the IT department
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Department'] == 'IT'].shape[0]}")
+
+#What is the maximum salary among employees
+if False:
+    print(f"{employee_data_frame['Salary'].max()}")
+
+#Who is the youngest employee
+if False:
+    print(f"{employee_data_frame[employee_data_frame['Age'] == employee_data_frame['Age'].min()]['Name']}")
+
+if False:
+    print(f"{employee_data_frame.loc[employee_data_frame['Age'].idxmin(),['Name']]}")
+
+#What is the average score in Math
+if False:
+    print(f"{student_data_frame['Math'].mean()}")
+
+#What is the highest score in Science
+if False:
+    print(f"{student_data_frame['Science'].max()}")
+
+#What is the overall average score across all subjects?
+if False:
+    print(f"{student_data_frame[['Math','Science','English']].mean().mean()}")
+
+if False:
+    student_data_frame['Overall_score'] = student_data_frame[['Math','English','Science']].mean(axis=1)
+    print(f"{student_data_frame['Overall_score'].mean()}")
+
+#What is the total stock of electronic products
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Category'] == 'Electronics', 'Stock'].sum()}")
+
+#What product has the highest price
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Price'].idxmax(),['Product']]}")
