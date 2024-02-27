@@ -10,7 +10,7 @@ caseHighLimit_2 = 15
 caseLowLimit_3 = 19
 caseHighLimit_3 = 28
 
-if True:
+if False:
     def countBalls(lowLimit, highLimit):
         my_dict = {}
 
@@ -25,6 +25,24 @@ if True:
         
         return high
 
+if True:
+    def countBalls(lowLimit, highLimit):
+        my_dict = {}
+
+        for n in range(lowLimit, highLimit + 1):
+            pos = 0
+            for d in str(n):
+                pos += int(d)
+
+            my_dict[pos] = my_dict.get(pos, 0 ) + 1
+        
+        high = 0
+        for val in my_dict.values():
+            if val > high:
+                high = val
+        
+        return high
+    
 print(f"{countBalls(caseLowLimit_1, caseHighLimit_1)}")
 print(f"{countBalls(caseLowLimit_2, caseHighLimit_2)}")
 print(f"{countBalls(caseLowLimit_3, caseHighLimit_3)}")
