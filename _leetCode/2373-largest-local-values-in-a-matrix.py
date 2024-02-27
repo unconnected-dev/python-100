@@ -4,7 +4,7 @@
 caseGrid_1 = [[9,9,8,1],[5,6,2,6],[8,2,6,4],[6,2,2,2]]
 caseGrid_2 = [[1,1,1,1,1],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[1,1,1,1,1]]
 
-if True:
+if False:
     def largestLocal(grid):
         result = []
         
@@ -21,6 +21,21 @@ if True:
                     for j in range(col, col + 3):
                         if grid[i][j] > high_val:
                             high_val = grid[i][j]
+                
+                result_row.append(high_val)
+            
+            result.append(result_row)
+
+        return result
+
+if True:
+    def largestLocal(grid):
+        result = []
+
+        for row in range(0, len(grid) - 2):
+            result_row = []
+            for col in range(0, len(grid[row]) - 2):
+                high_val = max(max(grid[row][col:col+3]),max(grid[row+1][col:col+3]),max(grid[row+2][col:col+3]))
                 
                 result_row.append(high_val)
             
