@@ -461,3 +461,37 @@ if False:
 #What product has the highest price
 if False:
     print(f"{product_data_frame.loc[product_data_frame['Price'].idxmax(),['Product']]}")
+
+#How many employees are there in each department
+if False:
+    sizes = employee_data_frame.groupby('Department').size()
+    print(f"{sizes}")
+
+#What is the average age of students
+if False:
+    print(f"{student_data_frame['Age'].mean()}")
+
+#Which product has the lowest price
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Price'].idxmin(),['Product']]}")
+
+#What is the total stock for each category of products
+if False:
+    print(f"{product_data_frame.groupby('Category')['Stock'].sum()}")
+
+#Who is the oldest employee
+if False:
+    print(f"{employee_data_frame.loc[employee_data_frame['Age'].idxmax(),['Name']]}")
+
+#What is the average age of customers in each city
+if False:
+    print(f"{customer_data_frame.groupby('City').agg({'Age':'mean'})}")
+
+#Which student has the highest average score across all subjects
+if False:
+    student_data_frame['Average_score'] = student_data_frame[['English','Science','Math']].mean(axis=1)
+    print(f"{student_data_frame.loc[student_data_frame['Average_score'].idxmax(),['Name','Average_score']]}")
+
+#Which department has the highest average salary
+if False:
+    print(f"{employee_data_frame.groupby('Department')['Salary'].mean().idxmax()}")
