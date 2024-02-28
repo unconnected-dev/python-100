@@ -4,7 +4,7 @@
 caseNums_1 = [1,3,6,10,12,15]
 caseNums_2 = [1,2,4,7,10]
 
-if True:
+if False:
     def averageValue(nums):
         res_nums = []
 
@@ -14,6 +14,18 @@ if True:
         
         total = sum(res_nums)
         return int(total/len(res_nums)) if total > 0 else 0
+
+if True:
+    def averageValue(nums):
+        t = 0
+        divisor = 0
+
+        for n in nums:
+            if n % 6 == 0:
+                t += n
+                divisor += 1
+
+        return 0 if t == 0 else t//divisor
 
 print(f"{averageValue(caseNums_1)}")
 print(f"{averageValue(caseNums_2)}")
