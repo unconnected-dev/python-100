@@ -5,7 +5,7 @@ caseS_1 = "aaabbb"
 caseS_2 = "abab"
 caseS_3 = "bbb"
 
-if True:
+if False:
     def checkString(s):
         first_b = False
         for c in s:
@@ -16,6 +16,10 @@ if True:
                 first_b = True
         
         return True
+
+if True:
+    def checkString(s):
+        return "ba" not in s
 
 print(f"{checkString(caseS_1)}")
 print(f"{checkString(caseS_2)}")
