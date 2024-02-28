@@ -4,7 +4,7 @@
 caseN_1 = 5
 caseN_2 = 3
 
-if True:
+if False:
     def distinctIntegers(n):
         my_set = set()
         my_set.add(n)
@@ -25,6 +25,10 @@ if True:
             previous_len = len(my_set)
 
         return len(my_set)
+
+if True:
+    def distinctIntegers(n):
+        return n - 1 if n > 1 else 1
 
 print(f"{distinctIntegers(caseN_1)}")
 print(f"{distinctIntegers(caseN_2)}")
