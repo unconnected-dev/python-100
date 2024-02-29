@@ -16,7 +16,7 @@ caseA_3 = 5
 caseB_3 = 8
 caseC_3 = 1
 
-if True:
+if False:
     def countGoodTriplets(arr, a, b, c):
         count = 0
         l = len(arr)
@@ -25,6 +25,22 @@ if True:
             for j in range(i + 1, l - 1):
                 for k in range(j + 1, l):
                     if abs(arr[i] - arr[j]) <= a and abs(arr[j] - arr[k]) <= b and abs(arr[i] - arr[k]) <= c:
+                        count += 1
+                        
+        return count
+
+if True:
+    def countGoodTriplets(arr, a, b, c):
+        count = 0
+        l = len(arr)
+
+        for i in range(0, l - 2):
+            for j in range(i + 1, l - 1):
+                if abs(arr[i] - arr[j]) > a:
+                    continue
+
+                for k in range(j + 1, l):
+                     if abs(arr[j] - arr[k]) <= b and abs(arr[i] - arr[k]) <= c:
                         count += 1
                         
         return count
