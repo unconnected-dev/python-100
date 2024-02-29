@@ -124,3 +124,18 @@ if False:
 if False:
     sales_filtered = sales_data_frame.dropna(subset=['Quantity_Sold', 'Revenue'], how='all')
     print(f"{sales_filtered}")
+
+#Remove rows where both revenue and profit columns are missing
+if False:
+    sales_data_frame.dropna(subset=['Revenue','Profit'], inplace=True, how='all')
+    print(f"{sales_data_frame}")
+
+#Drop rows where product is missing
+if False:
+    sales_data_frame.dropna(subset=['Product'], inplace=True, how='all')
+    print(f"{sales_data_frame}")
+
+#Fill missing values in the profit column with the forward fill method
+if False:
+    res = sales_data_frame['Profit'].ffill()
+    print(f"{res}")
