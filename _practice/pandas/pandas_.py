@@ -495,3 +495,51 @@ if False:
 #Which department has the highest average salary
 if False:
     print(f"{employee_data_frame.groupby('Department')['Salary'].mean().idxmax()}")
+
+#What is the average age of employees
+if False:
+    print(f"{employee_data_frame['Age'].mean()}")
+
+#How many students scored above 80 in math
+if False:
+    print(f"{student_data_frame.loc[student_data_frame['Math'] >= 80].shape[0]}")
+
+#Which department has the highest average salary
+if False:
+    high = employee_data_frame.groupby('Department')['Salary'].mean().idxmax()
+    print(f"{high}")
+
+#What is the total stock of eletronic products
+if False:
+    total = product_data_frame.loc[product_data_frame['Category'] == 'Electronics']['Stock'].sum()
+    print(f"{total}")
+
+#Who is the youngest customer
+if False:
+    name = customer_data_frame.loc[customer_data_frame['Age'].idxmin()]['Name']
+    print(f"{name}")
+
+#Which product has the highest price
+if False:
+    name = product_data_frame.loc[product_data_frame['Price'].idxmax()]['Product']
+    print(f"{name}")
+
+#What is the average english score of students aged 20 or younger
+if False:
+    score = student_data_frame.loc[student_data_frame['Age'] <= 20]['English'].mean()
+    print(f"{score}")
+
+#How many products are in the office supply category
+if False:
+    num = product_data_frame.loc[product_data_frame['Category'] == 'Office Supplies']['Stock'].sum()
+    print(f"{num}")
+
+#Who is the oldest employee
+if False:
+    name = employee_data_frame.loc[employee_data_frame['Age'].idxmax()]['Name']
+    print(f"{name}")
+
+#Which city has the maximum number of customers
+if False:
+    city_name = customer_data_frame.groupby('City').value_counts().idxmax()
+    print(f"{city_name}")
