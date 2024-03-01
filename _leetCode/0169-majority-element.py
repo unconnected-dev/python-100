@@ -18,11 +18,19 @@ if False:
             if my_dict.get(n) >= math.ceil(l/2):
                 return n
 
-if True:
+if False:
     def majorityElement(nums):
         l = len(nums)
         for [n, count_] in Counter(nums).items():
             if count_ * 2 >= l:
+                return n
+
+if True:
+    def majorityElement(nums):
+        my_set = set(nums)
+        l = len(nums)
+        for n in my_set:
+            if nums.count(n)*2 >= l:
                 return n
              
 print(f"{majorityElement(caseNums_1)}")
