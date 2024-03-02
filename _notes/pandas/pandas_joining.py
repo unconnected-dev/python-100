@@ -33,3 +33,18 @@ if False:
 if False:
     outer_join_result = pandas.merge(df_left, df_right, on='A', how='outer')
     print(f"{outer_join_result}")
+
+
+#Concat
+#This is not used for joining dataframes. It is used for concatenating
+#or stacking dataframes along rows(vertically) or columns(horizontally)
+
+#It is useful when you have dataframes that have the same columns (for vertical concatentation)
+#or the same index (for horizontal concatenation)
+if False:
+    row_concat = pandas.concat([df_left, df_right])
+    print(f"{row_concat}")
+
+if False:
+    col_concat = pandas.concat([df_left, df_right], axis=1)
+    print(f"{col_concat}")
