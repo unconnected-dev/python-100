@@ -150,8 +150,10 @@ if False:
     merged_ = pandas.merge(employees_data_frame, department_data_frame, on='department_id', how='inner')
     print(f"{merged_}")
 
-#Merge employees and salary, then concatenate with location data frame, 
+#Merge employees and salary, then concatenate with location data frame
+#Concat does not match up the department_id, it just sticks the columns on to the side
 if False:
     merged_ = pandas.merge(employees_data_frame, salary_data_frame, on='employee_id', how='left')
     concatenated_ = pandas.concat([merged_, location_data_frame], axis=1)
     print(f"{concatenated_}")
+
