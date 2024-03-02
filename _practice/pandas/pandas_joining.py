@@ -129,3 +129,29 @@ if False:
 if False:
     merged_ = employees_data_frame.merge(department_data_frame, on='department_id').fillna('Unknown')
     print(f"{merged_}")
+
+#Merge employee, salary then filter employees with salary > 70000
+if False:
+    merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id')
+    print(f"{merged_.loc[merged_['salary'] > 70000]}")
+
+#Merge employees, departments using outer join
+if False:
+    merged_ = employees_data_frame.merge(department_data_frame, on='department_id', how='outer')
+    print(f"{merged_}")
+
+#Merge employees, departments and locations, then count the number of employees in each location
+if False:
+    merged_ = employees_data_frame.merge(department_data_frame, on='department_id').merge(location_data_frame, on='department_id')
+    print(f"{merged_.groupby('location')['employee_id'].count()}")
+
+#Combine employees, departments using inner join
+if False:
+    merged_ = pandas.merge(employees_data_frame, department_data_frame, on='department_id', how='inner')
+    print(f"{merged_}")
+
+#Merge employees and salary, then concatenate with location data frame, 
+if False:
+    merged_ = pandas.merge(employees_data_frame, salary_data_frame, on='employee_id', how='left')
+    concatenated_ = pandas.concat([merged_, location_data_frame], axis=1)
+    print(f"{concatenated_}")
