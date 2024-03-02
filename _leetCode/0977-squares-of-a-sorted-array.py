@@ -22,7 +22,7 @@ if True:
                 result.append(nums[right]**2)
                 right -= 1
         
-        return result
+        return result[::-1] 
 
 print(f"{sortedSquares(caseNums_1)}")
 print(f"{sortedSquares(caseNums_2)}")
