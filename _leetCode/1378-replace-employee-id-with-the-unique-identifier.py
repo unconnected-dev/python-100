@@ -14,9 +14,13 @@ employee_uni_data = {
 }
 employee_uni_dataframe = pandas.DataFrame(employee_uni_data)
 
-if True:
-    def replace_employee_d(employees, employee_uni):
+if False:
+    def replace_employee_id(employees, employee_uni):
         merged_ = employees.merge(employee_uni, on='id', how='left')
         return merged_[['unique_id','name']]
+    
+if True:
+    def replace_employee_id(employees, employee_uni):
+        return pandas.merge(employees, employee_uni, on='id', how='left')[['unique_id', 'name']]
 
-print(f"{replace_employee_d(employees_dataframe, employee_uni_dataframe)}")
+print(f"{replace_employee_id(employees_dataframe, employee_uni_dataframe)}")
