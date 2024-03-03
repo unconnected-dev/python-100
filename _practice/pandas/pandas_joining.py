@@ -157,3 +157,49 @@ if False:
     concatenated_ = pandas.concat([merged_, location_data_frame], axis=1)
     print(f"{concatenated_}")
 
+#Calculate total salary, salary + bonus for each employee
+if False:
+    merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id')
+    merged_['total_salary'] = merged_['salary'] + merged_['bonus'].fillna(0)
+    print(f"{merged_[['employee_name','total_salary']]}")
+
+#Average salary for each department
+if False:
+    merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id')
+    merged_['total_salary'] = merged_['salary'] + merged_['bonus'].fillna(0)
+    merged_ = merged_.merge(department_data_frame, on='department_id', how='left')
+    print(f"{merged_.groupby('department_name')['total_salary'].mean()}")
+
+#Find the number of employees in each location
+if False:
+    merged_ = employees_data_frame.merge(location_data_frame, on='department_id')
+    print(f"{merged_.groupby('location')['employee_name'].count()}")
+
+#Calculate the total bonus of employees in each department
+if False:
+    merged_ = employees_data_frame.merge(department_data_frame, on='department_id').merge(salary_data_frame, on='employee_id')
+    result_sorted = merged_.groupby('department_name')['bonus'].sum().sort_values(ascending=False)
+    print(f"{result_sorted}")
+
+#Get managers name for each employee
+if False:
+    merged_ = employees_data_frame.merge(department_data_frame, on='department_id').merge(manager_data_frame, on='manager_id')
+    print(f"{merged_[['employee_name','manager_name']]}")
+
+#Find the average salary of employees in each location
+if False:
+    merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id').merge(location_data_frame, on='department_id')
+    result_ = merged_.groupby('location')['salary'].mean().sort_values(ascending=False)
+    print(f"{result_}")
+
+#Calculate the total salary + bonus for employees in each department
+if False:
+    merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id').merge(department_data_frame, on='department_id')
+    merged_['total_salary'] = merged_['salary'] + merged_['bonus']
+    print(f"{merged_.groupby('department_name')['total_salary'].sum().sort_values(ascending=False)}")
+
+#Find the department with the highest total salary + bonus
+if False:
+    merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id').merge(department_data_frame, on='department_id')
+    merged_['total_salary'] = merged_['salary'] + merged_['bonus']
+    print(f"{merged_.loc[merged_['total_salary'].idxmax()][['employee_name','department_name']]}")
