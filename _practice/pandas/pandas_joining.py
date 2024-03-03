@@ -259,7 +259,7 @@ if False:
     print(f"{feb_['product_total'].sum()}")
 
 #Find the product with the highest average selling price
-if True:
+if False:
     prices_data_frame.sort_values('start_date', inplace=True)
     units_sold_data_frame.sort_values('purchase_date', inplace=True)
 
@@ -271,3 +271,26 @@ if True:
     average_price = total_revenue / total_units_sold
     
     print(f"{average_price.idxmax()}")
+
+#What were the prices and units sold for each product on their respective purchase dates
+if False:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='start_date')
+    print(f"{merged_data[['product_id','purchase_date','price','units']]}")
+
+#How many units of each product were sold, considering the price prevailing at the start of the month of the purchase
+if False:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='start_date')
+    merged_data['units_total_price'] = merged_data['units'] * merged_data['price']
+    print(f"{merged_data[['product_id','purchase_date','units_total_price']]}")
+
+#What are the prices of products just before their respective purchase dates
+if False:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='end_date')
+
+    print(f"{merged_data[['product_id','purchase_date', 'price']]}")
