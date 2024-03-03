@@ -203,3 +203,71 @@ if False:
     merged_ = employees_data_frame.merge(salary_data_frame, on='employee_id').merge(department_data_frame, on='department_id')
     merged_['total_salary'] = merged_['salary'] + merged_['bonus']
     print(f"{merged_.loc[merged_['total_salary'].idxmax()][['employee_name','department_name']]}")
+
+
+
+prices_data = {
+    'product_id': [1, 1, 2, 2, 3, 3],
+    'start_date': pandas.to_datetime(['2023-01-01', '2023-02-01', '2023-01-01', '2023-02-01', '2023-01-01', '2023-02-01']),
+    'end_date': pandas.to_datetime(['2023-01-31', '2023-02-28', '2023-01-31', '2023-02-28', '2023-01-31', '2023-02-28']),
+    'price': [100.0, 110.0, 90.0, 95.0, 120.0, 125.0]
+}
+prices_data_frame = pandas.DataFrame(prices_data)
+
+units_sold_data = {
+    'product_id': [1, 2, 3, 2, 1],
+    'purchase_date': pandas.to_datetime(['2023-01-15', '2023-01-20', '2023-02-10', '2023-02-15', '2023-02-25']),
+    'units': [5, 8, 12, 10, 6]
+}
+units_sold_data_frame = pandas.DataFrame(units_sold_data)
+
+
+
+#Merged asof
+
+#Calculate the average selling price for each product based on units_sold data
+if False:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='start_date')
+
+    merged_data['total_price'] = merged_data['price'] * merged_data['units']
+    total_units_sold = merged_data.groupby('product_id')['units'].sum()
+    total_revenue = merged_data.groupby('product_id')['total_price'].sum()
+    average_price = total_revenue / total_units_sold
+    print(f"{average_price}")
+
+#Find the number of units sold for each product in january 2023
+if False:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='start_date')
+    jan_units = merged_data.loc[(merged_data['start_date'] >= '2023-01-01') & (merged_data['end_date'] < '2023-02-01')]
+    print(f"{jan_units.groupby('product_id')['units'].sum()}")
+
+#Find the revenue generated from product sales in february 2023
+if False:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='start_date')
+    feb_ = merged_data.loc[(merged_data['start_date'] >= '2023-02-01') & (merged_data['end_date'] < '2023-03-01')]
+    feb_['product_total'] = feb_['units'] * feb_['price']
+
+    print(f"{feb_['product_total'].sum()}")
+
+#Find the product with the highest average selling price
+if True:
+    prices_data_frame.sort_values('start_date', inplace=True)
+    units_sold_data_frame.sort_values('purchase_date', inplace=True)
+
+    merged_data = pandas.merge_asof(units_sold_data_frame, prices_data_frame, by='product_id', left_on='purchase_date', right_on='start_date')
+    merged_data['total_price'] = merged_data['units'] * merged_data['price']
+    
+    total_units_sold = merged_data.groupby('product_id')['units'].sum()
+    total_revenue = merged_data.groupby('product_id')['total_price'].sum()
+    average_price = total_revenue / total_units_sold
+    
+    print(f"{average_price.idxmax()}")
