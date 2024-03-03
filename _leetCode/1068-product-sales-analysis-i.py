@@ -17,9 +17,13 @@ product_data = {
 }
 product_dataframe = pandas.DataFrame(product_data)
 
-if True:
+if False:
     def sales_analysis(sales, product):
         merged_ = sales.merge(product, on='product_id', how='left')
         return merged_[['product_name','year','price']]
+
+if True:
+    def sales_analysis(sales, product):
+        return pandas.merge(sales, product, on='product_id', how='left')[['product_name','year','price']]
 
 print(f"{sales_analysis(sales_dataframe, product_dataframe)}")
