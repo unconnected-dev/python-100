@@ -10,7 +10,7 @@ caseCh_2 = "z"
 caseWord_3 = "abcd"
 caseCh_3 = "z"
 
-if True:
+if False:
     def reversePrefix(word, ch):
         if ch in word:
             i = word.index(ch) + 1
@@ -18,7 +18,11 @@ if True:
             return substring[::-1] + word[i:]
         else:
             return word
-        
+
+if True:
+    def reversePrefix(word, ch):
+        return word[:word.index(ch) + 1][::-1] + word[word.index(ch) + 1:] if ch in word else word
+
 print(f"{reversePrefix(caseWord_1, caseCh_1)}")
 print(f"{reversePrefix(caseWord_2, caseCh_2)}")
 print(f"{reversePrefix(caseWord_3, caseCh_3)}")
