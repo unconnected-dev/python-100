@@ -58,3 +58,20 @@ if False:
 if False:
     sales_dataframe['revenue'] = sales_dataframe['Price'] * sales_dataframe['Quantity']
     print(f"{sales_dataframe.groupby('Category').agg({'revenue':'sum'})}")
+
+#Which product has the highest total sales revenue
+if False:
+    #So total_sales is the column name
+    highest_sales_product = sales_dataframe.groupby('Product').agg(total_sales=('Price','sum')).idxmax()
+    print(f"{highest_sales_product[0]}")
+
+#What is the average price and total quantity sold for each category of products
+if False:
+    avg_ = sales_dataframe.groupby('Category').agg(avg_price=('Price','mean'),total_sold=('Quantity','sum'))
+    print(f"{avg_}")
+
+#What is the total sales revenue and average price per day for each product
+if False:
+    sales_dataframe['revenue'] = sales_dataframe['Price'] * sales_dataframe['Quantity']
+    stats = sales_dataframe.groupby('Product').agg(total_sales=('revenue','sum'),avg_price=('Price','mean'))
+    print(f"{stats}")
