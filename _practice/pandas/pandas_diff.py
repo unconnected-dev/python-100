@@ -45,3 +45,36 @@ if False:
     weather_dataframe['3_day_avg'] = weather_dataframe['wind_speed'].diff().rolling(window=3).mean()
     highest_ = weather_dataframe.loc[weather_dataframe['3_day_avg'].idxmax()]
     print(f"{highest_}")
+
+#Calculate the absolute change in humidity from the previous day
+if False:
+    weather_dataframe['abs_change'] = weather_dataframe['temperature'].diff().abs()
+    print(f"{weather_dataframe}")
+
+#Find the days with a decrease in wind speed compared to the previous day
+if False:
+    weather_dataframe['wind_speed_change'] = weather_dataframe['wind_speed'].diff()
+    print(f"{weather_dataframe.loc[weather_dataframe['wind_speed_change'] < 0]}")
+
+if False:
+    decrease_ = weather_dataframe[weather_dataframe['wind_speed'].diff() < 0]
+    print(f"{decrease_}")
+
+#Calculate the percentage change in temperature from the previous day
+if False:
+    weather_dataframe['temp_change_perc'] = (weather_dataframe['temperature'].diff() / weather_dataframe['temperature'].shift(1)) * 100
+    weather_dataframe['difference'] = weather_dataframe['temperature'].diff()
+    weather_dataframe['yesterday'] = weather_dataframe['temperature'].shift(1)
+    print(f"{weather_dataframe[['date','temperature','yesterday', 'difference','temp_change_perc']]}")
+
+#Calculate the absolute change in wind speed from the previous day
+if False:
+    weather_dataframe['abs_wind_change'] = weather_dataframe['wind_speed'].diff().abs()
+    print(f"{weather_dataframe[['date','wind_speed','abs_wind_change']]}")
+
+#Find the days with an increase in humidity of more than 5% compared to the previous day
+if False:
+    weather_dataframe['humidity_perc_change'] = (weather_dataframe['humidity'].diff() / weather_dataframe['humidity'].shift(1)) * 100
+    weather_dataframe['difference'] = weather_dataframe['humidity'].diff()
+    weather_dataframe['yesterday'] = weather_dataframe['humidity'].shift(1)
+    print(f"{weather_dataframe[['date','humidity','yesterday','difference','humidity_perc_change']]}")
