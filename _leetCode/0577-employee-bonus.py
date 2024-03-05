@@ -16,9 +16,14 @@ bonusData = {
 }
 bonusDataFrame = pandas.DataFrame(bonusData)
 
-if True:
+if False:
     def employee_bonus(employee, bonus):
         merged_ = pandas.merge(employee, bonus, on='empId', how='outer')
         return merged_.loc[(merged_['bonus'].isna()) | (merged_['bonus'] < 1000), ['name','bonus']].sort_values(by='bonus', ascending=False)
     
+if True:
+    def employee_bonus(employee, bonus):
+        merged_ = pandas.merge(employee, bonus, on='empId', how='left')
+        return merged_.loc[(merged_['bonus'].isna()) | (merged_['bonus'] < 1000), ['name','bonus']].sort_values(by='bonus', ascending=False)
+
 print(f"{employee_bonus(employeeDataFrame, bonusDataFrame)}")
