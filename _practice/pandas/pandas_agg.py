@@ -31,3 +31,30 @@ if False:
 if False:
     price_per_product = sales_dataframe.groupby('Product').agg({'Price':['max','min']})
     print(f"{price_per_product}")
+
+#What is the total sales revenue and average price per day for each category
+if False:
+    sales_dataframe['revenue'] = sales_dataframe['Price'] * sales_dataframe['Quantity']
+    sales_per_day = sales_dataframe.groupby(['Date','Category']).agg({'revenue':'sum','Price':'mean'})
+    print(f"{sales_per_day}")
+
+#What is the total sales revenue for each product category per day
+if False:
+    sales_dataframe['revenue'] = sales_dataframe['Price'] * sales_dataframe['Quantity']
+    total_sales = sales_dataframe.groupby('Category').agg({'revenue':'sum'})
+    print(f"{total_sales}")
+
+#What is the max min quantity sold for each product category
+if False:
+    stats = sales_dataframe.groupby('Category').agg({'Quantity':['max','min']})
+    print(f"{stats}")
+
+#What is the average price and total quantity sold per day for each product category
+if False:
+    avg_price = sales_dataframe.groupby(['Date','Category']).agg({'Price':'mean','Quantity':'sum'})
+    print(f"{avg_price}")
+
+#What is the total sales revenue for each product category across all dates
+if False:
+    sales_dataframe['revenue'] = sales_dataframe['Price'] * sales_dataframe['Quantity']
+    print(f"{sales_dataframe.groupby('Category').agg({'revenue':'sum'})}")
