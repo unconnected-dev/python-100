@@ -4,6 +4,7 @@
 caseNums_1 = [-2,1,-3,4,-1,2,1,-5,4]
 caseNums_2 = [1]
 caseNums_3 = [5,4,-1,7,8]
+caseNums_4 = [-1]
 
 if False:
     def maximumSubarray(nums) -> int:
@@ -24,7 +25,7 @@ if False:
 #This has less checks compared to above    
 if True:
     def maximumSubarray(nums) -> int:
-        maxTotal = 0
+        maxTotal = float('-inf')
         currentTotal = 0
 
         for num in nums:
@@ -41,3 +42,4 @@ if True:
 print(f"{maximumSubarray(caseNums_1)}")    
 print(f"{maximumSubarray(caseNums_2)}")    
 print(f"{maximumSubarray(caseNums_3)}")
+print(f"{maximumSubarray(caseNums_4)}")
