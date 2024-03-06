@@ -29,10 +29,18 @@ if False:
         
         return len(nums)
 
-#Returns list comprehension
+#Question requires in-place not a new array
+#Return the number of elements in nums not equal to val
+#Tracks elements equal to val via i and replaces with n
 if True:
     def removeElement(nums, val) -> int:
-        return len([n for n in nums if n != val])
+        i = 0
+        for n in nums:
+            if n != val:
+                nums[i] = n
+                i += 1
+        
+        return i
 
 print(f"{removeElement(caseNums_1, caseVal_1)}")
 print(f"{removeElement(caseNums_2, caseVal_2)}")
