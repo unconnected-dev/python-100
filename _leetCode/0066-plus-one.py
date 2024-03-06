@@ -25,7 +25,7 @@ if False:
 
         return rr_digits[::-1]
 
-if True:
+if False:
     def plusOne(digits):
         reverse_digits = digits[::-1]
         digits_length = len(digits)
@@ -44,8 +44,21 @@ if True:
 
         if carry_one == True:
             reverse_digits.append(1)
-            
+
         return reverse_digits[::-1]
+
+if True:
+    def plusOne(digits):
+        digits_length = len(digits)
+
+        for i in range(digits_length-1,-1,-1):
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+            else:
+                digits[i] = 0
+            
+        return [1] + digits
 
 print(f"{plusOne(caseDigits_1)}")
 print(f"{plusOne(caseDigits_2)}")
