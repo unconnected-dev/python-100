@@ -1,5 +1,6 @@
 #Set Mismatch
 #https://leetcode.com/problems/set-mismatch/description/
+from collections import Counter
 
 caseNums_1 = [1,2,2,4]
 caseNums_2 = [1,1]
@@ -24,7 +25,25 @@ if True:
                 break
         
         return [a,b]
-            
+    
+if True:
+    def findErrorNums(nums):
+        my_set = set(nums)
+        my_counter = Counter(nums)
+        a, b = 0, 0
+
+        for i in range(len(nums)-1):
+            if my_counter[nums[i]] == 2:
+                a = nums[i]
+                break
+
+        for i in range(1, len(nums) + 1):
+            if i not in my_set:
+                b = i
+                break
+
+        return [a, b]
+
 print(f"{findErrorNums(caseNums_1)}")
 print(f"{findErrorNums(caseNums_2)}")
 print(f"{findErrorNums(caseNums_3)}")
