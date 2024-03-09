@@ -4,8 +4,11 @@
 caseNums_1 = [2,2,1]
 caseNums_2 = [4,1,2,1,2]
 caseNums_3 = [1]
+caseNums_4 = [-1]
+caseNums_5 = [-1,-1,-2]
+caseNums_6 = [1,3,1,-1,3]
 
-if True:
+if False:
     def singleNumber(nums) -> int:
         myDict = dict()
 
@@ -18,7 +21,19 @@ if True:
         for key, val in myDict.items():
             if val == 0:
                 return key
-            
+
+if True:
+    def singleNumber(nums) -> int:
+        res = 0
+        for n in nums:
+            res ^= n
+        
+        return res
+
 print(f"{singleNumber(caseNums_1)}")
 print(f"{singleNumber(caseNums_2)}")
 print(f"{singleNumber(caseNums_3)}")
+print(f"{singleNumber(caseNums_4)}")
+print(f"{singleNumber(caseNums_5)}")
+print(f"{singleNumber(caseNums_6)}")
+    
