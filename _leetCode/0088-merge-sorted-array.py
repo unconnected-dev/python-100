@@ -16,7 +16,7 @@ caseM_3 = 0
 caseNums2_3 = [1]
 caseN_3 = 1
 
-if True:
+if False:
     def merge(nums1, m, nums2, n):
         first = m - 1
         second = n - 1
@@ -35,6 +35,24 @@ if True:
             
             i -= 1
 
+        return nums1
+
+if True:
+    def merge(nums1, m, nums2, n):
+        first = m - 1
+        second = n - 1
+        index_ = m + n - 1
+
+        while second >= 0:
+            if first >= 0 and nums1[first] > nums2[second]:
+                nums1[index_] = nums1[first]
+                first -= 1
+            else:
+                nums1[index_] = nums2[second]
+                second -= 1
+            
+            index_ -= 1
+        
         return nums1
 
 print(f"{merge(caseNums1_1, caseM_1, caseNums2_1, caseN_1)}")
