@@ -543,3 +543,44 @@ if False:
 if False:
     city_name = customer_data_frame.groupby('City').value_counts().idxmax()
     print(f"{city_name}")
+
+#What is the average age of employees
+if False:
+    print(f"{employee_data_frame['Age'].mean()}")
+
+#How many students scored above 80 in Math
+if False:
+    print(f"{student_data_frame.loc[student_data_frame['Math'] >= 80].shape[0]}")
+
+#Which department has the highest salary
+if False:
+    print(f"{employee_data_frame.groupby('Department')['Salary'].max().idxmax()}")
+
+#What is the total stock of electronic products
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Category'] == 'Electronics','Stock'].sum()}")
+
+#Which product has the highest price
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Price'].idxmax()]}")
+
+#How many customers are from san fransisco
+if False:
+    print(f"{customer_data_frame.loc[customer_data_frame['City'] == 'San Francisco'].shape[0]}")
+
+#Youngest customer
+if False:
+    print(f"{customer_data_frame.loc[customer_data_frame['Age'].idxmin()]['Name']}")
+
+#Which student had the highest average score overall
+if False:
+    student_data_frame['average'] = (student_data_frame['Math'] + student_data_frame['English'] + student_data_frame['Science'])/3
+    print(f"{student_data_frame.loc[student_data_frame['average'].idxmax()]}")
+
+#Total salary expense of the HR department
+if False:
+    print(f"{employee_data_frame.loc[employee_data_frame['Department'] == 'HR']['Salary'].sum()}")
+
+#Which product has the highest stock
+if False:
+    print(f"{product_data_frame.loc[product_data_frame['Stock'].idxmax()]}")
