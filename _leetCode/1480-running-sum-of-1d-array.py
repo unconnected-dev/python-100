@@ -5,7 +5,7 @@ caseNums_1 = [1,2,3,4]
 caseNums_2 = [1,1,1,1,1]
 caseNums_3 = [3,1,2,10,1]
 
-if True:
+if False:
     def runningSumOf1dArray(nums):
         runner = 0
         runningList = []
@@ -15,6 +15,10 @@ if True:
             runner += num
 
         return runningList
+
+if True:
+    def runningSumOf1dArray(nums):
+        return [sum(nums[:i+1]) for i in range(len(nums))]
 
 print(f"{runningSumOf1dArray(caseNums_1)}")
 print(f"{runningSumOf1dArray(caseNums_2)}")
