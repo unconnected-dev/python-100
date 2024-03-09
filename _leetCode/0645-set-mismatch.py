@@ -26,7 +26,7 @@ if True:
         
         return [a,b]
     
-if True:
+if False:
     def findErrorNums(nums):
         my_set = set(nums)
         my_counter = Counter(nums)
@@ -36,6 +36,21 @@ if True:
             if my_counter[nums[i]] == 2:
                 a = nums[i]
                 break
+
+        for i in range(1, len(nums) + 1):
+            if i not in my_set:
+                b = i
+                break
+
+        return [a, b]
+
+if True:
+    def findErrorNums(nums):
+        my_set = set(nums)
+        a, b = 0, 0
+
+        #duplicate number
+        a = sum(nums) - sum(my_set)
 
         for i in range(1, len(nums) + 1):
             if i not in my_set:
