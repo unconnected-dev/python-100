@@ -10,9 +10,14 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def fillMissingValues(products):
         products["quantity"] = products["quantity"].fillna(0)
         return products
-    
+
+if True:
+    def fillMissingValues(products):
+        products['quantity'].fillna(value=0, inplace=True)
+        return products
+
 print(f"{fillMissingValues(caseDataFrame)}")
