@@ -10,11 +10,16 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def dropDuplicateEmails(customers):
         #keep, will keep the first occurence
         #inplace, will modify the selected DataFrame rather than returning a new copy 
         customers.drop_duplicates(subset=["email"], keep="first", inplace=True)
         return customers
-    
+
+if True:
+    def dropDuplicateEmails(customers):
+        result = customers.drop_duplicates(subset='email', keep='first')
+        return result
+
 print(f"{dropDuplicateEmails(caseDataFrame).to_markdown(index=False)}")
