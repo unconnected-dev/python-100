@@ -14,9 +14,14 @@ if False:
         employees['salary'] = employees['salary'] * 2
         return employees
 
-if True:
+if False:
     def modifySalaryColumn(employees):
         employees['salary'] *= 2
+        return employees
+
+if True:
+    def modifySalaryColumn(employees):
+        employees['salary'] = employees['salary'].mul(2)
         return employees
 
 print(f"{modifySalaryColumn(caseDataFrame).to_markdown(index=False)}")
