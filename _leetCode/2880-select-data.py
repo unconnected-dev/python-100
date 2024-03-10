@@ -10,8 +10,12 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def selectData(students):
         return students[students.student_id == 101][["name", "age"]]
     
+if True:
+    def selectData(students):
+        return students.loc[students['student_id'] == 101, ['name','age']]
+
 print(f"{selectData(caseDataFrame).to_markdown(index=False)}")
