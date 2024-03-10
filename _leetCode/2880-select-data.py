@@ -1,5 +1,5 @@
 #Select Data
-#https://leetcode.com/problems/select-data/description/?envType=study-plan-v2&envId=introduction-to-pandas&lang=pythondata
+#https://leetcode.com/problems/select-data/description/
 import pandas
 
 caseData = {
