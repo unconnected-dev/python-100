@@ -186,3 +186,28 @@ if False:
 if False:
     sales_data_frame['Region'].fillna(method='ffill', inplace=True)
     print(f"{sales_data_frame}")
+
+#How many rows will be dropped if you use dropna without specifying any parameters
+if False:
+    dropped_rows = sales_data_frame.dropna()
+    print(f"{len(sales_data_frame) - len(dropped_rows)}")
+
+#If you want to drop rows where the revenue column has missing values, how many rows will remain?
+if False:
+    dropped_rows = sales_data_frame.dropna(subset='Revenue')
+    print(f"{len(sales_data_frame) - len(dropped_rows)}")
+
+#What will be the average profit after dropping rows with missing profit values?
+if False:
+    dropped_rows = sales_data_frame.dropna(subset='Profit')
+    print(f"{dropped_rows['Profit'].mean()}")
+
+#How many rows will remain if you drop rows with missing values in any column except region?
+if False:
+    no_region = sales_data_frame.dropna(subset=['Date','Product','Quantity_Sold','Revenue','Profit'])
+    print(f"{len(no_region)}")
+
+#What will be the sum of revenue after dropping rows with missing revenue values?
+if False:
+    dropped_revenue = sales_data_frame.dropna(subset='Revenue')
+    print(f"{dropped_revenue['Revenue'].sum()}")
