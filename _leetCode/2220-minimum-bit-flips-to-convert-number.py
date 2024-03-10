@@ -10,7 +10,7 @@ caseGoal_2 = 4
 caseStart_3 = 10
 caseGoal_3 = 82
 
-if True:
+if False:
     def minBitFlips(start, goal):
         start_list = list(bin(start)[2:])
         goal_list = list(bin(goal)[2:])
@@ -33,6 +33,11 @@ if True:
                 res += 1
 
         return res
+
+if True:
+    def minBitFlips(start, goal):
+        res = start ^ goal
+        return sum(1 for c in bin(res)[2:] if c =='1')
 
 print(f"{minBitFlips(caseStart_1, caseGoal_1)}")
 print(f"{minBitFlips(caseStart_2, caseGoal_2)}")
