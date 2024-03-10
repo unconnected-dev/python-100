@@ -1,5 +1,5 @@
 #Create A New Column
-#https://leetcode.com/problems/create-a-new-column/description/?envType=study-plan-v2&envId=introduction-to-pandas&lang=pythondata
+#https://leetcode.com/problems/create-a-new-column/description/
 import pandas
 
 caseData = {
