@@ -34,10 +34,15 @@ if False:
 
         return res
 
-if True:
+if False:
     def minBitFlips(start, goal):
         res = start ^ goal
         return sum(1 for c in bin(res)[2:] if c =='1')
+
+if True:
+    def minBitFlips(start, goal):
+        res = start ^ goal
+        return sum(1 for c in bin(res) if c =='1')
 
 print(f"{minBitFlips(caseStart_1, caseGoal_1)}")
 print(f"{minBitFlips(caseStart_2, caseGoal_2)}")
