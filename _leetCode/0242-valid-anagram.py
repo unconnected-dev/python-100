@@ -1,5 +1,7 @@
 #Valid Anagram
 #https://leetcode.com/problems/valid-anagram/description/
+from collections import Counter
+
 
 caseS_1 = "anagram"
 caseT_1 = "nagaram"
@@ -20,7 +22,7 @@ if False:
 
         return s_sort == t_sort 
 
-if True:
+if False:
     def validAnagram(s, t) -> bool:
         
         if(len(s) != len(t)):
@@ -30,6 +32,17 @@ if True:
         t_sort = sorted(t)
 
         return s_sort == t_sort
+
+if True:
+    def validAnagram(s, t) -> bool:
+
+        if(len(s) != len(t)):
+            return False
+        
+        s_count = Counter(s)
+        t_count = Counter(t)
+
+        return s_count == t_count
 
 print(f"{validAnagram(caseS_1, caseT_1)}")
 print(f"{validAnagram(caseS_2, caseT_2)}")
