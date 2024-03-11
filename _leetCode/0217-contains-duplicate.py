@@ -10,7 +10,7 @@ if False:
         aSet = set(nums)
         return len(aSet) != len(nums)
 
-if True:
+if False:
     def containsDuplicate(nums) -> bool:
         aSet = set()
         for n in nums:
@@ -20,7 +20,12 @@ if True:
                 aSet.add(n)
 
         return False
-    
+
+if True:    
+    #Faster than first entry
+    def containsDuplicate(nums) -> bool:
+        return len(set(nums)) != len(nums)
+
 print(f"{containsDuplicate(caseNums_1)}")
 print(f"{containsDuplicate(caseNums_2)}")
 print(f"{containsDuplicate(caseNums_3)}")
