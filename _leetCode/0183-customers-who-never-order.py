@@ -16,9 +16,14 @@ ordersData = {
 
 ordersDataFrame = pandas.DataFrame(ordersData)
 
-if True:
+if False:
     def find_customers(customers: pandas.DataFrame, orders: pandas.DataFrame) -> pandas.DataFrame:
         #~ negates the condition
         return customers[~customers['id'].isin(orders['customerId'])][['name']].rename(columns={'name': 'Customers'})
     
+if True:
+    def find_customers(customers: pandas.DataFrame, orders: pandas.DataFrame) -> pandas.DataFrame:
+        merged_ = pandas.merge(customers, orders, left_on='id', right_on='customerId', how='left')
+        return merged_.loc[merged_['customerId'].isna(),['name']].rename(columns={'name':'Customers'})
+
 print(f"{find_customers(customersDataFrame, ordersDataFrame)}")
