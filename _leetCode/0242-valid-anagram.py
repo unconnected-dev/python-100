@@ -7,7 +7,7 @@ caseT_1 = "nagaram"
 caseS_2 = "rat"
 caseT_2 = "car"
 
-if True:
+if False:
     def validAnagram(s, t) -> bool:
 
         if(len(s) != len(t)):
@@ -19,6 +19,17 @@ if True:
         t_sort.sort()
 
         return s_sort == t_sort 
+
+if True:
+    def validAnagram(s, t) -> bool:
+        
+        if(len(s) != len(t)):
+            return False
+        
+        s_sort = sorted(s)
+        t_sort = sorted(t)
+
+        return s_sort == t_sort
 
 print(f"{validAnagram(caseS_1, caseT_1)}")
 print(f"{validAnagram(caseS_2, caseT_2)}")
