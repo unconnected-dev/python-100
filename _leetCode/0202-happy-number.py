@@ -6,7 +6,7 @@ caseN_2 = 2
 caseN_3 = 7
 caseN_4 = 4
 
-if True:
+if False:
     def isHappy(n):
         my_set = set()
         my_set.add(n)
@@ -18,6 +18,19 @@ if True:
             
             my_set.add(n)
         return n == 1
+
+if True:
+    def isHappy(n):
+        my_set = set()
+
+        while n != 1:
+            if n in my_set:
+                return False
+            
+            my_set.add(n)
+            n = sum([int(i) ** 2 for i in str(n)])
+
+        return True
 
 print(f"{isHappy(caseN_1)}")
 print(f"{isHappy(caseN_2)}")
