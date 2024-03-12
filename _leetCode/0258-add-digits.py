@@ -15,7 +15,7 @@ if False:
         
         return num
 
-if True:
+if False:
     def addDigits(num):
         while num > 9:
             new_num = 0
@@ -24,6 +24,15 @@ if True:
                 num = num//10
             num = new_num
         
+        return num
+
+if True:
+    def addDigits(num):
+        while num > 9:
+            new_num = sum([int(n) for n in str(num)])
+
+            num = new_num
+            
         return num
 
 print(f"{addDigits(caseNum_1)}")
