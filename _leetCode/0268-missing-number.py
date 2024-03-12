@@ -13,11 +13,18 @@ if False:
             if i not in (numsSet):
                 return i
 
-if True:
+if False:
     def missingNumber(nums):
         for i in range(len(nums) + 1):
             if i not in nums:
                 return i        
+
+if True:
+    def missingNumber(nums):
+        total = sum(nums)
+        expected_total = sum([n for n in range(len(nums) + 1)])
+        return expected_total - total
+
 
 print(f"{missingNumber(caseNums_1)}")
 print(f"{missingNumber(caseNums_2)}")
