@@ -5,19 +5,29 @@ caseNum_1 = 27
 caseNum_2 = 0
 caseNum_3 = -1
 
-if True:
-    def powerOfThree(num) -> bool:
-        if num < 1:
+if False:
+    def powerOfThree(n) -> bool:
+        if n < 1:
             return False
     
-        while num > 1:
-            if num % 3 != 0:
+        while n > 1:
+            if n % 3 != 0:
                 return False
             
-            num = num / 3
+            n = n / 3
 
         return True
+
+if True:
+    def powerOfThree(n) -> bool:
+        if n == 0:
+            return False
     
+        while n % 3 == 0:
+            n = n // 3
+
+        return n == 1
+
 print(f"{powerOfThree(caseNum_1)}")
 print(f"{powerOfThree(caseNum_2)}")
 print(f"{powerOfThree(caseNum_3)}")
