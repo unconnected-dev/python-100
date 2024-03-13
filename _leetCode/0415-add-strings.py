@@ -10,7 +10,7 @@ caseNum2_2 = "77"
 caseNum1_3 = "0"
 caseNum2_3 = "0"
 
-if True:
+if False:
     def addStrings(num1, num2) -> str:
         
         def strToInt(num):
@@ -35,6 +35,25 @@ if True:
         
         return str(strToInt(num1) + strToInt(num2))
     
+if True:
+    def addStrings(num1, num2) -> str:
+        num1 = list(num1)
+        num2 = list(num2)
+
+        carry = 0
+        res = ""
+
+        while num1 or num2 or carry:
+            if num1:
+                carry += int(num1.pop())
+            if num2:
+                carry += int(num2.pop())
+            
+            res += str((carry % 10))
+            carry //= 10
+
+        return res[::-1]
+
 print(f"{addStrings(caseNum1_1, caseNum2_1)}")
 print(f"{addStrings(caseNum1_2, caseNum2_2)}")
 print(f"{addStrings(caseNum1_3, caseNum2_3)}")
