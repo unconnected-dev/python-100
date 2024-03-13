@@ -1,5 +1,6 @@
 #Ransom Note
 #https://leetcode.com/problems/ransom-note/description/
+import collections
 
 caseRansomNote_1 = "a"
 caseMagazine_1 = "b"
@@ -10,7 +11,7 @@ caseMagazine_2 = "ab"
 caseRansomNote_3 = "aa"
 caseMagazine_3 = "aab"
 
-if True:
+if False:
     def ransomNote(ransomNote, magazine):
         if len(ransomNote) > len(magazine):
             return False
@@ -33,6 +34,20 @@ if True:
         
         return True
 
+if True:
+    def ransomNote(ransomNote, magazine):
+        if len(ransomNote) > len(magazine):
+            return False
+        
+        note_count = collections.Counter(ransomNote)
+        magazine_count = collections.Counter(magazine)
+
+        for c, count in note_count.items():
+            if c not in magazine_count or count > magazine_count[c]:
+                return False
+            
+        return True
+        
 print(f"{ransomNote(caseRansomNote_1, caseMagazine_1)}")
 print(f"{ransomNote(caseRansomNote_2, caseMagazine_2)}")
 print(f"{ransomNote(caseRansomNote_3, caseMagazine_3)}")
