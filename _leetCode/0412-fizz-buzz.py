@@ -6,10 +6,10 @@ caseNum_2 = 5
 caseNum_3 = 15
 
 if True:
-    def fizzBuzz(num):
+    def fizzBuzz(n):
         str_ = []
 
-        for i in range(0,num+1):
+        for i in range(1, n+1):
             tStr = ""
 
             if i%3 == 0:
@@ -19,7 +19,7 @@ if True:
                 tStr += "Buzz"
             
             if tStr == "":
-                tStr = i
+                tStr = str(i)
             
             str_.append(tStr)
             
