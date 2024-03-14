@@ -5,7 +5,7 @@ caseWords_1 = ["Hello","Alaska","Dad","Peace"]
 caseWords_2 = ["omk"]
 caseWords_3 = ["adsdf","sfd"]
 
-if True:
+if False:
     def findWords(words):
 
         rWords = []
@@ -17,7 +17,13 @@ if True:
                 rWords.append(word)
                 
         return rWords
-    
+
+if True:
+    def findWords(words):
+        rows = (set("qwertyuiop"), set("asdfghjkl"), set("zxcvbnm"))
+        result = [word for word in words if any(set(word.lower()).issubset(row) for row in rows)]
+        return result
+
 print(f"{findWords(caseWords_1)}")
 print(f"{findWords(caseWords_2)}")
 print(f"{findWords(caseWords_3)}")
