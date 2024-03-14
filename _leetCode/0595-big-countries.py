@@ -12,8 +12,12 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def big_countries(world: pandas.DataFrame) -> pandas.DataFrame:
         return world.loc[(world['area'] >= 3000000) | (world['population'] >= 25000000), ['name','population','area']]
-    
+
+if True:
+    def big_countries(world: pandas.DataFrame) -> pandas.DataFrame:
+        return world[(world['area'] >= 3000000) | (world['population'] >= 25000000)][['name','population','area']]
+        
 print(f"{big_countries(caseDataFrame)}")
