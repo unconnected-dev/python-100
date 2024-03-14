@@ -138,9 +138,57 @@ if False:
     print(f'{camelCase(["apple","pear","tea","four"])}')
 
 #Power of index
-if True:
+if False:
     def powerOf(nums):
         f = lambda n: [f"{n[0]} ** {n[1]}", n[1] ** n[0]]
         return list(map(f, enumerate(nums)))
     
     print(f"{powerOf([i for i in range(1,11)])}")
+
+#Square of a number
+if False:
+    def squareOf(nums):
+        f = lambda n: n**2
+        return list(map(f,nums))
+    
+    print(f"{squareOf([n for n in range(1,6)])}")
+
+#Check if a number is even
+if False:
+    def isEven(nums):
+        f = lambda n: n % 2 == 0
+        return list(map(f,nums))
+    
+    print(f"{isEven([n for n in range(1,6)])}")
+
+#Sum of two nums
+if False:
+    def sumOf(nums):
+        f = lambda pair: sum(pair)
+        return list(map(f, nums))
+    
+    print(f"{sumOf([[1,2],[3,4],[5,6]])}")
+
+if False:
+    def sumOf(nums):
+        f = lambda a, b: a + b
+        #The * will unpack each array of two numbers
+        return list(map(lambda x: f(*x), nums))
+
+    print(sumOf([[1,2],[3,4],[5,6]]))
+
+#Sort tuples by the second element
+if False:
+    def sortTuples(manyTuples):
+        f = lambda tuple: tuple[1]
+        return sorted(manyTuples,key=f)
+    
+    print(f"{sortTuples([(1,2),(8,9),(6,7),(4,5)])}")
+
+#Filter a list of numbers and return only the positive ones
+if False:
+    def positives_only(nums):
+        f = lambda n: n % 2 == 0
+        return list(filter(f, nums))
+    
+    print(f"{positives_only([n for n in range(1,6)])}")
