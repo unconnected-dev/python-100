@@ -10,9 +10,13 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def find_customer_referee(customer):
         names = customer.loc[(customer['referee_id'] != 2) | (customer['referee_id'].isna()), ['name']]
         return names
-    
+
+if True:
+    def find_customer_referee(customer):
+        return customer[(customer['referee_id'] != 2) | (customer['referee_id'].isna())][['name']]
+
 print(f"{find_customer_referee(caseDataFrame).to_markdown(index=False)}")
