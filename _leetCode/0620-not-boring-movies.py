@@ -11,8 +11,13 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def not_boring_movies(cinema):
         return cinema.loc[(cinema['id'] %2==1) & (cinema['description']!="boring")].sort_values(by='rating', ascending=False)
 
+if True:
+    def not_boring_movies(cinema):
+        cinema = cinema[(cinema['id'] %2==1) & (cinema['description']!="boring")]
+        return cinema.sort_values(by='rating', ascending=False)
+    
 print(f"{not_boring_movies(caseDataFrame).to_markdown(index=False)}")
