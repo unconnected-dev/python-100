@@ -13,10 +13,14 @@ if False:
 
         return total
 
-if True:
+if False:
     def arrayPairSum(nums):
         nums.sort()
         return sum(nums[::2])
         
+if True:
+    def arrayPairSum(nums):
+        return sum(sorted(nums)[::2])
+
 print(f"{arrayPairSum(caseNums_1)}")
 print(f"{arrayPairSum(caseNums_2)}")
