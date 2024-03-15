@@ -15,7 +15,7 @@ if False:
         
         return s
 
-if True:
+if False:
     def reverseString(s):
         halfway = math.floor(len(s)/2)
         for i in range(halfway):
@@ -24,5 +24,15 @@ if True:
 
         return s
 
+if True:
+    def reverseString(s):
+        left, right = 0, len(s)-1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+        
+        return s
+    
 print(f"{reverseString(caseList_1)}")
 print(f"{reverseString(caseList_2)}")
