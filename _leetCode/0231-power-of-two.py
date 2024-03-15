@@ -17,7 +17,7 @@ if False:
 #Dividing down
 if True:
     def isPowerOfTwo(num) -> bool:
-        while num % 2 == 0:
+        while num % 2 == 0 and num > 1:
             num /= 2
 
         return num == 1
