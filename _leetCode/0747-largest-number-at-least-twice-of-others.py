@@ -27,7 +27,7 @@ if False:
         else:
             return -1
 
-if True:
+if False:
     def dominantIndex(nums):
         
         if len(nums) < 2:
@@ -37,6 +37,11 @@ if True:
         check = [n for n in nums if n*2 <= highest and n != highest]
         res = nums.index(highest) if len(check) == len(nums) -1 else -1
         return res
+
+if True:
+    def dominantIndex(nums):
+        highest = max(nums)
+        return nums.index(highest) if len([n for n in nums if n*2 <= highest and n != highest]) == len(nums) -1 else -1
 
 print(f"{dominantIndex(caseNums_1)}")
 print(f"{dominantIndex(caseNums_2)}")
