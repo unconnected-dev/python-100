@@ -18,7 +18,7 @@ if False:
         evens += odds
         return evens
 
-if True:
+if False:
     def sortArrayByParity(nums):
         even_index = 0
 
@@ -28,6 +28,15 @@ if True:
                 even_index += 1
 
         return nums
+
+if True:
+    def sortArrayByParity(nums):
+        evens, odds = [], []
+        f = lambda n: n % 2 == 0
+        for n in nums:
+            evens.append(n) if f(n) else odds.append(n)
+        
+        return evens + odds
 
 print(f"{sortArrayByParity(caseNums_1)}")
 print(f"{sortArrayByParity(caseNums_2)}")
