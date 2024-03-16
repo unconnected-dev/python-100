@@ -3,9 +3,10 @@
 
 caseNums_1 = [1,3,5,4,7]
 caseNums_2 = [2,2,2,2,2]
+caseNums_3 = [1,3,5,7]
 
-if True:
-    def findLenghtOfLCIS(nums):
+if False:
+    def findLengthOfLCIS(nums):
         res = [nums[0]]
 
         for i in range(len(nums)):
@@ -18,5 +19,23 @@ if True:
 
         return len(res)
 
-print(f"{findLenghtOfLCIS(caseNums_1)}")
-print(f"{findLenghtOfLCIS(caseNums_2)}")
+if True:
+    def findLengthOfLCIS(nums):
+        res = 1
+
+        for i in range(len(nums)):
+            temp = 1
+            for j in range(i+1, len(nums)):
+                if nums[j] > nums[j-1]:
+                    temp += 1
+                else:
+                    break
+        
+            if temp > res:
+                res = temp
+
+        return res
+    
+print(f"{findLengthOfLCIS(caseNums_1)}")
+print(f"{findLengthOfLCIS(caseNums_2)}")
+print(f"{findLengthOfLCIS(caseNums_3)}")
