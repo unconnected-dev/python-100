@@ -179,7 +179,7 @@ if False:
     fib = fibonacci()
     for _ in range(10):
         print(f"{fib()}")
-    
+
 if False:
     def fibonacci():
         a, b = 0, 1
@@ -194,7 +194,7 @@ if False:
         print(f"{fib()}")
 
 #Prime number checker
-if True:
+if False:
     def primeNumberCheck():
         def wrapper(n):
             for i in range((n//2) + 1):
@@ -212,3 +212,59 @@ if True:
     print(f"{is_prime(19)}")
     print(f"{is_prime(20)}")
     print(f"{is_prime(21)}")
+
+#Add 5
+if False:
+    def add_value(v):
+        def wrapper(n):
+            return v + n
+        return wrapper
+    
+    add_10_to = add_value(10)
+    add_7_to = add_value(7)
+
+    print(f"{add_10_to(5)}")
+    print(f"{add_7_to(5)}")
+
+#How many times has it been called
+if False:
+    def call_me():
+        times_called = 0
+        def wrapper():
+            nonlocal times_called
+            times_called += 1
+            return times_called
+        return wrapper
+    
+    call_ = call_me()
+
+    print(f"{call_()}")
+    print(f"{call_()}")
+    print(f"{call_()}")
+
+#Greater than threshold
+if False:
+    def greater_than(v):
+        def wrapper(n):
+            return n > v
+        
+        return wrapper
+    
+    greater_than_10 = greater_than(10)
+
+    print(f"{greater_than_10(5)}")
+    print(f"{greater_than_10(11)}")
+
+#Exponential
+if False:
+    def exponential_of(v):
+        def wrapper(n):
+            return v ** n
+        
+        return wrapper
+    
+    exponential_of_5 = exponential_of(5)
+    exponential_of_10 = exponential_of(10)
+
+    print(f"{exponential_of_5(3)}")
+    print(f"{exponential_of_10(3)}")
