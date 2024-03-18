@@ -11,11 +11,16 @@ caseData = {
 
 caseDataFrame = pandas.DataFrame(caseData)
 
-if True:
+if False:
     def article_views(views: pandas.DataFrame) -> pandas.DataFrame:
         authors_ids = views[views['author_id'] == views['viewer_id']]['author_id']
         unique_authors = sorted(authors_ids.unique())
 
         return pandas.DataFrame({'id': unique_authors})
 
+if True:
+    def article_views(views: pandas.DataFrame) -> pandas.DataFrame:
+        author_ids = sorted(views[views['author_id'] == views['viewer_id']]['author_id'].unique())
+        return pandas.DataFrame({'id': author_ids})
+    
 print(f"{article_views(caseDataFrame)}")
