@@ -19,10 +19,15 @@ if False:
         date_ = datetime(year, month, day)
         return date_.strftime("%A")
 
-if True:
+if False:
     def dayOfTheWeek(day, month, year):
         return datetime(year, month, day).strftime("%A")
     
+if True:
+    def dayOfTheWeek(day, month, year):
+        l = ["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+        return l[datetime(year, month, day).isoweekday()]
+
 print(f"{dayOfTheWeek(caseDay_1, caseMonth_1, caseYear_1)}")
 print(f"{dayOfTheWeek(caseDay_2, caseMonth_2, caseYear_2)}")
 print(f"{dayOfTheWeek(caseDay_3, caseMonth_3, caseYear_3)}")
