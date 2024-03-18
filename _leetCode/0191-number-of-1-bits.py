@@ -6,10 +6,19 @@ caseN_1 = 11
 caseN_2 = 128
 caseN_3 = 4294967293
 
-if True:
+if False:
     def hammingWeight(n):
         count_ = collections.Counter(bin(n)[2:])
         return count_.get("1", 0)
+
+if True:
+    def hammingWeight(n):
+        count = 0
+        for c in bin(n)[2:]:
+            if c == "1":
+                count += 1
+
+        return count
 
 print(f"{hammingWeight(caseN_1)}")
 print(f"{hammingWeight(caseN_2)}")
