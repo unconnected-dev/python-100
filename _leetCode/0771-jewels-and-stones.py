@@ -19,7 +19,7 @@ if False:
 
         return returnVal
 
-if True:
+if False:
     def jewelsAndStones(jewels, stones):
         jewel_counts = collections.Counter(jewels)        
         stone_counts = collections.Counter(stones)
@@ -31,6 +31,20 @@ if True:
                 total += value
 
         return total
+    
+if True:
+    def jewelsAndStones(jewels, stones):
+        jewel_set = set(jewels)
+        stone_counts = collections.Counter(stones)
+
+        total = 0  
+        
+        for key, value in stone_counts.items():
+            if key in jewel_set:
+                total += value
+
+        return total
+
 
 print(f"{jewelsAndStones(caseJewels_1, caseStones_1)}")
 print(f"{jewelsAndStones(caseJewels_2, caseStones_2)}")
