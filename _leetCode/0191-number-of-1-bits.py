@@ -11,7 +11,7 @@ if False:
         count_ = collections.Counter(bin(n)[2:])
         return count_.get("1", 0)
 
-if True:
+if False:
     def hammingWeight(n):
         count = 0
         for c in bin(n)[2:]:
@@ -19,6 +19,10 @@ if True:
                 count += 1
 
         return count
+
+if True:
+    def hammingWeight(n):
+        return bin(n)[2:].count("1")
 
 print(f"{hammingWeight(caseN_1)}")
 print(f"{hammingWeight(caseN_2)}")
