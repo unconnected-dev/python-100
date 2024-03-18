@@ -268,3 +268,89 @@ if False:
 
     print(f"{exponential_of_5(3)}")
     print(f"{exponential_of_10(3)}")
+
+#Time to execute
+if False:
+    import time
+
+    def timer_to_execute(func):
+        def wrapper(*args, **kwargs):
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            end_time = time.time()
+
+            print(f"Time to execute: {end_time - start_time}")
+            return result
+        return wrapper
+    
+    def some_function():
+        time.sleep(2)
+        return "Done"
+    
+    check_time = timer_to_execute(some_function)
+
+    print(f"{check_time()}")
+
+#Unique id
+if False:
+    def id_generator(start_id):
+        current_id = start_id
+
+        def inner_function():
+            nonlocal current_id
+            current_id += 1
+
+            return current_id
+        
+        return inner_function
+    
+    gen = id_generator(100)
+
+    print(f"{gen()}")
+    print(f"{gen()}")
+    print(f"{gen()}")
+
+#Cache with max size
+if False:
+    def cache(max_size):
+        cache_dict = {}
+
+        def inner_function(key, value=None):
+            if value is None:
+                return cache_dict.get(key)
+            
+            if len(cache_dict) >= max_size:
+                cache_dict.popitem()
+            cache_dict[key] = value
+            return value
+
+        return inner_function
+    
+    a_cache = cache(2)
+
+    a_cache("a", 1)
+    a_cache("b", 2)
+    print(f"{a_cache("a")}")
+
+    #a will remain cached as we are popping
+    a_cache("c", 3)
+    a_cache("d", 4)
+    
+    print(f"{a_cache("c")}")
+
+#Count every call
+if False:
+    def count_me():
+        c = 0
+        
+        def inner_function():
+            nonlocal c
+            c+=1
+            return c
+        
+        return inner_function
+
+    count_ = count_me()
+    print(f"{count_()}")
+    print(f"{count_()}")
+    print(f"{count_()}")
