@@ -18,9 +18,16 @@ if False:
 
         return pandas.DataFrame({'id': unique_authors})
 
-if True:
+if False:
     def article_views(views: pandas.DataFrame) -> pandas.DataFrame:
         author_ids = sorted(views[views['author_id'] == views['viewer_id']]['author_id'].unique())
         return pandas.DataFrame({'id': author_ids})
-    
+
+if True:
+    def article_views(views: pandas.DataFrame) -> pandas.DataFrame:
+        frame = views[views['author_id'] == views['viewer_id']]
+        frame = frame.rename(columns={'author_id':'id'})
+        frame = frame['id'].drop_duplicates()
+        return frame.to_frame().sort_values(by='id', ascending=True)
+
 print(f"{article_views(caseDataFrame)}")
