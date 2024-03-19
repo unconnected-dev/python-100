@@ -7,7 +7,7 @@ caseStrs_2 = [""]
 caseStrs_3 = ["a"]
 
 #Time Exceeded 
-if True:
+if False:
     def groupAnagrams(strs):
         res = []
         res.append([strs[0]])
@@ -33,6 +33,20 @@ if True:
                     res.append([strs[i]])
 
         return res
+
+if True:
+    def groupAnagrams(strs):
+        res = {}
+
+        for word in strs:
+            k = ''.join(sorted(word))
+            
+            if k in res:
+                res[k].append(word)
+            else:
+                res[k] = [word]
+        
+        return list(res.values())
 
 print(f"{groupAnagrams(caseStrs_1)}")
 print(f"{groupAnagrams(caseStrs_2)}")
