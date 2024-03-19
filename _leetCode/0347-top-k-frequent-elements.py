@@ -21,7 +21,7 @@ if False:
 
         return res
     
-if True:
+if False:
     def topKFrequent(nums, k):
         count_ = collections.Counter(nums)
         sorted_ = dict(sorted(count_.items(), key=lambda item: -item[1]))
@@ -33,6 +33,9 @@ if True:
 
         return res
 
-
+if True:
+    def topKFrequent(nums, k):
+        return [key for key, val in collections.Counter(nums).most_common(k)]
+    
 print(f"{topKFrequent(caseNums_1, caseK_1)}")
 print(f"{topKFrequent(caseNums_2, caseK_2)}")
