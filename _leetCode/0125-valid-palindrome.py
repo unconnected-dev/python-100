@@ -12,11 +12,19 @@ if False:
         s = s.lower().replace(" ", "").replace("!","").replace("?","").replace(".","").replace(",","").replace(":","").replace("@","").replace("#","").replace("_","").replace('"',"").replace("'","").replace("{","").replace("}","").replace("[","").replace("]","").replace("-","").replace(";","").replace("(","").replace(")","").replace("`","")
         return s == s[::-1]
 
-if True:
+if False:
     def isPalindrome(s):
         pattern = r'[^a-zA-Z0-9]+'
         s = re.sub(pattern, '', s.lower())
         return s == s[::-1]
+
+if True:
+    def isPalindrome(s):
+        res = ""
+        for c in s:
+            if c.isalnum() : res += c.lower()
+        
+        return res == res[::-1]
 
 print(f"{isPalindrome(caseS_1)}")
 print(f"{isPalindrome(caseS_2)}")
