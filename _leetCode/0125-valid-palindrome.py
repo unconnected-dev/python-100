@@ -18,13 +18,36 @@ if False:
         s = re.sub(pattern, '', s.lower())
         return s == s[::-1]
 
-if True:
+if False:
     def isPalindrome(s):
         res = ""
         for c in s:
             if c.isalnum() : res += c.lower()
         
         return res == res[::-1]
+
+if True:
+    def isPalindrome(s):
+        left = 0
+        right = len(s) - 1
+
+        while left < right:
+
+            #Skip over special characters
+            while left < right and s[left].isalnum() == False:
+                left += 1
+            
+            while right > left and s[right].isalnum() == False:
+                right -= 1
+
+            #Actual letter / number comparison
+            if left > right or s[left].lower() != s[right].lower():
+                return False
+            else:
+                left += 1
+                right -= 1
+
+        return True
 
 print(f"{isPalindrome(caseS_1)}")
 print(f"{isPalindrome(caseS_2)}")
