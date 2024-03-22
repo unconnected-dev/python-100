@@ -197,3 +197,65 @@ if False:
     
     nl = [i for i in range(1,11)]
     print(f"{checkPrimes(nl)}")
+
+#Running power of
+if False:
+    def power_of_function(nums):
+        l = [[n, i, n**i] for n, i in enumerate(nums)]
+        return l
+    
+    nl = [i for i in range(1, 11)]
+    print(f"{power_of_function(nl)}")
+
+#Filter even numbers
+if False:
+    def filter_even(nums):
+        return [n for n in nums if n % 2 == 0]
+    
+    nl = [i for i in range(1, 21)]
+    print(f"{filter_even(nl)}")
+
+#To binary
+if False:
+    def to_binary_function(nums):
+        return [bin(n) for n in nums]
+    
+    nl = [n for n in range(11)]
+    print(f"{to_binary_function(nl)}")
+
+#Divisors of a number
+if False:
+    def get_divisors(nums):
+        return [[i for i in range(1,n) if n%i == 0] for n in nums]
+    
+    nl = [n for n in range(1, 11)]
+    print(f"{get_divisors(nl)}")
+
+#Find primes
+if False:
+    def checkPrime(n):
+        if n == 1:
+            return False
+        
+        if n == 2:
+            return True
+
+        for i in range(2, n//2):
+            if n%i == 0:
+                return False
+        
+        return True
+
+    def get_primes():
+        return [n for n in range(1,100) if checkPrime(n)]
+        
+    print(f"{get_primes()}")
+
+#Square or cube
+if False:
+    def square_or_cube(nums):
+        return [n**2 if n %2==0 else n**3 for n in nums]
+
+    nl = [i for i in range(1,15)]
+    print(f"{square_or_cube(nl)}")
+
