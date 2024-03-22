@@ -34,7 +34,7 @@ if True:
 
         return res == ""
 
-if True:
+if False:
     def isValid(s):
         my_closed_dict = {
             "}":"{",
@@ -55,6 +55,28 @@ if True:
                 return False
 
         return res == ""
+
+if True:
+    def isValid(s):
+        my_closed_dict = {
+            "}":"{",
+            "]":"[",
+            ")":"("
+        }
+
+        my_open_set = set(["{","(","["])
+
+        res = []
+        for c in s:
+            
+            if c in my_open_set:
+                res.append(c)
+            elif len(res) >= 1 and res[-1] == my_closed_dict.get(c):
+                res.pop()
+            elif c in my_closed_dict:
+                return False
+
+        return len(res) == 0
 
 print(f"{isValid(caseS_1)}")
 print(f"{isValid(caseS_2)}")
