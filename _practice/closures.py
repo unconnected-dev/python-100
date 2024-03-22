@@ -330,13 +330,13 @@ if False:
 
     a_cache("a", 1)
     a_cache("b", 2)
-    print(f"{a_cache("a")}")
+    # print(f"{a_cache("a")}")
 
     #a will remain cached as we are popping
     a_cache("c", 3)
     a_cache("d", 4)
     
-    print(f"{a_cache("c")}")
+    # print(f"{a_cache("c")}")
 
 #Count every call
 if False:
@@ -354,3 +354,87 @@ if False:
     print(f"{count_()}")
     print(f"{count_()}")
     print(f"{count_()}")
+
+#Counter
+if False:
+    def counter_():
+        c = 0
+
+        def inner_function():
+            nonlocal c
+            c += 1
+            return c
+
+        return inner_function
+
+    count_this = counter_()
+    print(f"{count_this()}") 
+    print(f"{count_this()}") 
+    print(f"{count_this()}") 
+
+#Fibonacci
+if False:
+    def fib():
+        a,b = 0,1
+
+        def inner_function():
+            nonlocal a,b
+            a,b = b,b+a
+            return b
+        
+        return inner_function
+    
+    call_me = fib()
+    for _ in range(10):
+        print(f"{call_me()}")
+
+#Average calculator
+if False:
+    def average_calculator():
+        called, total = 0, 0
+
+        def inner_function(num):
+            nonlocal called, total
+            called += 1
+            total += num
+            return total/called
+        
+        return inner_function
+    
+    avg = average_calculator()
+    print(f"{avg(50)}")
+    print(f"{avg(150)}")
+
+#Multiplier function
+if False:
+    def multiplier_function(n):
+        by = n
+
+        def inner_function(num):
+            nonlocal by
+            return num * by
+        
+        return inner_function
+    
+    mult_by_2 = multiplier_function(2)
+    mult_by_5 = multiplier_function(5)
+
+    print(f"{mult_by_2(10)}")
+    print(f"{mult_by_5(10)}")
+
+#Power of
+if False:
+    def power_function(p):
+        power_of = p
+
+        def inner_function(num):
+            nonlocal power_of
+            return num ** power_of
+        
+        return inner_function
+    
+    power_of_2 = power_function(2)
+    power_of_5 = power_function(5)
+
+    print(f"{power_of_2(4)}")
+    print(f"{power_of_5(4)}")
