@@ -98,7 +98,7 @@ if False:
     def characterPositions(s):
         return{c: ind for ind, c in enumerate(s)}
 
-    print(f"{characterPositions("anexamplestring")}")
+    print(f"{characterPositions('anexamplestring')}")
 
 #List divisiors
 if False:
@@ -198,3 +198,61 @@ if False:
 
     wl = ["apple","pear","orange","berry","pear","pear","orange"]
     print(f"{frequency(wl)}")
+
+#Binary
+if False:
+    def toBinary(nums):
+        return {num: bin(num) for num in nums}
+    
+    wl = [n for n in range(1,11)]
+    print(f"{toBinary(wl)}")
+
+#Ascii
+if False:
+    def toAscii(words):
+        return {word: ''.join([str(ord(c)) for c in word]) for word in words}
+
+    wl = ["apple","pear","orange","berry"]
+    print(f"{toAscii(wl)}")
+
+#Even or odd
+if False:
+    def evenOrOdd(nums):
+        return {num: "Even" if num % 2 == 0 else "Odd" for num in nums}
+    
+    nl = [i for i in range(1,11)]
+    print(f"{evenOrOdd(nl)}")
+
+#Power of 5
+if False:
+    def powerOfFive(nums):
+        return {num: num ** 5 for num in nums}
+    
+    nl = [i for i in range(21)]
+    print(f"{powerOfFive(nl)}")
+
+#Is prime
+if False:
+    def checkPrime(n):
+        if n <= 1:
+            return False
+        
+        for i in range(2, n//2 + 1):
+            if n % i == 0:
+                return False
+
+        return True
+    
+    def getPrimes(nums):
+        return {n: checkPrime(n) for n in nums}
+    
+    nl = [i for i in range(2,31)]
+    print(f"{getPrimes(nl)}")
+
+#To hex
+if False:
+    def toHex(nums):
+        return {n: hex(n) for n in nums}
+    
+    nl = [_ for _ in range(1,21)]
+    print(f"{toHex(nl)}")
