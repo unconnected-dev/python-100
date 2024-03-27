@@ -17,15 +17,15 @@ if True:
     def firstPalindrome(words):
         for word in words:
             left, right = 0, len(word)-1
-
-            while left < len(word)//2 +1:
+            t = len(word)//2 +1
+            while left < t:
                 if word[left] != word[right]:
                     break
                     
                 left+=1
                 right-=1
 
-            if left == len(word)//2 + 1:
+            if left == t:
                 return word    
 
         return ""
