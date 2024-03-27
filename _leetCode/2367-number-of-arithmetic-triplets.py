@@ -32,7 +32,7 @@ if False:
 
         return len(res)
 
-if True:
+if False:
     def arithmeticTriplets(nums, diff):
         my_set = set(nums)
         res = 0
@@ -43,5 +43,16 @@ if True:
 
         return res
 
+if True:
+    def arithmeticTriplets(nums, diff):
+        mySet = set(nums)
+        total = 0
+
+        for num in nums:
+            if (num - diff) in mySet and (num + diff) in mySet:
+                total += 1
+
+        return total
+    
 print(f"{arithmeticTriplets(caseNums_1, caseDiff_1)}")
 print(f"{arithmeticTriplets(caseNums_2, caseDiff_2)}")
