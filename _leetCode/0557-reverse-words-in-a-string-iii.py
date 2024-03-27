@@ -24,10 +24,27 @@ if False:
 
         return " ".join(splitString)
     
-if True:
+if False:
     def reverseString(s):
         f = lambda word: word[::-1]
         return ' '.join(map(f,s.split()))
+
+if True:
+    def reverseString(s):
+        split_string = s.split(" ")
+        res = []
+        for word in split_string:
+            left, right = 0, len(word) - 1
+            word_l = list(word)
+
+            while left < right:
+                word_l[left], word_l[right] = word_l[right], word_l[left]
+                left+=1
+                right-=1
+            
+            res.append(''.join(word_l))
+
+        return ' '.join(res)
 
 print(f"{reverseString(caseString_1)}")
 print(f"{reverseString(caseString_2)}")
