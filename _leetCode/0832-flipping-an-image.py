@@ -4,9 +4,8 @@
 caseImage_1 = [[1,1,0],[1,0,1],[0,0,0]]
 caseImage_2 = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
 
-if True:
+if False:
     def flipAndInvertImage(image):
-        
         left, right = 0, len(image[0]) -1 
 
         for row in image:
@@ -22,6 +21,19 @@ if True:
                 row[i] = 1 if row[i] == 0 else 0
 
         return image        
+
+if True:
+    def flipAndInvertImage(image):
+        for row in image:
+            #Slice assignment is needed as otherwise row would refer to 
+            #a new list object and not modify the row inside image
+            row[:] = row[::-1]
+        
+        f= lambda n: 1 if n == 0 else 0
+        for row in image:
+            row[:] = map(f, row)
+
+        return image
 
 print(f"{flipAndInvertImage(caseImage_1)}")
 print(f"{flipAndInvertImage(caseImage_2)}")
