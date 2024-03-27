@@ -21,7 +21,7 @@ if False:
 
         return res
 
-if True:
+if False:
     def rearrangeArray(nums):
         pos, neg, res = [], [], []
 
@@ -35,6 +35,21 @@ if True:
             res.append(pos[i])
             res.append(neg[i])
         
+        return res
+
+if True:
+    def rearrangeArray(nums):
+        posInd, negInd = 0, 1
+        res = [0] * len(nums)
+
+        for n in nums:
+            if n > 0:
+                res[posInd] = n
+                posInd += 2
+            else:
+                res[negInd] = n
+                negInd += 2
+
         return res
 
 print(f"{rearrangeArray(caseNums_1)}")
