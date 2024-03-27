@@ -20,7 +20,7 @@ if False:
 
         return res
     
-if True:
+if False:
     def makeSmallestPalindrome(s):
         left, right = 0, len(s) -1
         res = []
@@ -38,7 +38,22 @@ if True:
 
         return ''.join(res)
 
+if True:
+    def makeSmallestPalindrome(s):
+        res = list(s)
+        left, right = 0, len(s)-1
 
+        while left < right:
+            if res[left] != res[right]:
+                if res[left] < res[right]:
+                    res[right] =  res[left]
+                else:
+                    res[left] =  res[right]
+                    
+            left += 1
+            right -= 1
+
+        return ''.join(res)
 
 print(f"{makeSmallestPalindrome(caseS_1)}")
 print(f"{makeSmallestPalindrome(caseS_2)}")
