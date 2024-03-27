@@ -7,7 +7,7 @@ caseDiff_1 = 3
 caseNums_2 = [4,5,6,7,8,9]
 caseDiff_2 = 2
 
-if True:
+if False:
     def arithmeticTriplets(nums, diff):
         res = {}
         left_val =0
@@ -29,8 +29,19 @@ if True:
                 
                 if found_j == True:
                     break
-                
+
         return len(res)
+
+if True:
+    def arithmeticTriplets(nums, diff):
+        my_set = set(nums)
+        res = 0
+
+        for n in nums:
+            if n + diff in my_set and n + diff*2 in my_set:
+                res += 1
+
+        return res
 
 print(f"{arithmeticTriplets(caseNums_1, caseDiff_1)}")
 print(f"{arithmeticTriplets(caseNums_2, caseDiff_2)}")
