@@ -5,7 +5,7 @@ caseNums_1 = [-1,2,-3,3]
 caseNums_2 = [-1,10,6,7,-7,1]
 caseNums_3 = [-10,8,6,7,-2,-3]
 
-if True:
+if False:
     def findMaxK(nums):
         nums.sort(reverse=True)
 
@@ -14,3 +14,19 @@ if True:
                 return nums[i]
         
         return -1
+    
+if True:
+    def findMaxK(nums):
+        my_set = set(nums)
+        my_nums = list(my_set)
+        my_nums.sort(reverse=True)
+
+        for n in my_nums:
+            if n*-1 in my_nums:
+                return n
+        
+        return -1
+
+print(f"{findMaxK(caseNums_1)}")
+print(f"{findMaxK(caseNums_2)}")
+print(f"{findMaxK(caseNums_3)}")
