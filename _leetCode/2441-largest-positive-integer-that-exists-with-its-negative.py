@@ -15,7 +15,7 @@ if False:
         
         return -1
     
-if True:
+if False:
     def findMaxK(nums):
         my_set = set(nums)
         my_nums = list(my_set)
@@ -25,6 +25,21 @@ if True:
             if n*-1 in my_nums:
                 return n
         
+        return -1
+
+if True:
+    def findMaxK(nums):
+        nums.sort(reverse=True)
+        pos, neg = 0, len(nums) - 1
+
+        while pos < neg:
+            if nums[pos] == -nums[neg]:
+                return nums[pos]
+            elif nums[pos] > -nums[neg]:
+                pos += 1
+            else:
+                neg -= 1
+
         return -1
 
 print(f"{findMaxK(caseNums_1)}")
