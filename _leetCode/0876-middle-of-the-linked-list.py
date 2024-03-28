@@ -9,16 +9,28 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        last = head
-        middle = head
+    
+    if False:
+        def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+            last = head
+            middle = head
 
-        while last and last.next:
-            middle = middle.next
-            last = last.next.next
-        
-        return middle
+            while last and last.next:
+                middle = middle.next
+                last = last.next.next
+            
+            return middle
 
+    if True:
+        def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+            fast = head
+            slow = head
+
+            while fast != None and fast.next != None:
+                slow = slow.next
+                fast = fast.next.next
+            
+            return slow
 
 caseHead_1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
 caseHead_2 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, ListNode(6))))))
