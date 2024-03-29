@@ -32,7 +32,7 @@ if False:
 #Question requires in-place not a new array
 #Return the number of elements in nums not equal to val
 #Tracks elements equal to val via i and replaces with n
-if True:
+if False:
     def removeElement(nums, val) -> int:
         i = 0
         for n in nums:
@@ -42,5 +42,17 @@ if True:
         
         return i
 
+if True:
+    def removeElement(nums, val) -> int:
+        left, right = 0, len(nums) - 1
+
+        while left <= right:
+            if nums[left] == val:
+                nums[left], nums[right], right = nums[right], nums[left], right - 1
+            else:
+                left += 1
+
+        return left
+        
 print(f"{removeElement(caseNums_1, caseVal_1)}")
 print(f"{removeElement(caseNums_2, caseVal_2)}")
