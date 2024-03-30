@@ -141,3 +141,30 @@ if False:
 # | (Vertical Bar): Acts as an OR operator, matching either the expression before or after it
 # ( (Left Parenthesis): Marks the start of a capturing group
 # ) (Right Parenthesis): Marks the end of a capturing group
+        
+
+#Groups and Capturing
+#Groups allow you to define sub-patterns within your larger pattern
+#They are created by enclosing a part of the pattern within ()
+#Groups can be used to apply quantifiers and other operators to a specific part of the pattern
+
+#Using groups
+#Groups can be used to repeat a sequence or apply a quantifier to a specific part of the pattern
+#Example: (ab)+ matches one or more occurrences of the sequence "ab"
+#Groups can also be nested within each other to create complex patterns
+
+#Capturing groups not only define a sub-pattern but also capture the text matched by that sub-pattern
+#Captured text can be accessed later for further processing or extraction
+#Example: (abc) matches and captures the sequence "abc"
+#Example: (\d{3})-(\d{3})-(\d{4}) matches and captures a phone number in the format "123-456-7890", capturing each part separately
+
+#Non-capturing groups are similar to capturing groups but they do not capture the text matched
+#by the sub-pattern
+#They are created by using (?:  and  ) instead of ()
+#Non-capturing groups are useful when you need to group a part of the pattern for quantification
+#or other purposes but do not need to capture the text
+#Example: (?:abc) matches the sequence "abc" but does not capture it
+
+#Accessing captured text
+#To access captured text use methods like group() or groups()
+#Example: match.group(1) accesses the text captured by the first capturing group in the match
