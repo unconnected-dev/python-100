@@ -112,3 +112,32 @@ if False:
     match = re.search(pattern, text)
     if match:
         print("Pattern found as part of another word!")
+
+
+#Escaping Special Characters
+#These have special meanings and are used to define the pattern to match
+#To match a special character literally, you need to escape it by preceeding it with a \
+#Escaping a special character tells the regular expression engine to treat it as a normal
+#character rather than interpreting its special meaning
+#For example a literal dot . would be \.
+        
+#In python it is recommended to use raw strings r'...' to avoid double escaping
+#Raw strings treat backslashes as literal characters and prevent python from interpreting
+#them as escape sequences
+#Example: r'\.' is '\\.' but using raw strings is cleaner and less error prone
+
+#List of escaping special characters
+# . (Dot): Matches any single character except newline
+# ^ (Caret): Matches the start of the string
+# $ (Dollar): Matches the end of the string
+# * (Asterisk): Matches zero or more occurrences of the preceding character or group
+# + (Plus): Matches one or more occurrences of the preceding character or group
+# ? (Question Mark): Matches zero or one occurrence of the preceding character or group
+# { (Left Curly Brace): Marks the start of a quantifier or specifies a range
+# } (Right Curly Brace): Marks the end of a quantifier or specifies a range
+# [ (Left Square Bracket): Marks the start of a character class
+# ] (Right Square Bracket): Marks the end of a character class
+# \ (Backslash): Escapes a special character, or indicates a special sequence (e.g., \d for digit)
+# | (Vertical Bar): Acts as an OR operator, matching either the expression before or after it
+# ( (Left Parenthesis): Marks the start of a capturing group
+# ) (Right Parenthesis): Marks the end of a capturing group
