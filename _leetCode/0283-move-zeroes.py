@@ -6,7 +6,7 @@ caseNums_2 = [0]
 caseNums_3 = [4,2,4,0,0,3,0,5,1,0]
 caseNums_4 = [2,1]
 
-if True:
+if False:
     def moveZeroes(nums):
         if len(nums) <= 1:
             return nums
@@ -31,6 +31,17 @@ if True:
                 nums[left], nums[right] = nums[right], nums[left]   
             else:
                 break
+
+        return nums
+
+if True:
+    def moveZeroes(nums):
+        left = 0
+
+        for right in range(len(nums)):
+            if nums[right] != 0:
+                nums[right], nums[left] = nums[left], nums[right]
+                left+=1
 
         return nums
 
