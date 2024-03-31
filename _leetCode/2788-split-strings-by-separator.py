@@ -10,7 +10,7 @@ caseSeparator_2 = "$"
 caseWords_3 = ["|||"]
 caseSeparator_3 = "|"
 
-if True:
+if False:
     def splitWordsBySeparator(words, separator):
         wordList = []
 
@@ -18,6 +18,18 @@ if True:
             wordList.extend(filter(bool, w.split(separator)))
 
         return wordList
+
+if True:
+    def splitWordsBySeparator(words, separator):
+        res = []
+
+        for word in words:
+            sl = word.split(separator)
+            for split in sl:
+                if split:
+                    res.append(split)
+
+        return res
 
 print(f"{splitWordsBySeparator(caseWords_1, caseSeparator_1)}")
 print(f"{splitWordsBySeparator(caseWords_2, caseSeparator_2)}")
