@@ -10,11 +10,19 @@ caseS_2 = "a"
 caseWords_3 = ["never","gonna","give","up","on","you"]
 caseS_3 = "ngguoy"
 
-if True:
+if False:
     def isAcronym(words, s):
         arr = []
         for word in words:
             arr.append(word[0])
+        
+        return ''.join(arr) == s
+
+if True:
+    def isAcronym(words, s):
+        arr = [0] * len(words)
+        for i in range(len(words)):
+            arr[i] = words[i][0]
         
         return ''.join(arr) == s
 
