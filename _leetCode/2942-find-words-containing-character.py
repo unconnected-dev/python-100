@@ -35,7 +35,7 @@ if True:
     def findWordContaining(words, x):
         res = []
 
-        pattern = r'e'
+        pattern = rf'{x}'
         for i, word in enumerate(words):
             match = re.search(pattern, word)
             if match:
