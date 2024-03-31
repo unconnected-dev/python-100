@@ -18,13 +18,21 @@ if False:
         
         return ''.join(arr) == s
 
-if True:
+if False:
     def isAcronym(words, s):
         arr = [0] * len(words)
         for i in range(len(words)):
             arr[i] = words[i][0]
         
         return ''.join(arr) == s
+
+if True:
+    def isAcronym(words, s):
+        res = ""
+        for i in range(len(words)):
+            res += words[i][0]
+
+        return res == s
 
 print(f"{isAcronym(caseWords_1, caseS_1)}")
 print(f"{isAcronym(caseWords_2, caseS_2)}")
