@@ -46,7 +46,7 @@ if False:
 
         return [a,b]
 
-if True:
+if False:
     def findMissingAndRepeatedValues(grid):
         my_set = set()
         grid_length = len(grid)
@@ -65,6 +65,28 @@ if True:
                 break
         
         return [a,b]
+
+if True:
+    def findMissingAndRepeatedValues(grid):
+        my_dict = {}
+        my_set = set()
+        a, b = 0, 0
+
+        for row in grid:
+            for n in row:
+                my_dict[n] = my_dict.get(n, 0) + 1
+                if my_dict.get(n) > 1:
+                    a = n
+
+                my_set.add(n)        
+
+        total = sum([len(row) for row in grid])
+        for i in range(1, total + 1):
+            if i not in my_set:
+                b = i
+                break
+
+        return [a, b]
 
 print(f"{findMissingAndRepeatedValues(caseGrid_1)}")
 print(f"{findMissingAndRepeatedValues(caseGrid_2)}")
