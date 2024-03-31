@@ -1,5 +1,6 @@
 #Convert An Array Into A 2D Array With Conditions
 #https://leetcode.com/problems/convert-an-array-into-a-2d-array-with-conditions/description/
+import collections
 
 caseNums_1 = [1,3,4,1,2,3,1]
 caseNums_2 = [2,1,1]
@@ -20,7 +21,7 @@ if False:
 
         return result
 
-if True:
+if False:
     def findMatrix(nums):
         num_dict = {}
         for n in nums:
@@ -41,6 +42,24 @@ if True:
                 break
         
         return result
-    
+
+if True:
+    def findMatrix(nums):
+        cl = collections.Counter(nums)
+        res = []
+        total = 0
+
+        while total < len(nums):
+            part = []
+            for key, val in cl.items():
+                if val > 0:
+                    cl[key] = cl.get(key) - 1
+                    part.append(key)
+                    total += 1
+            
+            res.append(part)
+
+        return res
+
 print(f"{findMatrix(caseNums_1)}")
 print(f"{findMatrix(caseNums_2)}")
