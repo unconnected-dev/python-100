@@ -18,7 +18,7 @@ if False:
 
         return rl
 
-if True:
+if False:
     def numberGame(nums):
         nums.sort()
 
@@ -26,6 +26,15 @@ if True:
             nums[i], nums[i+1] = nums[i+1], nums[i]
         
         return nums
+
+if True:
+    def numberGame(nums):
+        nums.sort()
+        res = [0] * len(nums)
+        for i in range(0, len(nums), 2):
+            res[i], res[i+1] = nums[i+1], nums[i]
+        
+        return res
 
 print(f"{numberGame(caseNums_1)}")
 print(f"{numberGame(caseNums_2)}")
