@@ -7,13 +7,22 @@ caseK_1 = 1
 caseNums_2 = [4,3,2,1]
 caseK_2 = 2
 
-if True:
+if False:
     def sumIndicesWithKSetBits(nums, k):
         total = 0
         for i in range(len(nums)):
             if bin(i).count('1') == k:
                 total += nums[i]
 
+        return total
+
+if True:
+    def sumIndicesWithKSetBits(nums, k):
+        total = 0
+        for i in range(len(nums)):
+            if bin(i)[2:].count('1') == k:
+                total += nums[i]
+        
         return total
 
 print(f"{sumIndicesWithKSetBits(caseNums_1, caseK_1)}")
