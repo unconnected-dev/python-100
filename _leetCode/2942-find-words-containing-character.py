@@ -1,5 +1,6 @@
 #Find Words Containing Character
 #https://leetcode.com/problems/find-words-containing-character/description/
+import re
 
 caseWords_1 = ["leet","code"]
 caseX_1 = "e"
@@ -21,7 +22,7 @@ if False:
 
         return result
 
-if True:
+if False:
     def findWordContaining(words, x):
         result = []
         for i, word in enumerate(words):
@@ -29,6 +30,18 @@ if True:
                 result.append(i)
             
         return result
+
+if True:
+    def findWordContaining(words, x):
+        res = []
+
+        pattern = r'e'
+        for i, word in enumerate(words):
+            match = re.search(pattern, word)
+            if match:
+                res.append(i)
+        
+        return res
 
 print(f"{findWordContaining(caseWords_1, caseX_1)}")
 print(f"{findWordContaining(caseWords_2, caseX_2)}")
