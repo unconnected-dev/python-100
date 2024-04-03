@@ -37,7 +37,7 @@ if False:
 
         return True
 
-if True:
+if False:
     def isIsomorphic(s, t):
         s_t = {}
         taken = set()
@@ -59,6 +59,19 @@ if True:
                 taken.add(t_i)
         
         return True
+
+if True:
+    def isIsomorphic(s, t):
+        s_i = []
+        t_i = []
+
+        for c in s:
+            s_i.append(s.index(c))
+
+        for c in t:
+            t_i.append(t.index(c))
+        
+        return s_i == t_i
 
 print(f"{isIsomorphic(caseS_1, caseT_1)}")
 print(f"{isIsomorphic(caseS_2, caseT_2)}")
