@@ -22,13 +22,26 @@ if False:
             if val == 0:
                 return key
 
-if True:
+if False:
     def singleNumber(nums) -> int:
         res = 0
         for n in nums:
             res ^= n
         
         return res
+
+if True:
+    def singleNumber(nums) -> int:
+        my_dict = dict()
+
+        for n in nums:
+            my_dict[n] = my_dict.get(n, 0) + 1
+        
+        for key, val in my_dict.items():
+            if val == 1:
+                return key
+        
+        return 0
 
 print(f"{singleNumber(caseNums_1)}")
 print(f"{singleNumber(caseNums_2)}")
