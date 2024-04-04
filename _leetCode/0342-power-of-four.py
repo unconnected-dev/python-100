@@ -5,13 +5,22 @@ caseN_1 = 16
 caseN_2 = 5
 caseN_3 = 1
 
-if True:
+if False:
     def isPowerOfFour(n):
         while n > 1:
             n /= 4
 
         return n == 1
 
+if True:
+    def isPowerOfFour(n):
+        if n == 0:
+            return False
+        
+        while n % 4 == 0:
+            n = n // 4
+
+        return n == 1
 
 print(f"{isPowerOfFour(caseN_1)}")
 print(f"{isPowerOfFour(caseN_2)}")
