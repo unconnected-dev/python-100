@@ -19,7 +19,7 @@ if False:
         
         return -1
 
-if True:
+if False:
     def firstUniqueCharacter(s):
         my_dict = collections.Counter(s)
 
@@ -29,6 +29,22 @@ if True:
         
         return -1
 
+if True:
+    def firstUniqueCharacter(s):
+        low_i = len(s)
+        my_set = set()
+        
+        for i in range(len(s)-1,-1,-1):
+            if s.index(s[i]) == i and s[i] not in my_set:
+                low_i = min(low_i, i)
+
+            my_set.add(s[i])
+        
+        if low_i == len(s):
+            return -1
+        else:
+            return low_i
+        
 print(f"{firstUniqueCharacter(caseString_1)}")
 print(f"{firstUniqueCharacter(caseString_2)}")
 print(f"{firstUniqueCharacter(caseString_3)}")
