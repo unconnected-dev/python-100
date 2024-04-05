@@ -4,7 +4,7 @@
 caseS_1 = "ababcbacadefegdehijhklij"
 caseS_2 = "eccbbbbdec"
 
-if True:
+if False:
     def partitionLabels(s):
         left, right = 0, 0
         res = []
@@ -28,6 +28,25 @@ if True:
                 left = right
 
         return res
+
+if True:
+    def partitionLabels(s):
+        my_dict = {}
+
+        start, end = 0, 0
+        res = []
+
+        for i, c in enumerate(s):
+            my_dict[c] = i
+
+        for i, c in enumerate(s):
+            end = max(end, my_dict.get(c))
+            if i == end:
+                res.append(end-start+1)
+                start = i + 1
+
+        return res
+    
 
 print(f"{partitionLabels(caseS_1)}")
 print(f"{partitionLabels(caseS_2)}")
