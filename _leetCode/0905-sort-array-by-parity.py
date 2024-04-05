@@ -3,6 +3,8 @@
 
 caseNums_1 = [3,1,2,4]
 caseNums_2 = [0]
+caseNums_3 = [0,1,2]
+caseNums_4 = [0,2,1]
 
 if False:
     def sortArrayByParity(nums):
@@ -29,7 +31,7 @@ if False:
 
         return nums
 
-if True:
+if False:
     def sortArrayByParity(nums):
         evens, odds = [], []
         f = lambda n: n % 2 == 0
@@ -38,5 +40,23 @@ if True:
         
         return evens + odds
 
+if True:
+    def sortArrayByParity(nums):
+        left = 0
+        for _ in range(0, len(nums)):
+            left = _
+            if nums[_] % 2 != 0:
+                break
+        
+        right = left
+        for _ in range(right, len(nums)):
+            if nums[left] % 2 != 0 and nums[_] % 2 == 0:
+                nums[left], nums[_] = nums[_], nums[left]
+                left += 1
+        
+        return nums
+    
 print(f"{sortArrayByParity(caseNums_1)}")
 print(f"{sortArrayByParity(caseNums_2)}")
+print(f"{sortArrayByParity(caseNums_3)}")
+print(f"{sortArrayByParity(caseNums_4)}")
