@@ -5,7 +5,7 @@ caseNums_1 = [3,4,5,2]
 caseNums_2 = [1,5,4,5]
 caseNums_3 = [3,7]
 
-if True:
+if False:
     def maxProduct(nums):
         a = float('-inf')
         b = float('-inf')
@@ -19,6 +19,11 @@ if True:
 
         return (a-1) * (b-1)
 
+if True:
+    def maxProduct(nums):
+        nums.sort()
+        return (nums[-1] - 1) * (nums[-2] -1)
+    
 print(f"{maxProduct(caseNums_1)}")
 print(f"{maxProduct(caseNums_2)}")
 print(f"{maxProduct(caseNums_3)}")
