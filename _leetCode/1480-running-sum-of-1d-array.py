@@ -16,9 +16,22 @@ if False:
 
         return runningList
 
-if True:
+if False:
     def runningSumOf1dArray(nums):
         return [sum(nums[:i+1]) for i in range(len(nums))]
+
+if True:
+    def runningSumOf1dArray(nums):
+        res = [0] * len(nums)
+        r, i = 0, 0
+
+        for n in nums:
+            res[i] = r + n
+            r += n
+            i += 1
+            
+        return res
+
 
 print(f"{runningSumOf1dArray(caseNums_1)}")
 print(f"{runningSumOf1dArray(caseNums_2)}")
