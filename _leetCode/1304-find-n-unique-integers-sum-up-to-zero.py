@@ -4,8 +4,9 @@
 caseNum_1 = 5
 caseNum_2 = 3
 caseNum_3 = 1
+caseNum_4 = 4
 
-if True:
+if False:
     def sumZero(n):
         if n == 1:
             return [0]
@@ -30,7 +31,21 @@ if True:
         numberList.sort()
 
         return numberList
+    
+if True:
+    def sumZero(n):
+        if n == 1:
+            return [0]
+        
+        res = [0] * n
+        for i in range(1, n):
+            res[i] = i
+        
+        res[0] = -sum(res[1:])
+
+        return res
 
 print(f"{sumZero(caseNum_1)}")            
 print(f"{sumZero(caseNum_2)}")            
 print(f"{sumZero(caseNum_3)}")            
+print(f"{sumZero(caseNum_4)}")            
