@@ -14,10 +14,14 @@ if False:
         
         return result
 
-if True:
+if False:
     def maxCoins(piles):
         piles.sort()
         return sum(piles[-2:(len(piles)//3)-1:-2])
+
+if True:
+    def maxCoins(piles):
+        return sum(sorted(piles)[len(piles)//3::2])
 
 print(f"{maxCoins(casePiles_1)}")
 print(f"{maxCoins(casePiles_2)}")
