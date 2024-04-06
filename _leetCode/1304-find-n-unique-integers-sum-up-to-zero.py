@@ -32,7 +32,7 @@ if False:
 
         return numberList
     
-if True:
+if False:
     def sumZero(n):
         if n == 1:
             return [0]
@@ -44,6 +44,26 @@ if True:
         res[0] = -sum(res[1:])
 
         return res
+    
+if True:
+    def sumZero(n):
+        if n == 1:
+            return [0]
+        
+        res = [0] * n
+        v, p = 1, 1
+        res[0] = -1
+        for i in range(0, n):
+            res[i] = v * p
+
+            if i% 2 == 0:
+                v += 1
+
+            p *= -1
+
+        res[0] = -res[-1] if n%2 == 0 else 0
+
+        return sorted(res)
 
 print(f"{sumZero(caseNum_1)}")            
 print(f"{sumZero(caseNum_2)}")            
