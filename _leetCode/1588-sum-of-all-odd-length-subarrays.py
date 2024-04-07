@@ -19,13 +19,19 @@ if False:
         
         return returnNumber
 
-if True:
+if False:
     def sumOddLengthSubarrays(arr):
         total = 0
         for i in range(len(arr)):
             for j in range(i,len(arr), 2):  #iterate over odd-length subarrays
                 total += sum(arr[i:j+1])    #add sum of subarray, +1 due to exclusive indexing
                                             #if index was 3, 2 would be included
+        return total
+        
+if True:
+    def sumOddLengthSubarrays(arr):
+        total = 0
+        total += sum(sum(arr[i:j+1]) for i in range(len(arr)) for j in range(i, len(arr), 2))
         return total
     
 print(f"{sumOddLengthSubarrays(caseArr_1)}")
