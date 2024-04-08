@@ -4,7 +4,7 @@
 caseNum_1 = 7
 caseNum_2 = 14
 
-if True:
+if False:
     def numberOfMatches(n):
         c = 0
 
@@ -16,7 +16,11 @@ if True:
                 c += (n - 1) / 2
                 n = (n - 1) / 2 + 1
         
-        return c
+        return int(c)
+
+if True:
+    def numberOfMatches(n):
+        return n - 1
 
 print(f"{numberOfMatches(caseNum_1)}")
 print(f"{numberOfMatches(caseNum_2)}")
