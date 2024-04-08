@@ -19,7 +19,7 @@ if False:
 
         return result == 0
 
-if True:
+if False:
     def halvesAreAlike(s):
         h1 = s[:len(s)//2]
         h2 = s[len(s)//2:]
@@ -34,6 +34,18 @@ if True:
                 result -= 1
 
         return result == 0
+
+if True:
+    def halvesAreAlike(s):
+        vowels = "aeiouAEIOU"
+        mid = len(s)//2
+        h1 = s[:mid]
+        h2 = s[mid:]
+
+        def count_vowels(st):
+            return sum(1 for c in st if c in vowels)
+        
+        return count_vowels(h1) == count_vowels(h2)
 
 print(f"{halvesAreAlike(caseS_1)}")
 print(f"{halvesAreAlike(caseS_2)}")
