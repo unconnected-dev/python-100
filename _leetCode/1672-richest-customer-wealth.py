@@ -17,7 +17,7 @@ if False:
 
         return greatestWealth    
 
-if True:
+if False:
     def richestCustomerWealth(accounts) -> int:
         most = 0
         for account in accounts:
@@ -25,6 +25,14 @@ if True:
             most = max(most, current)
 
         return most
+
+if True:
+    def richestCustomerWealth(accounts) -> int:
+        res = [0] * len(accounts)
+        for i in range(len(accounts)):
+            res[i] = sum(accounts[i])
+        
+        return max(res)
 
 print(f"{richestCustomerWealth(caseAccounts_1)}")
 print(f"{richestCustomerWealth(caseAccounts_2)}")
