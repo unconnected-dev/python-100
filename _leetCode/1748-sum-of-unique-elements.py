@@ -22,7 +22,7 @@ if False:
         
         return count
 
-if True:
+if False:
     def sumOfUniqueElements(nums) -> int:
         my_dict = {}
         res = 0
@@ -36,6 +36,18 @@ if True:
                 
         return res
 
+if True:
+    def sumOfUniqueElements(nums) -> int:
+        my_set = set()
+        res = 0
+        for i in range(len(nums)-1,-1,-1):
+            if nums[i] not in my_set and nums.index(nums[i]) == i:
+                res += nums[i]
+
+            my_set.add(nums[i])
+
+        return res
+    
 print(f"{sumOfUniqueElements(caseNums_1)}")
 print(f"{sumOfUniqueElements(caseNums_2)}")
 print(f"{sumOfUniqueElements(caseNums_3)}")
