@@ -25,7 +25,7 @@ if False:
         
         return high
 
-if True:
+if False:
     def countBalls(lowLimit, highLimit):
         my_dict = {}
 
@@ -43,6 +43,23 @@ if True:
         
         return high
     
+if True:
+    def countBalls(lowLimit, highLimit):
+
+        def getSumOf(n):
+            res = 0
+            while n:
+                res += n%10
+                n //= 10
+            return res
+        
+        my_dict = {}
+        for i in range(lowLimit, highLimit+1):
+            num = getSumOf(i)
+            my_dict[num] = my_dict.get(num, 0) + 1
+
+        return max(my_dict.values())
+
 print(f"{countBalls(caseLowLimit_1, caseHighLimit_1)}")
 print(f"{countBalls(caseLowLimit_2, caseHighLimit_2)}")
 print(f"{countBalls(caseLowLimit_3, caseHighLimit_3)}")
