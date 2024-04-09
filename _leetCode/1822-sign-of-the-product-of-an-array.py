@@ -20,7 +20,7 @@ if False:
             
             return int(math.copysign(1, t))
 
-if True:
+if False:
     def arraySign(nums):
         res = 1
         for n in nums:
@@ -28,6 +28,15 @@ if True:
             if n < 0: res *= -1
 
         return res
+
+if True:
+    def arraySign(nums):
+        res = 0
+        for n in nums:
+            if n == 0: return 0
+            if n < 0: res += 1
+        
+        return 1 if res%2 == 0 else -1
 
 print(f"{arraySign(caseNums_1)}")
 print(f"{arraySign(caseNums_2)}")
