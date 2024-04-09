@@ -29,7 +29,7 @@ if False:
         letters = "abcdefgh"
         return (letters.index(coordinates[0]) + 1 + int(coordinates[1])) % 2 != 0
 
-if True:
+if False:
     def squareIsWhite(coordinates):
         my_dict = {
             "a":1,
@@ -43,6 +43,15 @@ if True:
         }
 
         return (my_dict.get(coordinates[0], 0) + int(coordinates[1])) % 2 != 0
+
+if True:
+    def squareIsWhite(coordinates):
+        my_set = (["a","c","e","g"])
+
+        if coordinates[0] in my_set:
+            return int(coordinates[1])%2 == 0
+        else:
+            return int(coordinates[1])%2 == 1
 
 print(f"{squareIsWhite(caseCoordinates_1)}")
 print(f"{squareIsWhite(caseCoordinates_2)}")
