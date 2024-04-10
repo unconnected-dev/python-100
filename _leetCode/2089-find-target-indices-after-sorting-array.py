@@ -10,7 +10,7 @@ caseTarget_2 = 3
 caseNums_3 = [1,2,5,2,3]
 caseTarget_3 = 5
 
-if True:
+if False:
     def targetIndices(nums, target):
         nums.sort()
         result = []
@@ -20,6 +20,11 @@ if True:
                 result.append(i)
 
         return result
+
+if True:
+    def targetIndices(nums, target):
+        nums.sort()
+        return [i for i in range(len(nums)) if nums[i] == target]
 
 print(f"{targetIndices(caseNums_1, caseTarget_1)}")
 print(f"{targetIndices(caseNums_2, caseTarget_2)}")
