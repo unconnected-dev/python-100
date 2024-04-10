@@ -33,7 +33,7 @@ if False:
 
         return myList
 
-if True:
+if False:
     def mergeSimilarItems(items1, items2):
 
         myDict = dict()
@@ -50,6 +50,22 @@ if True:
 
         return myList
 
+if True:
+    def mergeSimilarItems(items1, items2):
+        my_dict = {}
+        for item in items1:
+            my_dict[item[0]] = my_dict.get(item[0],0) + item[1]
+
+        for item in items2:
+            my_dict[item[0]] = my_dict.get(item[0],0) + item[1]
+
+        sorted_list = sorted(my_dict.items())
+        res = [0] * len(sorted_list)
+        for i in range(len(sorted_list)):
+            res[i] = [sorted_list[i][0],sorted_list[i][1]]
+
+        return res
+    
 print(f"{mergeSimilarItems(caseItems1_1, caseItems2_1)}")
 print(f"{mergeSimilarItems(caseItems1_2, caseItems2_2)}")
 print(f"{mergeSimilarItems(caseItems1_3, caseItems2_3)}")
