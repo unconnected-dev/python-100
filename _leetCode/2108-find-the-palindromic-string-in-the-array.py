@@ -13,7 +13,7 @@ if False:
         
         return ""
 
-if True:
+if False:
     def firstPalindrome(words):
         for word in words:
             left, right = 0, len(word)-1
@@ -28,6 +28,23 @@ if True:
             if left == t:
                 return word    
 
+        return ""
+
+if True:
+    def firstPalindrome(words):
+        for word in words:
+            left, right = 0, len(word) - 1
+
+            while left < right:
+                if word[left] != word[right]:
+                    break
+            
+                left += 1
+                right -= 1
+
+            if word[left] == word[right]:
+                return word
+        
         return ""
 
 print(f"{firstPalindrome(caseWords_1)}")
