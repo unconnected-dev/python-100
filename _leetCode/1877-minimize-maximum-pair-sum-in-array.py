@@ -18,7 +18,7 @@ if False:
         
         return max(result_list)
 
-if True:
+if False:
     def minPairSum(nums):
         nums.sort()
         left = 0
@@ -31,6 +31,18 @@ if True:
             right -= 1
         
         return result
+
+if True:
+    def minPairSum(nums):
+        nums.sort()
+        res, left, right = 0, 0, len(nums) - 1
+
+        while left < right:
+            res = max(res, nums[left] + nums[right])
+            left += 1
+            right -= 1
+
+        return res
 
 print(f"{minPairSum(caseNums_1)}")
 print(f"{minPairSum(caseNums_2)}")
