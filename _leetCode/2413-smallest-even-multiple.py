@@ -5,15 +5,15 @@ caseNum_1 =5
 caseNum_2 = 6
 
 if False:
-    def smallestEvenMultiple(num):
-        if num % 2 != 0:
-            return num * 2
+    def smallestEvenMultiple(n):
+        if n % 2 != 0:
+            return n * 2
         else:
-            return num
+            return n
 
 if True:
-    def smallestEvenMultiple(num):
-        return num * 2 if num % 2 != 0 else num
+    def smallestEvenMultiple(n):
+        return n * 2 if n % 2 != 0 else n
 
 print(f"{smallestEvenMultiple(caseNum_1)}")
 print(f"{smallestEvenMultiple(caseNum_2)}")
