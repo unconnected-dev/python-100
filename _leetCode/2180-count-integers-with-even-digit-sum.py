@@ -17,7 +17,7 @@ if False:
 
         return c
 
-if True:
+if False:
     def countEven(num):
         c = 0
         
@@ -27,6 +27,13 @@ if True:
                 c += 1
 
         return c
+
+if True:
+    def countEven(num):
+        f = lambda x: sum(int(d) for d in str(x)) % 2 == 0
+        nums_sum = [n for n in range(1, num + 1) if f(n)]
+
+        return len(nums_sum)
 
 print(f"{countEven(caseNum_1)}")
 print(f"{countEven(caseNum_2)}")
