@@ -12,11 +12,16 @@ if False:
         result = int(num_s[0] + num_s[2]) + int(num_s[1] + num_s[3])
         return result
 
-if True:
+if False:
     def minimumSum(num):
         num_list = list(str(num))
         num_list.sort()
         
+        return int(num_list[0] + num_list[2]) + int(num_list[1] + num_list[3])
+
+if True:
+    def minimumSum(num):
+        num_list = sorted(list(str(num)))
         return int(num_list[0] + num_list[2]) + int(num_list[1] + num_list[3])
 
 print(f"{minimumSum(caseNum_1)}")
