@@ -16,7 +16,7 @@ if False:
 
         return c
 
-if True:
+if False:
     def countDigits(num):
         c = 0
         ns = str(num)
@@ -27,7 +27,10 @@ if True:
 
         return c
 
-
+if True:
+    def countDigits(num):
+        return sum([1 if num%int(digit)==0 else 0 for digit in str(num) ])
+    
 print(f"{countDigits(caseNum_1)}")
 print(f"{countDigits(caseNum_2)}")
 print(f"{countDigits(caseNum_3)}")
