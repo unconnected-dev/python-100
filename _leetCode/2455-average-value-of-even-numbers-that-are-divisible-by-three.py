@@ -15,7 +15,7 @@ if False:
         total = sum(res_nums)
         return int(total/len(res_nums)) if total > 0 else 0
 
-if True:
+if False:
     def averageValue(nums):
         t = 0
         divisor = 0
@@ -27,5 +27,10 @@ if True:
 
         return 0 if t == 0 else t//divisor
 
+if True:
+    def averageValue(nums):
+        res = [n for n in nums if n%6==0]
+        return 0 if len(res) == 0 else sum(res)//len(res)
+    
 print(f"{averageValue(caseNums_1)}")
 print(f"{averageValue(caseNums_2)}")
