@@ -34,7 +34,9 @@ if True:
         
         if nums[i] == target:
             return i
-        
+        elif i+1 < len(nums) and nums[i+1] == target:
+            return i+1
+
         return -1
 
 print(f"{search(caseNums_1, caseTarget_1)}")
