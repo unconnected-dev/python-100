@@ -16,7 +16,7 @@ if False:
 
         return total
 
-if True:
+if False:
     def findDelayedArrivalTime(arrivalTime, delayedTime) -> int:
         total = arrivalTime + delayedTime
 
@@ -24,6 +24,10 @@ if True:
             return total
         else:
             return total - 24
+
+if True:
+    def findDelayedArrivalTime(arrivalTime, delayedTime) -> int:
+        return (arrivalTime + delayedTime) % 24
 
 print(f"{findDelayedArrivalTime(caseArrivalTime_1, caseDelayedTime_1)}")
 print(f"{findDelayedArrivalTime(caseArrivalTime_2, caseDelayedTime_2)}")
