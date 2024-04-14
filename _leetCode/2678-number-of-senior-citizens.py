@@ -4,7 +4,7 @@
 caseDetails_1 = ["7868190130M7522","5303914400F9211","9273338290F4010"]
 caseDetails_2 = ["1313579440F2036","2921522980M5644"]
 
-if True:
+if False:
     def countSeniors(details) -> int:
         total = 0
 
@@ -13,6 +13,15 @@ if True:
             if age > 60:
                 total += 1
         
+        return total
+
+if True:
+    def countSeniors(details) -> int:
+        total = 0
+        for detail in details:
+            if int(detail[11:13]) > 60:
+                total += 1
+
         return total
 
 print(f"{countSeniors(caseDetails_1)}")
