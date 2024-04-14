@@ -20,7 +20,7 @@ if False:
 
         return res
 
-if True:
+if False:
     def vowelStrings(words, left, right):
         my_set = set(["a","e","i","o","u"])
         res = 0
@@ -29,6 +29,16 @@ if True:
             if word[0] in my_set and word[-1] in my_set:
                 res += 1
 
+        return res
+
+if True:
+    def vowelStrings(words, left, right):
+        res = 0
+        vowels = "aeiou"
+        for i in range(left, right+1):
+            if words[i][0] in vowels and words[i][-1] in vowels:
+                res += 1
+            
         return res
 
 print(f"{vowelStrings(caseWords_1, caseLeft_1, caseRight_1)}")
