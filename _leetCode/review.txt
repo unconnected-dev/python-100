@@ -10,7 +10,22 @@
 0463    island perimeter
 0674    longest continuous increasing subsequence
 0950    reveal cards in increasing order
-
+1282    group the people given the group size they belong to
+1338    reduce array size to the half
+1370    increasing decreasing string
+1436    destination city
+1630    arithmetic subarrays
+1637    widest vertical area between two points containing no points
+1641    count sorted vowel strings
+1837    sum of digits in base k
+2006    count number of pairs with absolute difference k
+2037    minimum number of moves to seat everyone
+2103    rings and rods
+2119    a number after a double reversal
+2220    minimum bit flips to convert number
+2357    number of arithmetic triplets
+2373    largest local values in a matrix
+2391    minimum amount of time to collect garbage
 
 Pandas
 0183    customers who never order
@@ -21,4 +36,12 @@ Pandas
 0620    not boring movies
 1068    product sales analysis
 1148    article views i
+1251    average selling price
+1378    replace employees id with the unique identifier
+1581    customer who visited but did not make any transactions
+1661    average time of process per machine
+1683    invalid tweets
+1757    recyclable and low fat products
 
+Bad Questions
+2396    strictly palindromic number
