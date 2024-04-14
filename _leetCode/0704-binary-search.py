@@ -16,26 +16,17 @@ caseTarget_4 = 5
 
 if True:
     def search(nums, target):
-        l = len(nums) - 1
-        i = math.floor(l/2)
+        left = 0
+        right = len(nums) - 1
 
-        while l > 1:
-            print(nums)
-            print(i)
-            if nums[i] == target:
-                return i
+        while left <= right:
+            mid = (left + right)//2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                right = mid - 1
             else:
-                l = math.ceil(l/2)
-                
-                if nums[i] > target:
-                    i -= l
-                else:
-                    i += l
-        
-        if nums[i] == target:
-            return i
-        elif i+1 < len(nums) and nums[i+1] == target:
-            return i+1
+                left = mid + 1
 
         return -1
 
