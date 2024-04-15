@@ -17,9 +17,14 @@ if False:
         customers.drop_duplicates(subset=["email"], keep="first", inplace=True)
         return customers
 
-if True:
+if False:
     def dropDuplicateEmails(customers):
         result = customers.drop_duplicates(subset='email', keep='first')
         return result
+
+if True:
+    def dropDuplicateEmails(customers):
+        customers.drop_duplicates(subset='email', inplace=True)
+        return customers
 
 print(f"{dropDuplicateEmails(caseDataFrame).to_markdown(index=False)}")
