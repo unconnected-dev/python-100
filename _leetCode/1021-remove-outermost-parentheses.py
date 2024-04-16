@@ -26,7 +26,7 @@ if False:
                         
         return ''.join(res)
 
-if True:
+if False:
     def removeOuterParentheses(s):
         res, temp = "", ""
         track = 0
@@ -41,7 +41,24 @@ if True:
                 temp = ""
         
         return res
+
+if True:
+    def removeOuterParentheses(s):
+        res = ""
+        track = 0
         
+        for c in s:
+            if c == "(":
+                if track > 0:
+                    res += c
+                track += 1
+            else:
+                track -= 1
+                if track > 0:
+                    res += c
+
+        return res
+
 print(f"{removeOuterParentheses(caseS_1)}")
 print(f"{removeOuterParentheses(caseS_2)}")
 print(f"{removeOuterParentheses(caseS_3)}")
