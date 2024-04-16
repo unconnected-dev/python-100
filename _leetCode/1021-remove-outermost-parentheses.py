@@ -5,7 +5,7 @@ caseS_1 = "(()())(())"
 caseS_2 = "(()())(())(()(()))"
 caseS_3 = "()()"
 
-if True:
+if False:
     def removeOuterParentheses(s):
         res = []
         
@@ -25,7 +25,23 @@ if True:
                 close = 0
                         
         return ''.join(res)
-    
+
+if True:
+    def removeOuterParentheses(s):
+        res, temp = "", ""
+        track = 0
+        
+        for c in s:
+            track += 1 if c == "(" else -1
+            
+            temp += c
+            if track == 0:
+                res += temp[1:-1]
+                track = 0
+                temp = ""
+        
+        return res
+        
 print(f"{removeOuterParentheses(caseS_1)}")
 print(f"{removeOuterParentheses(caseS_2)}")
 print(f"{removeOuterParentheses(caseS_3)}")
