@@ -5,7 +5,7 @@ caseTokens_1 = ["2","1","+","3","*"]
 caseTokens_2 = ["4","13","5","/","+"]
 caseTokens_3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 
-if True:
+if False:
     def evalRPN(tokens):
         stack = []
         
@@ -36,7 +36,24 @@ if True:
                         stack.append(a*b)
         
         return stack[-1]
+
+if True:
+    def evalRPN(tokens):
+        stack = []
+        ops = "+-*/"
+        for t in tokens:
+            if t not in ops:
+                stack.append(int(t))
+            else:
+                b, a = stack.pop(), stack.pop()
+                
+                if t == "+":    stack.append(a+b)
+                elif t == "-":    stack.append(a-b)
+                elif t == "*":    stack.append(a*b)
+                elif t == "/":    stack.append(int(a/b))
         
+        return stack[-1]
+
 print(f"{evalRPN(caseTokens_1)}")
 print(f"{evalRPN(caseTokens_2)}")
 print(f"{evalRPN(caseTokens_3)}")
