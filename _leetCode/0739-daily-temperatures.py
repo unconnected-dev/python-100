@@ -6,7 +6,7 @@ caseTemperatures_2 = [30,40,50,60]
 caseTemperatures_3 = [30,60,90]
 
 #Time limit exceeded
-if True:
+if False:
     def dailyTemperatures(temperatures):
         res = []
         for i in range(0, len(temperatures)):
@@ -23,7 +23,21 @@ if True:
                 res.append(0)
         
         return res
-    
+
+if True:
+    def dailyTemperatures(temperatures):
+        stack = []
+        res = [0] * len(temperatures)
+        
+        for i, t in enumerate(temperatures):
+            while stack and t > stack[-1][0]:
+                stack_t, stack_i = stack.pop()
+                res[stack_i] = i - stack_i
+            
+            stack.append([t, i])            
+        
+        return res
+            
 print(f"{dailyTemperatures(caseTemperatures_1)}")
 print(f"{dailyTemperatures(caseTemperatures_2)}")
 print(f"{dailyTemperatures(caseTemperatures_3)}")
