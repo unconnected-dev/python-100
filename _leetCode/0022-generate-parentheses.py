@@ -27,7 +27,7 @@ if False:
         backtrack(0, 0)
         return res
 
-if True:
+if False:
     def generateParenthesis(n):
         stack = []
         res = []
@@ -48,6 +48,24 @@ if True:
                 stack.pop()
         
         backtrack(0, 0)
+        return res
+    
+if True:
+    def generateParenthesis(n):
+        res = []
+
+        def backtrack(left, right, path):
+            if left == right == n:
+                res.append(path)
+                return
+
+            if left < n:
+                backtrack(left + 1, right, path + "(")
+            
+            if right < left:
+                backtrack(left, right + 1, path + ")")
+        
+        backtrack(0 ,0, "")
         return res
     
 print(f"{generateParenthesis(caseN_1)}")
