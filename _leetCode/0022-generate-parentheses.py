@@ -4,7 +4,7 @@
 caseN_1 = 3
 caseN_2 = 1
 
-if True:
+if False:
     def generateParenthesis(n):
         stack = []
         res = []
@@ -27,5 +27,28 @@ if True:
         backtrack(0, 0)
         return res
 
+if True:
+    def generateParenthesis(n):
+        stack = []
+        res = []
+        
+        def backtrack(left, right):
+            if left == right == n:
+                res.append(''.join(stack))
+                return
+        
+            if left < n:
+                stack.append("(")
+                backtrack(left + 1, right)            
+                stack.pop()
+            
+            if right < left:
+                stack.append(")")
+                backtrack(left, right + 1)
+                stack.pop()
+        
+        backtrack(0, 0)
+        return res
+    
 print(f"{generateParenthesis(caseN_1)}")
 print(f"{generateParenthesis(caseN_2)}")
