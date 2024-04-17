@@ -4,7 +4,7 @@
 caseS_1 = "ABFCACDB"
 caseS_2 = "ACBBD"
 
-if True:
+if False:
     def minLength(s):
         
         while "AB" in s or "CD" in s:
@@ -14,6 +14,14 @@ if True:
             s = s.split("CD")
             s = ''.join(s)
     
+        return len(s)
+
+if True:
+    def minLength(s):
+        
+        while "AB" in s or "CD" in s:
+            s = s.replace("AB","").replace("CD","")
+        
         return len(s)
     
 print(f"{minLength(caseS_1)}")
