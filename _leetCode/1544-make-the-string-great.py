@@ -19,7 +19,7 @@ if False:
         
         return ''.join(sl) 
 
-if True:
+if False:
     def makeGood(s):
         stack = []
         
@@ -28,6 +28,19 @@ if True:
                 stack.pop()
             else:
                 stack.append(c)
+        
+        return ''.join(stack)
+
+if True:
+    def makeGood(s):
+        stack = []
+        for c in s:
+            stack.append(c)
+
+            if len(stack) >= 2:
+                if stack[-1] != stack [-2] and stack[-1].lower() == stack[-2].lower():
+                    stack.pop()
+                    stack.pop()
         
         return ''.join(stack)
 
