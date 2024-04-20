@@ -6,7 +6,7 @@ caseS_2 = "a)b(c)d"
 caseS_3 = "))(("
 caseS_4 = "())()((("
 
-if True:
+if False:
     def minRemoveToMakeValid(s):
         s_list= [*s]
         count = 0
@@ -31,6 +31,25 @@ if True:
             right -= 1
             
         return ''.join(res_list)
+
+if True:
+    def minRemoveToMakeValid(s):
+        sl = list(s)
+        stack = []
+        
+        for i, c in enumerate(sl):
+            if c == "(":
+                stack.append(i)
+            elif c == ")":
+                if stack:
+                    stack.pop()
+                else:
+                    sl[i] = ''
+                    
+        for i in stack:
+            sl[i] = ''
+        
+        return ''.join(sl)
 
 print(f"{minRemoveToMakeValid(caseS_1)}")
 print(f"{minRemoveToMakeValid(caseS_2)}")
