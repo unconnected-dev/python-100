@@ -22,7 +22,7 @@ if False:
             
         return res            
         
-if True:
+if False:
     def findTheArrayConcVal(nums):
         res = 0
         
@@ -36,6 +36,22 @@ if True:
             else:
                 res += int(nums[0])
                 nums.pop()
+        
+        return res
+
+if True:
+    def findTheArrayConcVal(nums):
+        left, right = 0, len(nums) - 1
+        res = 0
+        
+        while left <= right:        
+            if left != right:
+                res += int(str(nums[left]) + str(nums[right]))
+            else:
+                res += int(str(nums[left]))
+
+            left += 1
+            right -= 1
         
         return res
     
