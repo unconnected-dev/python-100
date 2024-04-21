@@ -192,3 +192,35 @@ if False:
         return list(filter(f, nums))
     
     print(f"{positives_only([n for n in range(1,6)])}")
+
+#Power of two
+if False:
+    def power_of_two(nums):
+        f = lambda n: n ** 2
+        return list(map(f, nums))
+    
+    print(f"{power_of_two([n for n in range(1, 11)])}")
+    
+#Alternate power
+if False:
+    def alternate_power(nums):
+        f = lambda n: n**2 if n%2==0 else n**3
+        return list(map(f, nums))
+    
+    print(f"{alternate_power([n for n in range(1, 11)])}")
+    
+#Filter odd numbers
+if False:
+    def filter_odds(nums):
+        f = lambda n: n%2==0
+        return list(filter(f, nums))
+
+    print(f"{filter_odds([n for n in range(1, 11)])}")
+
+#Convert to binary
+if False:
+    def convert_to_binary(nums):
+        f = lambda n: bin(n)
+        return list(map(f, nums))
+    
+    print(f"{convert_to_binary([n for n in range(1, 11)])}")
