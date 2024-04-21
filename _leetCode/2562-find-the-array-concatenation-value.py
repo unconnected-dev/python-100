@@ -4,7 +4,7 @@
 caseNums_1 = [7,52,2,4]
 caseNums_2 = [5,14,13,8,12]
 
-if True:
+if False:
     def findTheArrayConcVal(nums):
         left, right = 0, len(nums)-1
         res = 0
@@ -21,6 +21,23 @@ if True:
             right -= 1
             
         return res            
-                
+        
+if True:
+    def findTheArrayConcVal(nums):
+        res = 0
+        
+        while len(nums) > 0:
+            if len(nums) > 1:
+                left = str(nums[0])
+                right = str(nums[-1])
+                res += int(left + right)
+                nums.pop(0)
+                nums.pop()
+            else:
+                res += int(nums[0])
+                nums.pop()
+        
+        return res
+    
 print(f"{findTheArrayConcVal(caseNums_1)}")
 print(f"{findTheArrayConcVal(caseNums_2)}")
