@@ -438,3 +438,33 @@ if False:
 
     print(f"{power_of_2(4)}")
     print(f"{power_of_5(4)}")
+    
+#Greater than
+if False:
+    def greater_than(n):
+        def inner_function(v):
+            return v > n
+        
+        return inner_function
+    
+    greater_than_2 = greater_than(2)
+    greater_than_5 = greater_than(5)
+    
+    print(f"{greater_than_2(1)}")
+    print(f"{greater_than_2(3)}")
+    print(f"{greater_than_5(4)}")
+    print(f"{greater_than_5(6)}")
+
+#Fibonaci
+if False:
+    def fibonaci():
+        i,j = 0,1
+        def inner_function():
+            nonlocal i, j
+            i, j = j, i + j
+            return j
+        
+        return inner_function
+    
+    fib = fibonaci()
+    print(f"{[fib() for n in range(1,11)]}")
