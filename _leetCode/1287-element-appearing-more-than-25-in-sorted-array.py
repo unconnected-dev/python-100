@@ -16,14 +16,22 @@ if False:
             if my_dict.get(n) > target:
                 return n
 
-if True:
+if False:
     def findSpecialInteger(arr):
         l = len(arr)/4
         
         for [n, count_] in Counter(arr).items():
             if count_ > l:
                 return n
-    
+
+if True:
+    def findSpecialInteger(arr):
+        my_set = set(arr)
+        l = len(arr)/4
+        for n in my_set:
+            if arr.count(n) > l:
+                return n
+
 print(f"{findSpecialInteger(caseArr_1)}")
 print(f"{findSpecialInteger(caseArr_2)}")
 print(f"{findSpecialInteger(caseArr_3)}")
