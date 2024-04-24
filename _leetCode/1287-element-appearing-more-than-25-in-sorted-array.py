@@ -24,13 +24,22 @@ if False:
             if count_ > l:
                 return n
 
-if True:
+if False:
     def findSpecialInteger(arr):
         my_set = set(arr)
         l = len(arr)/4
         for n in my_set:
             if arr.count(n) > l:
                 return n
+
+if True:
+    def findSpecialInteger(arr):
+        l = len(arr)/4
+        counts = Counter(arr)
+        
+        for ind in counts:
+            if counts[ind] > l:
+                return ind
 
 print(f"{findSpecialInteger(caseArr_1)}")
 print(f"{findSpecialInteger(caseArr_2)}")
