@@ -6,7 +6,7 @@ caseS_2 = "a-bC-dEf-ghIj"
 caseS_3 = "Test1ng-Leet=code-Q!"
 caseS_4 = "-"
 
-if True:
+if False:
     def reverseOnlyLetters(s):
         s = [*s]
         left, right = 0, len(s)-1
@@ -26,6 +26,17 @@ if True:
             right -= 1
             
         return ''.join(s)
+
+if True:
+    def reverseOnlyLetters(s):
+        letters = [c for c in s if c.isalpha()]
+        res = [None if c.isalpha() else c for c in s]
+        
+        for i in range(len(res)):
+            if res[i] is None:
+                res[i] = letters.pop()
+
+        return ''.join(res)
     
 print(f"{reverseOnlyLetters(caseS_1)}")
 print(f"{reverseOnlyLetters(caseS_2)}")
