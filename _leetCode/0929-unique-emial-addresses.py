@@ -20,7 +20,7 @@ if False:
         
         return len(res)
 
-if True:
+if False:
     def numUniqueEmails(emails):
 
         def parse(email):
@@ -30,5 +30,16 @@ if True:
         
         return len(set(map(parse, emails)))
 
+if True:
+    def numUniqueEmails(emails):
+        res = set()
+        
+        for email in emails:
+            local, domain = email.split("@")
+            local = local.split("+")[0].replace(".","")
+            res.add(f"{local}@{domain}")
+        
+        return len(res)    
+        
 print(f"{numUniqueEmails(caseEmails_1)}")
 print(f"{numUniqueEmails(caseEmails_2)}")
