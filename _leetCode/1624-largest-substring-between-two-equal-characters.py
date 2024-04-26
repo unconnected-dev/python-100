@@ -19,7 +19,7 @@ if False:
 
         return max_-1
 
-if True:
+if False:
     def maxLengthBetweenEqualCharacters(s):
         res = -1
         
@@ -27,6 +27,10 @@ if True:
             res = max(res, s.rindex(c) - s.index(c)-1)
         
         return res
+
+if True:
+    def maxLengthBetweenEqualCharacters(s):
+        return max(s.rindex(c) - s.index(c) - 1 for c in set(s))
 
 print(f"{maxLengthBetweenEqualCharacters(caseS_1)}")
 print(f"{maxLengthBetweenEqualCharacters(caseS_2)}")
