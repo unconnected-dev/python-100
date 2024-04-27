@@ -10,7 +10,7 @@ caseCoins_2 = 5
 caseCosts_3 = [1,6,3,1,2,5]
 caseCoins_3 = 20
 
-if True:
+if False:
     def maxIceCream(costs, coins):
         max_cost = max(costs)
 
@@ -30,6 +30,19 @@ if True:
             if coins == 0 or coins < i:
                 break
 
+        return res
+
+if True:
+    def maxIceCream(costs, coins):
+        res = 0
+        costs.sort()
+        for i in costs:
+            if i <= coins:
+                coins -= i
+                res += 1
+            else:
+                break
+            
         return res
 
 print(f"{maxIceCream(caseCosts_1, caseCoins_1)}")
