@@ -32,7 +32,7 @@ if False:
 
         return res
 
-if True:
+if False:
     def maxIceCream(costs, coins):
         res = 0
         costs.sort()
@@ -42,8 +42,25 @@ if True:
                 res += 1
             else:
                 break
-            
+
         return res
+
+if True:
+    def maxIceCream(costs, coins):
+        costs.sort(reverse=True)
+        res = 0
+        while coins > 0 and costs:
+            cost = costs.pop()
+            if cost <= coins:
+                coins -= cost
+                res += 1
+            else:
+                break
+        
+        return res
+
+        
+        return costs 
 
 print(f"{maxIceCream(caseCosts_1, caseCoins_1)}")
 print(f"{maxIceCream(caseCosts_2, caseCoins_2)}")
