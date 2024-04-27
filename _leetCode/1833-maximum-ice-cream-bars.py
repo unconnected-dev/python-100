@@ -45,7 +45,7 @@ if False:
 
         return res
 
-if True:
+if False:
     def maxIceCream(costs, coins):
         costs.sort(reverse=True)
         res = 0
@@ -59,8 +59,28 @@ if True:
         
         return res
 
+if True:
+    def maxIceCream(costs, coins):
+        max_cost = max(costs)
+        my_dict = {}
+        res = 0
+
+        for n in range(max_cost):
+            my_dict[n] = 0
         
-        return costs 
+        for c in costs:
+            my_dict[c] = my_dict.get(c, 0) + 1
+        
+        for key, val in my_dict.items():
+            while coins >= key and val > 0:
+                coins -= key
+                val -= 1
+                res += 1
+
+            if val > 0:
+                break
+
+        return res    
 
 print(f"{maxIceCream(caseCosts_1, caseCoins_1)}")
 print(f"{maxIceCream(caseCosts_2, caseCoins_2)}")
