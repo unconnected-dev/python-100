@@ -25,7 +25,7 @@ if False:
 
         return res
 
-if True:
+if False:
     def heightChecker(heights):
         max_height = max(heights)
         count = [0] * (max_height + 1)
@@ -45,6 +45,26 @@ if True:
                 count[expected_height] -= 1
 
         return res
+
+if True:
+    def heightChecker(heights):
+        max_height = max(heights)
+        
+        count = [0] * (max_height + 1)
+        for height in heights:
+            count[height] += 1
+        
+        for i in range(1, len(count)):
+            count[i] += count[i - 1]
+        
+        sorted_heights = [0] * len(heights)
+        for height in reversed(heights):
+            sorted_heights[count[height] - 1] = height
+            count[height] -= 1
+        
+        mismatch_count = sum(heights[i] != sorted_heights[i] for i in range(len(heights)))
+        
+        return mismatch_count
 
 print(f"{heightChecker(caseHeights_1)}")
 print(f"{heightChecker(caseHeights_2)}")
