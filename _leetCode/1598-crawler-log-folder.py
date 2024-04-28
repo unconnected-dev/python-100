@@ -9,7 +9,7 @@ caseLogs_5 = ["fl6/","nz1/","../","./"]
 caseLogs_6 = ["./","../","./"]
 caseLogs_7 = ["./","wz4/","../","mj2/","../","../","ik0/","il7/"]
 
-if True:
+if False:
     def winOperations(logs):
         stack = []
         
@@ -26,6 +26,24 @@ if True:
             res = len(stack)
         elif len(stack) == 1 and stack[0] != "./" and stack[0] != "../":
             res = 1
+        
+        return res
+
+if True:
+    def winOperations(logs):
+        stack = []
+        
+        for log in logs:
+            if log == "./":
+                continue
+            elif stack and log == "../":
+                stack.pop()
+            elif log != "../":
+                stack.append(log)
+                
+        res = 0
+        if len(stack) >= 1:
+            res = len(stack)
         
         return res
 
