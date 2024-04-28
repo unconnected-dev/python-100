@@ -10,7 +10,7 @@ caseBrokenLetters_2 = "lt"
 caseText_3 = "leet code"
 caseBrokenLetters_3 = "e"
 
-if True:
+if False:
     def canBeTypedWords(text, brokenLetters):
         words = []
         
@@ -25,7 +25,12 @@ if True:
                 words.append(word)
             
         return len(words)
-    
+
+if True:
+    def canBeTypedWords(text, brokenLetters):
+        brokenLetters = set(brokenLetters)
+        return len([word for word in text.split() if set(word).isdisjoint(brokenLetters)])
+        
 print(f"{canBeTypedWords(caseText_1, caseBrokenLetters_1)}")
 print(f"{canBeTypedWords(caseText_2, caseBrokenLetters_2)}")
 print(f"{canBeTypedWords(caseText_3, caseBrokenLetters_3)}")
