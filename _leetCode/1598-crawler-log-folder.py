@@ -29,7 +29,7 @@ if False:
         
         return res
 
-if True:
+if False:
     def winOperations(logs):
         stack = []
         
@@ -47,6 +47,21 @@ if True:
         
         return res
 
+if True:
+    def winOperations(logs):
+        stack = []
+        
+        for log in logs:
+            if log == "./":
+                continue
+            elif log == "../":
+                if stack:
+                    stack.pop()
+            else:
+                stack.append(log)
+
+        return len(stack)
+        
 print(f"{winOperations(caseLogs_1)}")
 print(f"{winOperations(caseLogs_2)}")
 print(f"{winOperations(caseLogs_3)}")
