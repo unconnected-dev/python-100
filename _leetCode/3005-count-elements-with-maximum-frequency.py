@@ -1,5 +1,6 @@
 #Count Elements With Maximum Frequency
 #https://leetcode.com/problems/count-elements-with-maximum-frequency/description/
+from collections import Counter
 
 caseNums_1 = [1,2,2,3,1,4]
 caseNums_2 = [1,2,3,4,5]
@@ -20,7 +21,7 @@ if False:
         
         return res
 
-if True:
+if False:
     def maxFrequencyElements(nums):
         count = []
         num_set = set(nums)
@@ -35,5 +36,12 @@ if True:
         
         return res 
 
+if True:
+    def maxFrequencyElements(nums):
+        count = Counter(nums)
+        max_ = max(count[n] for n in count)
+
+        return sum(count[n] for n in count if count[n] == max_)
+        
 print(f"{maxFrequencyElements(caseNums_1)}")
 print(f"{maxFrequencyElements(caseNums_2)}")
