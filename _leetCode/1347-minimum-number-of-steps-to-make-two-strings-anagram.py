@@ -1,5 +1,6 @@
 #Minimum Number Of Steps To Make Two Strings Anagram
 #https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/description/
+from collections import Counter
 
 caseS_1 = "bab"
 caseT_1 = "aba"
@@ -17,7 +18,7 @@ if False:
         
         return len(t)
 
-if True:
+if False:
     def minSteps(s, t):
         count = {}
         
@@ -29,6 +30,13 @@ if True:
                 count[c] = count.get(c, 0) - 1    
         
         return sum(count.values())
+
+if True:
+    def minSteps(s, t):
+        count_s = Counter(s)
+        count_t = Counter(t)
+        
+        return sum((count_s - count_t).values())
         
 print(f"{minSteps(caseS_1, caseT_1)}")
 print(f"{minSteps(caseS_2, caseT_2)}")
