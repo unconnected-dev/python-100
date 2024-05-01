@@ -10,6 +10,8 @@
 0463    island perimeter
 0674    longest continuous increasing subsequence
 0739    daily temperatures
+0925    long pressed name
+0929    unique email addresses
 0950    reveal cards in increasing order
 1249    minimum remove to make valid parentheses
 1282    group the people given the group size they belong to
