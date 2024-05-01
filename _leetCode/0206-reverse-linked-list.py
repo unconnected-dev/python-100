@@ -5,9 +5,8 @@ caseHead_1 = [1,2,3,4,5]
 caseHead_2 = [1,2]
 caseHead_3 = []
 
-if True:
+if False:
     def reverseList(head):
-        
         curr = head
         prev = None
         next = None
@@ -19,4 +18,16 @@ if True:
             
             curr = next
             
+        return prev
+    
+if True:
+    def reverseList(head):
+        curr = head
+        prev = None
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        
         return prev
