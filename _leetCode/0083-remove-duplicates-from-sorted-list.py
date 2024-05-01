@@ -4,7 +4,7 @@
 caseHead_1 = [1,1,2]
 caseHead_2 = [1,1,2,3,3]
 
-if True:
+if False:
     def deleteDuplicates(head):
         curr = head
         
@@ -14,4 +14,16 @@ if True:
             
             curr = curr.next
             
+        return head
+    
+if True:
+    def deleteDuplicates(head):
+        curr = head
+        
+        while curr and curr.next:
+            if curr.next.val == curr.val:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+        
         return head
