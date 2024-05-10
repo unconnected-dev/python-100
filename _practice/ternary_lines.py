@@ -90,3 +90,10 @@ if False:
     print(f"{classify(18)}") 
     print(f"{classify(65)}") 
     print(f"{classify(66)}") 
+
+if True:
+    def checkStringGreater(s, n):
+        return True if len(s) > n else False
+    
+    print(f"{checkStringGreater("test string", 5)}")
+    print(f"{checkStringGreater("test string", 10)}")
