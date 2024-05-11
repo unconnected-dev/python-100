@@ -35,6 +35,32 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
+    def delete_index(self, index):
+
+        if index < 0:
+            print(f"Invalid index")
+            return
+        
+        if index == 0:
+            if self.head:
+                self.head = self.head.next
+            else:
+                print(f"List is empty")
+
+        prev_node = None
+        current_node = self.head
+        i = 0 
+
+        while current_node and i < index:
+            i += 1
+            prev_node = current_node
+            current_node = current_node.next
+
+        if current_node == None:
+            print(f"Index out of range")
+
+        prev_node.next = current_node.next
+
     def print_list(self):
         current_node = self.head
         while current_node:
