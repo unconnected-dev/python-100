@@ -77,6 +77,26 @@ class LinkedList:
 
         prev_node.next = current_node.next
 
+    def delete_data_mod(self, data, delete_all=False):
+        current_node = self.head
+        prev_node = None
+
+        while current_node:
+
+            if current_node.data == data:
+                if prev_node:
+                    prev_node.next = current_node.next
+                else:
+                    self.head = current_node.next
+                
+                if not delete_all:
+                    return
+            
+            else:
+                prev_node = current_node
+
+            current_node = current_node.next
+
     def print_list(self):
         current_node = self.head
         while current_node:
@@ -89,6 +109,10 @@ my_list = LinkedList()
 for n in range(10):
     my_list.append(n)
 
+#Adding duplicate values for delete_all
+for n in range(10):
+    my_list.append(n)
+
 my_list.print_list()
 
 my_list.delete_index(4)
@@ -97,4 +121,8 @@ my_list.print_list()
 
 my_list.delete_data(8)
 print(f"After deleting by data")
+my_list.print_list()
+
+my_list.delete_data_mod(9,delete_all=True)
+print(f"After deleting by data mod")
 my_list.print_list()
