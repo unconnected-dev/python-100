@@ -50,7 +50,6 @@ class LinkedList:
         prev_node = None
         current_node = self.head
         i = 0 
-
         while current_node and i < index:
             i += 1
             prev_node = current_node
@@ -58,6 +57,23 @@ class LinkedList:
 
         if current_node == None:
             print(f"Index out of range")
+
+        prev_node.next = current_node.next
+
+    def delete_data(self, data):
+
+        current_node = self.head
+        if current_node.data == data:
+            self.head = current_node.next
+            return
+        
+        prev_node = None
+        while current_node.next and current_node.data != data:
+            prev_node = current_node
+            current_node = current_node.next
+        
+        if current_node == None:
+            print(f"Data not found")
 
         prev_node.next = current_node.next
 
@@ -73,4 +89,12 @@ my_list = LinkedList()
 for n in range(10):
     my_list.append(n)
 
+my_list.print_list()
+
+my_list.delete_index(4)
+print(f"After deleting by index")
+my_list.print_list()
+
+my_list.delete_data(8)
+print(f"After deleting by data")
 my_list.print_list()
