@@ -25,6 +25,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+
     def append(self, data):
         new_node = Node(data)
         if self.head == None:
@@ -34,6 +35,7 @@ class LinkedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
+
 
     def delete_index(self, index):
 
@@ -59,6 +61,9 @@ class LinkedList:
             print(f"Index out of range")
 
         prev_node.next = current_node.next
+        if prev_node.next == None:
+            self.tail = prev_node
+
 
     def delete_data(self, data):
 
@@ -76,6 +81,9 @@ class LinkedList:
             print(f"Data not found")
 
         prev_node.next = current_node.next
+        if prev_node.next == None:
+            self.tail = prev_node
+
 
     def delete_data_mod(self, data, delete_all=False):
         current_node = self.head
@@ -86,6 +94,9 @@ class LinkedList:
             if current_node.data == data:
                 if prev_node:
                     prev_node.next = current_node.next
+                    if prev_node.next == None:
+                        self.tail = prev_node
+
                 else:
                     self.head = current_node.next
                 
@@ -97,6 +108,7 @@ class LinkedList:
 
             current_node = current_node.next
 
+
     def print_list(self):
         current_node = self.head
         while current_node:
@@ -104,6 +116,7 @@ class LinkedList:
             current_node = current_node.next
             
         print(f"{None}")
+
 
 my_list = LinkedList()
 for n in range(10):
@@ -115,14 +128,17 @@ for n in range(10):
 
 my_list.print_list()
 
-my_list.delete_index(4)
-print(f"After deleting by index")
-my_list.print_list()
+# my_list.delete_index(9)
+# print(f"After deleting by index")
+# my_list.print_list()
 
-my_list.delete_data(8)
-print(f"After deleting by data")
-my_list.print_list()
+# my_list.delete_data(9)
+# print(f"After deleting by data")
+# my_list.print_list()
 
 my_list.delete_data_mod(9,delete_all=True)
 print(f"After deleting by data mod")
+my_list.print_list()
+
+my_list.append(10)
 my_list.print_list()
