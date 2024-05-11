@@ -1,3 +1,5 @@
+from math import factorial
+
 #Check even or odd
 if False:
     for i in range(0, 10):
@@ -78,8 +80,8 @@ if False:
     def checkStringLength(s):
         return 'Short' if len(s) <= 5 else 'Long'
 
-    print(f"{checkStringLength("some characters")}") 
-    print(f"{checkStringLength("no")}") 
+    print(f"{checkStringLength('some characters')}") 
+    print(f"{checkStringLength('no')}") 
 
 #Age classifier
 if False:
@@ -91,9 +93,91 @@ if False:
     print(f"{classify(65)}") 
     print(f"{classify(66)}") 
 
-if True:
+#Greater than
+if False:
     def checkStringGreater(s, n):
         return True if len(s) > n else False
     
-    print(f"{checkStringGreater("test string", 5)}")
-    print(f"{checkStringGreater("test string", 10)}")
+    print(f"{checkStringGreater('test string', 5)}")
+    print(f"{checkStringGreater('test string', 10)}")
+
+#Even or odd
+if False:
+    def evenOrOdd(n):
+        return True if n % 2 == 0 else False
+    
+    print(f"{evenOrOdd(1)}")
+    print(f"{evenOrOdd(2)}")
+    print(f"{evenOrOdd(3)}")
+
+#Return max
+if False:
+    def returnMax(a,b):
+        return a if a >= b else b
+    
+    print(f"{returnMax(1,2)}")
+    print(f"{returnMax(2,1)}")
+    print(f"{returnMax(3,3)}")
+
+#Find minimum of three numbers
+if False:
+    def findMin(a,b,c):
+        return a if a < b and a < c else b if b < c else c
+    
+    print(f"{findMin(1,2,3)}")
+    print(f"{findMin(4,2,3)}")
+    print(f"{findMin(4,5,3)}")
+
+#Leap year
+if False:
+    def isLeapYear(year):
+        return True if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0) else False
+
+    print(f"{isLeapYear(1999)}")
+    print(f"{isLeapYear(2000)}")
+    print(f"{isLeapYear(2004)}")
+
+#Vowel or consonant
+if False:
+    def vowelOrConsonant(c):
+        return 'Vowel' if c in 'aeiouAEIOU' else 'Consonant'
+    
+    print(f"{vowelOrConsonant('a')}")
+    print(f"{vowelOrConsonant('U')}")
+    print(f"{vowelOrConsonant('b')}")
+
+#Positive, negative or zero
+if False:
+    def numberIs(n):
+        return 'Positive' if n > 0 else 'Negative' if n < 0 else 'Zero'
+    
+    print(f"{numberIs(-1)}")
+    print(f"{numberIs(0)}")
+    print(f"{numberIs(1)}")
+
+#Factorial
+if False:
+    def factorialTime(n):
+        return 1 if n == 1 else factorial(n)
+    
+    print(f"{factorialTime(4)}")
+    print(f"{factorialTime(1)}")
+
+#Prime time
+if False:
+    def primeTime(n):
+        nl = [num for num in range(2,int(n*0.5))]
+        return True if all(n%num != 0 for num in nl) else False
+    
+    print(f"{primeTime(3)}")
+    print(f"{primeTime(5)}")
+    print(f"{primeTime(6)}")
+
+#Square root
+if True:
+    def squareRootIs(n):
+        return n**0.5 if n >= 0 else 'What?'
+
+    print(f"{squareRootIs(-1)}")
+    print(f"{squareRootIs(0)}")
+    print(f"{squareRootIs(10)}")
