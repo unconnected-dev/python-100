@@ -5,7 +5,7 @@ caseHead_1 = [5,4,2,1]
 caseHead_2 = [4,2,2,3]
 caseHead_3 = [1,100000]
 
-if True:
+if False:
     def pairSum(head):
         current = head
         prev = None
@@ -28,3 +28,24 @@ if True:
             reverse = reverse.next
         
         return res
+
+if True:
+    def pairSum(head):
+
+        vals = []
+        current = head
+
+        while current:
+            vals.append(current.val)
+            current = current.next
+
+        res = 0
+        mid = len(vals)//2
+        i, j = 0, len(vals) - 1
+        while i <= mid:
+            res = max(res, vals[i] + vals[j])
+            i += 1
+            j -=1
+        
+        return res
+        
