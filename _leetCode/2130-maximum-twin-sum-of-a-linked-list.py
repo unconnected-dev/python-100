@@ -29,7 +29,7 @@ if False:
         
         return res
 
-if True:
+if False:
     def pairSum(head):
 
         vals = []
@@ -48,4 +48,26 @@ if True:
             j -=1
         
         return res
+
+if True:
+    def pairSum(head):
+        slow, fast = head, head
         
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        prev = None
+        while slow:
+            next = slow.next
+            slow.next = prev
+            prev = slow
+            slow = next
+        
+        res = 0
+        while prev:
+            res = max(res, prev.val + head.val)
+            prev = prev.next
+            head = head.next
+        
+        return res
