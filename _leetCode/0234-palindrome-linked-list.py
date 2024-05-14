@@ -68,6 +68,8 @@ if True:
 
                 head = head.next
                 prev = prev.next
+            
+            return True
 
 caseHead_1 = ListNode(1, ListNode(2, ListNode(2, ListNode(1))))
 caseHead_2 = ListNode(1, ListNode(2))
