@@ -31,7 +31,7 @@ if False:
                 
             print(f"{None}")
 
-if True:
+if False:
     class Solution:
         def __init__(self) -> None:
             self.head = None
@@ -58,6 +58,36 @@ if True:
                 
             print(f"{None}")
 
+if True:
+    class Solution:
+        def __init__(self) -> None:
+            self.head = None
+
+        def insertGreatestCommonDivisors(self, head):
+            self.head = head
+            start, prev = head, None
+            
+            while head:
+                node = ListNode()
+                if prev is not None:
+                    divisor = gcd(prev.val, head.val)
+                    node.next = head
+                    node.val = divisor
+                    prev.next = node
+                
+                prev = head
+                head = head.next
+            
+            return start
+            
+        def print_list(self):
+            current_node = self.head
+            while current_node:
+                print(f"{current_node.val}", end=" -> ")
+                current_node = current_node.next
+                
+            print(f"{None}")
+            
 caseHead_1 = ListNode(18, ListNode(6, ListNode(10, ListNode(3))))
 caseHead_2 = ListNode(7)
 
