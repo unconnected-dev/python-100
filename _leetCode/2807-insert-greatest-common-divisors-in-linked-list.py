@@ -9,7 +9,7 @@ class ListNode:
         self.val = val
         self.next = next
         
-if True:
+if False:
     class Solution:
         def __init__(self) -> None:
             self.head = None
@@ -23,6 +23,33 @@ if True:
 
             return head
         
+        def print_list(self):
+            current_node = self.head
+            while current_node:
+                print(f"{current_node.val}", end=" -> ")
+                current_node = current_node.next
+                
+            print(f"{None}")
+
+if True:
+    class Solution:
+        def __init__(self) -> None:
+            self.head = None
+        
+        def insertGreatestCommonDivisors(self, head):
+            self.head = head
+            first, second = head, head
+            second = second.next
+            
+            while second:
+                divisor = gcd(first.val, second.val)
+                node = ListNode(divisor, second)
+                first.next = node
+                first = second
+                second = second.next
+            
+            return head
+            
         def print_list(self):
             current_node = self.head
             while current_node:
