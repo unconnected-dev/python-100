@@ -7,6 +7,8 @@ class ListNode:
         self.val = val
         self.next = next
 
+#Goes through the two lists creating a string which are then reversed and added togeather
+#After reverse the string again, then go through each character and create a new linked list
 if False:
     class Solution:
         def __init__(self) -> None:
@@ -51,6 +53,9 @@ if False:
                 
             print(f"{None}")
 
+#Goes through the two linked lists and adds the numbers togeather
+#Uses % and // to get what numbers needs to be put into the node and 
+#what value needs to be carried over to the next node
 if True:
     class Solution:
         def __init__(self) -> None:
