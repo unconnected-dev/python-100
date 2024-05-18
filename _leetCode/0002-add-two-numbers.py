@@ -7,7 +7,7 @@ class ListNode:
         self.val = val
         self.next = next
 
-if True:
+if False:
     class Solution:
         def __init__(self) -> None:
             self.head = None
@@ -42,6 +42,44 @@ if True:
             self.head = head.next
             return head.next
 
+
+        def print_list(self):
+            current_node = self.head
+            while current_node:
+                print(f"{current_node.val}", end=" -> ")
+                current_node = current_node.next
+                
+            print(f"{None}")
+
+if True:
+    class Solution:
+        def __init__(self) -> None:
+            self.head = None
+
+        def addTwoNumbers(self, l1, l2):
+            nxt = ListNode()
+            head = nxt
+            total, carry = 0, 0
+
+            while l1 or l2 or carry:
+                total = carry
+
+                if l1:
+                    total += l1.val
+                    l1 = l1.next
+
+                if l2:
+                    total += l2.val
+                    l2 = l2.next
+                
+                num = total % 10
+                carry = total // 10
+
+                nxt.next = ListNode(num)
+                nxt = nxt.next
+
+            self.head = head.next
+            return head.next
 
         def print_list(self):
             current_node = self.head
