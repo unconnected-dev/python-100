@@ -41,6 +41,15 @@ Hard
 0084    largest rectangle in histogram
 
 
+Linked list
+0021    merge two sorted lists
+0143    reorder list
+0160    intersection of two linked lists
+0234    palindrome linked list
+2130    maximum twin sum of a linked list
+2181    merge nodes in between zeros
+2807    insert greatest common divisors in linked list
+
 Pandas
 0183    customers who never order
 0197    rising temperature
