@@ -8,9 +8,12 @@ class ListNode:
         self.val = val
         self.next = next
 
-class Solution:
     
-    if False:
+if False:
+    class Solution:
+        def __init__(self) -> None:
+            self.head = None
+            
         def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
             last = head
             middle = head
@@ -21,8 +24,22 @@ class Solution:
             
             return middle
 
-    if True:
+        def print_list(self):
+            current_node = self.head
+            while current_node:
+                print(f"{current_node.val}", end=" -> ")
+                current_node = current_node.next
+                
+            print(f"{None}")
+            
+if True:
+    class Solution:
+        def __init__(self) -> None:
+            self.head = None
+            self.middle = None
+            
         def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+            self.head = head
             fast = head
             slow = head
 
@@ -30,12 +47,29 @@ class Solution:
                 slow = slow.next
                 fast = fast.next.next
             
+            self.middle = slow
             return slow
 
+        def print_list(self):
+            current_node = self.head
+            while current_node:
+                print(f"{current_node.val}", end=" -> ")
+                current_node = current_node.next
+                
+            print(f"{None}")
+        
+        def get_middle(self):
+            return self.middle.val
+        
 caseHead_1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
 caseHead_2 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, ListNode(6))))))
 
 solution = Solution()
 
-print(f"{solution.middleNode(caseHead_1).val}")
-print(f"{solution.middleNode(caseHead_2).val}")
+solution.middleNode(caseHead_1)
+solution.print_list()
+print(f"{solution.get_middle()}")
+
+solution.middleNode(caseHead_2)
+solution.print_list()
+print(f"{solution.get_middle()}")
