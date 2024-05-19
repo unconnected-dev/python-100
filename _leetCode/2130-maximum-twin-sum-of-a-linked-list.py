@@ -12,7 +12,7 @@ if False:
         def __init__(self) -> None:
             self.head = None
             
-        def pairSum(head):
+        def pairSum(self, head):
             self.head = head
             current = head
             prev = None
@@ -49,7 +49,7 @@ if False:
         def __init__(self) -> None:
             self.head = None
             
-        def pairSum(head):
+        def pairSum(self, head):
             self.head = head
             vals = []
             current = head
