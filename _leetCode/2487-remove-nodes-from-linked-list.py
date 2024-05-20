@@ -54,7 +54,7 @@ if False:
             print(f"{None}")
 
 #Recursivly calling removeNodes will mean handling the tail first
-if True:
+if False:
     class Solution:
         def __init__(self) -> None:
             self.head = None
@@ -91,7 +91,65 @@ if True:
                 current_node = current_node.next
                 
             print(f"{None}")
+
+#Reversing list, then working from tail, then reverse list again
+if True:
+    class Solution:
+        def __init__(self) -> None:
+            self.head = None
+        
+        def get_head(self):
+            return self.head
+        
+        def removeNodes(self, head):
+            prev, current = None, head
+
+            #Reverse list            
+            while current:
+                nxt = current.next
+                current.next = prev
+                prev = current
+                current = nxt
             
+            tail = prev
+            high_val = tail.val
+            current = tail
+            while current and current.next:
+                if current.next.val >= high_val:
+                    high_val = current.next.val
+                    current = current.next
+                else:
+                    current.next = current.next.next
+            
+            prev, current = None, tail
+            #Reverse list again    
+            while current:
+                nxt = current.next
+                current.next = prev
+                prev = current
+                current = nxt
+            
+            self.head = prev
+            return prev
+        
+        def generate_from_list(self, l):
+            a_node = ListNode(l[0])
+            self.head = a_node
+
+            prev = self.head
+            for i in range(1, len(l)):
+                new_node = ListNode(l[i])
+                prev.next = new_node
+                prev = new_node  
+            
+        def print_list(self):
+            current_node = self.head
+            while current_node:
+                print(f"{current_node.val}", end=" -> ")
+                current_node = current_node.next
+                
+            print(f"{None}")
+                
 solution = Solution()
 
 solution.generate_from_list([5,2,13,3,8])
