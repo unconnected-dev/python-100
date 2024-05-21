@@ -7,7 +7,7 @@ caseT_1 = "bac"
 caseS_2 = "abcde"
 caseT_2 = "edbac"
 
-if True:
+if False:
     def findPermutationDifference(s, t):
         total = 0
         
@@ -15,6 +15,14 @@ if True:
             c = s[i]
             total += abs(i - t.index(c))
             
+        return total
+
+if True:
+    def findPermutationDifference(s, t):
+        total = 0
+        for i in range(len(s)):
+            total += abs(i - t.index(s[i]))
+
         return total
     
 print(f"{findPermutationDifference(caseS_1, caseT_1)}")
