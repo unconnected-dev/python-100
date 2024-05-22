@@ -4,7 +4,7 @@
 caseS_1 = "a1c1e1"
 caseS_2 = "a1b2c3d4e"
 
-if True:
+if False:
     def replaceDigits(s):
 
         def shift(c, n):
@@ -15,6 +15,14 @@ if True:
             res += shift(s[i-1], s[i]) if i%2 else s[i]
             
         return res
-
+    
+if True:
+    def replaceDigits(s):
+        res = [*s]
+        for i in range(1, len(s), 2):
+            res[i] = chr(ord(res[i-1]) + int(res[i]))
+            
+        return ''.join(res)
+    
 print(f"{replaceDigits(caseS_1)}")
 print(f"{replaceDigits(caseS_2)}")
