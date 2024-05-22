@@ -7,7 +7,7 @@ caseS_1 = "abc"
 caseWords_2 = ["a","a"]
 caseS_2 = "aa"
 
-if True:
+if False:
     def countPrefixes(words, s):
         total = 0
         for word in words:
@@ -15,6 +15,10 @@ if True:
                 total += 1
 
         return total
-    
+
+if True:
+    def countPrefixes(words, s):
+        return len([word for word in words if s.startswith(word)])
+
 print(f"{countPrefixes(caseWords_1, caseS_1)}")
 print(f"{countPrefixes(caseWords_2, caseS_2)}")
