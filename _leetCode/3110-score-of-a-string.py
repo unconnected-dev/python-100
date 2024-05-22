@@ -4,7 +4,7 @@
 caseS_1 = "hello"
 caseS_2 = "zaz"
 
-if True:
+if False:
     def scoreOfString(s):
         total = 0
         for i in range(len(s)-1):
@@ -13,6 +13,15 @@ if True:
             total += abs(ord(c1) - ord(c2))
             
         return total
+
+if True:
+    def scoreOfString(s):
+        total = 0
+        for i in range(len(s)-1):
+            total += abs(ord(s[i]) - ord(s[i+1]))
+            
+        return total
     
+
 print(f"{scoreOfString(caseS_1)}")
 print(f"{scoreOfString(caseS_2)}")
