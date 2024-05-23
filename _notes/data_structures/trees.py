@@ -22,11 +22,11 @@ class Node:
     def __init__(self, val):
         self.left = None
         self.right = None
-        self.value = val
+        self.val = val
         
 class BinaryTree:
     def __init__(self) -> None:
-        self.roof = None
+        self.root = None
     
     def insert(self, val):
         if self.root is None:
@@ -46,4 +46,38 @@ class BinaryTree:
                 node.right = Node(val)
             else:
                 self.insert_recursive(node.right, val)
-            
+    
+    def inorder_traversal(self, node):
+        if node is not None:
+            self.inorder_traversal(node.left)
+            print(node.val, end=' ')
+            self.inorder_traversal(node.right)
+    
+    def preorder_traversal(self, node):
+        if node is not None:
+            print(node.val, end=' ')
+            self.preorder_traversal(node.left)
+            self.preorder_traversal(node.right)
+    
+    def postorder_traversal(self, node):
+        if node is not None:
+            self.postorder_traversal(node.left)
+            self.postorder_traversal(node.right)
+            print(node.val, end=' ')
+
+
+tree = BinaryTree()
+
+elements = [10, 5, 15, 3, 7, 12, 18]
+for el in elements:
+    tree.insert(el)
+
+print()
+print("Inorder traversal:")
+tree.inorder_traversal(tree.root)
+print()
+print("\nPreorder traversal:")
+tree.preorder_traversal(tree.root)
+print()
+print("\nPostorder traversal:")
+tree.postorder_traversal(tree.root)    
