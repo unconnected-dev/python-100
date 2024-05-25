@@ -45,20 +45,28 @@ if True:
                         node.right = TreeNode(val)
                     else:
                         self.insert_recursive(node.right, val)
-                            
-            def maxDepth(self, root: Optional[TreeNode]) -> int:
+            
+            if False:
+                def maxDepth(self, root: Optional[TreeNode]) -> int:
 
-                if root is None:
-                    return 0
+                    if root is None:
+                        return 0
+                        
+                    l = self.maxDepth(root.left) if root.left is not None else 0
+                    r = self.maxDepth(root.right) if root.right is not None else 0 
+
+                    self.depth = 0 + max(l, r)
+
+                    if root is not None:
+                        return self.depth + 1
+            
+            if True:
+                def maxDepth(self, root: Optional[TreeNode]) -> int:
+                    if root is None:
+                        return 0
                     
-                l = self.maxDepth(root.left) if root.left is not None else 0
-                r = self.maxDepth(root.right) if root.right is not None else 0 
+                    return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
-                self.depth = 0 + max(l, r)
-
-                if root is not None:
-                    return self.depth + 1
-                    
             def print_tree(self, node, level=0, prefix="Root: "):
                 if node is not None:
                     print(" " * (level * 4) + prefix + str(node.val))
