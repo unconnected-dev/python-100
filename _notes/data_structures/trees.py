@@ -81,3 +81,57 @@ tree.preorder_traversal(tree.root)
 print()
 print("\nPostorder traversal:")
 tree.postorder_traversal(tree.root)    
+
+
+#Methods of traversal
+
+
+#Inorder traversal
+#Left -> Root -> Right
+
+#Traverse the left subtree, visit the root node, traverse the right subtree
+#Recursively perform an inorder traversal of the left subtree
+#Process the root node
+#Recursively perform an inorder traversal of the right subtree
+
+#     10
+#    /  \
+#   5    15
+#  / \   / \
+# 3   7 12 18
+
+#The inorder traversal would be: 3, 5, 7, 10, 12, 15, 18
+
+
+#Preorder traversal
+#Root -> Left -> right
+
+#Visit the root node, traverse the left subtree, traverse the right subtree
+#Process the root node
+#Recursively perform a preorder traversal of the left subtree
+#Recursively perform a preorder traversal of the right subtree
+
+#     10
+#    /  \
+#   5    15
+#  / \   / \
+# 3   7 12 18
+
+#The preorder traversal would be: 10, 5, 3, 7, 15, 12, 18
+
+
+#Postorder traversal
+#Left -> Right -> Root
+
+#Traverse the left subtree, traverse the right subtree, visit the root node
+#Recursively perform a postorder traversal of the left subtree
+#Recursively perform a postorder traversal of the right subtree
+#Process the root node
+
+#     10
+#    /  \
+#   5    15
+#  / \   / \
+# 3   7 12 18
+
+#The postorder traversal would be: 3, 7, 5, 12, 18, 15, 10
