@@ -135,3 +135,26 @@ tree.postorder_traversal(tree.root)
 # 3   7 12 18
 
 #The postorder traversal would be: 3, 7, 5, 12, 18, 15, 10
+
+
+#Purposes
+
+#Inorder traversal
+#Visits nodes in ascending order for a binary search tree. Useful for operations
+#where sorted data is needed
+
+#Preorder traversal
+#Visits the root node before its subtrees. Useful for creating a copy of the
+#tree or for a prefix expression value
+
+#Postorder traversal
+#Visits the root node after its subtrees. Useful for deleting the tree or 
+#for postfix expression value
+
+
+#Prefix and postfix expressions are forms of notation for arithmetic expressions
+#These are also known as polish notation and reverse polish notation 
+
+#These notations are used to eliminate the need for parentheses that are required
+#by infix notation (the common arithmetic notation we use)
+
