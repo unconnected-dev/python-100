@@ -33,7 +33,7 @@ if False:
 
         return s_sort == t_sort
 
-if True:
+if False:
     def validAnagram(s, t) -> bool:
 
         if(len(s) != len(t)):
@@ -43,6 +43,18 @@ if True:
         t_count = Counter(t)
 
         return s_count == t_count
+
+if True:
+    def validAnagram(s, t) -> bool:
+        my_hash = {}
+        for c in s:
+            my_hash[c] = my_hash.get(c, 0) + 1
+        
+        my_other_hash = {}
+        for c in t:
+            my_other_hash[c] = my_other_hash.get(c, 0) + 1
+
+        return my_hash == my_other_hash
 
 print(f"{validAnagram(caseS_1, caseT_1)}")
 print(f"{validAnagram(caseS_2, caseT_2)}")
