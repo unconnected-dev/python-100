@@ -64,6 +64,41 @@ if True:
 
             self.tail = prev
 
+        def delete_data(self, data):
+            current = self.head
+            prev = None
+
+            if current.val == data:
+
+                if current.next:
+                    nxt = current.next
+                    self.head = nxt
+                    nxt.prev = None
+                    return
+                else:
+                    self.head = None
+                    self.tail = None
+                    return
+                
+            while current:
+                if current.val == data:
+                    nxt = current.next
+
+                    if prev != None:
+                        prev.next = nxt
+
+                    if nxt != None:    
+                        nxt.prev = prev
+                    
+                    if current == self.tail:
+                        self.tail = prev
+
+                    return
+
+                prev = current
+                current = current.next
+
+
         def print_list(self):
             current = self.head
 
@@ -86,5 +121,9 @@ if True:
 
     new_linked_list = DoubleLinkedList()
     new_linked_list.generate_from_list(a_list)
+    new_linked_list.print_list()
+    # new_linked_list.print_list_reverse()
+
+    new_linked_list.delete_data(3)
     new_linked_list.print_list()
     new_linked_list.print_list_reverse()
