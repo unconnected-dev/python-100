@@ -5,7 +5,7 @@ caseMoves_1 = "L_RL__R"
 caseMoves_2 = "_R__LL_"
 caseMoves_3 = "_______"
 
-if True:
+if False:
     def furthestDistanceFromOrigin(moves):
         lefts, rights, optional = 0, 0, 0
 
@@ -19,6 +19,20 @@ if True:
                 optional += 1
         
         return optional + (max(lefts, rights) - min(lefts, rights))
+    
+if True:
+    def furthestDistanceFromOrigin(moves):
+        res, optional = 0, 0
+        
+        for c in moves:
+            if c == "L":
+                res += 1
+            elif c == "R":
+                res -= 1
+            else:
+                optional += 1
+
+        return abs(res) + optional
 
 print(f"{furthestDistanceFromOrigin(caseMoves_1)}")
 print(f"{furthestDistanceFromOrigin(caseMoves_2)}")
