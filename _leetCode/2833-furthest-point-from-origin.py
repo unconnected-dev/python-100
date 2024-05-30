@@ -20,7 +20,7 @@ if False:
         
         return optional + (max(lefts, rights) - min(lefts, rights))
     
-if True:
+if False:
     def furthestDistanceFromOrigin(moves):
         res, optional = 0, 0
         
@@ -33,6 +33,17 @@ if True:
                 optional += 1
 
         return abs(res) + optional
+
+if True:
+    def furthestDistanceFromOrigin(moves):
+        my_dict = {}
+        for c in moves:
+            my_dict[c] = my_dict.get(c, 0) + 1
+        
+        max_ = max(my_dict.get("L",0), my_dict.get("R",0))
+        min_ = min(my_dict.get("L",0), my_dict.get("R",0))
+        
+        return my_dict.get("_", 0) + (max_ - min_)
 
 print(f"{furthestDistanceFromOrigin(caseMoves_1)}")
 print(f"{furthestDistanceFromOrigin(caseMoves_2)}")
