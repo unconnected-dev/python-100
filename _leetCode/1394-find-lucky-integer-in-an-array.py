@@ -22,12 +22,23 @@ if False:
 
         return res
 
-if True:
+if False:
     def findLucky(arr):
         count = Counter(arr)
         res = [k if k == v else -1 for k, v in count.items()]
         return max(res)
 
+if True:
+    def findLucky(arr):
+        my_dict = {}
+
+        for n in arr:
+            my_dict[n] = my_dict.get(n, 0) + 1
+        
+        res = [k if k == v else -1 for k, v in my_dict.items()]
+
+        return max(res)
+        
 print(f"{findLucky(caseArr_1)}")
 print(f"{findLucky(caseArr_2)}")
 print(f"{findLucky(caseArr_3)}")
