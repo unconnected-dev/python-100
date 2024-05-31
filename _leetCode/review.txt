@@ -43,6 +43,7 @@ Hard
 
 Linked list
 0021    merge two sorted lists
+0024    swap nodes in pairs
 0143    reorder list
 0160    intersection of two linked lists
 0234    palindrome linked list
