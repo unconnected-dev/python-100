@@ -4,7 +4,7 @@
 caseNums_1 = [1,1,2,2,3,4]
 caseNums_2 = [1,1,1,1]
 
-if True:
+if False:
     def isPossibleToSplit(nums):
         nums.sort()
         a,b=[],[]
@@ -17,6 +17,17 @@ if True:
             return True
         else:
             return False
+
+if True:
+    def isPossibleToSplit(nums):
+        my_dict = {}
+        
+        for n in nums:
+            my_dict[n] = my_dict.get(n, 0) + 1
+            if my_dict.get(n) > 2:
+                return False
+            
+        return True
 
 print(f"{isPossibleToSplit(caseNums_1)}")
 print(f"{isPossibleToSplit(caseNums_2)}")
