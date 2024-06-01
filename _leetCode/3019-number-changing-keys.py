@@ -27,7 +27,7 @@ if False:
         
         return res
 
-if True:
+if False:
     def countKeyChanges(s):
         s = s.lower()
         res = 0
@@ -36,6 +36,11 @@ if True:
                 res += 1
         
         return res
+
+if True:
+    def countKeyChanges(s):
+        s = s.lower()
+        return sum([1 if a != b else 0 for a, b in zip(s[:-1], s[1:])])
     
 print(f"{countKeyChanges(caseS_1)}")
 print(f"{countKeyChanges(caseS_2)}")
