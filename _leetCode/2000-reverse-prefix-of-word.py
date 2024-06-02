@@ -23,7 +23,7 @@ if True:
     def reversePrefix(word, ch):
         return word[:word.index(ch) + 1][::-1] + word[word.index(ch) + 1:] if ch in word else word
 
-if True:
+if False:
     def reversePrefix(word, ch):
         if ch in word:
             i = word.index(ch) + 1
@@ -37,7 +37,22 @@ if True:
 
         else:
             return word
-        
+
+if True:
+    def reversePrefix(word, ch):
+        if ch in word:
+            i = word.index(ch)
+            word = list(word)
+            left, right = 0, i
+            while left < right:
+                word[left], word[right] = word[right], word[left]
+                left += 1
+                right -= 1
+            return ''.join(word)
+
+        else:
+            return word
+            
 print(f"{reversePrefix(caseWord_1, caseCh_1)}")
 print(f"{reversePrefix(caseWord_2, caseCh_2)}")
 print(f"{reversePrefix(caseWord_3, caseCh_3)}")
