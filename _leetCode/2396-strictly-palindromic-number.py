@@ -4,7 +4,7 @@
 caseN_1 = 9
 caseN_2 = 4
 
-if True:
+if False:
     def isStrictlyPalindromic(n):
         
         for i in range(2, n-1):
@@ -19,6 +19,11 @@ if True:
                 return False
                 
         return True
+
+#Due to base (n-2) it will always be 12 which is not palindromic
+if True:
+    def isStrictlyPalindromic(n):
+        return False
 
 print(f"{isStrictlyPalindromic(caseN_1)}")
 print(f"{isStrictlyPalindromic(caseN_2)}")
