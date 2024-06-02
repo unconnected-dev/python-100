@@ -36,7 +36,7 @@ if False:
         
         return c
 
-if True:
+if False:
     def countPairs(nums, target):
         left, right = 0, len(nums) - 1
         res = 0
@@ -49,6 +49,25 @@ if True:
             
             left += 1
             right = len(nums) - 1
+
+        return res
+
+if True:
+    def countPairs(nums, target):
+        l = len(nums)
+        for i in range(l):
+            for j in range(0, l-i-1):
+                if nums[j] > nums[j+1]:
+                    nums[j], nums[j+1] = nums[j+1], nums[j]
+
+        left, right = 0, l-1
+        res = 0
+        while left < right:
+            if nums[left] + nums[right] < target:
+                res += right - left
+                left += 1
+            else:
+                right -= 1
 
         return res
 
