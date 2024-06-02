@@ -18,7 +18,7 @@ if False:
 
         return c
 
-if True:
+if False:
     def countPairs(nums, target):
         nums.sort()
         c = 0
@@ -35,6 +35,22 @@ if True:
                 right -= 1
         
         return c
+
+if True:
+    def countPairs(nums, target):
+        left, right = 0, len(nums) - 1
+        res = 0
+
+        while left < len(nums) - 1:
+            while right > left:
+                if (nums[left] + nums[right]) < target:
+                    res += 1
+                right -= 1
+            
+            left += 1
+            right = len(nums) - 1
+
+        return res
 
 print(f"{countPairs(caseNums_1, caseTarget_1)}")
 print(f"{countPairs(caseNums_2, caseTarget_2)}")
