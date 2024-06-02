@@ -24,7 +24,7 @@ if False:
 
         return s
 
-if True:
+if False:
     def reverseString(s):
         left, right = 0, len(s)-1
         while left < right:
@@ -33,6 +33,10 @@ if True:
             right -= 1
         
         return s
+    
+if True:
+    def reverseString(s):
+        return s.reverse()
     
 print(f"{reverseString(caseList_1)}")
 print(f"{reverseString(caseList_2)}")
