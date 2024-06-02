@@ -34,9 +34,14 @@ if False:
         
         return s
     
-if True:
+if False:
     def reverseString(s):
         return s.reverse()
+
+if True:
+    def reverseString(s):
+        s[:] = s[::-1]
+        return s
     
 print(f"{reverseString(caseList_1)}")
 print(f"{reverseString(caseList_2)}")
