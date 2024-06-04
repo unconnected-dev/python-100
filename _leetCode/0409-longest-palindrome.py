@@ -3,8 +3,9 @@
 
 caseS_1 = "abccccdd"
 caseS_2 = "a"
+caseS_3 = "bb"
 
-if True:
+if False:
     def longestPalindrome(s):
         my_dict = {}
 
@@ -22,6 +23,20 @@ if True:
                 break
 
         return res
-    
+
+if True:
+    def longestPalindrome(s):
+        my_set = set()
+        for c in s:
+            if c not in my_set:
+                my_set.add(c)
+            else:
+                my_set.remove(c)
+        
+        if len(my_set) != 0:
+            return len(s) - len(my_set) + 1
+        else:
+            return len(s)
+        
 print(f"{longestPalindrome(caseS_1)}")
 print(f"{longestPalindrome(caseS_2)}")
