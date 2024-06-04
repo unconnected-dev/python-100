@@ -4,7 +4,7 @@
 caseN_1 = 2
 caseN_2 = 5
 
-if True:
+if False:
     def countBits(n):
         res = []
         for i in range(n+1):
@@ -15,6 +15,14 @@ if True:
                     br += 1
 
             res.append(br)
+        return res
+
+if True:
+    def countBits(n):
+        res = []
+        for i in range(n+1):
+            res.append(len([c for c in bin(i) if c == "1"]))
+            
         return res
 
 print(f"{countBits(caseN_1)}")
