@@ -7,7 +7,7 @@ caseSentence_1 = "the cattle was rattled by the battery"
 caseDictionary_2 = ["a","b","c"]
 caseSentence_2 = "aadsfasf absbs bbab cadsfafs"
 
-if True:
+if False:
     def replaceWords(dictionary, sentence):
         dictionary.sort(key=len)
 
@@ -21,5 +21,20 @@ if True:
 
         return ' '.join(words)
 
+if True:
+    def replaceWords(dictionary, sentence):
+        my_set = set(dictionary)
+        my_dictionary = sorted(my_set, key=len)
+        words = sentence.split()
+
+        for i in range(len(words)):
+
+            for d in my_dictionary:
+                if words[i].startswith(d):
+                    words[i] = d
+                    
+
+        return ' '.join(words)
+    
 print(f"{replaceWords(caseDictionary_1, caseSentence_1)}")
 print(f"{replaceWords(caseDictionary_2, caseSentence_2)}")
