@@ -7,6 +7,7 @@ from typing import List
 caseNums_1 = [3,5]
 caseNums_2 = [0,0]
 caseNums_3 = [0,4,3,0,4]
+caseNums_4 = [3,6,7,7,0]
 
 if False:
     def specialArray(self, nums: List[int]) -> int:
@@ -50,3 +51,4 @@ if True:
 print(f"{specialArray(caseNums_1)}")
 print(f"{specialArray(caseNums_2)}")
 print(f"{specialArray(caseNums_3)}")
+print(f"{specialArray(caseNums_4)}")
