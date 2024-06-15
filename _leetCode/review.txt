@@ -69,6 +69,7 @@ Pandas
 1661    average time of process per machine
 1683    invalid tweets
 1757    recyclable and low fat products
+1965    employees with missing information
 2877    create a dataframe from list
 2878    get the size of a dataframe
 2879    display the first three rows
