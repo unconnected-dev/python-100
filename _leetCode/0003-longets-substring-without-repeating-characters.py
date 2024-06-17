@@ -7,9 +7,9 @@ caseS_3 = "pwwkew"
 caseS_4 = " "
 caseS_5 = "dvdf"
 
-if True:
+if False:
+    #Increment along with 2 pointers
     def lengthOfLongestSubstring(s: str) -> int:
-        
         if len(s) == 0:
             return 0
 
@@ -32,7 +32,26 @@ if True:
                 i += 1
 
         return res
-    
+
+if True:
+    #Go through each character then create new substring as needed
+    def lengthOfLongestSubstring(s: str) -> int:
+        if len(s) == 0:
+            return 0
+        
+        res, curr = 0, ""
+        
+        for c in s:
+            if c not in curr:
+                curr += c
+            else:
+                curr = curr[curr.index(c) + 1:] + c
+            
+            if len(curr) > res:
+                res = len(curr)
+        
+        return res    
+
 print(f"{lengthOfLongestSubstring(caseS_1)}")
 print(f"{lengthOfLongestSubstring(caseS_2)}")
 print(f"{lengthOfLongestSubstring(caseS_3)}")
