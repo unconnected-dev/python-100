@@ -11,7 +11,10 @@ if False:
         for word in strs:
             while not word.startswith(res):
                 res = res[:-1]
-        
+
+            if len(res) == 0:
+                break
+            
         return res
 
 if True:
