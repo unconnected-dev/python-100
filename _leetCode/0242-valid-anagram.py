@@ -10,7 +10,7 @@ caseS_2 = "rat"
 caseT_2 = "car"
 
 if False:
-    def validAnagram(s, t) -> bool:
+    def isAnagram(s, t) -> bool:
 
         if(len(s) != len(t)):
             return False
@@ -23,7 +23,7 @@ if False:
         return s_sort == t_sort 
 
 if False:
-    def validAnagram(s, t) -> bool:
+    def isAnagram(s, t) -> bool:
         
         if(len(s) != len(t)):
             return False
@@ -34,7 +34,7 @@ if False:
         return s_sort == t_sort
 
 if False:
-    def validAnagram(s, t) -> bool:
+    def isAnagram(s, t) -> bool:
 
         if(len(s) != len(t)):
             return False
@@ -44,8 +44,8 @@ if False:
 
         return s_count == t_count
 
-if True:
-    def validAnagram(s, t) -> bool:
+if False:
+    def isAnagram(s, t) -> bool:
         my_hash = {}
         for c in s:
             my_hash[c] = my_hash.get(c, 0) + 1
@@ -56,5 +56,12 @@ if True:
 
         return my_hash == my_other_hash
 
-print(f"{validAnagram(caseS_1, caseT_1)}")
-print(f"{validAnagram(caseS_2, caseT_2)}")
+if True:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        return sorted(s) == sorted(t)
+
+print(f"{isAnagram(caseS_1, caseT_1)}")
+print(f"{isAnagram(caseS_2, caseT_2)}")
