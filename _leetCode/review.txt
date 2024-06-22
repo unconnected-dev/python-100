@@ -2,7 +2,7 @@
 0022    generate parentheses
 0036    valid sudoku
 0053    maximum subarray
-0223    rectangle area
+0128    longest consecutive sequence
 0238    product of array except self
 0347    top k frequent elements
 0350    intersection of two arrays ii
@@ -42,6 +42,7 @@ Hard
 0004    median of two sorted arrays
 0042    trapping rain water
 0084    largest rectangle in histogram
+0223    rectangle area
 
 
 Linked list
@@ -54,10 +55,12 @@ Linked list
 2181    merge nodes in between zeros
 2807    insert greatest common divisors in linked list
 
+
 Trees
 0104    maximum depth of a binary tree
 0226    invert binary tree
 0543    diameter of a binary tree
+
 
 Pandas
 0183    customers who never order
