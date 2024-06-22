@@ -54,6 +54,11 @@ Linked list
 2181    merge nodes in between zeros
 2807    insert greatest common divisors in linked list
 
+Trees
+0104    maximum depth of a binary tree
+0226    invert binary tree
+0543    diameter of a binary tree
+
 Pandas
 0183    customers who never order
 0197    rising temperature
