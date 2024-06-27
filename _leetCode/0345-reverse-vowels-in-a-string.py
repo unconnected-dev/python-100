@@ -58,26 +58,30 @@ if False:
 
         return ''.join(s)
 
+#I think this might be faster, to just lower then check a shorter set?
 if True:
-    def reverseVowels(self, s: str) -> str:
+    def reverseVowels(s: str) -> str:
         s = list(s)
-        arr = set(["a","e","i","o","u",])
-        
+        my_set = set(["a","e","i","o","u"])
+
         left, right = 0, len(s) - 1
-        
+
         while left < right:
-            while left < right and s[left].lower() not in arr:
+
+            while left < right and s[left].lower() not in my_set:
                 left += 1
-            
-            while right > left and s[right].lower() not in arr:
+
+            while right > left and s[right].lower() not in my_set:
                 right -= 1
 
-            s[left], s[right] = s[right], s[left]
-            left += 1
-            right -= 1
-
+            if left > right:
+                return ''.join(s)
+            else:
+                s[left], s[right] = s[right], s[left]
+                left += 1
+                right -= 1
+        
         return ''.join(s)
-
 
 print(f"{reverseVowels(caseS_1)}")
 print(f"{reverseVowels(caseS_2)}")
