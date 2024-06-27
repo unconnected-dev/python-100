@@ -28,13 +28,22 @@ if False:
 
         return n == 1
 
-if True:
+if False:
     def powerOfThree(n) -> bool:
         while n > 1:
             n /= 3
         
         return n == 1
 
+#Multiplying up
+if True:
+    def powerOfThree(n) -> bool:
+        result = 1
+        while n > result:
+            result *= 3
+        
+        return n == result
+    
 print(f"{powerOfThree(caseNum_1)}")
 print(f"{powerOfThree(caseNum_2)}")
 print(f"{powerOfThree(caseNum_3)}")
