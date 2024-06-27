@@ -15,11 +15,18 @@ if False:
         return result == num
 
 #Dividing down
-if True:
+if False:
     def isPowerOfTwo(num) -> bool:
         while num % 2 == 0 and num > 1:
             num /= 2
 
+        return num == 1
+
+if True:
+    def isPowerOfTwo(num) -> bool:
+        while num > 1:
+            num /= 2
+        
         return num == 1
 
 print(f"{isPowerOfTwo(caseNum_1)}")
