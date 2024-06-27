@@ -5,7 +5,7 @@ caseN_1 = 2
 caseN_2 = 5
 
 if False:
-    def countBits(n):
+    def countBits(n) -> int:
         res = []
         for i in range(n+1):
             b = bin(i)[2:]
@@ -17,8 +17,8 @@ if False:
             res.append(br)
         return res
 
-if False:
-    def countBits(n):
+if True:
+    def countBits(n) -> int:
         res = []
         for i in range(n+1):
             res.append(len([c for c in bin(i) if c == "1"]))
@@ -32,8 +32,8 @@ if False:
 # [0, 1, 1, 2]
 # [0, 1, 1, 2, 1, 2, 2, 3]
 # [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
-if True:
-    def countBits(n):
+if False:
+    def countBits(n) -> int:
         res = [0] * (n + 1)
         offset = 1
         for i in range(1, n + 1):
@@ -43,6 +43,6 @@ if True:
             res[i] = res[i - offset] + 1 
 
         return res
-    
+
 print(f"{countBits(caseN_1)}")
 print(f"{countBits(caseN_2)}")
