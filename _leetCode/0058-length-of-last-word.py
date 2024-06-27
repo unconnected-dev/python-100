@@ -12,7 +12,7 @@ if False:
 
         return len(last[-1])
 
-if True:
+if False:
     def lengthOfLastWord(s) -> int:
         result = 0
         l = len(s)
@@ -24,6 +24,10 @@ if True:
                 return result
 
         return result
+    
+if True:
+    def lengthOfLastWord(s) -> int:
+        return len(s.split()[-1])
     
 print(f"{lengthOfLastWord(caseString_1)}")
 print(f"{lengthOfLastWord(caseString_2)}")
