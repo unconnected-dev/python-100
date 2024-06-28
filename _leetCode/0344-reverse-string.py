@@ -40,6 +40,8 @@ if False:
 
 if True:
     def reverseString(s):
+        #Slice assignment is needed as otherwise row would refer to 
+        #a new list object and not modify the current?
         s[:] = s[::-1]
         return s
     
