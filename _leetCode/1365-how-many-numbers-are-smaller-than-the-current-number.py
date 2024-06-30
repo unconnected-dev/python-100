@@ -16,11 +16,31 @@ if False:
 
         return ind
 
-if True:
+if False:
     def howManyNumbersAreSmallerThanTheCurrentNumber(nums):
         nums_sorted = sorted(nums)
         return [nums_sorted.index(n) for n in nums]
     
+#Tried using a map to make things more efficient in the case 
+#of searhcing for repeated numbers
+if True:
+    def howManyNumbersAreSmallerThanTheCurrentNumber(nums):
+        my_map = {}
+
+        res = []
+        for n in nums:
+            if n in my_map:
+                res.append(my_map.get(n))
+            else:
+                print(f"looking for: {n}")
+                count = 0
+                for j in nums:
+                    if j < n:
+                        count += 1
+                my_map[n] = count
+                res.append(count)
+        return res
+
 print(f"{howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_1)}")
 print(f"{howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_2)}")
 print(f"{howManyNumbersAreSmallerThanTheCurrentNumber(caseNums_3)}")
