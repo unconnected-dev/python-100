@@ -32,7 +32,6 @@ if True:
             if n in my_map:
                 res.append(my_map.get(n))
             else:
-                print(f"looking for: {n}")
                 count = 0
                 for j in nums:
                     if j < n:
