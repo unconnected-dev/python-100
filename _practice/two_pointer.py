@@ -31,3 +31,16 @@ if False:
     
     caseNums = [0, 1, 0, 3, 12]
     print(move_zeroes(caseNums))
+
+if False:
+    def move_zeroes_right(nums):
+        right = len(nums) - 1
+        for i in range(len(nums) - 1, -1, -1):
+            if nums[i] == 0:
+                nums[right], nums[i] = nums[i], nums[right]
+                right -= 1
+        
+        return nums
+    
+    caseNums = [0, 1, 0, 3, 12]
+    print(move_zeroes_right(caseNums))
