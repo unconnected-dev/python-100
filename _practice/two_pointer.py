@@ -44,3 +44,26 @@ if False:
     
     caseNums = [0, 1, 0, 3, 12]
     print(move_zeroes_right(caseNums))
+
+if True:
+    def find_square_root(n) -> int:
+        if n < 2:
+            return 0
+        
+        left, right = 0, n
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if mid * mid == n:
+                return mid
+            
+            elif mid * mid < n:
+                left = mid + 1
+            
+            else:
+                right = mid - 1
+
+        return right
+        
+    print(f"{find_square_root(25)}")
