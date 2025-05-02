@@ -23,5 +23,5 @@ This repository was created to learn Python syntax, explore key packages, and bu
 - [100 Days of Python](https://www.udemy.com/course/100-days-of-code/)
 
 #### Notes
-- This repository is intended for learning and experimentation purposes.
+- This repo is intended for learning and practice. Some files may be incomplete, temporary, or intentionally broken for experimentation.
 - Project structures and code quality may vary as they reflect different stages of exploration and development.
