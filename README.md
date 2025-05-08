@@ -26,6 +26,7 @@ This repository was created to learn Python syntax, explore key packages, and bu
 #### Links
 - [Markdown Editor](https://markdown-it.github.io/)
 
+---
 #### Notes
 - This repo is intended for learning and practice. Some files may be incomplete, temporary, or intentionally broken for experimentation.
 - Project structures and code quality may vary as they reflect different stages of exploration and development.
